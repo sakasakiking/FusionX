@@ -59,7 +59,7 @@
                                         <!--<Image Name="PART_ImageIcon" MaxWidth="300" MaxHeight="120" 
                                                HorizontalAlignment="left" DockPanel.Dock="Top" RenderOptions.BitmapScalingMode="Fant" Margin="0,0,0,16"/>-->
 
-                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" DockPanel.Dock="Top" Margin="0,16,0,0"
+                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" DockPanel.Dock="Top" Margin="0,16,0,16"
                                                 VerticalAlignment="Stretch" HorizontalAlignment="Left"
                                                 MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxHeight, FallbackValue=0}"
                                                 MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxWidth, FallbackValue=0}"
@@ -82,10 +82,10 @@
 
                                         <TextBlock Name="PART_TextDisplayName" FontFamily="{DynamicResource FontFamily}"
                                                    FontSize="{DynamicResource FontSizeLarge32}" FontWeight="Black"
-                                                   Margin="0,16,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" DockPanel.Dock="Top"
+                                                   Margin="0,0,0,16" TextWrapping="Wrap" HorizontalAlignment="Left" DockPanel.Dock="Top"
                                                    Foreground="{DynamicResource SelectedBrush}"/>
 
-                                    <WrapPanel DockPanel.Dock="Top" Margin="0,16,0,0">
+                                    <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,24">
                                             <StackPanel Name="PART_ElemGenres" Margin="0,0,16,0"
                                                         VerticalAlignment="Top" HorizontalAlignment="Left">
                                                 <StackPanel.Style>
@@ -158,7 +158,7 @@
                                                     Margin="0,2,16,2" Style="{DynamicResource PropertyItemSmallButton}"/>
                                         </WrapPanel>
 
-                                        <Border Panel.ZIndex="99" MaxWidth="400" MaxHeight="240" Margin="0,32,0,32" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                        <Border Panel.ZIndex="99" MaxWidth="400" MaxHeight="240" Margin="0,0,0,0" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">
                                             <Border.Style>
                                                 <Style TargetType="Border">
                                                     <Setter Property="Visibility" Value="Collapsed" />
