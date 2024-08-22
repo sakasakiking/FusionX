@@ -16,8 +16,7 @@
                                 <Image Name="PART_ImageCover" 
                                        HorizontalAlignment="Center" VerticalAlignment="Center"
                                        RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
-                                       Stretch="{Settings CoverArtStretch}" />
-                                
+                                       Stretch="{Settings CoverArtStretch}"/>
                                 
                                 <Border Background="#99000000" x:Name="TextGameName" Visibility="Collapsed">
                                     <TextBlock Text="{Binding DisplayName}"

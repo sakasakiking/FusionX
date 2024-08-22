@@ -14,7 +14,8 @@
                               x:Name="ItemGrid">
                             
                             <ContentPresenter />
-                            <Border x:Name="SelectionBorder" BorderThickness="4" Margin="-4"  BorderBrush="Transparent"/>
+                            <Border x:Name="SelectionBorder" BorderThickness="4"   BorderBrush="Transparent"
+                                    Margin="-4"/>
                         </Grid>
                         <TextBlock Text="{Binding DisplayName}"
                                    Style="{DynamicResource BaseTextBlockStyle}"                                                                   
