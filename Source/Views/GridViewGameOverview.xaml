@@ -1,0 +1,471 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    mc:Ignorable="d">
+
+    <Style TargetType="{x:Type GridViewGameOverview}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GridViewGameOverview}">
+                    <Border Padding="0" BorderBrush="{DynamicResource PanelSeparatorBrush}" 
+                            d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderThickness" Value="1,0,0,0" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Settings GridViewDetailsPosition}" Value="Left">
+                                        <Setter Property="BorderThickness" Value="0,0,1,0" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Settings ShowPanelSeparators}" Value="False">
+                                        <Setter Property="BorderThickness" Value="0" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        
+                        <DockPanel>
+                            <Grid DockPanel.Dock="Top">                               
+                                
+                                <DockPanel>
+                                    <DockPanel.Style>
+                                        <Style TargetType="DockPanel">
+                                            <Style.Triggers>
+                                                <Trigger Property="DataContext" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </DockPanel.Style>
+
+
+                                    <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl" Margin="0,0,0,24" DockPanel.Dock="Top">
+                                        <ContentControl.OpacityMask>
+                                            <VisualBrush>
+                                                <VisualBrush.Visual>
+                                                    <Border Background="Black" CornerRadius="0"
+                                                        Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </ContentControl.OpacityMask>
+                                    </ContentControl>
+
+                                    <StackPanel DockPanel.Dock="Top" Margin="16,0,16,24">
+
+                                        <Image Name="PART_ImageIcon" MaxHeight="80" MaxWidth="120" Margin="0,0,0,24" HorizontalAlignment="Left"
+                                                   RenderOptions.BitmapScalingMode="Fant"/>
+
+                                        <TextBlock Name="PART_TextDisplayName" TextWrapping="Wrap" 
+                                                       HorizontalAlignment="Left"
+                                                       FontSize="{DynamicResource FontSizeLarge24}" FontWeight="Bold"
+                                                       Foreground="{DynamicResource SelectedBrush}"/>
+
+
+                                        <Grid Margin="0,24,0,24" Background="Transparent">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Button Name="PART_ButtonPlayAction" Grid.Column="0"
+                                                    Height="48"  FontWeight="Bold"
+                                                    Style="{DynamicResource PlayButton_LeftPart}" 
+                                                    FontSize="{DynamicResource FontSizeLarge20}" /> 
+
+                                            <Button Name="PART_ButtonContextAction" Grid.Column="0"
+                                                    Height="48" FontWeight="SemiBold" Background="{DynamicResource AccentDisabledBrush}"
+                                                    Style="{DynamicResource PlayButton_LeftPart}" 
+                                                    FontSize="{DynamicResource FontSizeLarge20}" />
+
+                                            <Button Name="PART_ButtonMoreActions" Grid.Column="1"
+                                                    Width="48" Height="48" Margin="1,0,0,0" 
+                                                    Content="&#xe011;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                    Style="{DynamicResource PlayButton_RightPart}" 
+                                                    FontSize="{DynamicResource FontSizeLarge20}" FontWeight="Bold"/>
+
+                                            <Button x:Name="PART_ButtonEditGame" Grid.Column="2"
+                                                    Margin="16,0,0,0" Height="48" Width="48" Focusable="False"
+                                                    Content="&#xe115;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                    Style="{StaticResource LightFilledRoundButton}"
+                                                    FontSize="{DynamicResource FontSizeLarge20}"/>
+
+                                        </Grid>
+
+                                        <Grid Margin="4,0,4,0">
+                                            <Grid.Resources>
+                                                <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                                    <Setter Property="Margin" Value="0,2,0,2" />
+                                                    <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+                                                    <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
+                                                </Style>
+                                                <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                                    <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+                                                </Style>
+                                            </Grid.Resources>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <DockPanel Grid.Column="0" HorizontalAlignment="Center">
+                                                <TextBlock Text="&#xed5a;" FontSize="24" DockPanel.Dock="Left" Margin="0,10,8,0"     
+                           FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"/>
+                                                <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" 
+                       DockPanel.Dock="Top"/>
+                                                <TextBlock Name="PART_TextPlayTime" 
+                           DockPanel.Dock="Top" FontWeight="Bold"/>
+                                            </DockPanel>
+
+                                            <DockPanel Grid.Column="1" HorizontalAlignment="Center">
+                                                <TextBlock Text="&#xe163;" FontSize="24" DockPanel.Dock="Left" Margin="0,10,8,0"
+                           FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"/>
+                                                <Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}"  
+                       DockPanel.Dock="Top"/>
+                                                <TextBlock Name="PART_TextLastActivity"              
+                           DockPanel.Dock="Top" FontWeight="Bold"/>
+                                            </DockPanel>
+                                        </Grid>
+
+                                    </StackPanel>
+
+                                    <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="16,0,16,24" DockPanel.Dock="Top"/>
+
+                                    <ScrollViewer DockPanel.Dock="Top" HorizontalAlignment="Stretch"
+                  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
+                  x:Name="PART_ScrollViewHost">
+
+                                        <DockPanel Margin="16,0,16,0">
+                                            <TabControl DockPanel.Dock="Top" Style="{StaticResource ChipTabControl}">
+                                                <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab" FontSize="16">
+                                                    <StackPanel  Margin="0,0,0,0" x:Name="DescriptionContent">
+                                                        <!-- HowLongToBeat progress bar -->
+                                                        <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                            <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}" Margin="0,0,0,15">
+                                                                <TextBlock Text="{DynamicResource LOCHowLongToBeat}" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                                <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Height="50" />
+                                                            </StackPanel>
+                                                        </StackPanel>
+
+                                                        <!-- CheckLocalizations list languages -->
+                                                        <StackPanel Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationListLanguages, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                            <StackPanel Visibility="{Binding ElementName=CheckLocalizations_PluginListLanguages, Path=Content.Visibility}" Margin="0,0,0,15">
+                                                                <TextBlock Text="{DynamicResource LOCCheckLocalizationsLocalizations}" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                                <ContentControl x:Name="CheckLocalizations_PluginListLanguages" MinHeight="60" MaxHeight="300" />
+                                                            </StackPanel>
+                                                        </StackPanel>
+
+                                                        <!-- ScreenshotsVisualizer single picture -->
+                                                        <StackPanel Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowSinglePicture, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                            <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_PluginSinglePicture, Path=Content.Visibility}" Margin="0,0,0,15">
+                                                                <TextBlock Text="{DynamicResource LOCSsvTitle}" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" MinHeight="100" MaxHeight="300" />
+                                                            </StackPanel>
+                                                        </StackPanel>
+
+                                                        <!-- ScreenshotsVisualizer list pictures -->
+                                                        <StackPanel Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowPictures, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                            <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_PluginListScreenshots, Path=Content.Visibility}" Margin="0,0,0,15">
+                                                                <TextBlock Text="{DynamicResource LOCSsvTitle}" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" MinHeight="50" MaxHeight="300" />
+                                                            </StackPanel>
+                                                        </StackPanel>
+
+                                                        <StackPanel Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=EnableIntegrationShowPicturesVertical, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                            <StackPanel Visibility="{Binding ElementName=ScreenshotsVisualizer_PluginListScreenshotsVertical, Path=Content.Visibility}" Margin="0,0,0,15">
+                                                                <TextBlock Text="{DynamicResource LOCSsvTitle}" Style="{DynamicResource BaseTextBlockStyle}" />
+                                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
+                                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical" MinHeight="50" Height="300" />
+                                                            </StackPanel>
+                                                        </StackPanel>
+
+                                                        <StackPanel Name="PART_ElemDescription">
+                                                            <HtmlTextView Name="PART_HtmlDescription"
+                                            Margin="0,0,0,5"
+                                            HtmlFontSize="{DynamicResource FontSize}"
+                                            HtmlFontFamily="{DynamicResource FontFamily}"
+                                            HtmlForeground="{DynamicResource TextColor}"
+                                            LinkForeground="{DynamicResource GlyphColor}"                                      
+                                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                            ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </TabItem>
+
+                                                <TabItem Header="{DynamicResource LOCNotesLabel}" FontSize="16">
+                                                    <TabItem.Style>
+                                                        <Style TargetType="TabItem" BasedOn="{StaticResource {x:Type TabItem}}">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding ElementName=PART_TextNotes, Path=Text, Converter={StaticResource StringNullOrEmptyToBoolConverter}}" Value="False">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, FallbackValue=False}" Value="True">
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TabItem.Style>
+
+                                                    <StackPanel Margin="0,8,0,0">
+                                                        <TextBox Name="PART_TextNotes" Background="Transparent" Margin="0" Padding="0"
+                                 IsReadOnly="True" BorderThickness="0" AcceptsReturn="True" TextWrapping="Wrap" />
+
+                                                        <ContentControl x:Name="PlayNotes_NotesViewerControl"
+                                        Visibility="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}" />
+                                                    </StackPanel>
+                                                </TabItem>
+
+                                                <TabItem Header="{DynamicResource LOCPaActivities}" FontSize="16">
+                                                    <TabItem.Style>
+                                                        <Style TargetType="TabItem" BasedOn="{StaticResource {x:Type TabItem}}">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                            <Style.Triggers>
+                                                                <MultiDataTrigger>
+                                                                    <MultiDataTrigger.Conditions>
+                                                                        <Condition Binding="{PluginSettings Plugin=PlayerActivities, Path=EnableIntegrationActivities, FallbackValue=False}" Value="True" />
+                                                                        <Condition Binding="{PluginSettings Plugin=PlayerActivities, Path=HasData, FallbackValue=False}" Value="True" />
+                                                                    </MultiDataTrigger.Conditions>
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </MultiDataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TabItem.Style>
+                                                    <StackPanel Margin="10">
+                                                        <ContentControl x:Name="PlayerActivities_PluginActivities" MinHeight="500"
+                                    MaxHeight="{Binding ElementName=PART_GridEx, Path=ActualHeight}" />
+                                                    </StackPanel>
+                                                </TabItem>
+
+                                                <TabItem Header="{DynamicResource LOC_NewsViewer_NewsViewerControl_NewsLabel}"
+                    Visibility="{PluginSettings Plugin=NewsViewer, Path=ReviewsAvailable, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                    <ContentControl x:Name="NewsViewer_NewsViewerControl" ClipToBounds="True" Margin="10" VerticalAlignment="Top" />
+                                                </TabItem>
+
+                                                <TabItem Header="{DynamicResource LOCReview_Viewer_ReviewsLabel}"
+                    Visibility="{PluginSettings Plugin=ReviewViewer, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                    <ContentControl x:Name="ReviewViewer_ReviewsControl" Margin="10" VerticalAlignment="Top" />
+                                                </TabItem>
+
+
+
+                                                <TabItem Header="{DynamicResource LOCGameActivityTitle}"
+                    Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
+                                                    <StackPanel Margin="10">
+                                                        <!-- GameActivity time chart -->
+                                                        <ContentControl x:Name="GameActivity_PluginChartTime" MinHeight="50" MaxHeight="300" />
+
+                                                        <!-- GameActivity log chart -->
+                                                        <ContentControl x:Name="GameActivity_PluginChartLog" MinHeight="50" MaxHeight="300" Margin="0,15,0,0" />
+                                                    </StackPanel>
+                                                </TabItem>
+
+                                                <TabItem Header="{DynamicResource LOCGameRelations_RelatedGamesLabel}" Visibility="{Binding ElementName=GameRelationsVisibilityProxy, Path=Tag}">
+                                                    <StackPanel Orientation="Vertical" Margin="10">
+                                                        <Expander x:Name="Panel_GameRelations_SimilarGamesControl"
+                            Header="{DynamicResource LOCGameRelations_SimilarGamesLabel}"
+                            IsExpanded="True"
+                            Visibility="{PluginSettings Plugin=GameRelations, Path=SimilarGamesControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                            <ContentControl x:Name="GameRelations_SimilarGamesControl" Margin="0,10,0,0" />
+                                                        </Expander>
+
+                                                        <Expander x:Name="Panel_GameRelations_SameSeriesControl"
+                            Header="{DynamicResource LOCGameRelations_SameSeriesLabel}"
+                            IsExpanded="True"
+                            Margin="0,15,0,0"
+                            Visibility="{PluginSettings Plugin=GameRelations, Path=SameSeriesControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                            <ContentControl x:Name="GameRelations_SameSeriesControl" Margin="0,10,0,0" />
+                                                        </Expander>
+
+                                                        <Expander x:Name="Panel_GameRelations_SameDeveloperControl"
+                            Header="{DynamicResource LOCGameRelations_SameDeveloperLabel}"
+                            IsExpanded="True"
+                            Margin="0,15,0,0"
+                            Visibility="{PluginSettings Plugin=GameRelations, Path=SameDeveloperControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                            <ContentControl x:Name="GameRelations_SameDeveloperControl" Margin="0,10,0,0" />
+                                                        </Expander>
+
+                                                        <Expander x:Name="Panel_GameRelations_SamePublisherControl"
+                            Header="{DynamicResource LOCGameRelations_SamePublisherLabel}"
+                            IsExpanded="True"
+                            Margin="0,15,0,0"
+                            Visibility="{PluginSettings Plugin=GameRelations, Path=SamePublisherControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                            <ContentControl x:Name="GameRelations_SamePublisherControl" Margin="0,10,0,0" />
+                                                        </Expander>
+                                                    </StackPanel>
+                                                </TabItem>
+
+
+
+
+                                            </TabControl>
+
+                                            <!--<StackPanel Name="PART_ElemDescription" DockPanel.Dock="Top"
+                        Margin="0,0,0,24">
+                <TextBlock Text="{DynamicResource LOCGameDescriptionTitle}"
+                           Style="{DynamicResource BaseTextBlockStyle}" />
+                <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,12,0,12" />
+                <HtmlTextView Name="PART_HtmlDescription"
+                              HtmlFontSize="{DynamicResource FontSize}"
+                              HtmlFontFamily="{DynamicResource FontFamily}"
+                              HtmlForeground="{DynamicResource TextColor}"
+                              LinkForeground="{DynamicResource GlyphColor}"                                      
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+            </StackPanel>-->
+
+                                            <!--<StackPanel Name="PART_ElemNotes" DockPanel.Dock="Top"
+                        Margin="0,0,0,24">
+                <TextBlock Text="{DynamicResource LOCNotesLabel}"
+                           Style="{DynamicResource BaseTextBlockStyle}" />
+                <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,12,0,12" />
+                <TextBox Name="PART_TextNotes" IsReadOnly="True"
+                         BorderThickness="0" Background="Transparent"
+                         AcceptsReturn="True" TextWrapping="Wrap"
+                         Margin="0" Padding="0"/>
+            </StackPanel>-->
+
+                                            <StackPanel DockPanel.Dock="Top" Margin="0,24,0,0">
+                                                <StackPanel.Resources>
+                                                    <Style TargetType="ItemsControl">
+                                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                                                        <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                                    </Style>
+                                                    <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                                        <Setter Property="Margin" Value="0,4,24,4" />
+                                                        <Setter Property="VerticalAlignment" Value="Top" />
+                                                        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+                                                    </Style>
+                                                    <Style TargetType="Button" BasedOn="{StaticResource PropertyItemButton}">
+                                                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                                                        <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                                                    </Style>
+                                                </StackPanel.Resources>
+
+                                                <GridEx Margin="0,0,0,24"
+                        ColumnCount="2" StarColumns="1"
+                        RowCount="25" AutoLayoutColumns="2">
+                                                    <Grid.Resources>
+                                                        <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" >
+                                                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                                                            <Setter Property="TextAlignment" Value="Right"/>
+                                                        </Style>
+                                                    </Grid.Resources>
+
+                                                    <Label Name="PART_ElemAdded" Content="{DynamicResource LOCDateAddedLabel}" />
+                                                    <TextBlock Name="PART_TextAdded" VerticalAlignment="Center" />
+
+                                                    <!--<Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" />
+                    <TextBlock Name="PART_TextPlayTime" VerticalAlignment="Center" />-->
+
+                                                    <!--<Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}" />
+                    <TextBlock Name="PART_TextLastActivity" VerticalAlignment="Center" />-->
+
+                                                    <Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" />
+                                                    <Button Name="PART_ButtonCompletionStatus" VerticalAlignment="Center" />
+
+                                                    <Label Name="PART_ElemInstallDirectory" Content="{DynamicResource LOCGameInstallDirTitle}" />
+                                                    <Button Name="PART_ButtonInstallDirectory" VerticalAlignment="Center" />
+
+                                                    <Label Name="PART_ElemInstallSize" Content="{DynamicResource LOCInstallSizeLabel}" />
+                                                    <TextBlock Name="PART_TextInstallSize" VerticalAlignment="Center" />
+
+                                                    <Label Name="PART_ElemLibrary" Content="{DynamicResource LOCGameProviderTitle}" />
+                                                    <Button Name="PART_ButtonLibrary" VerticalAlignment="Center" />
+
+                                                    <!--<Label Name="PART_ElemPlatform" Content="{DynamicResource LOCPlatformTitle}" />
+                    <ItemsControl Name="PART_ItemsPlatforms" />-->
+
+                                                    <Label Name="PART_ElemGenres" Content="{DynamicResource LOCGenreLabel}" />
+                                                    <ItemsControl Name="PART_ItemsGenres"  />
+
+                                                    <Label Name="PART_ElemDevelopers" Content="{DynamicResource LOCDeveloperLabel}" />
+                                                    <ItemsControl Name="PART_ItemsDevelopers" />
+
+                                                    <Label Name="PART_ElemPublishers" Content="{DynamicResource LOCPublisherLabel}" />
+                                                    <ItemsControl Name="PART_ItemsPublishers" />
+
+                                                    <Label Name="PART_ElemReleaseDate" Content="{DynamicResource LOCGameReleaseDateTitle}" />
+                                                    <Button Name="PART_ButtonReleaseDate" VerticalAlignment="Center" />
+
+                                                    <Label Name="PART_ElemCategories" Content="{DynamicResource LOCGameCategoriesTitle}" />
+                                                    <ItemsControl Name="PART_ItemsCategories" />
+
+                                                    <Label Name="PART_ElemFeatures" Content="{DynamicResource LOCFeaturesLabel}" />
+                                                    <ItemsControl Name="PART_ItemsFeatures" />
+
+                                                    <Label Name="PART_ElemTags" Content="{DynamicResource LOCTagsLabel}" />
+                                                    <ItemsControl Name="PART_ItemsTags" />
+
+                                                    <Label Name="PART_ElemAgeRating" Content="{DynamicResource LOCAgeRatingLabel}" />
+                                                    <ItemsControl Name="PART_ItemsAgeRatings" />
+
+                                                    <Label Name="PART_ElemSeries" Content="{DynamicResource LOCSeriesLabel}" />
+                                                    <ItemsControl Name="PART_ItemsSeries" />
+
+                                                    <Label Name="PART_ElemSource" Content="{DynamicResource LOCSourceLabel}" />
+                                                    <Button Name="PART_ButtonSource" VerticalAlignment="Center" />
+
+                                                    <Label Name="PART_ElemRegion" Content="{DynamicResource LOCRegionLabel}" />
+                                                    <ItemsControl Name="PART_ItemsRegions" />
+
+                                                    <Label Name="PART_ElemVersion" Content="{DynamicResource LOCVersionLabel}" />
+                                                    <Button Name="PART_ButtonVersion" VerticalAlignment="Center" />
+
+                                                    <Label Name="PART_ElemCommunityScore" Content="{DynamicResource LOCCommunityScore}" />
+                                                    <TextBlock Name="PART_TextCommunityScore" VerticalAlignment="Center"
+                               TextAlignment="Right" Style="{DynamicResource TextBlockGameScore}" />
+
+                                                    <Label Name="PART_ElemCriticScore" Content="{DynamicResource LOCCriticScore}" />
+                                                    <TextBlock Name="PART_TextCriticScore" VerticalAlignment="Center"
+                               TextAlignment="Right" Style="{DynamicResource TextBlockGameScore}" />
+
+                                                    <Label Name="PART_ElemUserScore" Content="{DynamicResource LOCUserScore}" />
+                                                    <TextBlock Name="PART_TextUserScore" VerticalAlignment="Center"
+                               TextAlignment="Right" Style="{DynamicResource TextBlockGameScore}" />
+
+                                                    <Label Name="PART_ElemLinks" Content="{DynamicResource LOCLinksLabel}" />
+                                                    <ItemsControl Name="PART_ItemsLinks" />
+                                                </GridEx>
+                                            </StackPanel>
+                                        </DockPanel>
+                                    </ScrollViewer>
+                                </DockPanel>
+                                <Button HorizontalAlignment="Right" VerticalAlignment="Top"
+                                        Content="&#xe106;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" 
+                                        Width="32" Height="32"
+                                        Style="{DynamicResource LightFilledRoundButton}"
+                                        Command="{MainViewModel CloseGameSideBarCommand}"
+                                        DockPanel.Dock="Top" Margin="16,16,16,0" />
+                            </Grid>
+                            
+
+                            <TextBlock Text="{DynamicResource LOCErrorNoGameSelected}" 
+                                   Margin="0,20,0,0" DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <Trigger Property="DataContext" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            
+                        </DockPanel>
+                    </Border>                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
