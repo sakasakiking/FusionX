@@ -2,7 +2,7 @@
 
 # FusionX
  Theme for [Playnite](https://github.com/JosefNemec/Playnite) Desktop Mode.
- I create it for fun. I love retro games and Playnite.
+ I create it for fun. Totally free.
 
 ## Features
 - Simple and Clean design
@@ -24,7 +24,6 @@ At the beginning, just support:
 - **HowLongToBeat data:** [HowLongToBeat](https://playnite.link/addons.html#playnite-howlongtobeat-plugin) extension.
 - **Videos** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
 - **Logos:** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
-- 
 Addiing more...
 
 ## Screenshots
