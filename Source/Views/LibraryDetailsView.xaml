@@ -13,8 +13,8 @@
 
                         <Grid DockPanel.Dock="{Settings DetailsListPosition}"
                               Width="{Settings DetailsListWitdh}">
-                            
-                            <ExtendedListBox x:Name="PART_ListGames" Padding="16"
+
+                            <ExtendedListBox x:Name="PART_ListGames" Padding="16,16,16,0"
                                          BorderBrush="{DynamicResource PanelSeparatorBrush}"
                                          ItemContainerStyle="{DynamicResource DetailsViewItemStyle}"
                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"

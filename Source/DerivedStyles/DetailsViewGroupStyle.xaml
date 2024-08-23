@@ -11,7 +11,7 @@
                     <ExpanderEx BorderThickness="0" SaveGameGroupId="{Binding Name, Mode=OneWay}"
                                 IsExpanded="True">
                         <ExpanderEx.Header>                            
-                            <DockPanel>
+                            <DockPanel LastChildFill="False">
                                 <DockPanel.ContextMenu>
                                     <GameGroupMenu />
                                 </DockPanel.ContextMenu>
@@ -32,11 +32,15 @@
                                         </Style>
                                     </TextBlock.Style>
                                 </TextBlock>
-                                <TextBlock Text="{Binding Items.Count, Mode=OneWay, StringFormat=({0})}"
-                                           VerticalAlignment="Center" HorizontalAlignment="Left"
-                                           Style="{DynamicResource BaseTextBlockStyle}"
-                                           DockPanel.Dock="Left" TextAlignment="Center"
-                                           Visibility="{Settings ShowGroupCount}"/>
+                                <Border DockPanel.Dock="Right" Background="{DynamicResource ControlIdleBackgroundBrush}"
+                                        Height="20" CornerRadius="10" Padding="6,0,6,0">
+                                    <TextBlock Text="{Binding Items.Count, Mode=OneWay, StringFormat=0}"
+                                               VerticalAlignment="Center" HorizontalAlignment="Right"
+                                               Style="{DynamicResource BaseTextBlockStyle}"
+                                               TextAlignment="Center" FontSize="12"
+                                               Visibility="{Settings ShowGroupCount}"/>
+                                </Border>
+                                
                             </DockPanel>
                         </ExpanderEx.Header>
                         <ItemsPresenter />

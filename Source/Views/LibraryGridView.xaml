@@ -19,7 +19,7 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <ExtendedListBox x:Name="PART_ListGames" Padding="16,0,16,0"
+                            <ExtendedListBox x:Name="PART_ListGames" Padding="16,16,16,0"
                                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                              ScrollViewer.PanningMode="VerticalOnly"
                                              ItemContainerStyle="{DynamicResource GridViewItemStyle}"

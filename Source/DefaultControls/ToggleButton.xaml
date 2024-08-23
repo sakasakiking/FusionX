@@ -40,4 +40,45 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="FavoriteToggleButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
+        <Setter Property="Foreground" Value="Orange" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="IsChecked" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                                Height="36" Width="36" CornerRadius="24"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                            <TextBlock x:Name="FavoriteIcon" Text="&#xe00a;"
+                                       FontSize="{DynamicResource FontSizeLarge}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Style="{StaticResource IconFontStyle}"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="False">
+                            <Setter Property="TextBlock.Text" Value="&#xe1ce;" TargetName="FavoriteIcon" />
+                            <Setter Property="TextBlock.Foreground" Value="{DynamicResource IdleBrush}"/>
+                            <Setter Property="TextBlock.FontWeight" Value="Black"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}" />
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

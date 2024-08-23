@@ -7,7 +7,8 @@
                     mc:Ignorable="d">
 
     <Style x:Key="ExpanderDownHeaderStyle" TargetType="{x:Type ToggleButton}">
-        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+        <Setter Property="Opacity" Value="0.6"/>
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
@@ -19,18 +20,13 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="&#xe00f;" x:Name="CollapsedIcon" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                                       Style="{DynamicResource BaseTextBlockStyle}"
+                            <TextBlock Text="&#xe00f;" x:Name="CollapsedIcon" Style="{DynamicResource IconFontStyle}"
                                        Foreground="{TemplateBinding Foreground}" FontSize="12" MinWidth="14" Margin="0,2,4,0"
                                        Grid.Column="0" TextAlignment="Center" />
-                            <TextBlock Text="&#xe011;" x:Name="ExpandedIcon" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                                       Style="{DynamicResource BaseTextBlockStyle}"
+                            <TextBlock Text="&#xe011;" x:Name="ExpandedIcon" Style="{DynamicResource IconFontStyle}"
                                        Foreground="{TemplateBinding Foreground}" FontSize="12" MinWidth="14" Margin="0,2,4,0"
-                                       Visibility="Collapsed"
-                                       Grid.Column="0" TextAlignment="Center"/>
-                            <ContentPresenter Grid.Column="1" VerticalAlignment="Center" TextBlock.FontSize="14"
+                                       Visibility="Collapsed" Grid.Column="0" TextAlignment="Center"/>
+                            <ContentPresenter Grid.Column="1" VerticalAlignment="Center"
                                               SnapsToDevicePixels="True" HorizontalAlignment="Stretch" RecognizesAccessKey="True"  />
                         </Grid>
                     </Border>
@@ -40,7 +36,7 @@
                             <Setter Property="Visibility" TargetName="CollapsedIcon" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource HoverBrush}" />
+                            <Setter Property="Opacity" Value="1" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

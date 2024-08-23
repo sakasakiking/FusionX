@@ -72,7 +72,7 @@
 
     <!-- SubmenuHeader -->
     <ControlTemplate x:Key="{x:Static MenuItem.SubmenuHeaderTemplateKey}" TargetType="{x:Type MenuItem}">
-        <Grid Height="28">
+        <Grid Height="28" Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIconColumnGroup" />
                 <ColumnDefinition Width="*" SharedSizeGroup="MenuItemIGTColumnGroup" MinWidth="120"/>
@@ -104,11 +104,10 @@
             
             
             <Grid Grid.Column="3" Margin="0,0,8,0">
-                <TextBlock FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Text="&#xe00f;" FontSize="16"
-                           VerticalAlignment="Center" Style="{DynamicResource BaseTextBlockStyle}" />
+                <TextBlock Text="&#xe00f;" FontSize="14" VerticalAlignment="Center" Style="{DynamicResource IconFontStyle}" />
             </Grid>
             <Popup IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right"
-                   Focusable="False" AllowsTransparency="True" VerticalOffset="-9">
+                   Focusable="False" AllowsTransparency="True" VerticalOffset="-10">
                 <Border BorderBrush="{DynamicResource PopupBorderBrush}" Background="{DynamicResource PopupBackgroundBrush}"
                         BorderThickness="{DynamicResource PopupBorderThickness}" CornerRadius="16">
                     <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"

@@ -11,6 +11,28 @@
                     <Border Name="PART_PanelHost" Padding="8,6,8,6" Background="Transparent"
                             d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
                         <DockPanel>
+                            <TextBlock Text="&#xe00a;" Foreground="Orange" Margin="8,0,0,0"
+                                       DockPanel.Dock="Right" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                       FontSize="{DynamicResource FontSizeSmall}" VerticalAlignment="Center" 
+                                       Tag="{DynamicResource DetailsViewLibraryGameShowFavorite}">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" >
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Favorite}" Value="True">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                            <!--<MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding Favorite}" Value="True" />
+                                                    <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True" />
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </MultiDataTrigger>-->
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                             <Image Name="PART_ImageIcon"
                                    Height="{Settings DetailsViewListIconSize}"
                                    RenderOptions.BitmapScalingMode="Fant"

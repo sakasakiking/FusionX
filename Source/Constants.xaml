@@ -30,8 +30,8 @@
     <Color x:Key="HighlightGlyphColor">#FF0379FF</Color>
     <Color x:Key="AccentSelectedColor">#FF04A5FF</Color>
     
-    <Color x:Key="PopupBackgroundColor">#171e26</Color>
-    <Color x:Key="PopupBorderColor">#14ffffff</Color>
+    <Color x:Key="PopupBackgroundColor">#212121</Color>
+    <Color x:Key="PopupBorderColor">#2E2E2E</Color>
     
     <Color x:Key="BackgroundToneColor">#FFCC00</Color>
     <Color x:Key="GridItemBackgroundColor">#151e3d</Color>
@@ -82,7 +82,7 @@
     <SolidColorBrush x:Key="PanelSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" />
 
     <SolidColorBrush x:Key="PopupSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" />
-    <SolidColorBrush x:Key="PopupBackgroundBrush" Color="#212121" />
+    <SolidColorBrush x:Key="PopupBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" />
     <SolidColorBrush x:Key="PopupBorderBrush" Color="{DynamicResource PopupBorderColor}" />
     
     <SolidColorBrush x:Key="CheckBoxCheckMarkBkBrush" Color="{DynamicResource MainColorDark}" />

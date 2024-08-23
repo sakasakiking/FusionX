@@ -9,13 +9,12 @@
     <Style TargetType="{x:Type ProgressBar}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Foreground" Value="{DynamicResource AccentIdleBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}"/>
-        <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
+        <Setter Property="Background" Value="#141414"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ProgressBar}">
-                    <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{DynamicResource ControlIdleBorderBrush}"
-                            Height="24">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" >
                         <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                             <Rectangle Fill="{TemplateBinding Background}" Height="24"/>
                             <Rectangle Name="PART_Track" Margin="0" />
@@ -23,12 +22,12 @@
                                 <Grid>
                                     <Rectangle Fill="{TemplateBinding Foreground}" Height="24"/>
                                     <Grid x:Name="Animation" Visibility="Hidden">
-                                        <Rectangle Fill="{TemplateBinding Background}" Margin="0,0,50,0">
+                                        <Rectangle Fill="{TemplateBinding Background}" Margin="0,0,50,0" Height="24">
                                             <Rectangle.RenderTransform>
                                                 <ScaleTransform x:Name="HiderPreTransform" ScaleX="0"/>
                                             </Rectangle.RenderTransform>
                                         </Rectangle>
-                                        <Rectangle Fill="{TemplateBinding Background}" RenderTransformOrigin="1, 0" Margin="50,0,0,0" >
+                                        <Rectangle Fill="{TemplateBinding Background}" RenderTransformOrigin="1, 0" Margin="50,0,0,0" Height="24" >
                                             <Rectangle.RenderTransform>
                                                 <ScaleTransform x:Name="HiderPostTransform" ScaleX="1" />
                                             </Rectangle.RenderTransform>

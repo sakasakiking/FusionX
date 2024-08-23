@@ -17,7 +17,7 @@
 
     <Style x:Key="HighlightBg" TargetType="Border" BasedOn="{StaticResource {x:Type Border}}">
         <Setter Property="CornerRadius" Value="4" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">

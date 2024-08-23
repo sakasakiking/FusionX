@@ -30,11 +30,11 @@
 
                             <Grid HorizontalAlignment="Stretch" Margin="0" >
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition MinWidth="1200"/>
+                                    <ColumnDefinition MaxWidth="1200"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>
-                                    <RowDefinition Height="Auto" MinHeight="680"/>
+                                    <RowDefinition Height="Auto" MinHeight="600"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
@@ -191,37 +191,47 @@
                                     </DockPanel>
 
                                 <DockPanel Grid.Row="2" Margin="64,0,64,0">
-                                    <StackPanel DockPanel.Dock="Right" Width="300" Margin="0,0,0,0">
+                                    <StackPanel DockPanel.Dock="Right" Width="300" Margin="0,-52,0,0">
 
                                         <Grid Margin="0,0,0,16">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Button Name="PART_ButtonPlayAction" Grid.Column="0"
-                Height="48" Width="Auto" FontWeight="Bold"
-                Style="{DynamicResource PlayButton_LeftPart}" 
-                FontSize="{DynamicResource FontSizeLarge20}" />
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Button Name="PART_ButtonPlayAction" Grid.Column="0" Grid.Row="1"
+                                                    Height="48" Width="Auto" FontWeight="Bold"
+                                                    Style="{DynamicResource PlayButton_LeftPart}" 
+                                                    FontSize="{DynamicResource FontSizeLarge20}" />
 
-                                            <Button Name="PART_ButtonContextAction" Grid.Column="0"
-                Height="48" FontWeight="SemiBold" 
-                Background="{DynamicResource AccentDisabledBrush}"
-                Style="{DynamicResource PlayButton_LeftPart}" 
-                FontSize="{DynamicResource FontSizeLarge20}" />
+                                            <Button Name="PART_ButtonContextAction" Grid.Column="0" Grid.Row="1"
+                                                    Height="48" FontWeight="SemiBold" 
+                                                    Background="{DynamicResource AccentDisabledBrush}"
+                                                    Style="{DynamicResource PlayButton_LeftPart}" 
+                                                    FontSize="{DynamicResource FontSizeLarge20}" />
 
                                             <Button Name="PART_ButtonMoreActions" Margin="1,0,0,0" 
-                Height="48" Width="48" Grid.Column="1"
-                Content="&#xe011;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                Style="{DynamicResource PlayButton_RightPart}" 
-                FontSize="{DynamicResource FontSizeLarge20}"/>
+                                                    Height="48" Width="48" Grid.Column="1" Grid.Row="1"
+                                                    Content="&#xe011;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                    Style="{DynamicResource PlayButton_RightPart}" 
+                                                    FontSize="{DynamicResource FontSizeLarge20}"/>
 
-                                            <Button x:Name="PART_ButtonEditGame" Margin="16,0,4,0"                                                 
-                Height="48" Width="48" Focusable="False" Grid.Column="2"
-                Content="&#xe115;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                Style="{StaticResource LightFilledRoundButton}"
-                FontSize="{DynamicResource FontSizeLarge20}"/>
-
+                                            <StackPanel Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal" Margin="16,0,16,16"
+                                                        HorizontalAlignment="Right">
+                                                <Button x:Name="PART_ButtonEditGame" Margin="16,0,0,0" 
+                                                        Height="36" Width="36" Focusable="False"
+                                                        Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                        Style="{StaticResource LightFilledRoundButton}"
+                                                        FontSize="{DynamicResource FontSizeLarge}"/>
+                                                <ToggleButton Name="GameFavoriteToggleButton" Margin="16,0,0,0" Focusable="False"
+                                                              Style="{DynamicResource FavoriteToggleButton}"
+                                                              Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
+                                                              IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
+                                            </StackPanel>
+                                            
                                         </Grid>
 
                                         <Grid Margin="4,0,4,24">
@@ -242,20 +252,18 @@
 
                                             <DockPanel Grid.Column="1" HorizontalAlignment="Center">
                                                 <TextBlock Text="&#xe163;" FontSize="24" DockPanel.Dock="Left" Margin="0,10,8,0"
-                       FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"/>
+                                                           FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"/>
                                                 <Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}"  
-                   DockPanel.Dock="Top"/>
-                                                <TextBlock Name="PART_TextLastActivity"                                     
-                       DockPanel.Dock="Top" FontWeight="Bold"/>
+                                                       DockPanel.Dock="Top"/>
+                                                <TextBlock Name="PART_TextLastActivity" DockPanel.Dock="Top" FontWeight="Bold"/>
                                             </DockPanel>
 
                                             <DockPanel Grid.Column="0" HorizontalAlignment="Center">
-                                                <TextBlock Text="&#xed5a;" FontSize="24" DockPanel.Dock="Left" Margin="0,10,8,0"                                    
-                       FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"/>
-                                                <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}"                              
-                   DockPanel.Dock="Top"/>
-                                                <TextBlock Name="PART_TextPlayTime"                                      
-                       DockPanel.Dock="Top" FontWeight="Bold"/>
+                                                <TextBlock Text="&#xed5a;" FontSize="24" DockPanel.Dock="Left" Margin="0,10,8,0"  
+                                                           FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"/>
+                                                <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" 
+                                                       DockPanel.Dock="Top"/>
+                                                <TextBlock Name="PART_TextPlayTime" DockPanel.Dock="Top" FontWeight="Bold"/>
                                             </DockPanel>
                                         </Grid>
 
