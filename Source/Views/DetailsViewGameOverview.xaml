@@ -28,23 +28,24 @@
                                 </FadeImage.ImageOpacityMask>
                             </FadeImage>
 
-                            <Grid HorizontalAlignment="Stretch" Margin="0" >
+                            <Grid HorizontalAlignment="Center" Margin="0" >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition MaxWidth="1200"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>
-                                    <RowDefinition Height="Auto" MinHeight="600"/>
+                                    <RowDefinition Height="Auto" MinHeight="800"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
                                 <DockPanel Grid.Row="1" Margin="64,0,64,0">
 
-                                        <Image Name="PART_ImageCover" VerticalAlignment="Top" HorizontalAlignment="Right"
-                                            Margin="24,16,0,0" DockPanel.Dock="Right"
-                                            Height="{Settings GameDetailsCoverHeight}"
-                                            StretchDirection="Both" Stretch="Uniform"
-                                            RenderOptions.BitmapScalingMode="Fant" >
+                                    <Border Margin="48,16,0,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="300">
+                                        <Image Name="PART_ImageCover" VerticalAlignment="Top" 
+                                               HorizontalAlignment="Center" MaxWidth="300"
+                                               Height="{Settings GameDetailsCoverHeight}"
+                                               StretchDirection="Both" Stretch="Uniform"
+                                               RenderOptions.BitmapScalingMode="Fant" >
                                             <Image.OpacityMask>
                                                 <VisualBrush>
                                                     <VisualBrush.Visual>
@@ -55,8 +56,8 @@
                                                 </VisualBrush>
                                             </Image.OpacityMask>
                                         </Image>
-
-                                        <!--<Image Name="PART_ImageIcon" MaxWidth="300" MaxHeight="120" 
+                                    </Border>
+                                    <!--<Image Name="PART_ImageIcon" MaxWidth="300" MaxHeight="120" 
                                                HorizontalAlignment="left" DockPanel.Dock="Top" RenderOptions.BitmapScalingMode="Fant" Margin="0,0,0,16"/>-->
 
                                         <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" DockPanel.Dock="Top" Margin="0,16,0,16"
@@ -85,7 +86,7 @@
                                                    Margin="0,0,0,16" TextWrapping="Wrap" HorizontalAlignment="Left" DockPanel.Dock="Top"
                                                    Foreground="{DynamicResource SelectedBrush}"/>
 
-                                    <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,24">
+                                    <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,24" MinWidth="300">
                                             <StackPanel Name="PART_ElemGenres" Margin="0,0,16,0"
                                                         VerticalAlignment="Top" HorizontalAlignment="Left">
                                                 <StackPanel.Style>
@@ -158,7 +159,7 @@
                                                     Margin="0,2,16,2" Style="{DynamicResource PropertyItemSmallButton}"/>
                                         </WrapPanel>
 
-                                        <Border Panel.ZIndex="99" MaxWidth="400" MaxHeight="240" Margin="0,0,0,0" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                        <Border Panel.ZIndex="99" MaxWidth="400" MinWidth="300" MaxHeight="240" Margin="0,0,0,0" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">
                                             <Border.Style>
                                                 <Style TargetType="Border">
                                                     <Setter Property="Visibility" Value="Collapsed" />
@@ -221,15 +222,15 @@
 
                                             <StackPanel Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal" Margin="16,0,16,16"
                                                         HorizontalAlignment="Right">
+                                                <ToggleButton Name="GameFavoriteToggleButton" Margin="16,0,0,0" Focusable="False"
+                                                              Style="{DynamicResource FavoriteToggleButton}"
+                                                              Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
+                                                              IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
                                                 <Button x:Name="PART_ButtonEditGame" Margin="16,0,0,0" 
                                                         Height="36" Width="36" Focusable="False"
                                                         Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                                         Style="{StaticResource LightFilledRoundButton}"
                                                         FontSize="{DynamicResource FontSizeLarge}"/>
-                                                <ToggleButton Name="GameFavoriteToggleButton" Margin="16,0,0,0" Focusable="False"
-                                                              Style="{DynamicResource FavoriteToggleButton}"
-                                                              Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
-                                                              IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
                                             </StackPanel>
                                             
                                         </Grid>
