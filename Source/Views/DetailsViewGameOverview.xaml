@@ -34,7 +34,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>
-                                    <RowDefinition Height="Auto" MinHeight="800"/>
+                                    <RowDefinition Height="Auto" MinHeight="680"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
@@ -61,7 +61,7 @@
                                                HorizontalAlignment="left" DockPanel.Dock="Top" RenderOptions.BitmapScalingMode="Fant" Margin="0,0,0,16"/>-->
 
                                         <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" DockPanel.Dock="Top" Margin="0,16,0,16"
-                                                VerticalAlignment="Stretch" HorizontalAlignment="Left"
+                                                VerticalAlignment="Top" HorizontalAlignment="Left"
                                                 MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxHeight, FallbackValue=0}"
                                                 MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxWidth, FallbackValue=0}"
                                                 Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
@@ -159,39 +159,11 @@
                                                     Margin="0,2,16,2" Style="{DynamicResource PropertyItemSmallButton}"/>
                                         </WrapPanel>
 
-                                        <Border Panel.ZIndex="99" MaxWidth="400" MinWidth="300" MaxHeight="240" Margin="0,0,0,0" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">
-                                            <Border.Style>
-                                                <Style TargetType="Border">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}" Value="False">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsAnyVideoAvailable, FallbackValue=False}" Value="True">
-                                                            <Setter Property="Control.Visibility" Value="Visible" />
-                                                        </DataTrigger>
-                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}" Value="True">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Border.Style>
-                                            <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
-                                                <ContentControl.OpacityMask>
-                                                    <VisualBrush>
-                                                        <VisualBrush.Visual>
-                                                            <Border Background="Black" CornerRadius="8"
-                                                                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
-                                                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
-                                                        </VisualBrush.Visual>
-                                                    </VisualBrush>
-                                                </ContentControl.OpacityMask>
-                                            </ContentControl>
-                                        </Border>
+                                        
 
                                     </DockPanel>
 
-                                <DockPanel Grid.Row="2" Margin="64,0,64,0">
+                                <DockPanel Grid.Row="2" Margin="64,0,64,0" MinWidth="632">
                                     <StackPanel DockPanel.Dock="Right" Width="300" Margin="0,-52,0,0">
 
                                         <Grid Margin="0,0,0,16">
@@ -222,6 +194,7 @@
 
                                             <StackPanel Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal" Margin="16,0,16,16"
                                                         HorizontalAlignment="Right">
+                                                
                                                 <ToggleButton Name="GameFavoriteToggleButton" Margin="16,0,0,0" Focusable="False"
                                                               Style="{DynamicResource FavoriteToggleButton}"
                                                               Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
@@ -268,9 +241,23 @@
                                             </DockPanel>
                                         </Grid>
 
+                                        <!-- HowLongToBeat progress bar -->
+                                        <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                            <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}" >
+                                                <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,24"/>
+                                                <DockPanel>
+                                                    <ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right"/>
+                                                    <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
+                                                               Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold"/>
+                                                </DockPanel>
+                                                
+                                                <ContentControl x:Name="HowLongToBeat_PluginProgressBar" TextBlock.FontSize="10" Margin="0,16,0,24"/>
+                                            </StackPanel>
+                                        </StackPanel>
+
                                         <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,24"/>
 
-                                        <StackPanel>
+                                        <StackPanel Margin="0,0,0,24">
                                             <StackPanel.Resources>
                                                 <Style TargetType="ItemsControl">
                                                     <Setter Property="VerticalAlignment" Value="Center" />
@@ -380,47 +367,61 @@
 
                                     </StackPanel>
 
-                                    <StackPanel MinWidth="300" Margin="0,0,48,0">
+                                    <StackPanel MinWidth="300" Margin="0,0,32,0">
+                                        
+                                        <Border Panel.ZIndex="99" Margin="0,0,0,24" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsAnyVideoAvailable, FallbackValue=False}" Value="True">
+                                                            <Setter Property="Control.Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}" Value="True">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
+                                                <ContentControl.OpacityMask>
+                                                    <VisualBrush>
+                                                        <VisualBrush.Visual>
+                                                            <Border Background="Black" CornerRadius="16"
+                                                                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                        </VisualBrush.Visual>
+                                                    </VisualBrush>
+                                                </ContentControl.OpacityMask>
+                                            </ContentControl>
+                                        </Border>
 
                                         <!-- ScreenshotsVisualizer -->
                                             <!--<ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" />
         <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" />-->
 
-                                        <TabControl Margin="0,0,0,0" Style="{StaticResource ChipTabControl}">
+                                        <TabControl Margin="0,0,0,16" Style="{StaticResource ChipTabControl}">
                                             <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab" FontSize="16">
-                                                <StackPanel  Margin="0,8,0,0" x:Name="DescriptionContent">
-                                                    <!-- HowLongToBeat progress bar -->
-                                                    <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                        <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}" Margin="0,0,0,15">
-                                                            <TextBlock Text="{DynamicResource LOCHowLongToBeat}" Style="{DynamicResource BaseTextBlockStyle}" />
-                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
-                                                            <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Height="50" />
-                                                        </StackPanel>
-                                                    </StackPanel>
-
-                                                    <!-- CheckLocalizations list languages -->
-                                                    <StackPanel Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationListLanguages, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                        <StackPanel Visibility="{Binding ElementName=CheckLocalizations_PluginListLanguages, Path=Content.Visibility}" Margin="0,0,0,15">
-                                                            <TextBlock Text="{DynamicResource LOCCheckLocalizationsLocalizations}" Style="{DynamicResource BaseTextBlockStyle}" />
-                                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,5,0,5" />
-                                                            <ContentControl x:Name="CheckLocalizations_PluginListLanguages" MinHeight="60" MaxHeight="300" />
-                                                        </StackPanel>
-                                                    </StackPanel>
+                                                <StackPanel  Margin="0,16,0,0" x:Name="DescriptionContent">
+                                                    
 
                                                     <StackPanel Name="PART_ElemDescription">
                                                         <HtmlTextView Name="PART_HtmlDescription"
-                                    Margin="0,0,0,0"
-                                    HtmlFontSize="{DynamicResource FontSize}"
-                                    HtmlFontFamily="{DynamicResource FontFamily}"
-                                    HtmlForeground="{DynamicResource TextColor}"
-                                    LinkForeground="{DynamicResource AccentSelectedColor}"                                      
-                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                    ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                                                                    Margin="0,0,0,0"
+                                                                    HtmlFontSize="{DynamicResource FontSize}"
+                                                                    HtmlFontFamily="{DynamicResource FontFamily}"
+                                                                    HtmlForeground="{DynamicResource TextColor}"
+                                                                    LinkForeground="{DynamicResource AccentSelectedColor}"                                      
+                                                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                                    ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
                                                     </StackPanel>
                                                 </StackPanel>
                                             </TabItem>
 
-                                            <TabItem Header="{DynamicResource LOCNotesLabel}">
+                                            <TabItem Header="{DynamicResource LOCNotesLabel}" FontSize="16">
                                                 <TabItem.Style>
                                                     <Style TargetType="TabItem" BasedOn="{StaticResource {x:Type TabItem}}">
                                                         <Setter Property="Visibility" Value="Visible" />
@@ -435,24 +436,22 @@
                                                     </Style>
                                                 </TabItem.Style>
 
-                                                <StackPanel Margin="0,8,0,0">
+                                                <StackPanel Margin="0,16,0,0">
                                                     <TextBox Name="PART_TextNotes" Background="Transparent" Margin="0" Padding="0"
-                         IsReadOnly="True" BorderThickness="0" AcceptsReturn="True" TextWrapping="Wrap" />
-
+                                                             IsReadOnly="True" BorderThickness="0" AcceptsReturn="True" TextWrapping="Wrap" />
                                                     <ContentControl x:Name="PlayNotes_NotesViewerControl"
-                                Visibility="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}" />
+                                                                    Visibility="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}" />
                                                 </StackPanel>
                                             </TabItem>
 
 
                                         </TabControl>
 
-
-                                        <StackPanel Margin="0,24,0,0" Visibility="{Binding ElementName=GameRelationsVisibilityProxy, Path=Tag}">
+                                        <!--<StackPanel Margin="0,24,0,0" Visibility="{Binding ElementName=GameRelationsVisibilityProxy, Path=Tag}">
 
                                             <TextBlock Text="{DynamicResource LOCGameRelations_RelatedGamesLabel}" Margin="0,0,0,16"
-                       FontSize="{DynamicResource FontSizeLarge}" FontWeight="Bold"
-                       Foreground="{DynamicResource SelectedBrush}"/>
+                                                       FontSize="{DynamicResource FontSizeLarge}" FontWeight="Bold"
+                                                       Foreground="{DynamicResource SelectedBrush}"/>
 
                                             <TextBlock x:Name="GameRelationsVisibilityProxy" Visibility="Collapsed">
                                                 <TextBlock.Style>
@@ -505,8 +504,7 @@
                   Visibility="{PluginSettings Plugin=GameRelations, Path=SamePublisherControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
                                                 <ContentControl x:Name="GameRelations_SamePublisherControl" Margin="0,16,0,0" />
                                             </Expander>
-                                        </StackPanel>
-
+                                        </StackPanel>-->
 
                                     </StackPanel>
                                 </DockPanel>    
