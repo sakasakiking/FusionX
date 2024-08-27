@@ -1,9 +1,7 @@
 ![DownloadCount](https://img.shields.io/github/downloads/sakasakiking/FusionX/total.svg)
 
 # FusionX
- Theme for [Playnite](https://github.com/JosefNemec/Playnite) Desktop Mode.
-- Simple, clean and consistent design
-- Dark color style, rounded buttons...
+Simple, clean and consistent designed Theme for [Playnite](https://github.com/JosefNemec/Playnite) Desktop Mode. To achieve the best User Experience and Usability.
 
 ## Screenshots
 ![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots01.jpg)
