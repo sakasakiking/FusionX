@@ -14,7 +14,7 @@ Simple, clean and consistent designed Theme for [Playnite](https://github.com/Jo
 - For general support, please contact me in the channel dedicated to themes support in the [Playnite Discord](https://discord.com/channels/365863063296933888/808419347105447957)
 
 ## Installation
-- Option A: Download the latest packaged `pthm` theme file from the [Releases page](https://github.com/sakasakiking/FusionX/releases/Latest) and open it.
+- Option A: Download the latest packaged `pthm` theme file from the [Releases page](https://github.com/sakasakiking/FusionX/releases/tag/Latest) and open it.
 
 ## Extensions Support
 
