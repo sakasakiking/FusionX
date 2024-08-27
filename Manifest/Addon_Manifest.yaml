@@ -1,22 +1,22 @@
 AddonId: FusionX_54244ec8-29ec-418e-bce7-415250c8d67b
 Type: ThemeDesktop
-InstallerManifestUrl: https://github.com/sakasakiking/FusionX/blob/5e57453360cd36812a62f280ea095b1af4cf0831/Manifest/Installer_Manifest.yaml
+InstallerManifestUrl: https://github.com/sakasakiking/FusionX/blob/main/Manifest/Installer_Manifest.yaml
 Name: FusionX
 Author: sakasaki
 SourceUrl: https://github.com/sakasakiking/FusionX
 ShortDescription: Simple, clean and consistent designed Theme for Playnite Desktop Mode.
 Description: Simple, clean and consistent designed Theme for Playnite Desktop Mode. To achieve the best User Experience and Usability.
 Tags: ["Theme", "Dark", "Custom UI"]
-IconUrl: https://github.com/sakasakiking/FusionX/blob/a15d972b87c7e4039aa889e87bd2f626b387a999/Source/Images/applogo.png
+IconUrl: https://github.com/sakasakiking/FusionX/blob/main/Source/Images/applogo.png
 Links:
     GitHub: https://github.com/sakasakiking/FusionX
     Issues Tracker: https://github.com/sakasakiking/FusionX/issues
 Screenshots:
-    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Thumb_01.jpg
-      Image: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots01.jpg
-    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Thumb_02.jpg
-      Image: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots02.jpg
-    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Thumb_03.jpg
-      Image: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots03.jpg
-    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Thumb_04.jpg
-      Image: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots04.jpg
+    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/main/Screenshots/Thumb_01.jpg
+      Image: https://github.com/sakasakiking/FusionX/blob/main/Screenshots/Screenshots01.jpg
+    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/main/Screenshots/Thumb_02.jpg
+      Image: https://github.com/sakasakiking/FusionX/blob/main/Screenshots/Screenshots02.jpg
+    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/main/Screenshots/Thumb_03.jpg
+      Image: https://github.com/sakasakiking/FusionX/blob/main/Screenshots/Screenshots03.jpg
+    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/main/Screenshots/Thumb_04.jpg
+      Image: https://github.com/sakasakiking/FusionX/blob/main/Screenshots/Screenshots04.jpg
