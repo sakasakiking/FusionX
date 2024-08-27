@@ -4,17 +4,19 @@ InstallerManifestUrl: https://github.com/sakasakiking/FusionX/blob/5e57453360cd3
 Name: FusionX
 Author: sakasaki
 SourceUrl: https://github.com/sakasakiking/FusionX
-ShortDescription: Showcase theme for the ThemeExtras extension. Also has support for many other extensions.
+ShortDescription: Simple, clean and consistent designed Theme for Playnite Desktop Mode.
+Description: Simple, clean and consistent designed Theme for Playnite Desktop Mode. To achieve the best User Experience and Usability.
 Tags: ["Theme", "Dark", "Custom UI"]
-IconUrl: https://github.com/felixkmh/DH_Themes/raw/main/source/DH_Dawn/Images/applogo.png
+IconUrl: https://github.com/sakasakiking/FusionX/blob/a15d972b87c7e4039aa889e87bd2f626b387a999/Source/Images/applogo.png
 Links:
     GitHub: https://github.com/sakasakiking/FusionX
     Issues Tracker: https://github.com/sakasakiking/FusionX/issues
-Version: 0.8
-Mode:
-ThemeApiVersion:
 Screenshots:
-    - Thumbnail: https://github.com/felixkmh/DH_Themes/raw/main/Screenshot_Dawn_Details_Thumb.jpg
-      Image: https://github.com/felixkmh/DH_Themes/raw/main/Screenshot_Dawn_Details.jpg
-    - Thumbnail: https://github.com/felixkmh/DH_Themes/raw/main/Screenshot_Dawn_Grid_Thumb.jpg
-      Image: https://github.com/felixkmh/DH_Themes/raw/main/Screenshot_Dawn_Grid.jpg
+    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Thumb_01.jpg
+      Image: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots01.jpg
+    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Thumb_02.jpg
+      Image: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots02.jpg
+    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Thumb_03.jpg
+      Image: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots03.jpg
+    - Thumbnail: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Thumb_04.jpg
+      Image: https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots04.jpg
