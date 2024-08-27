@@ -3,6 +3,6 @@ Packages:
   - Version: 0.8.0
     RequiredApiVersion: 2.6.0
     ReleaseDate: 2024-08-27
-    PackageUrl: 
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_0_8.pthm
     Changelog: 
       - Initial release
