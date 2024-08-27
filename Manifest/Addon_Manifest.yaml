@@ -1,6 +1,6 @@
 AddonId: FusionX_54244ec8-29ec-418e-bce7-415250c8d67b
 Type: ThemeDesktop
-InstallerManifestUrl: https://github.com/sakasakiking/FusionX/blob/main/Manifest/Installer_Manifest.yaml
+InstallerManifestUrl: https://raw.githubusercontent.com/sakasakiking/FusionX/main/Manifest/Installer_Manifest.yaml
 Name: FusionX
 Author: sakasaki
 SourceUrl: https://github.com/sakasakiking/FusionX
