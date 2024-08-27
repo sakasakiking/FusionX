@@ -1,0 +1,8 @@
+AddonId: FusionX_54244ec8-29ec-418e-bce7-415250c8d67b
+Packages:
+  - Version: 0.8
+    RequiredApiVersion: 2.6.0
+    ReleaseDate: 2024-09-30
+    PackageUrl: 
+    Changelog: 
+      - Initial release
