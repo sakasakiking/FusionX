@@ -18,7 +18,7 @@
                                Style="{StaticResource BaseTextBlockStyle}"
                                TextTrimming="CharacterEllipsis" HorizontalAlignment="Stretch" 
                                VerticalAlignment="Center" DockPanel.Dock="Left"
-                               Margin="8,0,20,0"/>
+                               Margin="12,0,20,0"/>
                 </DockPanel>
                 <ToggleButton x:Name="MainToggle"
                               BorderThickness="0" Focusable="False"
@@ -39,7 +39,7 @@
                     </ToggleButton.Style>
                 </ToggleButton>
                 <TextBox x:Name="PART_TextFilterInput" BorderThickness="0" Background="Transparent"
-                         VerticalAlignment="Center" Margin="8,0,48,0"/>
+                         VerticalAlignment="Center" Margin="0,0,40,0"/>
                 <Button x:Name="PART_ButtonClearFilter"
                         Margin="0,0,24,0" FontSize="12"
                         Background="Transparent" HorizontalAlignment="Right"
