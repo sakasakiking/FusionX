@@ -1,8 +1,20 @@
 AddonId: FusionX_54244ec8-29ec-418e-bce7-415250c8d67b
-Packages:
-  - Version: 0.8
-    RequiredApiVersion: 2.6.0
-    ReleaseDate: 2024-09-30
-    PackageUrl: 
-    Changelog: 
-      - Initial release
+Type: ThemeDesktop
+InstallerManifestUrl: https://github.com/sakasakiking/FusionX/blob/5e57453360cd36812a62f280ea095b1af4cf0831/Manifest/Installer_Manifest.yaml
+Name: FusionX
+Author: sakasaki
+SourceUrl: https://github.com/sakasakiking/FusionX
+ShortDescription: Showcase theme for the ThemeExtras extension. Also has support for many other extensions.
+Tags: ["Theme", "Dark", "Custom UI"]
+IconUrl: https://github.com/felixkmh/DH_Themes/raw/main/source/DH_Dawn/Images/applogo.png
+Links:
+    GitHub: https://github.com/sakasakiking/FusionX
+    Issues Tracker: https://github.com/sakasakiking/FusionX/issues
+Version: 0.8
+Mode:
+ThemeApiVersion:
+Screenshots:
+    - Thumbnail: https://github.com/felixkmh/DH_Themes/raw/main/Screenshot_Dawn_Details_Thumb.jpg
+      Image: https://github.com/felixkmh/DH_Themes/raw/main/Screenshot_Dawn_Details.jpg
+    - Thumbnail: https://github.com/felixkmh/DH_Themes/raw/main/Screenshot_Dawn_Grid_Thumb.jpg
+      Image: https://github.com/felixkmh/DH_Themes/raw/main/Screenshot_Dawn_Grid.jpg
