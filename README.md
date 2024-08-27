@@ -1,16 +1,18 @@
-
+![DownloadCount](https://img.shields.io/github/downloads/sakasakiking/FusionX/total.svg)
 
 # FusionX
  Theme for [Playnite](https://github.com/JosefNemec/Playnite) Desktop Mode.
- I create it for fun. Totally free.
+- Simple, clean and consistent design
 
-## Features
-- Simple and Clean design
-- New layouts both for Grid and Detail view
-- Better User experience and Usability
+## Screenshots
+![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots01.jpg)
+![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots02.jpg)
+![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots03.jpg)
+![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots04.jpg)
 
 ## Support
 - If you found a bug or want to request a feature, please open a new issue in the [Issues Tracker](https://github.com/sakasakiking/FusionX/issues)
+- For general support, please contact me in the channel dedicated to themes support in the [Playnite Discord](https://discord.com/channels/365863063296933888/808419347105447957)
 
 ## Installation
 
@@ -26,7 +28,6 @@ At the beginning, just support:
 - **Logos:** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
 Addiing more...
 
-## Screenshots
 
-I'm creating them...
+
 
