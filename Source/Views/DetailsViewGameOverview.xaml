@@ -39,7 +39,6 @@
                                 </Grid.RowDefinitions>
 
                                 <DockPanel Grid.Row="1" Margin="64,0,64,0">
-
                                     <Border Margin="48,16,0,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="300">
                                         <Image Name="PART_ImageCover" VerticalAlignment="Top" 
                                                HorizontalAlignment="Center" MaxWidth="300"

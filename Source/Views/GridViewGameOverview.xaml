@@ -128,10 +128,29 @@
                                                   x:Name="PART_ScrollViewHost">
 
                                         <DockPanel Margin="16,0,16,0">
-
-                                            <Image Name="PART_ImageIcon" MaxHeight="60" Margin="0,0,0,16" 
-                                                   HorizontalAlignment="Left" DockPanel.Dock="Top"
-                                                   RenderOptions.BitmapScalingMode="Fant"/>
+                                            <!--<Image Name="PART_ImageIcon" MaxHeight="60" Margin="0,0,0,16" 
+                                                       HorizontalAlignment="Left" DockPanel.Dock="Top"
+                                                       RenderOptions.BitmapScalingMode="Fant"/>-->
+                                            <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" DockPanel.Dock="Top" Margin="0,0,0,16"
+                                                    VerticalAlignment="Top" HorizontalAlignment="Left"
+                                                    MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxHeight, FallbackValue=0}"
+                                                    MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxWidth, FallbackValue=0}"
+                                                    Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}" Value="True">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}" Value="false" >
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" />
+                                            </Border>
 
                                             <TextBlock Name="PART_TextDisplayName" TextWrapping="Wrap"  Margin="0,0,0,8"
                                                        HorizontalAlignment="Left" DockPanel.Dock="Top"
