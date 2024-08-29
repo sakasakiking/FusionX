@@ -26,7 +26,7 @@
                                 <RadialGradientBrush GradientOrigin="0.5,0" Center="0.5,0" RadiusX="1" RadiusY="1.2">
                                     <RadialGradientBrush.GradientStops>
                                         <GradientStop Color="Black" Offset="0.6" />
-                                        <GradientStop Color="Transparent" Offset="0.8" />
+                                        <GradientStop Color="Transparent" Offset="1.0" />
                                     </RadialGradientBrush.GradientStops>
                                 </RadialGradientBrush>
                             </FadeImage.ImageOpacityMask>

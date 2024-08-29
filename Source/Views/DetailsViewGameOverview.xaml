@@ -28,9 +28,9 @@
                                 </FadeImage.ImageOpacityMask>
                             </FadeImage>
 
-                            <Grid HorizontalAlignment="Center" Margin="0" >
+                            <Grid HorizontalAlignment="Stretch" Margin="64,0,64,0" MaxWidth="1200">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition MaxWidth="1200"/>
+                                    <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="0"/>
@@ -38,7 +38,7 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <DockPanel Grid.Row="1" Margin="64,0,64,0">
+                                <DockPanel Grid.Row="1">
                                     <Border Margin="48,16,0,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="300">
                                         <Image Name="PART_ImageCover" VerticalAlignment="Top" 
                                                HorizontalAlignment="Center" MaxWidth="300"
@@ -59,7 +59,8 @@
                                     <!--<Image Name="PART_ImageIcon" MaxWidth="300" MaxHeight="120" 
                                                HorizontalAlignment="left" DockPanel.Dock="Top" RenderOptions.BitmapScalingMode="Fant" Margin="0,0,0,16"/>-->
 
-                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" DockPanel.Dock="Top" Margin="0,16,0,16"
+                                    <StackPanel DockPanel.Dock="Top" MinWidth="300">
+                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" Margin="0,16,0,16"
                                                 VerticalAlignment="Top" HorizontalAlignment="Left"
                                                 MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxHeight, FallbackValue=0}"
                                                 MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxWidth, FallbackValue=0}"
@@ -82,10 +83,10 @@
 
                                         <TextBlock Name="PART_TextDisplayName" FontFamily="{DynamicResource FontFamily}"
                                                    FontSize="{DynamicResource FontSizeLarge32}" FontWeight="Black"
-                                                   Margin="0,0,0,16" TextWrapping="Wrap" HorizontalAlignment="Left" DockPanel.Dock="Top"
+                                                   Margin="0,0,0,16" TextWrapping="Wrap" HorizontalAlignment="Left"
                                                    Foreground="{DynamicResource SelectedBrush}"/>
 
-                                    <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,24" MinWidth="300">
+                                        <WrapPanel Margin="0,0,0,24" MinWidth="300">
                                             <StackPanel Name="PART_ElemGenres" Margin="0,0,16,0"
                                                         VerticalAlignment="Top" HorizontalAlignment="Left">
                                                 <StackPanel.Style>
@@ -113,8 +114,8 @@
                                                         <ItemsControl.ItemTemplate>
                                                             <DataTemplate>
                                                                 <Button Content="{Binding Name}" Style="{DynamicResource PropertyItemSmallButton}" Margin="0,2,8,2"
-                                                                        Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetFeatureFilterCommand}"
-                                                                        CommandParameter="{Binding}"/>
+                                    Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetFeatureFilterCommand}"
+                                    CommandParameter="{Binding}"/>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
                                                     </ItemsControl>
@@ -147,8 +148,8 @@
                                                         <ItemsControl.ItemTemplate>
                                                             <DataTemplate>
                                                                 <Button Content="{Binding Name}" Style="{DynamicResource PropertyItemSmallButton}" Margin="0,2,8,2"            
-                                                                         Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetFeatureFilterCommand}"                                                                              
-                                                                         CommandParameter="{Binding}"/>
+                                     Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetFeatureFilterCommand}"                                                                              
+                                     CommandParameter="{Binding}"/>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
                                                     </ItemsControl>
@@ -157,13 +158,14 @@
                                             <Button Name="PART_ButtonReleaseDate"
                                                     Margin="0,2,16,2" Style="{DynamicResource PropertyItemSmallButton}"/>
                                         </WrapPanel>
+                                    </StackPanel>
+                                    
 
                                         
+                                </DockPanel>
 
-                                    </DockPanel>
-
-                                <DockPanel Grid.Row="2" Margin="64,0,64,0" MinWidth="632">
-                                    <StackPanel DockPanel.Dock="Right" Width="300" Margin="0,-52,0,0">
+                                <DockPanel Grid.Row="2" LastChildFill="True">
+                                    <StackPanel DockPanel.Dock="Right" Width="300" Margin="48,-52,0,0">
 
                                         <Grid Margin="0,0,0,16">
                                             <Grid.ColumnDefinitions>
@@ -193,7 +195,7 @@
 
                                             <StackPanel Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal" Margin="16,0,16,16"
                                                         HorizontalAlignment="Right">
-                                                
+
                                                 <ToggleButton Name="GameFavoriteToggleButton" Margin="16,0,0,0" Focusable="False"
                                                               Style="{DynamicResource FavoriteToggleButton}"
                                                               Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
@@ -204,7 +206,7 @@
                                                         Style="{StaticResource LightFilledRoundButton}"
                                                         FontSize="{DynamicResource FontSizeLarge}"/>
                                             </StackPanel>
-                                            
+
                                         </Grid>
 
                                         <Grid Margin="4,0,4,24">
@@ -249,10 +251,25 @@
                                                     <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
                                                                Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold"/>
                                                 </DockPanel>
-                                                
                                                 <ContentControl x:Name="HowLongToBeat_PluginProgressBar" TextBlock.FontSize="10" Margin="0,16,0,24"/>
                                             </StackPanel>
                                         </StackPanel>
+
+                                        <!-- SuccessStory -->
+                                        <StackPanel Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
+                                            <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,16"/>
+                                            <DockPanel Margin="0,0,0,16">
+                                                <ContentControl x:Name="SuccessStory_PluginButton" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                                <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Left" VerticalAlignment="Center"
+                                                           Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold"/>
+
+                                                <ContentControl x:Name="SuccessStory_PluginProgressBar" DockPanel.Dock="Left" Margin="16,0,16,0" VerticalAlignment="Center"/>
+                                            </DockPanel>
+                                        </StackPanel>
+
+
+
+
 
                                         <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,24"/>
 
@@ -366,8 +383,7 @@
 
                                     </StackPanel>
 
-                                    <StackPanel MinWidth="300" Margin="0,0,32,0">
-                                        
+                                    <StackPanel DockPanel.Dock="Left">
                                         <Border Panel.ZIndex="99" Margin="0,0,0,24" HorizontalAlignment="Left" VerticalAlignment="Top">
                                             <Border.Style>
                                                 <Style TargetType="Border">
@@ -390,8 +406,8 @@
                                                     <VisualBrush>
                                                         <VisualBrush.Visual>
                                                             <Border Background="Black" CornerRadius="16"
-                                                                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
-                                                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                            Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
                                                         </VisualBrush.Visual>
                                                     </VisualBrush>
                                                 </ContentControl.OpacityMask>
@@ -399,23 +415,24 @@
                                         </Border>
 
                                         <!-- ScreenshotsVisualizer -->
-                                            <!--<ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" />
-        <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" />-->
+                                        <!--<ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" />
+<ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" />-->
 
-                                        <TabControl Margin="0,0,0,16" Style="{StaticResource ChipTabControl}">
+                                        <TabControl Margin="0,0,0,16" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                                    Style="{StaticResource ChipTabControl}">
+
                                             <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab" FontSize="16">
                                                 <StackPanel  Margin="0,16,0,0" x:Name="DescriptionContent">
-                                                    
 
                                                     <StackPanel Name="PART_ElemDescription">
                                                         <HtmlTextView Name="PART_HtmlDescription"
-                                                                    Margin="0,0,0,0"
-                                                                    HtmlFontSize="{DynamicResource FontSize}"
-                                                                    HtmlFontFamily="{DynamicResource FontFamily}"
-                                                                    HtmlForeground="{DynamicResource TextColor}"
-                                                                    LinkForeground="{DynamicResource AccentSelectedColor}"                                      
-                                                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                                                    ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                                                            Margin="0,0,0,0"
+                                                            HtmlFontSize="{DynamicResource FontSize}"
+                                                            HtmlFontFamily="{DynamicResource FontFamily}"
+                                                            HtmlForeground="{DynamicResource TextColor}"
+                                                            LinkForeground="{DynamicResource AccentSelectedColor}"                                      
+                                                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                            ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
                                                     </StackPanel>
                                                 </StackPanel>
                                             </TabItem>
@@ -437,14 +454,26 @@
 
                                                 <StackPanel Margin="0,16,0,0">
                                                     <TextBox Name="PART_TextNotes" Background="Transparent" Margin="0" Padding="0"
-                                                             IsReadOnly="True" BorderThickness="0" AcceptsReturn="True" TextWrapping="Wrap" />
+                                                     IsReadOnly="True" BorderThickness="0" AcceptsReturn="True" TextWrapping="Wrap" />
                                                     <ContentControl x:Name="PlayNotes_NotesViewerControl"
-                                                                    Visibility="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}" />
+                                                            Visibility="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}" />
                                                 </StackPanel>
                                             </TabItem>
 
+                                            <TabItem Header="{DynamicResource LOCSuccessStoryAchievements}" FontSize="16"
+                                                     Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                <StackPanel Margin="0,16,0,0">
+                                                    <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,16,0,0" />
+                                                    <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,16,0,0" />
+                                                    <ContentControl x:Name="SuccessStory_PluginUserStats" Margin="0,16,0,0" />
+                                                    <ContentControl x:Name="SuccessStory_PluginList" Margin="0,16,0,0" MinHeight="300" />
+                                                    <ContentControl x:Name="SuccessStory_PluginChart" Margin="0,16,0,0" />
+                                                </StackPanel>
+                                            </TabItem>
 
                                         </TabControl>
+                                    </StackPanel>
+                                    
 
                                         <!--<StackPanel Margin="0,24,0,0" Visibility="{Binding ElementName=GameRelationsVisibilityProxy, Path=Tag}">
 
@@ -505,9 +534,7 @@
                                             </Expander>
                                         </StackPanel>-->
 
-                                    </StackPanel>
                                 </DockPanel>    
-                                    
 
                             </Grid>
                         </Grid>
