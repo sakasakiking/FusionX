@@ -33,12 +33,12 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="0"/>
+                                    <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <DockPanel Grid.Row="1">
+                                <DockPanel Grid.Row="0" Margin="0,0,0,24">
                                     <Border Margin="48,16,0,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="300">
                                         <Image Name="PART_ImageCover" VerticalAlignment="Top" 
                                                HorizontalAlignment="Center" MaxWidth="300"
@@ -56,6 +56,7 @@
                                             </Image.OpacityMask>
                                         </Image>
                                     </Border>
+                                    
                                     <!--<Image Name="PART_ImageIcon" MaxWidth="300" MaxHeight="120" 
                                                HorizontalAlignment="left" DockPanel.Dock="Top" RenderOptions.BitmapScalingMode="Fant" Margin="0,0,0,16"/>-->
 
@@ -419,7 +420,7 @@
 <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" />-->
 
                                         <TabControl Margin="0,0,0,16" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                                                    Style="{StaticResource ChipTabControl}">
+                                                     Style="{DynamicResource DetailViewTabControl}">
 
                                             <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab" FontSize="16">
                                                 <StackPanel  Margin="0,16,0,0" x:Name="DescriptionContent">

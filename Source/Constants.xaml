@@ -99,6 +99,12 @@
         <GradientStop Color="#002C3A67" Offset="0.7"/>
     </LinearGradientBrush>
 
+    <ImageBrush x:Key="MainBackgroundBrush">
+        <ImageBrush.ImageSource>
+            <BitmapImage UriSource="Images/MainBackground.png"/>
+        </ImageBrush.ImageSource>
+    </ImageBrush>
+
     <!--<LinearGradientBrush x:Key="WindowBackgourndBrush" StartPoint="0.5,-0.2" EndPoint="0.4,1" >
         <GradientStop Color="#202b4d" Offset="0"/>
         <GradientStop Color="{DynamicResource MainColorDark}" Offset="0.4"/>

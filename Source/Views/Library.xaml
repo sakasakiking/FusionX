@@ -5,7 +5,7 @@
                     mc:Ignorable="d">
 
     <Style TargetType="{x:Type Library}">
-        <Setter Property="Background" Value="Yellow" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Library}">
@@ -25,8 +25,8 @@
                             <FadeImage.ImageOpacityMask>
                                 <RadialGradientBrush GradientOrigin="0.5,0" Center="0.5,0" RadiusX="1" RadiusY="1.2">
                                     <RadialGradientBrush.GradientStops>
-                                        <GradientStop Color="Black" Offset="0.6" />
-                                        <GradientStop Color="Transparent" Offset="1.0" />
+                                        <GradientStop Color="Black" Offset="0.4" />
+                                        <GradientStop Color="Transparent" Offset="0.9" />
                                     </RadialGradientBrush.GradientStops>
                                 </RadialGradientBrush>
                             </FadeImage.ImageOpacityMask>
