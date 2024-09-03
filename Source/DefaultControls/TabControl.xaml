@@ -140,13 +140,13 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <Style x:Key="DetailViewTabControl" TargetType="TabControl" BasedOn="{StaticResource {x:Type TabControl}}">
+
+    <Style x:Key="DetailViewTabControl" TargetType="{x:Type TabControl}" BasedOn="{StaticResource {x:Type TabControl}}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="SelectedIndex" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="TabControl">
+                <ControlTemplate TargetType="{x:Type TabControl}">
                     <Grid KeyboardNavigation.TabNavigation="Local">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition x:Name="ColumnDefinition0" />

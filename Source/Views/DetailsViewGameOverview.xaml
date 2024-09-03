@@ -420,7 +420,7 @@
 <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" />-->
 
                                         <TabControl Margin="0,0,0,16" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                                                     Style="{DynamicResource DetailViewTabControl}">
+                                                     Style="{StaticResource DetailViewTabControl}">
 
                                             <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab" FontSize="16">
                                                 <StackPanel  Margin="0,16,0,0" x:Name="DescriptionContent">

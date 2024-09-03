@@ -195,7 +195,7 @@
                                                 <Button Name="PART_ButtonReleaseDate"
                                                         Margin="0,2,16,2" Style="{DynamicResource PropertyItemSmallButton}"/>
                                             </WrapPanel>
-                                            <TabControl DockPanel.Dock="Top" Style="{StaticResource ChipTabControl}">
+                                            <TabControl DockPanel.Dock="Top" Style="{StaticResource DetailViewTabControl}">
                                                 <TabItem Header="{DynamicResource LOCGameDescriptionTitle}" x:Name="DescriptionTab" FontSize="16">
                                                     <StackPanel  Margin="0,16,0,0" x:Name="DescriptionContent">
                                                         
