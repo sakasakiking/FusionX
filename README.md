@@ -17,18 +17,20 @@ Images are being cooked...
 - For general support, please contact me in the channel dedicated to themes support in the [Playnite Discord](https://discord.com/channels/365863063296933888/808419347105447957)
 
 ## Installation
-- **A** Download the latest packaged `pthm` theme file from the [Releases page](https://github.com/sakasakiking/FusionX/releases/tag/Latest) and open it.
-- **B** Click the `Download` button on the [Playnite addon page](https://playnite.link/addons.html#FusionX_54244ec8-29ec-418e-bce7-415250c8d67b) to start the install process.
-- **C** Download from the Addons browser in Playnite.
+- **A**: Download the latest packaged `pthm` theme file from the [Releases page](https://github.com/sakasakiking/FusionX/releases/tag/Latest) and open it.
+- **B**: Click the `Download` button on the [Playnite addon page](https://playnite.link/addons.html#FusionX_54244ec8-29ec-418e-bce7-415250c8d67b) to start the install process.
+- **C**: Download from the Addons browser in Playnite.
 
 ## Extensions Support
 
 **Extra Metadata Loader** is a very good and important component in the **FusionX** to achieve better effect.
 
 At the beginning, just support:
+- **Achievements:** [SuccessStory](https://playnite.link/addons.html#playnite-successstory-plugin) extension.
 - **HowLongToBeat data:** [HowLongToBeat](https://playnite.link/addons.html#playnite-howlongtobeat-plugin) extension.
-- **Videos** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
 - **Logos:** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
+- **Screenshots:** [ScreenshotsVisualizer](https://playnite.link/addons.html#playnite-screenshotsvisualizer-plugin) extension.
+- **Videos** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
 Addiing more...
 
 
