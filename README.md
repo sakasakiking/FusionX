@@ -4,7 +4,7 @@
 Simple, clean and consistent designed Theme for [Playnite](https://github.com/JosefNemec/Playnite) Desktop Mode. To achieve the best User Experience and Usability.
 
 ## Preparation and Settings
-It's using 'Segoe Fluent Icons' for the theme, you might need to download the [Segoe Fluent Icons](https://learn.microsoft.com/zh-cn/windows/apps/design/downloads/#fonts)
+It's using ``Segoe Fluent Icons`` for the theme, you might need to download the [Segoe Fluent Icons](https://learn.microsoft.com/zh-cn/windows/apps/design/downloads/#fonts)
 ## Screenshots
 ![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots01.jpg)
 ![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots02.jpg)
