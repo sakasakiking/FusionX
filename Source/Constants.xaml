@@ -69,7 +69,7 @@
     <SolidColorBrush x:Key="TextBrushDark" Color="{DynamicResource TextColorDark}" />
     <SolidColorBrush x:Key="NormalBrush" Color="#29FFFFFF" />
     <SolidColorBrush x:Key="NormalBrushDark" Color="{DynamicResource MainColorDark}" />
-    <SolidColorBrush x:Key="NormalBorderBrush" Color="#29FFFFFF" />
+    <SolidColorBrush x:Key="NormalBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
 
     <SolidColorBrush x:Key="TooltipBackgroundBrush" Color="{DynamicResource BackgroundToneColor}" />

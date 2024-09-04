@@ -202,7 +202,7 @@
                                 <CheckBox x:Name="PART_ToggleFilter" ToolTip="{DynamicResource LOCFilters}"
                                               Style="{DynamicResource TopPanelFilterToggle}" />
                             </StackPanel>
-      
+
 
                             <SearchBox x:Name="PART_TextMainSearch" Grid.Column="1" Style="{DynamicResource TopPanelSearchBox}"
                                        Margin="16,0,16,0" HorizontalAlignment="Center" VerticalAlignment="Center"

@@ -252,7 +252,7 @@
                                                     <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
                                                                Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="16"/>
                                                 </DockPanel>
-                                                <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,16,0,24"/>
+                                                <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,16,0,24" Height="24"/>
                                             </StackPanel>
                                         </StackPanel>
 
@@ -260,11 +260,10 @@
                                         <StackPanel Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
                                             <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,24"/>
                                             <DockPanel Margin="0,0,0,24">
+                                                <ContentControl x:Name="SuccessStory_PluginProgressBar" DockPanel.Dock="Bottom" Margin="0,16,0,0" VerticalAlignment="Center" Height="24"/>
                                                 <ContentControl x:Name="SuccessStory_PluginButton" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                                                 <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Left" VerticalAlignment="Center"
                                                            Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="16"/>
-
-                                                <ContentControl x:Name="SuccessStory_PluginProgressBar" DockPanel.Dock="Left" Margin="16,0,16,0" VerticalAlignment="Center"/>
                                             </DockPanel>
                                         </StackPanel>
 
