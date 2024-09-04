@@ -17,7 +17,7 @@
                 <ControlTemplate TargetType="{x:Type TreeView}">
                     <Border BorderThickness="0,0,1,0"
                             BorderBrush="{TemplateBinding BorderBrush}">
-                        <ScrollViewer Focusable="False" Padding="16,0,16,0" MinWidth="200"
+                        <ScrollViewer Focusable="False" Padding="16,12,16,0" MinWidth="200"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                             <ItemsPresenter />
@@ -41,7 +41,7 @@
                         <Border x:Name="SelectionBorder"
                                 Padding="{TemplateBinding Padding}" Margin="{TemplateBinding Margin}">
                             <DockPanel>
-                                <ToggleButton x:Name="Expander" ClickMode="Press" DockPanel.Dock="Left" Margin="0,0,4,0"
+                                <ToggleButton x:Name="Expander" ClickMode="Press" DockPanel.Dock="Left" Margin="0,0,6,0"
                                               IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource TemplatedParent}}">
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource BaseStyle}">
@@ -73,7 +73,7 @@
                                                   DockPanel.Dock="Left"/>
                             </DockPanel>
                         </Border>
-                        <ItemsPresenter x:Name="ItemsHost" Margin="20,8,0,0" />
+                        <ItemsPresenter x:Name="ItemsHost" Margin="18,8,0,0" />
                     </StackPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsExpanded" Value="False">

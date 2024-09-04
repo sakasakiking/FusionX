@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
-                    <Grid KeyboardNavigation.TabNavigation="Local">
+                    <Grid KeyboardNavigation.TabNavigation="Local" Margin="0,12,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition x:Name="ColumnDefinition0" />
                             <ColumnDefinition x:Name="ColumnDefinition1" Width="0" />
@@ -20,7 +20,7 @@
                             <RowDefinition Height="Auto" x:Name="RowDefinition0" />
                             <RowDefinition Height="*" x:Name="RowDefinition1" />
                         </Grid.RowDefinitions>
-                        <Border x:Name="HeaderBorder">
+                        <Border x:Name="HeaderBorder" Background="Transparent">
                             <TabPanel x:Name="HeaderPanel" IsItemsHost="True" Panel.ZIndex="1" Width="Auto" Height="Auto"
                                       KeyboardNavigation.TabIndex="1" RenderTransformOrigin="0.5,0.5" Margin="16,0,16,0">
                                 <TabPanel.LayoutTransform>
@@ -43,7 +43,7 @@
                         </Border>
                         <Border x:Name="ContentPanel" Grid.Column="0" Grid.Row="1"
                                 KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2"
-                                KeyboardNavigation.TabNavigation="Local">
+                                KeyboardNavigation.TabNavigation="Local" Background="Transparent">
                             <ContentPresenter x:Name="PART_SelectedContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                               ContentSource="SelectedContent" />
                         </Border>
