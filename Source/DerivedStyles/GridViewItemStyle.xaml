@@ -21,7 +21,7 @@
                                    Style="{DynamicResource BaseTextBlockStyle}"                                                                   
                                    TextAlignment="Center" TextTrimming="CharacterEllipsis"
                                    VerticalAlignment="Bottom"
-                                   Padding="2,8,2,0"
+                                   Padding="2,8,2,8"
                                    Width="{Settings GridItemWidth}" 
                                    Visibility="{Settings ShowNamesUnderCovers}" />
                     </StackPanel>
