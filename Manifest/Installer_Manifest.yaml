@@ -1,8 +1,17 @@
 AddonId: FusionX_54244ec8-29ec-418e-bce7-415250c8d67b
 Packages:
-  - Version: 0.8.0
+  - Version: 0.8
     RequiredApiVersion: 2.6.0
     ReleaseDate: 2024-08-27
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_0_8.pthm
     Changelog: 
       - Initial release
+  - Version: 0.9
+    RequiredApiVersion: 2.6.0
+    ReleaseDate: 2024-09-07
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_0_8.pthm
+    Changelog: 
+      - Support plugin [SuccessStory]
+      - Support plugin [ScreenShots Visualizer]
+      - Fixed some UI issues
+      - Now we can set the spacing between the game details and the top via [Settings --> Appearance --> Details View --> Vertical Spacing to game details]
