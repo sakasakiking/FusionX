@@ -5,14 +5,15 @@ Packages:
     ReleaseDate: 2024-08-27
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_0_8.pthm
     Changelog: 
-      - Initial release
+      - Initial release.
   - Version: 0.9
     RequiredApiVersion: 2.6.0
-    ReleaseDate: 2024-09-07
+    ReleaseDate: 2024-09-05
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_0_8.pthm
     Changelog: 
-    - Support plugin [SuccessStory]
-    - Support plugin [ScreenShots Visualizer]
-    - Fixed many UI issues
-    - Now we can set the spacing between the game details and the top via [Settings --> Appearance --> Details View --> Vertical Spacing to game details]
-- Add a default app background
+    - Support plugin **SuccessStory**.
+    - Support plugin **ScreenShots Visualizer**.
+    - Improved the experience of **HowLongtoBeat**
+    - Fixed many UI issues.
+    - Now we can set the spacing between the game details and the top via [ Settings --> Appearance --> Details View --> Vertical Spacing to game details ].
+    - Add a default app background.
