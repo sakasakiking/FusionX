@@ -33,7 +33,7 @@
                                 <DockPanel DockPanel.Dock="Top" LastChildFill="False">
                                     <DockPanel DockPanel.Dock="Top" LastChildFill="False">
                                         <TextBlock Text="{TemplateBinding Title}" DockPanel.Dock="Left" 
-                                                   Margin="16,4,0,0" VerticalAlignment="Center"
+                                                   Margin="16,4,16,0" VerticalAlignment="Center"
                                                    FontSize="{DynamicResource FontSize}" FontWeight="Bold"
                                                    Style="{DynamicResource BaseTextBlockStyle}" x:Name="PART_TextTitle" />
                                         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" 

@@ -111,8 +111,8 @@
     </LinearGradientBrush>-->
     
     <LinearGradientBrush x:Key="WindowBackgourndBrush" StartPoint="0.5,0" EndPoint="0.5,1" >
-        <GradientStop Color="#111111" Offset="0"/>
-        <GradientStop Color="#101010" Offset="1"/>
+        <GradientStop Color="#212121" Offset="0"/>
+        <GradientStop Color="#212121" Offset="1"/>
     </LinearGradientBrush>
 
 </ResourceDictionary>
