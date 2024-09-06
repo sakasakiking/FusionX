@@ -94,6 +94,7 @@
         <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"/>
+        <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -104,7 +105,7 @@
                         <Ellipse x:Name="HoverBorder" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
                                 Fill="{DynamicResource ControlSelectedBackgroundBrush}" Visibility="Collapsed">
                         </Ellipse>
-                        <TextBlock FontSize="{TemplateBinding FontSize}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" 
+                        <TextBlock FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" 
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}" TextWrapping="Wrap"/>
                     </Grid>

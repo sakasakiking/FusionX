@@ -33,4 +33,33 @@
         </Setter>
     </Style>
 
+    <Style x:Key="RoundedThumb" TargetType="{x:Type Thumb}">
+        <Setter Property="Width" Value="Auto" />
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="Background" Value="{DynamicResource AccentIdleBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Grid>
+                        <!--<Ellipse x:Name="HoverRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                 Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" MinHeight="12"
+                                 Stroke="{x:Null}" Fill="{TemplateBinding Background}" Margin="0"/>-->
+                        <Ellipse x:Name="HoverRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                 Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" MinHeight="12"
+                                 Stroke="{DynamicResource SelectedBrush}" StrokeThickness="4" Fill="{TemplateBinding Background}" Margin="0"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True" />
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Fill" Value="{DynamicResource AccentHoverBrush}" TargetName="HoverRectangle" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IsFocused, RelativeSource={RelativeSource AncestorType=Track}}" Value="True">
+                            <Setter Property="Fill" Value="{DynamicResource AccentSelectedBrush}" TargetName="HoverRectangle" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

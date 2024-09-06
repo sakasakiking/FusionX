@@ -18,7 +18,7 @@
     <Style TargetType="{x:Type SliderEx}" BasedOn="{StaticResource {x:Type Slider}}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Slider}">
@@ -32,14 +32,14 @@
                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  Fill="{DynamicResource GlyphBrush}" />
                         
                         <Border x:Name="Border" Grid.Row="1" Margin="0" Height="8" CornerRadius="{DynamicResource ControlCornerRadius}"
-                                Background="{TemplateBinding Background}" BorderBrush="{DynamicResource ControlIdleBorderBrush}"
+                                Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{DynamicResource ControlBorderThickness}" />
                         <Border Grid.Row="1" Margin="0" Height="8" VerticalAlignment="Center" HorizontalAlignment="Left"
-                                Background="{DynamicResource HighlightGlyphBrush}" CornerRadius="4,0,0,4"
+                                Background="{DynamicResource AccentIdleBrush}" CornerRadius="4,0,0,4"
                                 Width="{Binding ActualWidth, ElementName=ButtonDecrease}" />
                         <Track Grid.Row="1" x:Name="PART_Track">
                             <Track.Thumb>
-                                <Thumb Width="8" Margin="-2,0,0,0" Background="{DynamicResource HoverBrush}"/>
+                                <Thumb Width="16" Height="16" Margin="-2,0,0,0" Style="{DynamicResource RoundedThumb}"/>
                             </Track.Thumb>
                             <Track.DecreaseRepeatButton>
                                 <RepeatButton x:Name="ButtonDecrease"
