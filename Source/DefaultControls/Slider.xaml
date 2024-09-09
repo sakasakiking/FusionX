@@ -43,7 +43,7 @@
                                 Width="{Binding ActualWidth, ElementName=ButtonDecrease}" />
                         <Track Grid.Row="1" x:Name="PART_Track" Height="{TemplateBinding Height}">
                             <Track.Thumb>
-                                <Thumb Width="8" Margin="-2,0,0,0" Background="{DynamicResource HoverBrush}"/>
+                                <Thumb Width="12" Height="12" Margin="-2,0,0,0" Style="{DynamicResource RoundedThumb}"/>
                             </Track.Thumb>
                             <Track.DecreaseRepeatButton>
                                 <RepeatButton x:Name="ButtonDecrease"

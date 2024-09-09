@@ -219,18 +219,18 @@
                                               Style="{DynamicResource TopPanelNotificationsToggle}" />
                                 </StackPanel>
 
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
-                                    <Grid MaxWidth="600" MinWidth="300">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,6,0,6">
+                                    <Grid MaxWidth="400" MinWidth="200">
                                         <ProgressBar Name="PART_ProgressGlobal" />
                                         <TextBlock Name="PART_TextProgressText" 
                                                    VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                                   Style="{DynamicResource BaseTextBlockStyle}" Margin="5,0,5,0" />
+                                                   Style="{DynamicResource BaseTextBlockStyle}" Margin="4,0,4,0" />
                                     </Grid>
 
-                                    <Button Name="PART_ButtonProgressCancel"
+                                    <Button Name="PART_ButtonProgressCancel" VerticalAlignment="Center"
                                             Content="{DynamicResource LOCCancelLabel}"
                                             WindowChrome.IsHitTestVisibleInChrome="True"
-                                            Margin="5,0,0,0" />
+                                            Margin="8,0,0,0" />
                                 </StackPanel>
                             </DockPanel>
 

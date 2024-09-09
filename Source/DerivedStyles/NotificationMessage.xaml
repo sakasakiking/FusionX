@@ -6,20 +6,21 @@
 
     <Style x:Key="NotificationMessage" TargetType="Button">
         <Setter Property="Command" Value="{Binding ActivateCommand}" />
-        <Setter Property="Margin" Value="16,8,16,0" />
+        <Setter Property="Margin" Value="0,0,0,8" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Style="{StaticResource HighlightBorder}" Background="{DynamicResource ControlBackgroundBrush}"
+                    <Border BorderThickness="0,1,0,0" BorderBrush="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,16"
                             d:DataContext="{x:Static DesignMainViewModel.DesignNotificationIntance}">
-                        <DockPanel>
-                            <Button DockPanel.Dock="Right" Padding="8,0,8,0" Background="Transparent"
-                                    Content="&#xe106;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                    VerticalAlignment="Stretch" BorderThickness="0" Margin="0,0,4,0"
+                        <DockPanel Cursor="Hand">
+                            <Button DockPanel.Dock="Right" Padding="0" Background="Transparent"
+                                    Content="&#xe107;" Style="{DynamicResource LightFilledRoundButton}"
+                                    Width="32" Height="32"
+                                    VerticalAlignment="Top"  Margin="0,8,0,0"
                                     Command="{Binding CloseCommand}"/>
                             <TextBlock Text="{Binding Text}"
                                        Style="{DynamicResource BaseTextBlockStyle}"
-                                       Margin="12,8,8,8" TextWrapping="Wrap"
+                                       Margin="0,16,16,0" TextWrapping="Wrap"
                                        MinHeight="40" DockPanel.Dock="Left" />
                         </DockPanel>
                     </Border>

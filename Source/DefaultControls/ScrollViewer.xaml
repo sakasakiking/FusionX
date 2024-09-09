@@ -65,7 +65,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" 
                             BorderThickness="1">
                         <Grid Background="{TemplateBinding Background}">
                             <Grid.ColumnDefinitions>
