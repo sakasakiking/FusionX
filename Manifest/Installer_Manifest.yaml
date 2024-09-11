@@ -3,13 +3,13 @@ Packages:
   - Version: 0.8
     RequiredApiVersion: 2.6.0
     ReleaseDate: 2024-08-27
-    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_0_9.pthm
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_0_8.pthm
     Changelog: 
       - Initial release.
   - Version: 0.9
     RequiredApiVersion: 2.6.0
     ReleaseDate: 2024-09-05
-    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_0_8.pthm
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_0_9.pthm
     Changelog: 
     - Support plugin **SuccessStory**.
     - Support plugin **ScreenShots Visualizer**.
@@ -18,3 +18,4 @@ Packages:
     - Now we can set the spacing between the game details and the top via [ Settings --> Appearance --> Details View --> Vertical Spacing to game details ].
     - Add a default app background.
     - Iconfont: **Segoe Fluent Icons** is needed.
+

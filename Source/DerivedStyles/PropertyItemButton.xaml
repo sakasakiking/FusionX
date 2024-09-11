@@ -27,14 +27,14 @@
     </Style>
 
     <Style x:Key="PropertyItemSmallButton" TargetType="Button">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="Margin" Value="0,4,0,0" />
-        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <TextBlock FontSize="{TemplateBinding FontSize}"
-                           Foreground="{TemplateBinding Foreground}" FontWeight="Bold"
+                           Foreground="{TemplateBinding Foreground}" 
                            Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
                            TextWrapping="Wrap"/>
                 </ControlTemplate>

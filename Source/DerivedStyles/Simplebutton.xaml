@@ -25,19 +25,20 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="SimpleFilledButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+    <Style x:Key="DetailViewActionButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Border" Height="28" CornerRadius="14" Padding="12,0,12,0"
+                    <Border x:Name="Border" Height="48" CornerRadius="24" Padding="12,0,12,0"
                             Background="{DynamicResource ControlHoverBackgroundBrush}">
                         <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                           Foreground="{TemplateBinding Foreground}"
-                           Text="{TemplateBinding Content}"
-                           TextWrapping="Wrap"/>
+                                   Foreground="{TemplateBinding Foreground}"
+                                   Text="{TemplateBinding Content}"
+                                   TextWrapping="Wrap"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
