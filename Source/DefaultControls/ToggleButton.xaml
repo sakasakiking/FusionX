@@ -86,6 +86,7 @@
         <Setter Property="Foreground" Value="Yellow" />
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="48"/>
+        <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="BorderThickness" Value="0"/>
@@ -98,7 +99,7 @@
                         <Border x:Name="Border" Background="{TemplateBinding Background}" CornerRadius="24"
                                 Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
                             <TextBlock x:Name="FavoriteAction" Text="{DynamicResource LOCRemoveFavoriteGame}"
-                                       FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"
+                                       FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" FontWeight="{TemplateBinding FontWeight}"
                                        HorizontalAlignment="Center" VerticalAlignment="Center"
                                        Style="{StaticResource BaseTextBlockStyle}"/>
                         </Border>
