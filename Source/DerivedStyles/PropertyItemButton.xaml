@@ -51,6 +51,50 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="PropertyItemLinkButton" TargetType="Button">
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="Margin" Value="0,4,0,0" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="32" Height="32" CornerRadius="16" Background="{TemplateBinding Background}" Margin="0,0,12,8">
+                        <DockPanel HorizontalAlignment="Center">
+                            <Viewbox DockPanel.Dock="Left" Width="16" Height="16" x:Name="ViewBoxLink"
+                                 VerticalAlignment="Center"
+                                 Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}"
+                                 RenderOptions.ClearTypeHint="Enabled" RenderOptions.BitmapScalingMode="Fant">
+                                <ContentControl Content="{Binding Value, TargetNullValue={StaticResource LinksIcon}}"
+                                                DataContext="{Binding Url, Converter={PluginConverter Plugin=ThemeExtras, Converter=UrlToAsyncIconConverter}}"/>
+                            </Viewbox>
+
+                            <TextBlock FontSize="{TemplateBinding FontSize}" Name="LinkName"
+                                       Foreground="{TemplateBinding Foreground}" 
+                                       Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
+                                       TextWrapping="Wrap"/>
+                        </DockPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=ViewBoxLink, Path=Visibility}" Value="Visible">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="LinkName"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}"/>
+                <Setter Property="Cursor" Value="Hand" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="PropertyItemRoundedButton" TargetType="Button">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
         <Setter Property="Margin" Value="0,4,8,4" />
