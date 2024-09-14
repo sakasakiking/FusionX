@@ -41,7 +41,7 @@
                         </ItemsControl>
                         <Button Name="PART_ButtonDismissAll" Grid.Row="2"
                                  HorizontalAlignment="Stretch" Margin="16,16,16,16"
-                                 Style="{StaticResource SimpleFilledButton}"
+                                 Style="{StaticResource SimpleTubeButton}"
                                  Content="{DynamicResource LOCDismissAll}" />
                     </Grid>
                 </ControlTemplate>

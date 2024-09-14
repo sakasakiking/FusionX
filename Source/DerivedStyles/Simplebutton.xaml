@@ -27,14 +27,14 @@
 
     <Style x:Key="DetailViewActionButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
-        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Margin" Value="12,0,12,0" />
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Border" Height="48" CornerRadius="24" Padding="12,0,12,0"
+                    <Border x:Name="Border" Height="48" CornerRadius="24" Padding="{TemplateBinding Margin}"
                             Background="{DynamicResource ControlHoverBackgroundBrush}">
                         <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center"
                                    Foreground="{TemplateBinding Foreground}" FontWeight="{TemplateBinding FontWeight}"
@@ -59,23 +59,24 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="SimpleFilledRoundButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Style x:Key="SimpleTubeTextButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Margin" Value="12,0,12,0" />
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Border" Height="28" CornerRadius="14" Width="28"
-                        Background="{DynamicResource ControlHoverBackgroundBrush}">
+                    <Border x:Name="Border" Height="32" CornerRadius="16" Padding="{TemplateBinding Margin}"
+                            Background="{TemplateBinding Background}">
                         <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                           Foreground="{TemplateBinding Foreground}"
-                           Text="{TemplateBinding Content}"
-                           TextWrapping="Wrap"/>
+                                   Foreground="{TemplateBinding Foreground}"
+                                   Text="{TemplateBinding Content}"
+                                   TextWrapping="Wrap"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}" TargetName="Border"/>
+                            <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" TargetName="Border"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -165,14 +166,14 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="LightFilled44Button" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Style x:Key="SimpleTubeButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Margin" Value="12,0,12,0" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Border" Height="44" CornerRadius="22" Padding="12,0,12,0"
+                    <Border x:Name="Border" Height="32" CornerRadius="16" Padding="{TemplateBinding Margin}"
                             Background="{DynamicResource ControlHoverBackgroundBrush}">
                         <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center"
                            Foreground="{TemplateBinding Foreground}"

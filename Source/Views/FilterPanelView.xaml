@@ -78,7 +78,7 @@
                                         Name="PART_ButtonClose"/>
                                 <Button DockPanel.Dock="Right" Content="{StaticResource LOCClearFilters}"                                        
                                         HorizontalAlignment="Left"
-                                        Style="{StaticResource SimpleFilledButton}"
+                                        Style="{StaticResource SimpleTubeButton}"
                                         Name="PART_ButtonClear"/>
                             </DockPanel>
                             <DockPanel Margin="16,16,16,0" DockPanel.Dock="Top">
