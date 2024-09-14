@@ -59,7 +59,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Width="32" Height="32" CornerRadius="16" Background="{TemplateBinding Background}" Margin="0,0,12,8">
+                    <Border Width="32" Height="32" CornerRadius="16" Background="{TemplateBinding Background}" Margin="0,0,16,8">
                         <DockPanel HorizontalAlignment="Center">
                             <Viewbox DockPanel.Dock="Left" Width="16" Height="16" x:Name="ViewBoxLink"
                                  VerticalAlignment="Center"
@@ -95,18 +95,18 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="PropertyItemRoundedButton" TargetType="Button">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
-        <Setter Property="Margin" Value="0,4,8,4" />
+    <Style x:Key="PropertyItemTagButton" TargetType="Button">
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Padding="3,0,3,2" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource ControlHoverBorderBrush}">
-                        <TextBlock FontSize="{TemplateBinding FontSize}"
-                               Foreground="{TemplateBinding Foreground}" FontWeight="Bold"
-                               Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
-                               TextWrapping="Wrap"/>
+                    <Border Padding="10,5,10,5" CornerRadius="4" BorderThickness="1"  Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" 
+                                   Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="Wrap"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
