@@ -41,31 +41,48 @@
 
     <Style x:Key="FavoriteRoundedToggleButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
-        <Setter Property="Foreground" Value="Yellow" />
-        <Setter Property="Width" Value="36"/>
-        <Setter Property="Height" Value="36"/>
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Width" Value="48"/>
+        <Setter Property="Height" Value="48"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="IsChecked" Value="True" />
+        <Setter Property="IsChecked" Value="False" />
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Grid>
-                        <Ellipse x:Name="Border" Fill="{TemplateBinding Background}"
+                        <Ellipse Fill="{TemplateBinding Background}"
                                  Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
-                        <TextBlock x:Name="FavoriteIcon" Text="&#xe00a;"
+                        <Ellipse x:Name="Border" Visibility="Collapsed"
+                                 Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush GradientOrigin="0.5,1" Center="0.5,1" RadiusX="1" RadiusY="1">
+                                    <RadialGradientBrush.GradientStops>
+                                        <GradientStop Color="#3DFFFFFF" Offset="0" />
+                                        <GradientStop Color="Transparent" Offset="0.6" />
+                                    </RadialGradientBrush.GradientStops>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <TextBlock x:Name="FavoriteIcon" Text="&#xe1ce;"
                                    FontSize="{TemplateBinding FontSize}"
                                    Foreground="{TemplateBinding Foreground}"
                                    Style="{StaticResource IconFontStyle}"/>
 
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="False">
-                            <Setter Property="TextBlock.Text" Value="&#xe1ce;" TargetName="FavoriteIcon" />
-                            <Setter Property="TextBlock.Foreground" Value="{DynamicResource IdleBrush}"/>
-                            <Setter Property="TextBlock.FontWeight" Value="Black"/>
+                        <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter Property="TextBlock.Text" Value="&#xe00a;" TargetName="FavoriteIcon" />
+                            <Setter Property="TextBlock.Foreground" Value="Yellow"/>
+                            <Setter Property="Visibility" Value="Visible" TargetName="Border"/>
+                            <!--<Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="White" BlurRadius="20" ShadowDepth="0" Opacity="1"/>
+                                </Setter.Value>
+                            </Setter>-->
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

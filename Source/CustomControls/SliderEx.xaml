@@ -69,11 +69,11 @@
                                 <Thumb Width="12" Height="12" Margin="-2,0,0,0" Style="{DynamicResource RoundedThumb}"/>
                             </Track.Thumb>
                             <Track.DecreaseRepeatButton>
-                                <RepeatButton x:Name="ButtonDecrease"
+                                <RepeatButton x:Name="ButtonDecrease" Command="Slider.DecreaseLarge"
                                               Style="{StaticResource SliderTrackButton}"/>
                             </Track.DecreaseRepeatButton>
                             <Track.IncreaseRepeatButton>
-                                <RepeatButton x:Name="ButtonIncrease"
+                                <RepeatButton x:Name="ButtonIncrease" Command="Slider.IncreaseLarge"
                                               Style="{StaticResource SliderTrackButton}"/>
                             </Track.IncreaseRepeatButton>
                         </Track>

@@ -17,13 +17,26 @@
                                        HorizontalAlignment="Center" VerticalAlignment="Center"
                                        RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
                                        Stretch="{Settings CoverArtStretch}"/>
-                                
+                                                             
+                                <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#66000000"
+                                        Name="GameControls"  Visibility="Collapsed">
+                                    <Grid>
+                                        <StackPanel Orientation="Horizontal" Margin="0,16,16,16"
+                                                    VerticalAlignment="Top" HorizontalAlignment="Right">
+                                        </StackPanel>
+                                        <Viewbox>
+                                            <Button Name="PART_ButtonPlay" Content="&#xe102;" Margin="24,0,24,0" 
+                                                Style="{StaticResource GridViewPlayButton}"/>
+
+                                        </Viewbox>
+                                    </Grid>
+                                </Border>
                                 <Border Background="#99000000" x:Name="TextGameName" Visibility="Collapsed">
                                     <TextBlock Text="{Binding DisplayName}"
-                                           TextWrapping="Wrap" Margin="5"
-                                           Style="{StaticResource BaseTextBlockStyle}"
-                                           TextTrimming="CharacterEllipsis" TextAlignment="Center"
-                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                               TextWrapping="Wrap" Margin="5"
+                                               Style="{StaticResource BaseTextBlockStyle}"
+                                               TextTrimming="CharacterEllipsis" TextAlignment="Center"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
 
                                 <Border Background="#99000000" x:Name="BorderMouseOver" Visibility="Collapsed" />
@@ -46,19 +59,6 @@
                                         </Style>
                                     </TextBlock.Style>
                                 </TextBlock>
-                                <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#66000000"
-                                        Name="GameControls"  Visibility="Collapsed">
-                                    <Grid>
-                                        <StackPanel Orientation="Horizontal" Margin="0,16,16,16"
-                                                    VerticalAlignment="Top" HorizontalAlignment="Right">
-                                        </StackPanel>
-                                        <Viewbox>
-                                            <Button Name="PART_ButtonPlay" Content="&#xe102;" Margin="24,0,24,0" 
-                                                Style="{StaticResource GridViewPlayButton}"/>
-
-                                        </Viewbox>
-                                    </Grid>
-                                </Border>
                             </Grid>
                             
                         </StackPanel>

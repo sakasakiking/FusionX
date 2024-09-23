@@ -15,7 +15,17 @@
                                 <DockPanel.ContextMenu>
                                     <GameGroupMenu />
                                 </DockPanel.ContextMenu>
-                                <TextBlock DockPanel.Dock="Left"
+
+                                <Border DockPanel.Dock="Right" Background="{DynamicResource ControlIdleBackgroundBrush}"
+                                        Height="20" CornerRadius="10" Padding="6,0,6,0">
+                                    <TextBlock Text="{Binding Items.Count, Mode=OneWay, StringFormat=0}"
+                                               VerticalAlignment="Center" HorizontalAlignment="Right"
+                                               Style="{DynamicResource BaseTextBlockStyle}"
+                                               TextAlignment="Center" FontSize="12"
+                                               Visibility="{Settings ShowGroupCount}"/>
+                                </Border>
+                                
+                                <TextBlock DockPanel.Dock="Left" TextTrimming="CharacterEllipsis"
                                            VerticalAlignment="Center" HorizontalAlignment="Left"
                                            TextAlignment="Center" Margin="0,0,8,0">
                                     <TextBlock.Style>
@@ -32,14 +42,6 @@
                                         </Style>
                                     </TextBlock.Style>
                                 </TextBlock>
-                                <Border DockPanel.Dock="Right" Background="{DynamicResource ControlIdleBackgroundBrush}"
-                                        Height="20" CornerRadius="10" Padding="6,0,6,0">
-                                    <TextBlock Text="{Binding Items.Count, Mode=OneWay, StringFormat=0}"
-                                               VerticalAlignment="Center" HorizontalAlignment="Right"
-                                               Style="{DynamicResource BaseTextBlockStyle}"
-                                               TextAlignment="Center" FontSize="12"
-                                               Visibility="{Settings ShowGroupCount}"/>
-                                </Border>
                                 
                             </DockPanel>
                         </ExpanderEx.Header>

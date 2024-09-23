@@ -57,8 +57,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}"
-                        Background="{TemplateBinding Background}" CornerRadius="18"
-                        Style="{DynamicResource HighlightBorder}" BorderBrush="{TemplateBinding BorderBrush}">
+                            Background="{TemplateBinding Background}" CornerRadius="18"
+                            Style="{DynamicResource HighlightBorder}" BorderBrush="{TemplateBinding BorderBrush}">
                         <ScrollViewer x:Name="PART_ContentHost"
                                   VerticalScrollBarVisibility="{TemplateBinding VerticalScrollBarVisibility}"
                                   HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}"/>
