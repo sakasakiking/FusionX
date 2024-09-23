@@ -18,19 +18,7 @@
                                        RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
                                        Stretch="{Settings CoverArtStretch}"/>
                                                              
-                                <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#66000000"
-                                        Name="GameControls"  Visibility="Collapsed">
-                                    <Grid>
-                                        <StackPanel Orientation="Horizontal" Margin="0,16,16,16"
-                                                    VerticalAlignment="Top" HorizontalAlignment="Right">
-                                        </StackPanel>
-                                        <Viewbox>
-                                            <Button Name="PART_ButtonPlay" Content="&#xe102;" Margin="24,0,24,0" 
-                                                Style="{StaticResource GridViewPlayButton}"/>
-
-                                        </Viewbox>
-                                    </Grid>
-                                </Border>
+                                <!--Game Not Installed-->
                                 <Border Background="#99000000" x:Name="TextGameName" Visibility="Collapsed">
                                     <TextBlock Text="{Binding DisplayName}"
                                                TextWrapping="Wrap" Margin="5"
@@ -43,6 +31,20 @@
 
                                 <Button Name="PART_ButtonInfo" Background="Transparent" BorderThickness="0"
                                         Margin="0" VerticalAlignment="Stretch"  />
+                                
+                                <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#66000000"
+                                        Name="GameControls"  Visibility="Collapsed">
+                                    <Grid>
+                                        <StackPanel Orientation="Horizontal" Margin="0,16,16,16"
+                                                    VerticalAlignment="Top" HorizontalAlignment="Right">
+                                        </StackPanel>
+                                        <Viewbox>
+                                            <Button Name="PART_ButtonPlay" Content="&#xe102;" Margin="24,0,24,0" 
+                                                    Style="{StaticResource GridViewPlayButton}"/>
+
+                                        </Viewbox>
+                                    </Grid>
+                                </Border>
 
                                 <TextBlock Text="&#xe00a;" Foreground="Yellow" Margin="16,16,16,16"
                                            FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
@@ -59,6 +61,7 @@
                                         </Style>
                                     </TextBlock.Style>
                                 </TextBlock>
+                                
                             </Grid>
                             
                         </StackPanel>
