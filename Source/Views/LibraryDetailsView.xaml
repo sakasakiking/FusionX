@@ -14,7 +14,7 @@
                         <Grid DockPanel.Dock="{Settings DetailsListPosition}"
                               Width="{Settings DetailsListWitdh}">
 
-                            <ExtendedListBox x:Name="PART_ListGames" Padding="16,16,16,0"
+                            <ExtendedListBox x:Name="PART_ListGames" Padding="16,16,16,16"
                                          BorderBrush="{DynamicResource PanelSeparatorBrush}"
                                          ItemContainerStyle="{DynamicResource DetailsViewItemStyle}"
                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -42,9 +42,9 @@
                                 </ExtendedListBox.ItemTemplate>
                             </ExtendedListBox>
                             
-                            <TextBlock FontSize="{StaticResource FontSizeLarge}" Margin="0,16,0,0"
+                            <TextBlock FontSize="{StaticResource FontSizeLarge}" Margin="0,0,0,0"
                                        Text="{DynamicResource LOCNoItemsFound}" TextWrapping="Wrap"                                       
-                                       TextAlignment="Center" HorizontalAlignment="Center">
+                                       TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
                                         <Setter Property="Visibility" Value="Collapsed" />

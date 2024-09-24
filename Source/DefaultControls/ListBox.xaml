@@ -97,9 +97,11 @@
                 <ControlTemplate TargetType="ListBoxItem">
                     <Grid Height="28">
                         <Border x:Name="HoverRectangle" IsHitTestVisible="False" Visibility="Collapsed"
-                                Background="{DynamicResource ControlHoverBackgroundBrush}" CornerRadius="14" />
+                                Background="{DynamicResource ControlHoverBackgroundBrush}" CornerRadius="14"/>
                         <Border x:Name="SelectedRectangle" IsHitTestVisible="False" Visibility="Collapsed"
-                                Background="{DynamicResource ControlSelectedBackgroundBrush}" CornerRadius="14"/>
+                                Background="{DynamicResource ControlSelectedBackgroundBrush}" CornerRadius="14" >
+                            <Border Background="{DynamicResource TubeBackgroundBrush}" CornerRadius="14"/>
+                        </Border>
                         <Border Padding="{TemplateBinding Padding}" Background="Transparent">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="Center"

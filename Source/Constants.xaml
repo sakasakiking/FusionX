@@ -115,4 +115,18 @@
         <GradientStop Color="#212121" Offset="1"/>
     </LinearGradientBrush>
 
+    <RadialGradientBrush x:Key="RoundedButtonBackgroundBrush" GradientOrigin="0.5,1" Center="0.5,1" RadiusX="1" RadiusY="1">
+        <RadialGradientBrush.GradientStops>
+            <GradientStop Color="#3DFFFFFF" Offset="0" />
+            <GradientStop Color="Transparent" Offset="0.8" />
+        </RadialGradientBrush.GradientStops>
+    </RadialGradientBrush>
+
+    <RadialGradientBrush x:Key="TubeBackgroundBrush" GradientOrigin="0.6,1" Center="0.6,1" RadiusX="1" RadiusY="1">
+        <RadialGradientBrush.GradientStops>
+            <GradientStop Color="#3DFFFFFF" Offset="0" />
+            <GradientStop Color="Transparent" Offset="0.8" />
+        </RadialGradientBrush.GradientStops>
+    </RadialGradientBrush>
+
 </ResourceDictionary>

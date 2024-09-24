@@ -102,7 +102,6 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="Tag" Value="{StaticResource True}">
                             <Setter Property="Visibility" Value="Visible" TargetName="TextFilter" />
-                            <Setter Property="Background" Value="{DynamicResource NormalBrush}" />
                         </Trigger>
                         <Trigger Property="Tag" Value="{StaticResource False}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="TextFilter" />
@@ -115,9 +114,6 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource HoverBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
-            </Trigger>
-            <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>

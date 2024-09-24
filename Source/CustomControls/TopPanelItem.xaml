@@ -15,12 +15,19 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TopPanelItem}">
-                    <Border x:Name="Border" BorderThickness="0" Background="{TemplateBinding Background}"
-                            CornerRadius="16" BorderBrush="{TemplateBinding BorderBrush}">
+                    <Grid>
+                        <Ellipse x:Name="Border" Fill="{TemplateBinding Background}"/>
+                        <Ellipse x:Name="HoverBorder" Fill="{DynamicResource RoundedButtonBackgroundBrush}"
+                                 Visibility="Collapsed"/>
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" />
-                    </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsToggled" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="HoverBorder"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -29,10 +36,17 @@
                 <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}"/>
             </Trigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource HoverBrush}" />
-                <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"/>
-            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsToggled" Value="False" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Foreground" Value="{DynamicResource HoverBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"/>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="Content" Value="{x:Null}" />

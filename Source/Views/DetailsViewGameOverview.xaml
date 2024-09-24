@@ -78,11 +78,7 @@
                                         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,40,0">
 
                                             <DockPanel Margin="0,0,0,40">
-                                                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
-
-                                                </StackPanel>
-
-                                                <WrapPanel MinWidth="300" DockPanel.Dock="Bottom">
+                                                <WrapPanel MinWidth="300" DockPanel.Dock="Bottom" Margin="0,8,0,0">
 
                                                     <StackPanel Orientation="Horizontal" Margin="0,0,24,0">
                                                         <StackPanel.Resources>
@@ -130,13 +126,13 @@
 
                                                 </WrapPanel>
 
-                                                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,0,0,8" HorizontalAlignment="Left">
-                                                    <Image Name="PART_ImageIcon" MaxWidth="32" MaxHeight="32" VerticalAlignment="Center"
-                                                           RenderOptions.BitmapScalingMode="Fant" Margin="0,0,16,0"/>
-                                                    <TextBlock Name="PART_TextDisplayName" FontFamily="{DynamicResource FontFamily}" 
-                                                               FontSize="{DynamicResource FontSizeLarge32}" FontWeight="Bold"
-                                                               TextWrapping="Wrap" Foreground="{DynamicResource SelectedBrush}"/>
-                                                </StackPanel>
+                                                <Image Name="PART_ImageIcon" MaxWidth="32" MaxHeight="32" VerticalAlignment="Top" DockPanel.Dock="Left"
+                                                       RenderOptions.BitmapScalingMode="Fant" Margin="0,2,16,0"/>
+                                                
+                                                <TextBlock Name="PART_TextDisplayName" FontFamily="{DynamicResource FontFamily}" DockPanel.Dock="Top"
+                                                           FontSize="{DynamicResource FontSizeLarge32}" FontWeight="Bold"
+                                                           TextWrapping="Wrap" Foreground="{DynamicResource SelectedBrush}"/>
+
                                             </DockPanel>
 
                                             <!--Video Part-->
@@ -578,18 +574,6 @@
                                 <ColumnDefinition Width="260"/>
                             </Grid.ColumnDefinitions>
 
-
-                                
-
-                                <!--<StackPanel Grid.Row="3" Orientation="Horizontal" Margin="16,0,16,16"
-                                        HorizontalAlignment="Right">
-
-                                
-                                
-                                </StackPanel>-->
-
-
-
                                 <Button Name="PART_ButtonPlayAction" Grid.Column="1" Margin="0"
                                     Height="48" Width="Auto" FontWeight="Bold"
                                     Style="{DynamicResource PlayButton_LeftPart}" 
@@ -601,7 +585,7 @@
                                     Style="{DynamicResource PlayButton_LeftPart}" 
                                     FontSize="{DynamicResource FontSizeLarge20}" />
 
-                                <Button x:Name="PART_ButtonEditGame" Grid.Column="1" Margin="1,0,0,0" 
+                                <Button x:Name="PART_ButtonEditGame" Grid.Column="1"
                                     Height="48" Width="48" Focusable="False" HorizontalAlignment="Right"
                                     Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                     Style="{StaticResource PlayButton_RightPart}"

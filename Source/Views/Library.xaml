@@ -23,10 +23,10 @@
                                    HorizontalAlignment="Center" VerticalAlignment="Top" >
 
                             <FadeImage.ImageOpacityMask>
-                                <RadialGradientBrush GradientOrigin="0.5,0" Center="0.5,0" RadiusX="1" RadiusY="1.2">
+                                <RadialGradientBrush GradientOrigin="0.5,0" Center="0.5,0" RadiusX="1" RadiusY="1.5">
                                     <RadialGradientBrush.GradientStops>
                                         <GradientStop Color="Black" Offset="0.4" />
-                                        <GradientStop Color="Transparent" Offset="0.9" />
+                                        <GradientStop Color="Transparent" Offset="0.98" />
                                     </RadialGradientBrush.GradientStops>
                                 </RadialGradientBrush>
                             </FadeImage.ImageOpacityMask>
