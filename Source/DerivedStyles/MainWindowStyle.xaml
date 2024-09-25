@@ -30,14 +30,14 @@
                                         <TextBlock Text="{TemplateBinding Title}" DockPanel.Dock="Left" Margin="10,3,0,0" VerticalAlignment="Center"
                                                    Opacity="0.75" Style="{DynamicResource BaseTextBlockStyle}" x:Name="PART_TextTitle" />
                                         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="0,0,16,0" VerticalAlignment="Center" Height="60">
-                                            <Button Style="{DynamicResource LightFilledRoundButton}" Background="Transparent"
+                                            <Button Style="{DynamicResource LightFilledRoundButton}"
                                                     Content="&#xe108;" x:Name="PART_ButtonMinimize"
                                                     Width="32" Height="32" WindowChrome.IsHitTestVisibleInChrome="True"/>
                                             <Button Style="{DynamicResource LightFilledRoundButton}" 
-                                                    Content="&#xe15b;" x:Name="PART_ButtonMaximize" Background="Transparent"
+                                                    Content="&#xe15b;" x:Name="PART_ButtonMaximize" 
                                                     Width="32" Height="32" WindowChrome.IsHitTestVisibleInChrome="True"/>
                                             <Button Style="{DynamicResource LightFilledRoundButton}" 
-                                                    Content="&#xe106;" x:Name="PART_ButtonClose" Background="Transparent"
+                                                    Content="&#xe106;" x:Name="PART_ButtonClose" 
                                                     Width="32" Height="32" WindowChrome.IsHitTestVisibleInChrome="True"/>
                                         </StackPanel>
                                     </DockPanel>

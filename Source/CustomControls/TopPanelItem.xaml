@@ -4,29 +4,62 @@
     <Style TargetType="{x:Type TopPanelItem}">
         <Setter Property="Width" Value="32" />
         <Setter Property="Height" Value="32" />
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Margin" Value="4,0,0,0" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Focusable" Value="False" />
-        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="0" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TopPanelItem}">
                     <Grid>
-                        <Ellipse x:Name="Border" Fill="{TemplateBinding Background}"/>
-                        <Ellipse x:Name="HoverBorder" Fill="{DynamicResource RoundedButtonBackgroundBrush}"
-                                 Visibility="Collapsed"/>
+                        <Ellipse x:Name="Border" Fill="{TemplateBinding Background}" Opacity="0"/>
+                        <Ellipse x:Name="SelectedBorder" Fill="{DynamicResource RoundedButtonBackgroundBrush}" Visibility="Collapsed"/>
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" />
+                                          Margin="{TemplateBinding Padding}" RecognizesAccessKey="True"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsToggled" Value="True">
-                            <Setter Property="Visibility" Value="Visible" TargetName="HoverBorder"/>
+                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedBorder"/>
+                            <Setter Property="Opacity" Value="1" TargetName="Border"/>
                         </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsToggled" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Border"
+                                                        Storyboard.TargetProperty="Opacity" 
+                                                        To="1" Duration="0:0:0.6">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Border"
+                                                        Storyboard.TargetProperty="Opacity" 
+                                                        To="0" Duration="0:0:0.6">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -42,11 +75,9 @@
                     <Condition Property="IsToggled" Value="False" />
                 </MultiTrigger.Conditions>
                 <MultiTrigger.Setters>
-                    <Setter Property="Foreground" Value="{DynamicResource HoverBrush}" />
-                    <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}"/>
                 </MultiTrigger.Setters>
             </MultiTrigger>
-
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="Content" Value="{x:Null}" />

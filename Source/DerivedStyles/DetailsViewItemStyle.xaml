@@ -6,21 +6,65 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}"
+                    <Grid>
+                        <Border x:Name="HoverRectangle" IsHitTestVisible="False" Opacity="0"
+                                Background="{TemplateBinding Background}" CornerRadius="8"/>
+                        <Border x:Name="SelectedRectangle" IsHitTestVisible="False" Visibility="Collapsed"
+                                Background="{DynamicResource ControlSelectedBackgroundBrush}" CornerRadius="8" >
+                            <Border Background="{DynamicResource TubeBackgroundBrush}" CornerRadius="8"/>
+                        </Border>
+                        <Border Padding="{TemplateBinding Padding}" Background="Transparent"
                             CornerRadius="8">
                             <ContentPresenter />
                         </Border>
-                        <ControlTemplate.Triggers>
+                    </Grid>
+                    <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsInstalled}" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsInstalled}" Value="False">
                             <Setter Property="Foreground" Value="{DynamicResource DisabledBrush}" />
-                        </DataTrigger>    
+                        </DataTrigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedRectangle"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="Selector.IsSelected" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{DynamicResource HoverBrush}"/>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverRectangle"
+                                 Storyboard.TargetProperty="Opacity" 
+                                 To="1" Duration="0:0:0.6">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverRectangle"
+                                 Storyboard.TargetProperty="Opacity" 
+                                 To="0" Duration="0:0:0.6">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -31,12 +75,9 @@
                     <Condition Property="IsMouseOver" Value="True" />
                     <Condition Property="Selector.IsSelected" Value="False" />
                 </MultiTrigger.Conditions>
-                <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"/>
                 <Setter Property="Foreground" Value="{DynamicResource HoverBrush}"/>
             </MultiTrigger>
-
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}"/>
                 <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}"/>
             </Trigger>
         </Style.Triggers>

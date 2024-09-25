@@ -593,7 +593,7 @@
 
                             <DockPanel Grid.Column="0">
                                 <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48" DockPanel.Dock="Right"
-                                            Content="&#xe700;" 
+                                            Content="&#xe700;" Background="{DynamicResource ControlIdleBackgroundBrush}"
                                             Style="{DynamicResource LightFilledRoundButton}" 
                                             FontSize="{DynamicResource FontSizeLarge}"/>
 

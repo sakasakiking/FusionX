@@ -92,21 +92,23 @@
     </Style>
 
     <Style x:Key="LightFilledRoundButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="32"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
-        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <Ellipse x:Name="Border" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
-                                Fill="{TemplateBinding Background}" Visibility="Visible">
-                        </Ellipse>
-                        <Ellipse x:Name="HoverBorder" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
-                                Fill="{DynamicResource ControlSelectedBackgroundBrush}" Visibility="Collapsed">
-                        </Ellipse>
+                        <Ellipse x:Name="IdleBg" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
+                                 Fill="{TemplateBinding Background}"/>
+                        <Ellipse x:Name="HoverBg" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
+                                 Fill="{DynamicResource ControlHoverBackgroundBrush}" Opacity="0"/>
+                        <Ellipse x:Name="SelecetedBg" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
+                                 Fill="{DynamicResource ControlSelectedBackgroundBrush}" Visibility="Collapsed"/>
                         <TextBlock FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" 
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}" TextWrapping="Wrap"/>
@@ -114,8 +116,32 @@
                     
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Visibility" Value="Visible" TargetName="HoverBorder"/>
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="Border"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="IdleBg"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         To="1" Duration="0:0:0.6">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="IdleBg"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         To="0" Duration="0:0:0.6">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
