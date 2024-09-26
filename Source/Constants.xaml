@@ -41,12 +41,21 @@
     <Color x:Key="WindowPanelSeparatorColor">#14ffffff</Color>
     <Color x:Key="DataChangeNotifColor">#ffa500</Color>
 
+    <!--FusionX Newly Added Color-->
+    <Color x:Key="8%White">#14FFFFFF</Color>
+    <Color x:Key="16%White">#29FFFFFF</Color>
+    <Color x:Key="24%White">#3DFFFFFF</Color>
+    <Color x:Key="36%White">#5CFFFFFF</Color>
+    <Color x:Key="40%White">#66FFFFFF</Color>
+    <!--FusionX Newly Added Color Ends-->
+
     <SolidColorBrush x:Key="LightDarkBackgroundBrush" Color="#33000000" />
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="#66000000" />
 
-    <SolidColorBrush x:Key="ControlIdleBackgroundBrush" Color="#14FFFFFF" />
-    <SolidColorBrush x:Key="ControlHoverBackgroundBrush" Color="#29FFFFFF" />
-    <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" Color="#33FFFFFF" />
+    <SolidColorBrush x:Key="ControlIdleBackgroundBrush" Color="{DynamicResource 16%White}" />
+    <SolidColorBrush x:Key="ControlHoverBackgroundBrush" Color="{DynamicResource 8%White}" />
+    <SolidColorBrush x:Key="ControlFilledHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
+    <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" Color="{DynamicResource 16%White}" />
 
     <SolidColorBrush x:Key="ControlIdleBorderBrush" Color="#29FFFFFF" />
     <SolidColorBrush x:Key="ControlHoverBorderBrush" Color="#66FFFFFF" />
@@ -111,21 +120,28 @@
     </LinearGradientBrush>-->
     
     <LinearGradientBrush x:Key="WindowBackgourndBrush" StartPoint="0.5,0" EndPoint="0.5,1" >
-        <GradientStop Color="#212121" Offset="0"/>
+        <GradientStop Color="#2C2C2C" Offset="0"/>
         <GradientStop Color="#212121" Offset="1"/>
     </LinearGradientBrush>
 
-    <RadialGradientBrush x:Key="RoundedButtonBackgroundBrush" GradientOrigin="0.5,1" Center="0.5,1" RadiusX="1" RadiusY="1">
+    <RadialGradientBrush x:Key="RGLayerBackgroundBrush" GradientOrigin="0.5,1" Center="0.5,1" RadiusX="1" RadiusY="1">
         <RadialGradientBrush.GradientStops>
-            <GradientStop Color="#3DFFFFFF" Offset="0" />
+            <GradientStop Color="{DynamicResource 24%White}" Offset="0" />
             <GradientStop Color="Transparent" Offset="0.8" />
         </RadialGradientBrush.GradientStops>
     </RadialGradientBrush>
 
-    <RadialGradientBrush x:Key="TubeBackgroundBrush" GradientOrigin="0.6,1" Center="0.6,1" RadiusX="1" RadiusY="1">
+    <RadialGradientBrush x:Key="RGSelectedBackgroundBrush" GradientOrigin="0.5,1" Center="0.5,1" RadiusX="1" RadiusY="1">
         <RadialGradientBrush.GradientStops>
-            <GradientStop Color="#3DFFFFFF" Offset="0" />
-            <GradientStop Color="Transparent" Offset="0.8" />
+            <GradientStop Color="{DynamicResource 40%White}" Offset="0" />
+            <GradientStop Color="{DynamicResource 24%White}" Offset="0.8" />
+        </RadialGradientBrush.GradientStops>
+    </RadialGradientBrush>
+
+    <RadialGradientBrush x:Key="RGTubeLayerBackgroundBrush" GradientOrigin="0.6,1" Center="0.6,1" RadiusX="1" RadiusY="1">
+        <RadialGradientBrush.GradientStops>
+            <GradientStop Color="{DynamicResource 40%White}" Offset="0" />
+            <GradientStop Color="{DynamicResource 24%White}" Offset="0.8" />
         </RadialGradientBrush.GradientStops>
     </RadialGradientBrush>
 

@@ -55,7 +55,7 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="Margin" Value="0,4,0,0" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -86,7 +86,7 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
-                <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource ControlFilledHoverBackgroundBrush}"/>
                 <Setter Property="Cursor" Value="Hand" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">

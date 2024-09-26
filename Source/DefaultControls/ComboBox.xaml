@@ -127,10 +127,9 @@
     </Style>
 
     <Style x:Key="FreeComboBox" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource BaseStyle}">
-        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -184,7 +183,7 @@
                             <Setter Property="BorderBrush" Value="{DynamicResource SelectedBrush}" TargetName="Border" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"  TargetName="Border"/>
+                            <Setter Property="Background" Value="{DynamicResource ControlFilledHoverBackgroundBrush}"  TargetName="Border"/>
                         </Trigger>
                         <Trigger Property="IsEditable" Value="True">
                             <Setter Property="IsTabStop" Value="False" />

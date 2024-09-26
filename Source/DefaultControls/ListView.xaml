@@ -129,10 +129,10 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListViewItem}">
                     <Grid>
-                        <Rectangle x:Name="HoverRectangle" Visibility="Collapsed"
-                                   Fill="{DynamicResource ControlHoverBackgroundBrush}" 
+                        <Rectangle x:Name="HoverBg" Visibility="Collapsed"
+                                   Fill="{DynamicResource ControlFilledHoverBackgroundBrush}" 
                                    Height="32" RadiusX="16" RadiusY="16"/>
-                        <Rectangle x:Name="SelectedRectangle" Visibility="Collapsed" Fill="{DynamicResource ControlSelectedBackgroundBrush}" 
+                        <Rectangle x:Name="SelectedBg" Visibility="Collapsed" Fill="{DynamicResource ControlSelectedBackgroundBrush}" 
                                    Height="32" RadiusX="16" RadiusY="16"/>
                         <Border Padding="{TemplateBinding Padding}" Background="Transparent" Height="32">
                             <GridViewRowPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Stretch" />
@@ -140,10 +140,11 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Selector.IsSelected" Value="True">
-                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedRectangle" />
+                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedBg" />
+                            <Setter Property="Visibility" Value="Visible" TargetName="HoverBg" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Visibility" Value="Visible" TargetName="HoverRectangle" />
+                            <Setter Property="Visibility" Value="Visible" TargetName="HoverBg" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

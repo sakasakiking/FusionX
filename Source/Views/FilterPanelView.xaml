@@ -73,11 +73,13 @@
                             <DockPanel Margin="16,16,16,0" DockPanel.Dock="Top">
                                 <Button Content="&#xe106;"
                                         Width="32" Height="32"
+                                        Background="{DynamicResource ControlIdleBackgroundBrush}"
                                         Style="{StaticResource LightFilledRoundButton}"
                                         DockPanel.Dock="Right" Margin="0,0,0,0"
                                         Name="PART_ButtonClose"/>
                                 <Button DockPanel.Dock="Left" Content="{StaticResource LOCClearFilters}"                                        
                                         HorizontalAlignment="Left" Margin="0"
+                                        Background="{DynamicResource ControlIdleBackgroundBrush}"
                                         Style="{StaticResource SimpleTubeButton}"
                                         Name="PART_ButtonClear"/>
                             </DockPanel>

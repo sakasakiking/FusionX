@@ -40,7 +40,7 @@
     </Style>
 
     <Style x:Key="FavoriteRoundedToggleButton" TargetType="{x:Type ToggleButton}">
-        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="Width" Value="48"/>
         <Setter Property="Height" Value="48"/>
@@ -53,47 +53,57 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Grid>
-                        <Ellipse Fill="{TemplateBinding Background}"
+                        <Ellipse x:Name="IdleBg" Fill="{TemplateBinding Background}"/>
+                        <Ellipse x:Name="HoverBg" Fill="{DynamicResource ControlHoverBackgroundBrush}" Opacity="0"
                                  Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
-                        <Ellipse x:Name="Border" Visibility="Collapsed"
-                                 Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
-                            <Ellipse.Fill>
-                                <RadialGradientBrush GradientOrigin="0.5,1" Center="0.5,1" RadiusX="1" RadiusY="1">
-                                    <RadialGradientBrush.GradientStops>
-                                        <GradientStop Color="#3DFFFFFF" Offset="0" />
-                                        <GradientStop Color="Transparent" Offset="0.8" />
-                                    </RadialGradientBrush.GradientStops>
-                                </RadialGradientBrush>
-                            </Ellipse.Fill>
-                        </Ellipse>
-
+                        <Ellipse x:Name="SelectedBg" Visibility="Collapsed" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
+                                 Fill="{DynamicResource RGLayerBackgroundBrush}"/>
                         <TextBlock x:Name="FavoriteIcon" Text="&#xe1ce;"
                                    FontSize="{TemplateBinding FontSize}"
                                    Foreground="{TemplateBinding Foreground}"
                                    Style="{StaticResource IconFontStyle}"/>
-
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="True">
                             <Setter Property="TextBlock.Text" Value="&#xe00a;" TargetName="FavoriteIcon" />
                             <Setter Property="TextBlock.Foreground" Value="Yellow"/>
-                            <Setter Property="Visibility" Value="Visible" TargetName="Border"/>
-                            <!--<Setter Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="White" BlurRadius="20" ShadowDepth="0" Opacity="1"/>
-                                </Setter.Value>
-                            </Setter>-->
+                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedBg"/>
                         </DataTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         To="1" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         To="0" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}" />
-            </Trigger>
             <Trigger Property="IsFocused" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>

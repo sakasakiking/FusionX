@@ -80,7 +80,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Border x:Name="HoverBorder" Grid.Column="0" Grid.ColumnSpan="4" CornerRadius="14"
-                    Background="{DynamicResource ControlHoverBackgroundBrush}" Visibility="Collapsed"  />
+                    Background="{DynamicResource ControlFilledHoverBackgroundBrush}" Visibility="Collapsed"  />
             
             <ContentPresenter x:Name="Icon" Grid.Column="0" Margin="8,0,0,0"
                               MaxHeight="16" MaxWidth="16"
@@ -136,7 +136,7 @@
 
     <!-- SubmenuItem -->
     <ControlTemplate x:Key="{x:Static MenuItem.SubmenuItemTemplateKey}" TargetType="{x:Type MenuItem}">
-        <Border x:Name="HoverBorder" Background="{DynamicResource ControlHoverBackgroundBrush}" Height="28" CornerRadius="14">
+        <Border x:Name="HoverBorder" Background="{DynamicResource ControlFilledHoverBackgroundBrush}" Height="28" CornerRadius="14">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIconColumnGroup" />

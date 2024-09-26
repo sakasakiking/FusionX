@@ -97,18 +97,16 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
         <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <Ellipse x:Name="IdleBg" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
-                                 Fill="{TemplateBinding Background}"/>
-                        <Ellipse x:Name="HoverBg" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
-                                 Fill="{DynamicResource ControlHoverBackgroundBrush}" Opacity="0"/>
-                        <Ellipse x:Name="SelecetedBg" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
-                                 Fill="{DynamicResource ControlSelectedBackgroundBrush}" Visibility="Collapsed"/>
+                        <Ellipse x:Name="IdleBg" Fill="{TemplateBinding Background}" Visibility="Visible"/>
+                        <Ellipse x:Name="HoverBg"  Fill="{DynamicResource ControlHoverBackgroundBrush}" Opacity="0"/>
+                        <Ellipse x:Name="SelectedBg" Fill="{DynamicResource ControlSelectedBackgroundBrush}" Visibility="Collapsed"/>
                         <TextBlock FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" 
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}" TextWrapping="Wrap"/>
@@ -119,9 +117,9 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="IdleBg"
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                          Storyboard.TargetProperty="Opacity" 
-                                                         To="1" Duration="0:0:0.6">
+                                                         To="1" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -132,9 +130,9 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="IdleBg"
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                          Storyboard.TargetProperty="Opacity" 
-                                                         To="0" Duration="0:0:0.6">
+                                                         To="0" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -194,19 +192,85 @@
     <Style x:Key="SimpleTubeButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
+        <Setter Property="Padding" Value="12,0,12,0"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Border" Height="32" CornerRadius="16" Padding="12,0,12,0"
-                            Background="{DynamicResource ControlHoverBackgroundBrush}">
+                    <Grid>
+                        <Border x:Name="IdleBg" Background="{TemplateBinding Background}" Height="32" CornerRadius="16"/>
+                        <Border x:Name="HoverBg" Height="32" CornerRadius="16" Opacity="0"
+                                Background="{DynamicResource ControlHoverBackgroundBrush}"/>
                         <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                           Foreground="{TemplateBinding Foreground}"
-                           Text="{TemplateBinding Content}"
-                           TextWrapping="Wrap"/>
-                    </Border>
+                                   Foreground="{TemplateBinding Foreground}" Margin="{TemplateBinding Padding}"
+                                   Text="{TemplateBinding Content}"
+                                   TextWrapping="Wrap"/>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}" TargetName="Border"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         To="1" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         To="0" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WinSysButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ControlFilledHoverBackgroundBrush}"/>
+        <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse x:Name="HoverBg" Fill="{TemplateBinding Background}" Visibility="Collapsed"/>
+                        <TextBlock FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="HoverBg"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

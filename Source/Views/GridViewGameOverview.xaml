@@ -44,13 +44,14 @@
                                         <DockPanel>
 
                                             <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False" DockPanel.Dock="Left"
-                                                                      Style="{DynamicResource FavoriteRoundedToggleButton}"
-                                                                      Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
-                                                                      IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
+                                                          Style="{DynamicResource FavoriteRoundedToggleButton}"
+                                                          Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}" 
+                                                          IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
                                             <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" 
-                                                                    Height="48" Width="48" DockPanel.Dock="Left"
-                                                                    Content="&#xe700;" FontSize="{DynamicResource FontSizeLarge}"
-                                                                    Style="{DynamicResource LightFilledRoundButton}"/>
+                                                    Height="48" Width="48" DockPanel.Dock="Left"
+                                                    Content="&#xe700;" FontSize="{DynamicResource FontSizeLarge}"
+                                                    Background="{DynamicResource ControlIdleBackgroundBrush}"
+                                                    Style="{DynamicResource LightFilledRoundButton}"/>
 
                                             <Grid Margin="0,0,0,0" DockPanel.Dock="Right">
                                                 <Grid.ColumnDefinitions>
@@ -515,6 +516,7 @@ Visibility="{PluginSettings Plugin=GameRelations, Path=SamePublisherControlSetti
                                 <Button HorizontalAlignment="Right" VerticalAlignment="Top"
                                         Content="&#xe106;" 
                                         Width="32" Height="32"
+                                        Background="{DynamicResource ControlIdleBackgroundBrush}"
                                         Style="{DynamicResource LightFilledRoundButton}"
                                         Command="{MainViewModel CloseGameSideBarCommand}"
                                         Margin="16,16,16,0" />

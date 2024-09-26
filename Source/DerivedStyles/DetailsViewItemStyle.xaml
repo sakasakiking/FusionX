@@ -6,17 +6,15 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ControlFilledHoverBackgroundBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Grid>
-                        <Border x:Name="HoverRectangle" IsHitTestVisible="False" Opacity="0"
+                        <Border x:Name="HoverBg" IsHitTestVisible="False" Opacity="0"
                                 Background="{TemplateBinding Background}" CornerRadius="8"/>
-                        <Border x:Name="SelectedRectangle" IsHitTestVisible="False" Visibility="Collapsed"
-                                Background="{DynamicResource ControlSelectedBackgroundBrush}" CornerRadius="8" >
-                            <Border Background="{DynamicResource TubeBackgroundBrush}" CornerRadius="8"/>
-                        </Border>
+                        <Border x:Name="SelectedBg" IsHitTestVisible="False" Visibility="Collapsed"
+                                Background="{DynamicResource RGTubeLayerBackgroundBrush}" CornerRadius="8"/>
                         <Border Padding="{TemplateBinding Padding}" Background="Transparent"
                             CornerRadius="8">
                             <ContentPresenter />
@@ -30,7 +28,7 @@
                             <Setter Property="Foreground" Value="{DynamicResource DisabledBrush}" />
                         </DataTrigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedRectangle"/>
+                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedBg"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -41,9 +39,9 @@
                             <MultiTrigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="HoverRectangle"
-                                 Storyboard.TargetProperty="Opacity" 
-                                 To="1" Duration="0:0:0.6">
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         To="1" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -54,9 +52,9 @@
                             <MultiTrigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="HoverRectangle"
-                                 Storyboard.TargetProperty="Opacity" 
-                                 To="0" Duration="0:0:0.6">
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         To="0" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>

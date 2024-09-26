@@ -80,15 +80,15 @@
         <Setter Property="Width" Value="32" />
         <Setter Property="Height" Value="32" />
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
-        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Margin" Value="4,6,0,6" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
                     <Grid>
-                        <Ellipse Name="Border" Fill="{TemplateBinding Background}" Opacity="0"/>
+                        <Ellipse Name="HoverBg" Fill="{DynamicResource ControlFilledHoverBackgroundBrush}" Opacity="0"/>
                         <TextBlock Text="&#xe16e;" FontSize="16" Foreground="{TemplateBinding Foreground}"
                                    Style="{DynamicResource IconFontStyle}"/>
                         <Ellipse Name="TextFilter" Margin="22,-24,0,0" Width="10" Height="10" Fill="{DynamicResource AccentSelectedBrush}"/>
@@ -104,9 +104,9 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Border"
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                          Storyboard.TargetProperty="Opacity" 
-                                                         To="1" Duration="0:0:0.6">
+                                                         To="1" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -117,9 +117,9 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Border"
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                          Storyboard.TargetProperty="Opacity" 
-                                                         To="0" Duration="0:0:0.6">
+                                                         To="0" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -145,13 +145,13 @@
         <Setter Property="Height" Value="32" />
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
-        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
         <Setter Property="Focusable" Value="False" />
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
                     <Grid>
-                        <Ellipse Name="Border" Fill="{TemplateBinding Background}" Opacity="0"/>
+                        <Ellipse Name="HoverBg" Fill="{DynamicResource ControlFilledHoverBackgroundBrush}" Opacity="0"/>
                         <TextBlock Text="&#xea8f;" FontSize="16"
                                        Foreground="{TemplateBinding Foreground}" 
                                        Style="{DynamicResource IconFontStyle}"/>
@@ -168,9 +168,9 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Border"
-                                 Storyboard.TargetProperty="Opacity" 
-                                 To="1" Duration="0:0:0.6">
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         To="1" Duration="0:0:0.6">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -181,9 +181,9 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Border"
-                                 Storyboard.TargetProperty="Opacity" 
-                                 To="0" Duration="0:0:0.6">
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         To="0" Duration="0:0:0.6">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>

@@ -38,7 +38,7 @@
     <Style x:Key="PlayButton_LeftPart" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="{DynamicResource AccentIdleBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelSeparatorBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="0,0,0,0" />
         <Setter Property="Template">
@@ -50,6 +50,11 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"
                                 CornerRadius="24" Opacity="1"/>
+                        <Ellipse x:Name="HoverBg" Fill="{DynamicResource AccentHoverBrush}">
+                            <Ellipse.RenderTransform>
+                                <ScaleTransform ScaleX="0" ScaleY="0"/>
+                            </Ellipse.RenderTransform>
+                        </Ellipse>
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                           Margin="{TemplateBinding Padding}" 
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" />
