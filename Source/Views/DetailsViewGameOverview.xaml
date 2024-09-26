@@ -41,7 +41,7 @@
                                     </FadeImage>
 
 
-                                    <Grid HorizontalAlignment="Stretch" MaxWidth="1200" Margin="64,0,64,0">
+                                    <Grid HorizontalAlignment="Stretch" MaxWidth="1200" Margin="40,0,40,0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="260"/>
@@ -559,7 +559,7 @@
                             </ScrollViewer>
                         </Grid>
                         <!--Bottom Fixed Part-->
-                        <Grid MaxWidth="1200" Margin="64,0,64,24" HorizontalAlignment="Stretch" Grid.Row="1" >
+                        <Grid MaxWidth="1200" Margin="40,0,40,24" HorizontalAlignment="Stretch" Grid.Row="1" >
                             <Grid.Style>
                                 <Style TargetType="Grid">
                                     <Style.Triggers>
