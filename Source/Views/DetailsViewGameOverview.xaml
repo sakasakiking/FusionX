@@ -40,7 +40,6 @@
                                         </FadeImage.ImageOpacityMask>
                                     </FadeImage>
 
-
                                     <Grid HorizontalAlignment="Stretch" MaxWidth="1200" Margin="40,0,40,0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
@@ -245,6 +244,90 @@
                                                         </ItemsControl>
                                                     </StackPanel>
                                                 </StackPanel>
+                                            </Grid>
+
+                                            <Grid Margin="0,0,0,40">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <StackPanel.Resources>
+                                                        <Style TargetType="Label" x:Key="HltbGridLabelStyle">
+                                                            <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}"/>
+                                                            <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
+                                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                                        </Style>
+                                                        <Style TargetType="TextBlock" x:Key="HltbGridTextStyle" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                                            <Setter Property="Margin" Value="20,0,0,0" />
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Value="--">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </StackPanel.Resources>
+                                                    <StackPanel>
+                                                        <Label Content="{DynamicResource LOCHowLongToBeatMainStory}"
+                   Style="{DynamicResource HltbGridLabelStyle}"
+                   Visibility="{Binding ElementName=MainStoryFormat, Path=Visibility}" />
+                                                        <Border Background="{DynamicResource ControlHoverBackgroundBrush}" CornerRadius="4" Padding="8">
+                                                            <TextBlock Name="MainStoryFormat"
+                           Style="{DynamicResource HltbGridTextStyle}"
+                           Text="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat, FallbackValue='--'}"/>
+                                                        </Border>
+                                                    </StackPanel>
+                                                    <StackPanel>
+
+                                                        <Label Content="{DynamicResource LOCHowLongToBeatMainExtra}"
+                   Style="{DynamicResource HltbGridLabelStyle}"
+                   Visibility="{Binding ElementName=MainExtraFormat, Path=Visibility}" />
+                                                        <Border Background="{DynamicResource ControlHoverBackgroundBrush}" CornerRadius="4" Padding="8">
+                                                            <TextBlock Name="MainExtraFormat"
+                       Style="{DynamicResource HltbGridTextStyle}"
+                       Text="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat, FallbackValue='--'}"/>
+                                                        </Border>
+                                                    </StackPanel>
+                                                    <StackPanel>
+
+                                                        <Label Content="{DynamicResource LOCHowLongToBeatCompletionist}"
+                   Style="{DynamicResource HltbGridLabelStyle}"
+                   Visibility="{Binding ElementName=CompletionistFormat, Path=Visibility}" />
+                                                        <TextBlock Name="CompletionistFormat"
+                       Style="{DynamicResource HltbGridTextStyle}"
+                       Text="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat, FallbackValue='--'}"/>
+                                                    </StackPanel>
+                                                    <StackPanel>
+                                                        <Label Content="{DynamicResource LOCHowLongToBeatSolo}"
+                   Style="{DynamicResource HltbGridLabelStyle}"
+                   Visibility="{Binding ElementName=SoloFormat, Path=Visibility}" />
+                                                        <TextBlock Name="SoloFormat"
+                       Style="{DynamicResource HltbGridTextStyle}"
+                       Text="{PluginSettings Plugin=HowLongToBeat, Path=SoloFormat, FallbackValue='--'}"/>
+                                                    </StackPanel>
+                                                    <StackPanel>
+                                                        <Label Content="{DynamicResource LOCHowLongToBeatCoOp}"
+                   Style="{DynamicResource HltbGridLabelStyle}"
+                   Visibility="{Binding ElementName=CoOpFormat, Path=Visibility}" />
+                                                        <TextBlock Name="CoOpFormat"
+                       Style="{DynamicResource HltbGridTextStyle}"
+                       Text="{PluginSettings Plugin=HowLongToBeat, Path=CoOpFormat, FallbackValue='--'}"/>
+                                                    </StackPanel>
+                                                    <StackPanel>
+                                                        <Label Content="{DynamicResource LOCHowLongToBeatVs}"
+                   Style="{DynamicResource HltbGridLabelStyle}"
+                   Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
+                                                        <TextBlock Name="VsFormat" 
+                       Style="{DynamicResource HltbGridTextStyle}"
+                       Text="{PluginSettings Plugin=HowLongToBeat, Path=VsFormat, FallbackValue='--'}"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+
                                             </Grid>
 
                                             <!--Left Content Part-->

@@ -35,7 +35,7 @@
                 <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}"/>
             </DataTrigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ControlFilledHoverBackgroundBrush}" />
                 <Setter Property="Foreground" Value="{DynamicResource HoverBrush}"/>
             </Trigger>
             <MultiTrigger>
