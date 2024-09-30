@@ -40,7 +40,7 @@
                                         </FadeImage.ImageOpacityMask>
                                     </FadeImage>
 
-                                    <Grid HorizontalAlignment="Stretch" MaxWidth="1200" Margin="40,0,40,0">
+                                    <Grid HorizontalAlignment="Stretch" MaxWidth="1280" MinWidth="1024" Margin="40,0,40,0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="260"/>
@@ -126,7 +126,7 @@
                                                 </WrapPanel>
 
                                                 <Image Name="PART_ImageIcon" MaxWidth="32" MaxHeight="32" VerticalAlignment="Top" DockPanel.Dock="Left"
-                                                       RenderOptions.BitmapScalingMode="Fant" Margin="0,2,16,0"/>
+                                                       RenderOptions.BitmapScalingMode="Fant" Margin="0,4,16,0"/>
                                                 
                                                 <TextBlock Name="PART_TextDisplayName" FontFamily="{DynamicResource FontFamily}" DockPanel.Dock="Top"
                                                            FontSize="{DynamicResource FontSizeLarge32}" FontWeight="Bold"
@@ -166,7 +166,22 @@
                                             </Border>
                                             <!--Video Part Ends-->
 
+                                            <!--Genres and Features-->
                                             <Grid Margin="0,0,0,40">
+                                                <Grid.Style>
+                                                    <Style TargetType="Grid">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                        <Style.Triggers>
+                                                            <MultiDataTrigger>
+                                                                <MultiDataTrigger.Conditions>
+                                                                    <Condition Binding="{Binding ElementName=PART_ElemGenres, Path=Visibility}" Value="Collapsed"/>
+                                                                    <Condition Binding="{Binding ElementName=PART_ElemFeatures, Path=Visibility}" Value="Collapsed"/>
+                                                                </MultiDataTrigger.Conditions>
+                                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                            </MultiDataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Grid.Style>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*"/>
                                                     <ColumnDefinition Width="1"/>
@@ -246,71 +261,82 @@
                                                 </StackPanel>
                                             </Grid>
 
-                                            <Grid Margin="0,0,0,40">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                </Grid.ColumnDefinitions>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <StackPanel.Resources>
+                                            <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                <TextBlock Text="{DynamicResource LOCHowLongToBeat}" Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="20"/>
+
+                                                <Grid Margin="0,16,0,40">
+                                                    <Grid.Resources>
                                                         <Style TargetType="Label" x:Key="HltbGridLabelStyle">
                                                             <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}"/>
                                                             <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
                                                             <Setter Property="HorizontalAlignment" Value="Center" />
                                                         </Style>
                                                         <Style TargetType="TextBlock" x:Key="HltbGridTextStyle" BasedOn="{StaticResource BaseTextBlockStyle}">
-                                                            <Setter Property="Margin" Value="20,0,0,0" />
+                                                            <Setter Property="Margin" Value="12,8,12,8" />
+                                                            <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
+                                                            <Setter Property="FontWeight" Value="Bold"/>
                                                             <Setter Property="Visibility" Value="Visible" />
+                                                            <Setter Property="HorizontalAlignment" Value="Center"/>
                                                             <Style.Triggers>
                                                                 <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Value="--">
                                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                                 </DataTrigger>
                                                             </Style.Triggers>
                                                         </Style>
-                                                    </StackPanel.Resources>
-                                                    <StackPanel>
+                                                    </Grid.Resources>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Grid.Column="0" Margin="0,0,8,0">
                                                         <Label Content="{DynamicResource LOCHowLongToBeatMainStory}"
-                   Style="{DynamicResource HltbGridLabelStyle}"
-                   Visibility="{Binding ElementName=MainStoryFormat, Path=Visibility}" />
-                                                        <Border Background="{DynamicResource ControlHoverBackgroundBrush}" CornerRadius="4" Padding="8">
-                                                            <TextBlock Name="MainStoryFormat"
-                           Style="{DynamicResource HltbGridTextStyle}"
-                           Text="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat, FallbackValue='--'}"/>
+                                                               Style="{DynamicResource HltbGridLabelStyle}"
+                                                               Visibility="{Binding ElementName=MainStoryFormat, Path=Visibility}" />
+                                                        <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
+                                                            <TextBlock Name="MainStoryFormat" Style="{DynamicResource HltbGridTextStyle}"
+                                                                   Text="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat, FallbackValue='--'}"/>
                                                         </Border>
                                                     </StackPanel>
-                                                    <StackPanel>
+                                                    <StackPanel Grid.Column="1" Margin="0,0,8,0">
 
                                                         <Label Content="{DynamicResource LOCHowLongToBeatMainExtra}"
-                   Style="{DynamicResource HltbGridLabelStyle}"
-                   Visibility="{Binding ElementName=MainExtraFormat, Path=Visibility}" />
-                                                        <Border Background="{DynamicResource ControlHoverBackgroundBrush}" CornerRadius="4" Padding="8">
+                                                               Style="{DynamicResource HltbGridLabelStyle}"
+                                                               Visibility="{Binding ElementName=MainExtraFormat, Path=Visibility}" />
+                                                        <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
                                                             <TextBlock Name="MainExtraFormat"
-                       Style="{DynamicResource HltbGridTextStyle}"
-                       Text="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat, FallbackValue='--'}"/>
+                                                                       Style="{DynamicResource HltbGridTextStyle}"
+                                                                       Text="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat, FallbackValue='--'}"/>
                                                         </Border>
                                                     </StackPanel>
-                                                    <StackPanel>
+
+                                                    <StackPanel Grid.Column="2" Margin="0,0,8,0">
 
                                                         <Label Content="{DynamicResource LOCHowLongToBeatCompletionist}"
-                   Style="{DynamicResource HltbGridLabelStyle}"
-                   Visibility="{Binding ElementName=CompletionistFormat, Path=Visibility}" />
-                                                        <TextBlock Name="CompletionistFormat"
-                       Style="{DynamicResource HltbGridTextStyle}"
-                       Text="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat, FallbackValue='--'}"/>
+                                                               Style="{DynamicResource HltbGridLabelStyle}"
+                                                               Visibility="{Binding ElementName=CompletionistFormat, Path=Visibility}" />
+                                                        <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
+                                                            <TextBlock Name="CompletionistFormat"
+                                                                   Style="{DynamicResource HltbGridTextStyle}"
+                                                                   Text="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat, FallbackValue='--'}"/>
+                                                        </Border>
                                                     </StackPanel>
-                                                    <StackPanel>
+
+                                                    <StackPanel Grid.Column="3" Margin="0,0,8,0">
                                                         <Label Content="{DynamicResource LOCHowLongToBeatSolo}"
-                   Style="{DynamicResource HltbGridLabelStyle}"
-                   Visibility="{Binding ElementName=SoloFormat, Path=Visibility}" />
-                                                        <TextBlock Name="SoloFormat"
-                       Style="{DynamicResource HltbGridTextStyle}"
-                       Text="{PluginSettings Plugin=HowLongToBeat, Path=SoloFormat, FallbackValue='--'}"/>
+                                                               Style="{DynamicResource HltbGridLabelStyle}"
+                                                               Visibility="{Binding ElementName=SoloFormat, Path=Visibility}" />
+                                                        <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
+                                                            <TextBlock Name="SoloFormat"
+                                                                   Style="{DynamicResource HltbGridTextStyle}"
+                                                                   Text="{PluginSettings Plugin=HowLongToBeat, Path=SoloFormat, FallbackValue='--'}"/>
+                                                        </Border>
                                                     </StackPanel>
-                                                    <StackPanel>
+
+                                                    <StackPanel Grid.Column="4">
                                                         <Label Content="{DynamicResource LOCHowLongToBeatCoOp}"
                    Style="{DynamicResource HltbGridLabelStyle}"
                    Visibility="{Binding ElementName=CoOpFormat, Path=Visibility}" />
@@ -318,7 +344,8 @@
                        Style="{DynamicResource HltbGridTextStyle}"
                        Text="{PluginSettings Plugin=HowLongToBeat, Path=CoOpFormat, FallbackValue='--'}"/>
                                                     </StackPanel>
-                                                    <StackPanel>
+
+                                                    <StackPanel Grid.Column="5">
                                                         <Label Content="{DynamicResource LOCHowLongToBeatVs}"
                    Style="{DynamicResource HltbGridLabelStyle}"
                    Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
@@ -326,9 +353,8 @@
                        Style="{DynamicResource HltbGridTextStyle}"
                        Text="{PluginSettings Plugin=HowLongToBeat, Path=VsFormat, FallbackValue='--'}"/>
                                                     </StackPanel>
-                                                </StackPanel>
-
-                                            </Grid>
+                                                </Grid>
+                                            </StackPanel>
 
                                             <!--Left Content Part-->
                                             <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
@@ -540,8 +566,8 @@
                                                     <Label Name="PART_ElemRecentActivity" Content="{DynamicResource LOCRecentActivityLabel}" />
                                                     <TextBlock Name="PART_TextRecentActivity" VerticalAlignment="Center" />
 
-                                                    <Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" />
-                                                    <Button Name="PART_ButtonCompletionStatus" VerticalAlignment="Center" />
+                                                    <!--<Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" />
+                                                    <Button Name="PART_ButtonCompletionStatus" VerticalAlignment="Center" />-->
 
                                                     <Label Name="PART_ElemInstallDirectory" Content="{DynamicResource LOCGameInstallDirTitle}" />
                                                     <Button Name="PART_ButtonInstallDirectory" VerticalAlignment="Center" />
@@ -642,7 +668,7 @@
                             </ScrollViewer>
                         </Grid>
                         <!--Bottom Fixed Part-->
-                        <Grid MaxWidth="1200" Margin="40,0,40,24" HorizontalAlignment="Stretch" Grid.Row="1" >
+                        <Grid MaxWidth="1280" MinWidth="1024" Margin="40,0,40,16" HorizontalAlignment="Stretch" Grid.Row="1" >
                             <Grid.Style>
                                 <Style TargetType="Grid">
                                     <Style.Triggers>
@@ -686,8 +712,8 @@
                                               IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
                                     
                                 <Grid Margin="0" VerticalAlignment="Center" DockPanel.Dock="Left">
-                                        <Grid.Resources>
-                                            <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                    <Grid.Resources>
+                                        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
                                                 <Setter Property="Margin" Value="0,2,0,2" />
                                                 <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
                                                 <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
@@ -695,11 +721,15 @@
                                             <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
                                                 <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
                                             </Style>
-                                        </Grid.Resources>
+                                        <Style TargetType="Button" BasedOn="{StaticResource PropertyItemSmallButton}">
+                                            <Setter Property="Margin" Value="0"/>
+                                        </Style>
+                                    </Grid.Resources>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
                                     <DockPanel Grid.Column="1" Visibility="{Binding Visibility, ElementName=PART_ElemLastPlayed, Mode=OneWay}" Margin="0,0,24,0">
                                             <TextBlock Text="&#xe163;" FontSize="24" DockPanel.Dock="Left" Margin="0,0,8,0"
@@ -715,6 +745,14 @@
                                             <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" 
                                                    DockPanel.Dock="Top"/>
                                             <TextBlock Name="PART_TextPlayTime" DockPanel.Dock="Top" FontWeight="Bold"/>
+                                    </DockPanel>
+
+                                    <DockPanel Grid.Column="2" Visibility="{Binding Visibility, ElementName=PART_ElemPlayTime, Mode=OneWay}" Margin="0,0,24,0">
+                                        <TextBlock Text="&#xe129;" FontSize="24" DockPanel.Dock="Left" Margin="0,0,8,0" 
+                                                   Style="{DynamicResource IconFontStyle}"/>
+                                        <Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" 
+                                               DockPanel.Dock="Top"/>
+                                        <Button Name="PART_ButtonCompletionStatus" DockPanel.Dock="Top" FontWeight="Bold" Margin="0,1,0,0"/>
                                     </DockPanel>
                                 </Grid>
 
