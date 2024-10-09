@@ -35,6 +35,11 @@ At the beginning, just support:
 - **Videos** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
 Addiing more...
 
+## More
+If you like what I've done...
+
+<a href='https://ko-fi.com/sakasaki30' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
 
 
 
