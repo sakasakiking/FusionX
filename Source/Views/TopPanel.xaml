@@ -77,19 +77,20 @@
     </Style>
 
     <Style x:Key="TopPanelFilterToggle" TargetType="CheckBox">
-        <Setter Property="Width" Value="32" />
+        <Setter Property="MinWidth" Value="32" />
         <Setter Property="Height" Value="32" />
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Margin" Value="4,6,0,6" />
+        <Setter Property="Padding" Value="8,0,8,0" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
                     <Grid>
-                        <Ellipse Name="HoverBg" Fill="{DynamicResource ControlFilledHoverBackgroundBrush}" Opacity="0"/>
-                        <TextBlock Text="&#xe16e;" FontSize="16" Foreground="{TemplateBinding Foreground}"
+                        <Border Name="HoverBg" Background="{DynamicResource ControlLightBackgroundBrush}" CornerRadius="16" Opacity="0"/>
+                        <TextBlock Text="&#xe16e;" FontSize="16" Foreground="{TemplateBinding Foreground}" Margin="{TemplateBinding Padding}"
                                    Style="{DynamicResource IconFontStyle}"/>
                         <Ellipse Name="TextFilter" Margin="22,-24,0,0" Width="10" Height="10" Fill="{DynamicResource AccentSelectedBrush}"/>
                     </Grid>
@@ -106,7 +107,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                          Storyboard.TargetProperty="Opacity" 
-                                                         To="1" Duration="0:0:0.4">
+                                                         To="0.24" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -141,8 +142,9 @@
 
     <Style x:Key="TopPanelNotificationsToggle" TargetType="ToggleButton">
         <Setter Property="Margin" Value="10,6,0,6" />
-        <Setter Property="Width" Value="32" />
+        <Setter Property="MinWidth" Value="32" />
         <Setter Property="Height" Value="32" />
+        <Setter Property="Padding" Value="8,0,8,0"/>
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="Focusable" Value="False" />
@@ -151,16 +153,16 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Grid>
-                        <Ellipse Name="HoverBg" Fill="{DynamicResource ControlFilledHoverBackgroundBrush}" Opacity="0"/>
-                        <TextBlock Text="&#xea8f;" FontSize="16"
+                        <Border Name="HoverBg" Background="{DynamicResource ControlLightBackgroundBrush}" CornerRadius="16" Opacity="0"/>
+                        <TextBlock Text="&#xea8f;" FontSize="16" Margin="{TemplateBinding Padding}"
                                        Foreground="{TemplateBinding Foreground}" 
                                        Style="{DynamicResource IconFontStyle}"/>
                         <Border CornerRadius="10" Width="20" Height="20"
-                                    Margin="4,-4,0,0" Background="OrangeRed"
-                                    HorizontalAlignment="Right" VerticalAlignment="Top">
+                                Margin="4,-4,0,0" Background="OrangeRed"
+                                HorizontalAlignment="Right" VerticalAlignment="Top">
                             <TextBlock Text="{Api Notifications.Count}" FontSize="10" FontWeight="Bold"
-                                           Foreground="{DynamicResource TextBrush}"
-                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                       Foreground="{DynamicResource TextBrush}"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -170,7 +172,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                          Storyboard.TargetProperty="Opacity" 
-                                                         To="1" Duration="0:0:0.6">
+                                                         To="0.24" Duration="0:0:0.6">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>

@@ -12,9 +12,9 @@
                 <ControlTemplate TargetType="{x:Type GameMenu}">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="16"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}" Padding="8"
+                            Background="{TemplateBinding Background}"
                             Grid.IsSharedSizeScope="True">
-                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Padding="8">
                             <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Cycle"/>
                         </ScrollViewer>
                     </Border>

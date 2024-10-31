@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style TargetType="{x:Type TopPanelItem}">
-        <Setter Property="Width" Value="32" />
+        <Setter Property="MinWidth" Value="32" />
         <Setter Property="Height" Value="32" />
         <Setter Property="Margin" Value="4,0,0,0" />
-        <Setter Property="Padding" Value="0" />
+        <Setter Property="Padding" Value="8,0,8,0" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -16,8 +16,10 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TopPanelItem}">
                     <Grid>
-                        <Ellipse x:Name="HoverBg" Fill="{DynamicResource ControlFilledHoverBackgroundBrush}" Opacity="0"/>
-                        <Ellipse x:Name="SelectedBg" Fill="{DynamicResource RGSelectedBackgroundBrush}" Visibility="Collapsed"/>
+                        <Border x:Name="HoverBg" Background="{DynamicResource ControlLightBackgroundBrush}" 
+                                CornerRadius="16" Opacity="0"/>
+                        <Border x:Name="SelectedBg" Background="{DynamicResource RGSelectedBackgroundBrush}"
+                                Visibility="Collapsed" CornerRadius="16"/>
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Margin="{TemplateBinding Padding}" RecognizesAccessKey="True"/>
@@ -33,7 +35,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                         Storyboard.TargetProperty="Opacity" 
-                                                        To="1" Duration="0:0:0.4">
+                                                        To="0.24" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -72,7 +74,7 @@
                     <Condition Property="IsToggled" Value="False" />
                 </MultiTrigger.Conditions>
                 <MultiTrigger.Setters>
-                    <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource HoverBrush}"/>
                 </MultiTrigger.Setters>
             </MultiTrigger>
             <MultiTrigger>

@@ -91,6 +91,12 @@
                                    Value="{TemplateBinding VerticalOffset}"
                                    Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_HorizontalScrollBar"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_VerticalScrollBar"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

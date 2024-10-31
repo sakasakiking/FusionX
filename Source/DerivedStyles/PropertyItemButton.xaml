@@ -52,32 +52,38 @@
 
     <Style x:Key="PropertyItemLinkButton" TargetType="Button">
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-        <Setter Property="Margin" Value="0,4,0,0" />
+        <Setter Property="MinWidth" Value="32"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="Margin" Value="13.6,0,0,8" />
+        <Setter Property="Padding" Value="8,0,8,0"/>
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ControlLightBackgroundBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Width="32" Height="32" CornerRadius="16" Background="{TemplateBinding Background}" Margin="0,0,16,8">
-                        <DockPanel HorizontalAlignment="Center">
-                            <Viewbox DockPanel.Dock="Left" Width="16" Height="16" x:Name="ViewBoxLink"
-                                 VerticalAlignment="Center"
+                    <Grid>
+                        <Border x:Name="HoverBg" CornerRadius="15" Background="{TemplateBinding Background}" Opacity="0.16"/>
+                        <Viewbox DockPanel.Dock="Left" Width="18" Height="18" x:Name="ViewBoxLink"
+                                 VerticalAlignment="Center" HorizontalAlignment="Center"
                                  Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}"
                                  RenderOptions.ClearTypeHint="Enabled" RenderOptions.BitmapScalingMode="Fant">
-                                <ContentControl Content="{Binding Value, TargetNullValue={StaticResource LinksIcon}}"
-                                                DataContext="{Binding Url, Converter={PluginConverter Plugin=ThemeExtras, Converter=UrlToAsyncIconConverter}}"/>
-                            </Viewbox>
+                            <ContentControl Content="{Binding Value, TargetNullValue={StaticResource LinksIcon}}"
+                                            DataContext="{Binding Url, Converter={PluginConverter Plugin=ThemeExtras, Converter=UrlToAsyncIconConverter}}"/>
+                        </Viewbox>
 
-                            <TextBlock FontSize="{TemplateBinding FontSize}" Name="LinkName"
-                                       Foreground="{TemplateBinding Foreground}" 
-                                       Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
-                                       TextWrapping="Wrap"/>
-                        </DockPanel>
-                    </Border>
+                        <TextBlock FontSize="{TemplateBinding FontSize}" Name="LinkName" VerticalAlignment="Center"
+                                   Foreground="{TemplateBinding Foreground}" Margin="{TemplateBinding Padding}"
+                                   Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
+                                   TextWrapping="Wrap"/>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding ElementName=ViewBoxLink, Path=Visibility}" Value="Visible">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="LinkName"/>
+                            <Setter Property="Opacity" Value="0" TargetName="HoverBg"/>
                         </DataTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.24" TargetName="HoverBg"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -85,7 +91,6 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
-                <Setter Property="Background" Value="{DynamicResource ControlFilledHoverBackgroundBrush}"/>
                 <Setter Property="Cursor" Value="Hand" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">

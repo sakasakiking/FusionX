@@ -47,11 +47,16 @@
     <Color x:Key="24%White">#3DFFFFFF</Color>
     <Color x:Key="36%White">#5CFFFFFF</Color>
     <Color x:Key="40%White">#66FFFFFF</Color>
+    <Color x:Key="60%White">#99FFFFFF</Color>
+    <Color x:Key="80%White">#CCFFFFFF</Color>
+    <Color x:Key="100%White">#FFFFFF</Color>
     <!--FusionX Newly Added Color Ends-->
 
     <SolidColorBrush x:Key="LightDarkBackgroundBrush" Color="#33000000" />
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="#66000000" />
 
+    <SolidColorBrush x:Key="ControlLightBackgroundBrush" Color="{DynamicResource 100%White}" />
+    
     <SolidColorBrush x:Key="ControlIdleBackgroundBrush" Color="{DynamicResource 16%White}" />
     <SolidColorBrush x:Key="ControlHoverBackgroundBrush" Color="{DynamicResource 8%White}" />
     <SolidColorBrush x:Key="ControlFilledHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
@@ -63,10 +68,10 @@
 
     <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
 
-    <SolidColorBrush x:Key="DisabledBrush" Color="#66FFFFFF" />
-    <SolidColorBrush x:Key="IdleBrush" Color="#99FFFFFF" />
-    <SolidColorBrush x:Key="HoverBrush" Color="#CCFFFFFF" />
-    <SolidColorBrush x:Key="SelectedBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="DisabledBrush" Color="{DynamicResource 40%White}" />
+    <SolidColorBrush x:Key="IdleBrush" Color="{DynamicResource 60%White}" />
+    <SolidColorBrush x:Key="HoverBrush" Color="{DynamicResource 80%White}" />
+    <SolidColorBrush x:Key="SelectedBrush" Color="{DynamicResource 100%White}" />
 
     <SolidColorBrush x:Key="AccentIdleBrush" Color="#0379FF" />
     <SolidColorBrush x:Key="AccentHoverBrush" Color="#2C8FFF" />

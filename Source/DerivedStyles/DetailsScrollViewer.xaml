@@ -29,6 +29,9 @@
                         <Trigger SourceName="PART_VerticalScrollBar" Property="Visibility" Value="Visible">
                             <Setter Property="IsTabStop" Value="True"/>
                         </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_VerticalScrollBar"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

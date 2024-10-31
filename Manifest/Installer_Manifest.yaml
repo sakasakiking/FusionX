@@ -28,4 +28,16 @@ Packages:
     - Detail/Grid View layouts adjusted.
     - Interactive animation added.
     - Let me know if any suggestion.
+  - Version: 1.1
+    RequiredApiVersion: 2.6.0
+    ReleaseDate: 2024-10-31
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_1.pthm
+    Changelog: 
+    - Icons within menus are updated. ( [Segoe Fluent Icons] needed)
+    - HowLongtoBeat section shows up under the ImageCover (Requested by ShakedGold).
+    - The width of buttons on the TopPanel is not fixed now (Requested by gittromney).
+    - Fixed some tiny issues.
+    - The ScrollBar is collapsed, will show up when [MouseOver].
+    - Have had DetailOverview in Grid View (Requested by adrian5683)
+    - Let me know if any suggestion.
 

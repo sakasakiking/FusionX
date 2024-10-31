@@ -50,7 +50,8 @@
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
 
-                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" Margin="0,24,0,0" 
+                                        <!--ExtraLogo-->
+                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" Margin="0,40,0,0"
                                             VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="3" Grid.RowSpan="3"
                                             MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxHeight, FallbackValue=0}"
                                             MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxWidth, FallbackValue=0}"
@@ -71,8 +72,9 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
-                                            <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl"/>
+                                            <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                                         </Border>
+                                        <!--ExtraLogo Ends-->
 
                                         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,40,0">
 
@@ -157,8 +159,8 @@
                                                         <VisualBrush>
                                                             <VisualBrush.Visual>
                                                                 <Border Background="Black" CornerRadius="16"
-                        Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
-                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                                        Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
                                                             </VisualBrush.Visual>
                                                         </VisualBrush>
                                                     </ContentControl.OpacityMask>
@@ -261,7 +263,7 @@
                                                 </StackPanel>
                                             </Grid>
 
-                                            <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                            <!--<StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                 <TextBlock Text="{DynamicResource LOCHowLongToBeat}" Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="20"/>
 
                                                 <Grid Margin="0,16,0,40">
@@ -278,7 +280,7 @@
                                                             <Setter Property="Visibility" Value="Visible" />
                                                             <Setter Property="HorizontalAlignment" Value="Center"/>
                                                             <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Value="--">
+                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Value="-">
                                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                                 </DataTrigger>
                                                             </Style.Triggers>
@@ -298,7 +300,7 @@
                                                                Visibility="{Binding ElementName=MainStoryFormat, Path=Visibility}" />
                                                         <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
                                                             <TextBlock Name="MainStoryFormat" Style="{DynamicResource HltbGridTextStyle}"
-                                                                   Text="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat, FallbackValue='--'}"/>
+                                                                   Text="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat, FallbackValue='-'}"/>
                                                         </Border>
                                                     </StackPanel>
                                                     <StackPanel Grid.Column="1" Margin="0,0,8,0">
@@ -309,7 +311,7 @@
                                                         <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
                                                             <TextBlock Name="MainExtraFormat"
                                                                        Style="{DynamicResource HltbGridTextStyle}"
-                                                                       Text="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat, FallbackValue='--'}"/>
+                                                                       Text="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat, FallbackValue='-'}"/>
                                                         </Border>
                                                     </StackPanel>
 
@@ -321,7 +323,7 @@
                                                         <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
                                                             <TextBlock Name="CompletionistFormat"
                                                                    Style="{DynamicResource HltbGridTextStyle}"
-                                                                   Text="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat, FallbackValue='--'}"/>
+                                                                   Text="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat, FallbackValue='-'}"/>
                                                         </Border>
                                                     </StackPanel>
 
@@ -332,7 +334,7 @@
                                                         <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
                                                             <TextBlock Name="SoloFormat"
                                                                    Style="{DynamicResource HltbGridTextStyle}"
-                                                                   Text="{PluginSettings Plugin=HowLongToBeat, Path=SoloFormat, FallbackValue='--'}"/>
+                                                                   Text="{PluginSettings Plugin=HowLongToBeat, Path=SoloFormat, FallbackValue='-'}"/>
                                                         </Border>
                                                     </StackPanel>
 
@@ -342,7 +344,7 @@
                    Visibility="{Binding ElementName=CoOpFormat, Path=Visibility}" />
                                                         <TextBlock Name="CoOpFormat"
                        Style="{DynamicResource HltbGridTextStyle}"
-                       Text="{PluginSettings Plugin=HowLongToBeat, Path=CoOpFormat, FallbackValue='--'}"/>
+                       Text="{PluginSettings Plugin=HowLongToBeat, Path=CoOpFormat, FallbackValue='-'}"/>
                                                     </StackPanel>
 
                                                     <StackPanel Grid.Column="5">
@@ -351,10 +353,10 @@
                    Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                         <TextBlock Name="VsFormat" 
                        Style="{DynamicResource HltbGridTextStyle}"
-                       Text="{PluginSettings Plugin=HowLongToBeat, Path=VsFormat, FallbackValue='--'}"/>
+                       Text="{PluginSettings Plugin=HowLongToBeat, Path=VsFormat, FallbackValue='-'}"/>
                                                     </StackPanel>
                                                 </Grid>
-                                            </StackPanel>
+                                            </StackPanel>-->
 
                                             <!--Left Content Part-->
                                             <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
@@ -471,6 +473,7 @@
                                         <!--Right Part-->
                                         <StackPanel Margin="0,0,0,40" Grid.Row="1" Grid.Column="1">
 
+                                            <!--ImageCover-->
                                             <Border HorizontalAlignment="Center" Grid.Row="2">
                                                 <Image Name="PART_ImageCover" VerticalAlignment="Top" Margin="0,0,0,40"
                                                    HorizontalAlignment="Center" Width="260"
@@ -479,7 +482,7 @@
                                                     <Image.OpacityMask>
                                                         <VisualBrush>
                                                             <VisualBrush.Visual>
-                                                                <Border Background="Black" CornerRadius="8"
+                                                                <Border Background="Black" CornerRadius="16"
                                                                     Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Image}}"
                                                                     Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Image}}" />
                                                             </VisualBrush.Visual>
@@ -487,37 +490,37 @@
                                                     </Image.OpacityMask>
                                                 </Image>
                                             </Border>
+                                            <!--ImageCover Ends-->
 
 
-                                            <!-- HowLongToBeat progress bar -->
-                                            <!--<StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                        <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}" >
-                                            -->
-                                            <!--<Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,24"/>-->
-                                            <!--
-                                            <DockPanel>
-                                                <ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right"/>
-                                                <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
-                                                       Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="20"/>
-                                            </DockPanel>
-                                            <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,16,0,24" 
-                                                        TextBlock.FontSize="{DynamicResource FontSize}" Height="24"/>
-                                        </StackPanel>
-                                    </StackPanel>-->
+                                            <!-- HowLongToBeat ProgressBar -->
+                                            <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}" >
+
+                                                    <DockPanel>
+                                                        <ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right"/>
+                                                        <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
+                                                                   Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="20"/>
+                                                    </DockPanel>
+                                                    <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,16,0,40" 
+                                                                    TextBlock.FontSize="{DynamicResource FontSize}" Height="24"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                            <!-- HowLongToBeat ProgressBar Ends-->
 
                                             <!-- SuccessStory -->
                                             <!--<StackPanel Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
-    -->
-                                            <!--<Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,24"/>-->
-                                            <!--
-                        <DockPanel Margin="0,0,0,24">
-                            <ContentControl x:Name="SuccessStory_PluginCompactList" DockPanel.Dock="Bottom" Margin="0,16,0,0" />
-                            <ContentControl x:Name="SuccessStory_PluginProgressBar" DockPanel.Dock="Bottom" Margin="0,16,0,0" VerticalAlignment="Center" Height="24"/>
-                            <ContentControl x:Name="SuccessStory_PluginButton" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                            <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Left" VerticalAlignment="Center"
-                                   Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="20"/>
-                        </DockPanel>
-                    </StackPanel>-->
+                            -->
+                                                                    <!--<Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,24"/>-->
+                                                                    <!--
+                                                <DockPanel Margin="0,0,0,24">
+                                                    <ContentControl x:Name="SuccessStory_PluginCompactList" DockPanel.Dock="Bottom" Margin="0,16,0,0" />
+                                                    <ContentControl x:Name="SuccessStory_PluginProgressBar" DockPanel.Dock="Bottom" Margin="0,16,0,0" VerticalAlignment="Center" Height="24"/>
+                                                    <ContentControl x:Name="SuccessStory_PluginButton" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                                    <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Left" VerticalAlignment="Center"
+                                                           Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="20"/>
+                                                </DockPanel>
+                                            </StackPanel>-->
 
                                             <!--Details Panel-->
                                             <StackPanel Margin="0,0,0,40">
@@ -639,9 +642,9 @@
                                             <!--Links-->
                                             <StackPanel Name="PART_ElemLinks">
                                                 <TextBlock Text="{DynamicResource LOCLinksLabel}" Style="{DynamicResource BaseTextBlockStyle}" 
-                                                       FontWeight="Bold" FontSize="20" Margin="0,0,0,16"/>
-                                                <ItemsControl ItemsSource="{Binding Game.Links}"
-                                                          Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
+                                                           FontWeight="Bold" FontSize="20" Margin="0,0,0,16"/>
+                                                <ItemsControl ItemsSource="{Binding Game.Links}" Margin="-13.6,0,0,0"
+                                                              Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
                                                     <ItemsControl.ItemsPanel>
                                                         <ItemsPanelTemplate>
                                                             <WrapPanel Orientation="Horizontal"/>
