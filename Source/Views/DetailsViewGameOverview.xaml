@@ -40,7 +40,7 @@
                                         </FadeImage.ImageOpacityMask>
                                     </FadeImage>
 
-                                    <Grid HorizontalAlignment="Stretch" MaxWidth="1280" MinWidth="1024" Margin="40,0,40,0">
+                                    <Grid HorizontalAlignment="Stretch" MaxWidth="1280" MinWidth="260" Margin="40,0,40,0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="260"/>
@@ -50,31 +50,40 @@
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
 
-                                        <!--ExtraLogo-->
-                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" Margin="0,40,0,0"
-                                            VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="3" Grid.RowSpan="3"
-                                            MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxHeight, FallbackValue=0}"
-                                            MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxWidth, FallbackValue=0}"
-                                            Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
-                                            <Border.Style>
-                                                <Style TargetType="Border">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}" Value="True">
-                                                            <Setter Property="Visibility" Value="Visible" />
-                                                        </DataTrigger>
-                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}" Value="True">
-                                                            <Setter Property="Visibility" Value="Visible" />
-                                                        </DataTrigger>
-                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}" Value="false" >
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Border.Style>
-                                            <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                                        </Border>
-                                        <!--ExtraLogo Ends-->
+                                        <Grid Grid.ColumnSpan="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="3*" MinWidth="260"/>
+                                                <ColumnDefinition Width="7*"/>
+                                            </Grid.ColumnDefinitions>
+                      
+                                            <!--ExtraLogo-->
+                                            <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" Margin="0,40,0,0"
+                                                     VerticalAlignment="Top" HorizontalAlignment="Left"
+                                                     MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxHeight, FallbackValue=0}"
+                                                     MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxWidth, FallbackValue=0}"
+                                                     Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}" Value="True">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}" Value="True">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}" Value="false" >
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                            </Border>
+                                            <!--ExtraLogo Ends-->
+                                        </Grid>
+
+                                       
 
                                         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,40,0">
 
@@ -362,16 +371,12 @@
                                             <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
 
                                                 <TabControl Margin="0,0,0,16" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                                                    Style="{StaticResource DetailViewTabControl}">
+                                                            Style="{StaticResource DetailViewTabControl}">
+                                                    
                                                     <!--Tab Overview-->
                                                     <TabItem Header="{DynamicResource LOCOverviewLabel}" x:Name="DescriptionTab" FontSize="16">
 
                                                         <StackPanel Margin="0,24,0,0">
-
-                                                            <StackPanel Name="PART_ElemNotes" Margin="0,0,0,16" HorizontalAlignment="Stretch">
-                                                                <TextBox Name="PART_TextNotes" IsReadOnly="True" TextBlock.LineHeight="20" FontSize="{DynamicResource FontSize}"
-                                                                 AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource DetailViewTextBox}"/>
-                                                            </StackPanel>
 
                                                             <StackPanel x:Name="DescriptionContent" Margin="0,0,0,0" >
                                                                 <StackPanel Name="PART_ElemDescription">
@@ -444,8 +449,43 @@
                                                     </TabItem>
                                                     <!--Tab Overview Ends-->
 
+                                                    <!--Tab Notes-->
+                                                    <TabItem Header="{DynamicResource LOCNotesLabel}" FontSize="16"
+                                                             Visibility="{Binding ElementName=NotesVisibilityProxy, Path=Tag}">
+
+                                                        <StackPanel Margin="0,24,0,0">
+
+                                                            <TextBlock x:Name="NotesVisibilityProxy" Visibility="Collapsed">
+                                                                <TextBlock.Style>
+                                                                    <Style TargetType="TextBlock">
+                                                                        <Setter Property="Tag" Value="Collapsed" />
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding ElementName=PART_TextNotes, Path=Visibility}" Value="Visible">
+                                                                                <Setter Property="Tag" Value="Visible" />
+                                                                            </DataTrigger>
+                                                                            <!--<DataTrigger Binding="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, FallbackValue=False}" Value="True">
+                                                                                <Setter Property="Tag" Value="Visible" />
+                                                                            </DataTrigger>-->
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </TextBlock.Style>
+                                                            </TextBlock>
+
+                                                            <TextBox Name="PART_TextNotes" IsReadOnly="True"
+                                                                     BorderThickness="0"
+                                                                     AcceptsReturn="True" TextWrapping="Wrap"
+                                                                     Margin="-1,5,-1,5" Padding="0" Background="Transparent" FontWeight="Normal"/>
+
+                                                            <!--<ContentControl x:Name="PlayNotes_NotesViewerControl"
+                                                                            Visibility="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
+                                                                            Margin="0,10,0,0" />-->
+                                                        </StackPanel>
+
+                                                    </TabItem>
+                                                    <!--Tab Notes Ends-->
+
                                                     <TabItem Header="{DynamicResource LOCSuccessStoryAchievements}" FontSize="16"
-                                                     Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                             Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                         <StackPanel Margin="0,24,0,0">
                                                             <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,0,0,24" />
                                                             <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,0,0,24" />
@@ -670,8 +710,9 @@
                                 </Grid>
                             </ScrollViewer>
                         </Grid>
+                        
                         <!--Bottom Fixed Part-->
-                        <Grid MaxWidth="1280" MinWidth="1024" Margin="40,0,40,16" HorizontalAlignment="Stretch" Grid.Row="1" >
+                        <Grid MaxWidth="1280" MinWidth="260" Margin="40,0,40,16" Grid.Row="1" >
                             <Grid.Style>
                                 <Style TargetType="Grid">
                                     <Style.Triggers>
@@ -681,85 +722,84 @@
                                     </Style.Triggers>
                                 </Style>
                             </Grid.Style>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="260"/>
-                            </Grid.ColumnDefinitions>
 
-                                <Button Name="PART_ButtonPlayAction" Grid.Column="1" Margin="0"
-                                    Height="48" Width="Auto" FontWeight="Bold"
-                                    Style="{DynamicResource PlayButton_LeftPart}" 
-                                    FontSize="{DynamicResource FontSizeLarge20}" />
+                            <DockPanel>
+                                <Grid DockPanel.Dock="Right" Width="260">
+                                    <Button Name="PART_ButtonPlayAction" Grid.Column="1" Margin="0"
+                                            Height="48" Width="Auto" FontWeight="Bold"
+                                            Style="{DynamicResource PlayButton_LeftPart}" 
+                                            FontSize="{DynamicResource FontSizeLarge20}" />
 
-                                <Button Name="PART_ButtonContextAction" Grid.Column="1"
-                                    Height="48" FontWeight="Bold" 
-                                    Background="{DynamicResource AccentDisabledBrush}"
-                                    Style="{DynamicResource PlayButton_LeftPart}" 
-                                    FontSize="{DynamicResource FontSizeLarge20}" />
-
-                                <Button x:Name="PART_ButtonEditGame" Grid.Column="1"
-                                    Height="48" Width="48" Focusable="False" HorizontalAlignment="Right"
-                                    Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                    Style="{StaticResource PlayButton_RightPart}"
-                                    FontSize="{DynamicResource FontSizeLarge}"/>
-
-                            <DockPanel Grid.Column="0">
-                                <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48" DockPanel.Dock="Right"
-                                            Content="&#xe700;" Background="{DynamicResource ControlIdleBackgroundBrush}"
-                                            Style="{DynamicResource LightFilledRoundButton}" 
+                                    <Button Name="PART_ButtonContextAction" Grid.Column="1"
+                                            Height="48" FontWeight="Bold" 
+                                            Background="{DynamicResource AccentDisabledBrush}"
+                                            Style="{DynamicResource PlayButton_LeftPart}" 
+                                            FontSize="{DynamicResource FontSizeLarge20}" />
+                            
+                                    <Button x:Name="PART_ButtonEditGame" Grid.Column="1"
+                                            Height="48" Width="48" Focusable="False" HorizontalAlignment="Right"
+                                            Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                            Style="{StaticResource PlayButton_RightPart}"
                                             FontSize="{DynamicResource FontSizeLarge}"/>
+                                </Grid>
 
-                                <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False" DockPanel.Dock="Right"
+                                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                                    <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False"
                                               Style="{DynamicResource FavoriteRoundedToggleButton}"
                                               Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
                                               IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
-                                    
-                                <Grid Margin="0" VerticalAlignment="Center" DockPanel.Dock="Left">
+                                    <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48"
+                                            Content="&#xe700;" Background="{DynamicResource ControlIdleBackgroundBrush}"
+                                            Style="{DynamicResource LightFilledRoundButton}" 
+                                            FontSize="{DynamicResource FontSizeLarge}"/>
+                                </StackPanel>
+
+                                <Grid Margin="0" VerticalAlignment="Center" DockPanel.Dock="Right" HorizontalAlignment="Stretch">
                                     <Grid.Resources>
                                         <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
-                                                <Setter Property="Margin" Value="0,2,0,2" />
-                                                <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
-                                                <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
-                                            </Style>
-                                            <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
-                                                <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-                                            </Style>
+                                            <Setter Property="Margin" Value="0,2,0,0" />
+                                            <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+                                            <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
+                                        </Style>
+                                        <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+                                        </Style>
                                         <Style TargetType="Button" BasedOn="{StaticResource PropertyItemSmallButton}">
                                             <Setter Property="Margin" Value="0"/>
                                         </Style>
                                     </Grid.Resources>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <DockPanel Grid.Column="1" Visibility="{Binding Visibility, ElementName=PART_ElemLastPlayed, Mode=OneWay}" Margin="0,0,24,0">
-                                            <TextBlock Text="&#xe163;" FontSize="24" DockPanel.Dock="Left" Margin="0,0,8,0"
-                                                      Style="{DynamicResource IconFontStyle}"/>
-                                            <Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}"  
-                                                   DockPanel.Dock="Top"/>
-                                            <TextBlock Name="PART_TextLastActivity" DockPanel.Dock="Top" FontWeight="Bold"/>
+                                    <DockPanel Grid.Column="1" Visibility="{Binding Visibility, ElementName=PART_ElemLastPlayed, Mode=OneWay}" Margin="0,0,16,0">
+                                        <TextBlock Text="&#xe163;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0"
+                                                   Style="{DynamicResource IconFontStyle}"/>
+                                        <Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}"  
+                                               DockPanel.Dock="Top"/>
+                                        <TextBlock Name="PART_TextLastActivity" DockPanel.Dock="Top" FontWeight="Bold"/>
                                     </DockPanel>
 
-                                    <DockPanel Grid.Column="0" Visibility="{Binding Visibility, ElementName=PART_ElemPlayTime, Mode=OneWay}" Margin="0,0,24,0">
-                                            <TextBlock Text="&#xed5a;" FontSize="24" DockPanel.Dock="Left" Margin="0,0,8,0" 
-                                                       Style="{DynamicResource IconFontStyle}"/>
-                                            <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" 
-                                                   DockPanel.Dock="Top"/>
-                                            <TextBlock Name="PART_TextPlayTime" DockPanel.Dock="Top" FontWeight="Bold"/>
+                                    <DockPanel Grid.Column="0" Visibility="{Binding Visibility, ElementName=PART_ElemPlayTime, Mode=OneWay}" Margin="0,0,16,0">
+                                        <TextBlock Text="&#xed5a;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0" 
+                                                   Style="{DynamicResource IconFontStyle}"/>
+                                        <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" 
+                                               DockPanel.Dock="Top"/>
+                                        <TextBlock Name="PART_TextPlayTime" DockPanel.Dock="Top" FontWeight="Bold"/>
                                     </DockPanel>
 
-                                    <DockPanel Grid.Column="2" Visibility="{Binding Visibility, ElementName=PART_ElemPlayTime, Mode=OneWay}" Margin="0,0,24,0">
-                                        <TextBlock Text="&#xe129;" FontSize="24" DockPanel.Dock="Left" Margin="0,0,8,0" 
+                                    <DockPanel Grid.Column="2" Visibility="{Binding Visibility, ElementName=PART_ElemPlayTime, Mode=OneWay}" Margin="0,0,16,0">
+                                        <TextBlock Text="&#xe129;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0" 
                                                    Style="{DynamicResource IconFontStyle}"/>
                                         <Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" 
                                                DockPanel.Dock="Top"/>
                                         <Button Name="PART_ButtonCompletionStatus" DockPanel.Dock="Top" FontWeight="Bold" Margin="0,1,0,0"/>
                                     </DockPanel>
                                 </Grid>
-
                             </DockPanel>
+
                         </Grid>
                         <!--Bottom Fixed Part Ends-->
                     </Grid>

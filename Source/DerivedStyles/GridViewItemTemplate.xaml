@@ -13,10 +13,19 @@
                                     d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
 
                             <Grid Width="{Settings GridItemWidth}"  Height="{Settings GridItemHeight}">
-                                <Image Name="PART_ImageCover" 
+                                <StackPanel>
+                                    <!--<ContentControl x:Name="ThemeExtras_Banner"
+                                                RenderOptions.BitmapScalingMode="Fant"
+                                                Width="{Binding Width, ElementName=PART_ImageCover}"
+                                                Tag="{DynamicResource GridViewCoverDisplayLibraryBanner}"
+                                                Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center"
+                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
+                                    
+                                    <Image Name="PART_ImageCover" 
                                        HorizontalAlignment="Center" VerticalAlignment="Center"
                                        RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
                                        Stretch="{Settings CoverArtStretch}"/>
+                                </StackPanel>
                                                              
                                 <!--Game Not Installed-->
                                 <Border Background="#99000000" x:Name="TextGameName" Visibility="Collapsed">
@@ -40,22 +49,31 @@
                                     </Grid>
                                 </Border>
 
-                                <Border Background="{DynamicResource ControlBackgroundBrush}" Width="28" Height="28" CornerRadius="16" Margin="16,8,8,16"
-                                        VerticalAlignment="Top" HorizontalAlignment="Right">
-                                    <Border.Style>
-                                        <Style TargetType="Border">
-                                            <Setter Property="Visibility" Value="Collapsed" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Favorite}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Border.Style>
-                                    <TextBlock Text="&#xe00a;" Foreground="Yellow" HorizontalAlignment="Center" Margin="0,5,0,0"
-                                           FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                           FontSize="{DynamicResource FontSizeLarge}" />
-                                </Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Viewbox Margin="0,6,6,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="3">
+                                        <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="16" Padding="6">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Favorite}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock Text="&#xe00a;" Foreground="White" HorizontalAlignment="Center" FontSize="16"
+                                                   Style="{DynamicResource IconFontStyle}"/>
+                                        </Border>
+                                    </Viewbox>
+                                </Grid>
                                 
                             </Grid>
                             

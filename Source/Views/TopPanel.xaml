@@ -256,7 +256,8 @@
                             <DockPanel Grid.Column="2" Margin="0,0,120,0">
                                 <StackPanel x:Name="PART_PanelMainPluginItems" Orientation="Horizontal"
                                             VerticalAlignment="Stretch" Margin="8,6,8,6"
-                                            DockPanel.Dock="{Settings PluginTopPanelAlignment}"/>
+                                            DockPanel.Dock="{Settings PluginTopPanelAlignment}">
+                                </StackPanel>
 
                                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
                                     <CheckBox x:Name="PART_ToggleNotifications" 

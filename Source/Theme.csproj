@@ -82,6 +82,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="theme.yaml" />
+    <None Include="themeExtras.yaml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
