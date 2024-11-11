@@ -6,10 +6,10 @@ Simple, clean and consistent designed Theme for [Playnite](https://github.com/Jo
 ## Preparation and Settings
 It's using ``Segoe Fluent Icons`` for the theme, you might need to download the [Segoe Fluent Icons](https://learn.microsoft.com/zh-cn/windows/apps/design/downloads/#fonts)
 ## Screenshots
-![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots01.jpg)
-![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots02.jpg)
-![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots03.jpg)
-![Screenshot](https://github.com/sakasakiking/FusionX/blob/9c130e11218de7a15848df6c4326da6099fd864d/Screenshots/Screenshots04.jpg)
+![Screenshot](https://github.com/sakasakiking/FusionX/blob/f86401d72a76cefc2703c17d79cd102d809bb7d4/Screenshots/Screenshots01.jpg)
+![Screenshot](https://github.com/sakasakiking/FusionX/blob/f86401d72a76cefc2703c17d79cd102d809bb7d4/Screenshots/Screenshots02.jpg)
+![Screenshot](https://github.com/sakasakiking/FusionX/blob/f86401d72a76cefc2703c17d79cd102d809bb7d4/Screenshots/Screenshots03.jpg)
+![Screenshot](https://github.com/sakasakiking/FusionX/blob/f86401d72a76cefc2703c17d79cd102d809bb7d4/Screenshots/Screenshots04.jpg)
 
 ## Recommended Playnite settings to avoid issues and reach the visual effect shown in the screenshots
 Images are being cooked...
