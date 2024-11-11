@@ -40,4 +40,14 @@ Packages:
     - The ScrollBar is collapsed, will show up when [MouseOver].
     - Have had DetailOverview in Grid View (Requested by adrian5683)
     - Let me know if any suggestion.
+  - Version: 1.2
+    RequiredApiVersion: 2.6.0
+    ReleaseDate: 2024-11-11
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_2.pthm
+    Changelog: 
+    - Put "Notes" as a tab (Requested by adrian5683)
+    - The Logo of ExtraMetadata is set to a appropriate size and will be auto scaled with the window.(Requested by ben401rs)
+    - The width of Detail Overview are set to a appropriate size that the "PlayButton" will not be cut. (Requested by ben401rs and Dazaike)
+    - The Grid Overview is adjusted to fit most of resolution.(Recommanded:more than 600 width)
+    - Let me know if any suggestion.
 
