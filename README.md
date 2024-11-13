@@ -12,7 +12,7 @@ It's using ``Segoe Fluent Icons`` for the theme, you might need to download the 
 ![Screenshot](https://github.com/sakasakiking/FusionX/blob/f86401d72a76cefc2703c17d79cd102d809bb7d4/Screenshots/Screenshots04.jpg)
 
 ## Recommended Playnite settings to avoid issues and reach the visual effect shown in the screenshots
-Images are being cooked...
+Please follow [This guide](https://github.com/sakasakiking/FusionX/wiki/Recommended-settings-for-achieving-the-look-of-screenshots)
 
 ## Support
 - If you found a bug or want to request a feature, please open a new issue in the [Issues Tracker](https://github.com/sakasakiking/FusionX/issues)
