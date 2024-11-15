@@ -2,6 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <sys:Boolean x:Key="GridViewCoverUseRoundedCorners">True</sys:Boolean>
+    <SolidColorBrush x:Key="GridViewItemMaskBackgroundBrush" Color="#1e1e1e" />
+    <CornerRadius x:Key="GridViewCoverCornerRadius">8</CornerRadius>
+    <CornerRadius x:Key="GridViewCoverGridBackgroundDisabledCornerRadius">8,8,8,8</CornerRadius>
+    <CornerRadius x:Key="GridViewSelectionBorderCornerRadius">12</CornerRadius>
+    
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
     <sys:Double x:Key="FontSize">14</sys:Double>
     <sys:Double x:Key="FontSizeLarge">16</sys:Double>
@@ -34,7 +40,7 @@
     <Color x:Key="PopupBorderColor">#2E2E2E</Color>
     
     <Color x:Key="BackgroundToneColor">#FFCC00</Color>
-    <Color x:Key="GridItemBackgroundColor">#151e3d</Color>
+    <Color x:Key="GridItemBackgroundColor">#00000000</Color>
     
     <Color x:Key="PanelSeparatorColor">#14ffffff</Color>
 

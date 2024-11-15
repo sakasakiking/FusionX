@@ -13,8 +13,19 @@
                         <Grid Background="{DynamicResource GridItemBackgroundBrush}"
                               x:Name="ItemGrid">
                             <ContentPresenter />
-                            <Border x:Name="SelectionBorder" BorderThickness="4"   BorderBrush="Transparent"
-                                    Margin="-4"/>
+                            <Border x:Name="SelectionBorder" BorderThickness="4" BorderBrush="Transparent"
+                                    Margin="-4" Tag="{DynamicResource GridViewCoverUseRoundedCorners}">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="0" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Mode=OneWay}" Value="True">
+                                                <Setter Property="CornerRadius" Value="{DynamicResource GridViewSelectionBorderCornerRadius}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
                         </Grid>
                         <TextBlock Text="{Binding DisplayName}"
                                    Style="{DynamicResource BaseTextBlockStyle}"                                                                   

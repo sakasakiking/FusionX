@@ -4,6 +4,18 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                     mc:Ignorable="d">
 
+    <Style TargetType="Border" x:Key="VisualBrushBorderMask" >
+        <Setter Property="Background" Value="{DynamicResource GridViewItemMaskBackgroundBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource GridViewCoverCornerRadius}" />
+        <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                <Setter Property="CornerRadius" Value="0,0,0,0" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+
     <Style x:Key="GridViewItemTemplate" TargetType="{x:Type GameListItem}">
         <Setter Property="Template">
             <Setter.Value>
@@ -13,7 +25,22 @@
                                     d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
 
                             <Grid Width="{Settings GridItemWidth}"  Height="{Settings GridItemHeight}">
+                                <Border Style="{StaticResource VisualBrushBorderMask}" Name="Mask"
+                                        Tag="{DynamicResource GridViewCoverUseRoundedCorners}" />
                                 <StackPanel>
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=Mask, Path=Tag}" Value="True">
+                                                    <Setter Property="OpacityMask">
+                                                        <Setter.Value>
+                                                            <VisualBrush Visual="{Binding ElementName=Mask}"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
                                     <!--<ContentControl x:Name="ThemeExtras_Banner"
                                                 RenderOptions.BitmapScalingMode="Fant"
                                                 Width="{Binding Width, ElementName=PART_ImageCover}"
@@ -22,9 +49,11 @@
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
                                     
                                     <Image Name="PART_ImageCover" 
-                                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                                       RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
-                                       Stretch="{Settings CoverArtStretch}"/>
+                                           Height="{Settings GridItemHeight}" SnapsToDevicePixels="True"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
+                                           Stretch="{Settings CoverArtStretch}"/>
+
                                 </StackPanel>
                                                              
                                 <!--Game Not Installed-->

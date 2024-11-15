@@ -22,14 +22,14 @@
                         <FadeImage x:Name="PART_ImageBackground" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
                                    HorizontalAlignment="Center" VerticalAlignment="Top" >
 
-                            <FadeImage.ImageOpacityMask>
+                            <!--<FadeImage.ImageOpacityMask>
                                 <RadialGradientBrush GradientOrigin="0.5,0" Center="0.5,0" RadiusX="1" RadiusY="1.5">
                                     <RadialGradientBrush.GradientStops>
                                         <GradientStop Color="Black" Offset="0.4" />
                                         <GradientStop Color="Transparent" Offset="0.98" />
                                     </RadialGradientBrush.GradientStops>
                                 </RadialGradientBrush>
-                            </FadeImage.ImageOpacityMask>
+                            </FadeImage.ImageOpacityMask>-->
                         </FadeImage>
 
                         <TopPanel DockPanel.Dock="Top" Grid.Row="0" />
