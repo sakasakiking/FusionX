@@ -50,4 +50,12 @@ Packages:
     - The width of Detail Overview are set to a appropriate size that the "PlayButton" will not be cut. (Requested by ben401rs and Dazaike)
     - The Grid Overview is adjusted to fit most of resolution.(Recommanded:more than 600 width)
     - Let me know if any suggestion.
+  - Version: 1.3
+    RequiredApiVersion: 2.6.0
+    ReleaseDate: 2024-11-15
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_3.pthm
+    Changelog: 
+    - Make image cover corner rounded in GridView game list
+    - Remove the filter on the game global background to speed up the loading when switching the games. (Yeah, it won't be that laggy)
+    - Let me know if any suggestion.
 
