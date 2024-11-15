@@ -790,7 +790,7 @@
                                         <TextBlock Name="PART_TextPlayTime" DockPanel.Dock="Top" FontWeight="Bold"/>
                                     </DockPanel>
 
-                                    <DockPanel Grid.Column="2" Visibility="{Binding Visibility, ElementName=PART_ElemPlayTime, Mode=OneWay}" Margin="0,0,16,0">
+                                    <DockPanel Grid.Column="2" Visibility="{Binding Visibility, ElementName=PART_ElemCompletionStatus, Mode=OneWay}" Margin="0,0,16,0">
                                         <TextBlock Text="&#xe129;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0" 
                                                    Style="{DynamicResource IconFontStyle}"/>
                                         <Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" 
