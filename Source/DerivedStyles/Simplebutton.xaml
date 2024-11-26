@@ -92,7 +92,7 @@
     </Style>
 
     <Style x:Key="LightFilledRoundButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-        <Setter Property="Width" Value="32"/>
+        <Setter Property="MinWidth" Value="32"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="Margin" Value="0,0,0,0" />
@@ -104,9 +104,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <Ellipse x:Name="IdleBg" Fill="{TemplateBinding Background}" Visibility="Visible"/>
-                        <Ellipse x:Name="HoverBg"  Fill="{DynamicResource ControlHoverBackgroundBrush}" Opacity="0"/>
-                        <Ellipse x:Name="SelectedBg" Fill="{DynamicResource ControlSelectedBackgroundBrush}" Visibility="Collapsed"/>
+                        <Border Name="HoverBg" Background="{DynamicResource ControlLightBackgroundBrush}" 
+                                CornerRadius="16" Opacity="0.16"/>
                         <TextBlock FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" 
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}" TextWrapping="Wrap"/>
@@ -119,7 +118,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                          Storyboard.TargetProperty="Opacity" 
-                                                         To="1" Duration="0:0:0.4">
+                                                         To="0.24" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -132,7 +131,70 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                          Storyboard.TargetProperty="Opacity" 
-                                                         To="0" Duration="0:0:0.4">
+                                                         To="0.16" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="LightRoundButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="MinWidth" Value="32"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
+        <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border Name="HoverBg" Background="{DynamicResource ControlLightBackgroundBrush}" 
+                            CornerRadius="16" Opacity="0"/>
+                        <TextBlock FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}" TextWrapping="Wrap"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
+                                                     Storyboard.TargetProperty="Opacity" 
+                                                     To="0.24" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
+                                                     Storyboard.TargetProperty="Opacity" 
+                                                     To="0" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -285,5 +347,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    
+    
 
 </ResourceDictionary>

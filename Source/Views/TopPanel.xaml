@@ -239,31 +239,32 @@
                                         WindowChrome.IsHitTestVisibleInChrome="True">
                                     <Image Source="{ThemeFile 'Images/applogo.png'}"
                                            Height="40" RenderOptions.BitmapScalingMode="Fant"
-                                           Margin="10,0,0,0"/>
+                                           Margin="24,0,0,0"/>
                                 </Border>
+                                <SearchBox x:Name="PART_TextMainSearch" Grid.Column="0" Style="{DynamicResource TopPanelSearchBox}"
+                                       Margin="16,0,16,0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       WindowChrome.IsHitTestVisibleInChrome="True" />
+                            </StackPanel>
+
+
+                            <StackPanel Grid.Column="1" Orientation="Horizontal">
                                 <StackPanel x:Name="PART_PanelMainItems" Orientation="Horizontal"
-                                            VerticalAlignment="Stretch" Margin="12,6,0,6" />
+                                            VerticalAlignment="Stretch" Margin="0,6,0,6" />
                                 <CheckBox x:Name="PART_ToggleFilter" ToolTip="{DynamicResource LOCFilters}"
                                               Style="{DynamicResource TopPanelFilterToggle}" />
                             </StackPanel>
 
 
-                            <SearchBox x:Name="PART_TextMainSearch" Grid.Column="1" Style="{DynamicResource TopPanelSearchBox}"
-                                       Margin="16,0,16,0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                       WindowChrome.IsHitTestVisibleInChrome="True" />
-
-
                             <DockPanel Grid.Column="2" Margin="0,0,120,0">
-                                <StackPanel x:Name="PART_PanelMainPluginItems" Orientation="Horizontal"
-                                            VerticalAlignment="Stretch" Margin="8,6,8,6"
-                                            DockPanel.Dock="{Settings PluginTopPanelAlignment}">
-                                </StackPanel>
-
                                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
                                     <CheckBox x:Name="PART_ToggleNotifications" 
                                               Style="{DynamicResource TopPanelNotificationsToggle}" />
                                 </StackPanel>
-
+                                <StackPanel x:Name="PART_PanelMainPluginItems" Orientation="Horizontal"
+                                            VerticalAlignment="Stretch" Margin="8,6,8,6"
+                                            DockPanel.Dock="{Settings PluginTopPanelAlignment}">
+                                </StackPanel>
+                                
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,6,0,6">
                                     <Grid MaxWidth="200">
                                         <ProgressBar Name="PART_ProgressGlobal" />

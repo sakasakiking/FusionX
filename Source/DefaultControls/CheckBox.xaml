@@ -19,7 +19,7 @@
                             Padding="{TemplateBinding Padding}">
                         <DockPanel>
                             <Border x:Name="BulletBorder" DockPanel.Dock="Left" 
-                                    CornerRadius="{DynamicResource ControlCornerRadius}"
+                                    CornerRadius="{DynamicResource ControlCornerRadiusSmall}"
                                     VerticalAlignment="Center"
                                     BorderThickness="{TemplateBinding BorderThickness}" 
                                     Background="{DynamicResource ControlBackgroundBrush}"

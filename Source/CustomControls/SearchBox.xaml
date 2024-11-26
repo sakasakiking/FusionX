@@ -25,7 +25,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="TopPanelSearchBox" TargetType="{x:Type SearchBox}" BasedOn="{StaticResource {x:Type SearchBox}}">
+    <!--<Style x:Key="TopPanelSearchBox" TargetType="{x:Type SearchBox}" BasedOn="{StaticResource {x:Type SearchBox}}">
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="MinHeight" Value="24" />
         <Setter Property="Width" Value="200"/>
@@ -48,6 +48,72 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>-->
+
+    <Style x:Key="TopPanelSearchBox" TargetType="{x:Type SearchBox}" BasedOn="{StaticResource {x:Type SearchBox}}">
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="MinHeight" Value="24" />
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Height" Value="36"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type SearchBox}">
+                    <Grid x:Name="BoxGrid" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" ClipToBounds="False">
+                        <TextBox x:Name="PART_TextInpuText" Style="{DynamicResource SearchTextBox}" Width="120" HorizontalAlignment="Left"
+                             VerticalContentAlignment="Center" Padding="12,0,32,0"/>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" IsHitTestVisible="False">
+                            <ContentControl x:Name="PART_SeachIcon"
+                                    ContentTemplate="{DynamicResource SearchTextIconTemplate}" FontSize="{DynamicResource FontSizeLarge}" Margin="14,1,4,0"
+                                    Foreground="{DynamicResource PromptBrush}" />
+
+                            <TextBlock x:Name="Prompt" Text="{DynamicResource LOCSearchLabel}" Margin="0,0,0,0" FontSize="{DynamicResource FontSize}"
+                                   Foreground="{DynamicResource PromptBrush}"/>
+
+                        </StackPanel>
+                        <ContentControl x:Name="PART_ClearTextIcon"
+                                    ContentTemplate="{DynamicResource ClearTextIconTemplate}" Cursor="Hand"
+                                    FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,0" 
+                                    Foreground="{DynamicResource PromptBrush}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=PART_SeachIcon, Path=Visibility}" Value="Collapsed">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="Prompt"/>
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PART_TextInpuText"
+                                                     Storyboard.TargetProperty="Width" 
+                                                     To="300" Duration="0:0:0.2">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PART_TextInpuText"
+                                                     Storyboard.TargetProperty="Width" 
+                                                     To="100" Duration="0:0:0.2">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 

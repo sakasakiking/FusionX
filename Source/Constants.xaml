@@ -21,7 +21,10 @@
     <Thickness x:Key="PopupBorderThickness">1</Thickness>
     <Thickness x:Key="ControlBorderThickness">1</Thickness>
     <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
-    <CornerRadius x:Key="ControlCornerRadius">4</CornerRadius>
+    <CornerRadius x:Key="ControlCornerRadius">8</CornerRadius>
+    <CornerRadius x:Key="ControlCornerRadiusSmall">4</CornerRadius>
+    <CornerRadius x:Key="ControlCornerRadiusLarge">16</CornerRadius>
+    <CornerRadius x:Key="ControlCornerRadiusLargeX">24</CornerRadius>
     <Thickness x:Key="SidebarItemPadding">8</Thickness>
 
     <Color x:Key="BlackColor">#FF000000</Color>
@@ -68,13 +71,14 @@
     <SolidColorBrush x:Key="ControlFilledHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
     <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" Color="{DynamicResource 16%White}" />
 
-    <SolidColorBrush x:Key="ControlIdleBorderBrush" Color="#29FFFFFF" />
-    <SolidColorBrush x:Key="ControlHoverBorderBrush" Color="#66FFFFFF" />
-    <SolidColorBrush x:Key="ControlSelectedBorderBrush" Color="#CCFFFFFF" />
+    <SolidColorBrush x:Key="ControlIdleBorderBrush" Color="{DynamicResource 16%White}" />
+    <SolidColorBrush x:Key="ControlHoverBorderBrush" Color="{DynamicResource 40%White}" />
+    <SolidColorBrush x:Key="ControlSelectedBorderBrush" Color="{DynamicResource 60%White}" />
 
     <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
 
-    <SolidColorBrush x:Key="DisabledBrush" Color="{DynamicResource 40%White}" />
+    <SolidColorBrush x:Key="DisabledBrush" Color="{DynamicResource 24%White}" />
+    <SolidColorBrush x:Key="PromptBrush" Color="{DynamicResource 24%White}" />
     <SolidColorBrush x:Key="IdleBrush" Color="{DynamicResource 60%White}" />
     <SolidColorBrush x:Key="HoverBrush" Color="{DynamicResource 80%White}" />
     <SolidColorBrush x:Key="SelectedBrush" Color="{DynamicResource 100%White}" />

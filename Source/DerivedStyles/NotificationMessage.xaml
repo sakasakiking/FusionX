@@ -13,7 +13,7 @@
                     <Border BorderThickness="0,1,0,0" BorderBrush="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,16"
                             d:DataContext="{x:Static DesignMainViewModel.DesignNotificationIntance}">
                         <DockPanel Cursor="Hand">
-                            <Button DockPanel.Dock="Right" Padding="0" Background="Transparent"
+                            <Button DockPanel.Dock="Right" Padding="0"
                                     Content="&#xe107;" Style="{DynamicResource LightFilledRoundButton}"
                                     Width="32" Height="32"
                                     VerticalAlignment="Top"  Margin="0,8,0,0"

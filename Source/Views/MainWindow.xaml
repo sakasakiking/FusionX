@@ -19,7 +19,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Grid.Resources>      
+                            <!--<Grid.Resources>      
                                 <Storyboard x:Key="VisibilityOn">
                                     <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin"
                                                  Storyboard.TargetName="PART_Notifications">
@@ -34,19 +34,44 @@
                                         <SplineThicknessKeyFrame KeyTime="0:0:0.10" Value="-260,0,0,0" />
                                     </ThicknessAnimationUsingKeyFrames>
                                 </Storyboard>
+                            </Grid.Resources>-->
+
+                            <Grid.Resources>
+                                <Storyboard x:Key="VisibilityOn">
+                                    <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin"
+                                                                      Storyboard.TargetName="PART_Notifications">
+                                        <SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,40,120,0" />
+                                        <SplineThicknessKeyFrame KeyTime="0:0:0.10" Value="0,48,120,0" />
+                                    </ThicknessAnimationUsingKeyFrames>
+                                </Storyboard>
+                                <Storyboard x:Key="VisibilityOff">
+                                    <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin"
+                                                                      Storyboard.TargetName="PART_Notifications">
+                                        <SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,48,120,0" />
+                                        <SplineThicknessKeyFrame KeyTime="0:0:0.10" Value="0,40,120,0" />
+                                    </ThicknessAnimationUsingKeyFrames>
+                                </Storyboard>
                             </Grid.Resources>
-                            
+
                             <DockPanel>
                                 <Sidebar x:Name="PART_Sidebar" Panel.ZIndex="999"
                                          DockPanel.Dock="{Settings SidebarPosition}" />                             
                                 <ContentControl Name="PART_ContentView"
                                                 DockPanel.Dock="Top" />
                             </DockPanel>                            
-                            <NotificationPanel x:Name="PART_Notifications"  
+                            <!--<NotificationPanel x:Name="PART_Notifications"  
                                                WindowChrome.IsHitTestVisibleInChrome="True"
                                                Width="260"
                                                Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
                                                HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                                               AnimatedVisibility.Visibility="{Settings NotificationPanelVisible}"
+                                               AnimatedVisibility.Visible="{StaticResource VisibilityOn}"
+                                               AnimatedVisibility.Collapsed="{StaticResource VisibilityOff}"/>-->
+                            <NotificationPanel x:Name="PART_Notifications"  
+                                               WindowChrome.IsHitTestVisibleInChrome="True"
+                                               Width="320" MinHeight="200" MaxHeight="500"
+                                               Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                               HorizontalAlignment="Right" VerticalAlignment="Top"
                                                AnimatedVisibility.Visibility="{Settings NotificationPanelVisible}"
                                                AnimatedVisibility.Visible="{StaticResource VisibilityOn}"
                                                AnimatedVisibility.Collapsed="{StaticResource VisibilityOff}"/>

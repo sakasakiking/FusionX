@@ -8,9 +8,14 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="NotificationPanel">
-                    <Grid Background="{DynamicResource PopupBackgroundBrush}"
-                          d:DesignWidth="260" d:DesignHeight="400"
-                          d:DataContext="{x:Static DesignMainViewModel.DesignIntance}">
+                    <Border Background="{DynamicResource PopupBackgroundBrush}" BorderThickness="1" BorderBrush="{DynamicResource PopupBorderBrush}"
+                            CornerRadius="{DynamicResource ControlCornerRadiusLarge}"
+                            d:DesignWidth="260" d:DesignHeight="400"
+                            d:DataContext="{x:Static DesignMainViewModel.DesignIntance}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="12" ShadowDepth="4" Opacity="0.16" Direction="270"/>
+                        </Border.Effect>
+                        <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
@@ -18,7 +23,6 @@
                         </Grid.RowDefinitions>
                         <DockPanel Margin="16,16,16,16" Grid.Row="0">
                             <Button Name="PART_ButtonClose" Content="&#xe106;"
-                                    Width="32" Height="32"
                                     Style="{DynamicResource LightFilledRoundButton}"
                                     DockPanel.Dock="Right" Margin="16,0,0,0" />
                             <TextBlock Text="{DynamicResource LOCNotifications}" DockPanel.Dock="Left" VerticalAlignment="Center"
@@ -44,6 +48,8 @@
                                  Style="{StaticResource SimpleTubeButton}"
                                  Content="{DynamicResource LOCDismissAll}" />
                     </Grid>
+
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
