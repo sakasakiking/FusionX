@@ -10,12 +10,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border BorderThickness="0,1,0,0" BorderBrush="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,16"
+                    <Border BorderThickness="0,1,0,0" BorderBrush="{DynamicResource PanelSeparatorBrush}" Margin="0"
                             d:DataContext="{x:Static DesignMainViewModel.DesignNotificationIntance}">
-                        <DockPanel Cursor="Hand">
-                            <Button DockPanel.Dock="Right" Padding="0"
-                                    Content="&#xe107;" Style="{DynamicResource LightFilledRoundButton}"
-                                    Width="32" Height="32"
+                        <DockPanel Cursor="Hand" Margin="0,0,0,16">
+                            <Button DockPanel.Dock="Right" Content="&#xe107;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                    Style="{DynamicResource PillMediumNoBgButton}"
                                     VerticalAlignment="Top"  Margin="0,8,0,0"
                                     Command="{Binding CloseCommand}"/>
                             <TextBlock Text="{Binding Text}"

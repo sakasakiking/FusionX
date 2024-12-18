@@ -28,4 +28,17 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="DeepDarkBg" TargetType="Border" BasedOn="{StaticResource {x:Type Border}}">
+        <Setter Property="Background" Value="#99000000" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#CC000000" />
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ControlDarkHoverBackgroundBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

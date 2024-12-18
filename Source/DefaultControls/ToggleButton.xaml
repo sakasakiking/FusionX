@@ -39,35 +39,29 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="FavoriteRoundedToggleButton" TargetType="{x:Type ToggleButton}">
-        <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
-        <Setter Property="Width" Value="48"/>
-        <Setter Property="Height" Value="48"/>
+    <Style x:Key="PillLargeToggleButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Height" Value="48"/>
+        <Setter Property="Padding" Value="8,4,8,4"/>
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="IsChecked" Value="False" />
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Grid>
-                        <Ellipse x:Name="IdleBg" Fill="{TemplateBinding Background}"/>
-                        <Ellipse x:Name="HoverBg" Fill="{DynamicResource ControlHoverBackgroundBrush}" Opacity="0"
-                                 Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
-                        <Ellipse x:Name="SelectedBg" Visibility="Collapsed" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
-                                 Fill="{DynamicResource RGLayerBackgroundBrush}"/>
-                        <TextBlock x:Name="FavoriteIcon" Text="&#xe1ce;"
+                        <Border Name="HoverBg" MinWidth="{TemplateBinding Height}" Height="{TemplateBinding Height}" Opacity="0.16"
+                                Background="{DynamicResource ControlLightBackgroundBrush}" CornerRadius="24"/>
+                        <TextBlock x:Name="FavoriteIcon" Text="&#xe1ce;" FontFamily="{TemplateBinding FontFamily}" 
                                    FontSize="{TemplateBinding FontSize}"
-                                   Foreground="{TemplateBinding Foreground}"
-                                   Style="{StaticResource IconFontStyle}"/>
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"
+                                   Foreground="{TemplateBinding Foreground}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="True">
                             <Setter Property="TextBlock.Text" Value="&#xe00a;" TargetName="FavoriteIcon" />
-                            <Setter Property="TextBlock.Foreground" Value="Yellow"/>
-                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedBg"/>
+                            <Setter Property="TextBlock.Foreground" Value="{DynamicResource ControlLightBackgroundBrush}"/>
                         </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
@@ -75,7 +69,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                          Storyboard.TargetProperty="Opacity" 
-                                                         To="1" Duration="0:0:0.4">
+                                                         To="0.24" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>
@@ -88,7 +82,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="HoverBg"
                                                          Storyboard.TargetProperty="Opacity" 
-                                                         To="0" Duration="0:0:0.4">
+                                                         To="0.16" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut"/>
                                             </DoubleAnimation.EasingFunction>

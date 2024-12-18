@@ -9,7 +9,7 @@
     <Style TargetType="{x:Type Hyperlink}">
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentSelectedBrush}" />
         <Setter Property="TextDecorations" Value="{x:Null}" />
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">

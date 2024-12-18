@@ -16,37 +16,38 @@
                             <DropShadowEffect Color="Black" BlurRadius="12" ShadowDepth="4" Opacity="0.16" Direction="270"/>
                         </Border.Effect>
                         <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <DockPanel Margin="16,16,16,16" Grid.Row="0">
-                            <Button Name="PART_ButtonClose" Content="&#xe106;"
-                                    Style="{DynamicResource LightFilledRoundButton}"
-                                    DockPanel.Dock="Right" Margin="16,0,0,0" />
-                            <TextBlock Text="{DynamicResource LOCNotifications}" DockPanel.Dock="Left" VerticalAlignment="Center"
-                                       Style="{StaticResource PanelTitleTextBlockStyle}"/>
-                        </DockPanel>
-                        <ItemsControl Name="PART_ItemsMessages" Grid.Row="1" Margin="16,0,16,0">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Button Style="{StaticResource NotificationMessage}" />
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                            <ItemsControl.Template>
-                                <ControlTemplate>
-                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                                                  VerticalScrollBarVisibility="Auto">
-                                        <ItemsPresenter />
-                                    </ScrollViewer>
-                                </ControlTemplate>
-                            </ItemsControl.Template>
-                        </ItemsControl>
-                        <Button Name="PART_ButtonDismissAll" Grid.Row="2"
-                                 HorizontalAlignment="Stretch" Margin="16,16,16,16"
-                                 Style="{StaticResource SimpleTubeButton}"
-                                 Content="{DynamicResource LOCDismissAll}" />
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <DockPanel Margin="16,16,16,16" Grid.Row="0">
+                                <Button Name="PART_ButtonClose" Content="&#xe106;" DockPanel.Dock="Right" 
+                                        Margin="16,0,0,0" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                        Style="{DynamicResource PillMediumButton}"/>
+                                <TextBlock Text="{DynamicResource LOCNotifications}" DockPanel.Dock="Left" 
+                                           VerticalAlignment="Center" Margin="0,2,0,0"
+                                           Style="{StaticResource PanelTitleTextBlockStyle}"/>
+                            </DockPanel>
+                            <ItemsControl Name="PART_ItemsMessages" Grid.Row="1" Margin="16,0,16,0" Padding="0">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{StaticResource NotificationMessage}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.Template>
+                                    <ControlTemplate>
+                                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" Padding="0" Margin="0"
+                                                      VerticalScrollBarVisibility="Auto">
+                                            <ItemsPresenter />
+                                        </ScrollViewer>
+                                    </ControlTemplate>
+                                </ItemsControl.Template>
+                            </ItemsControl>
+                            <Button Name="PART_ButtonDismissAll" Grid.Row="2"
+                                     HorizontalAlignment="Stretch" Margin="16,0,16,16"
+                                     Style="{StaticResource PillMediumButton}"
+                                     Content="{DynamicResource LOCDismissAll}" />
                     </Grid>
 
                     </Border>

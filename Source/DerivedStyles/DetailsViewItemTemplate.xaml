@@ -11,9 +11,9 @@
                     <Border Name="PART_PanelHost" Padding="8,6,8,6" Background="Transparent"
                             d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
                         <DockPanel>
-                            <TextBlock Text="&#xe00a;" Foreground="Yellow" Margin="8,0,0,0"
+                            <TextBlock Text="&#xe00a;" Foreground="White" Margin="8,0,0,0"
                                        DockPanel.Dock="Right" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                       FontSize="{DynamicResource FontSizeSmall}" VerticalAlignment="Center" 
+                                       FontSize="{DynamicResource FontSizeSmaller}" VerticalAlignment="Center" 
                                        Tag="{DynamicResource DetailsViewLibraryGameShowFavorite}">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock" >

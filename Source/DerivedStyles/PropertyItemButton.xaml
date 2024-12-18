@@ -103,12 +103,13 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="{DynamicResource ControlDarkIdleBackgroundBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Padding="10,5,10,5" CornerRadius="4" BorderThickness="1"  Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}">
+                    <Border Padding="10,4,10,6" CornerRadius="6" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}">
                         <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" 
                                    Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="Wrap"/>
                     </Border>
@@ -118,10 +119,11 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource AccentSelectedBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource ControlDarkHoverBackgroundBrush}"/>
                 <Setter Property="Cursor" Value="Hand" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource DisabledBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>

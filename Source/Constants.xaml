@@ -3,14 +3,17 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <sys:Boolean x:Key="GridViewCoverUseRoundedCorners">True</sys:Boolean>
+    
     <SolidColorBrush x:Key="GridViewItemMaskBackgroundBrush" Color="#1e1e1e" />
-    <CornerRadius x:Key="GridViewCoverCornerRadius">8</CornerRadius>
+    <CornerRadius x:Key="GridViewCoverCornerRadius">4</CornerRadius>
     <CornerRadius x:Key="GridViewCoverGridBackgroundDisabledCornerRadius">8,8,8,8</CornerRadius>
     <CornerRadius x:Key="GridViewSelectionBorderCornerRadius">12</CornerRadius>
-    
+
+    <sys:Double x:Key="FontSizeSmaller">10</sys:Double>
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
     <sys:Double x:Key="FontSize">14</sys:Double>
     <sys:Double x:Key="FontSizeLarge">16</sys:Double>
+    <sys:Double x:Key="FontSizeLarge18">18</sys:Double>
     <sys:Double x:Key="FontSizeLarge20">20</sys:Double>
     <sys:Double x:Key="FontSizeLarge24">24</sys:Double>
     <sys:Double x:Key="FontSizeLarge32">32</sys:Double>
@@ -59,10 +62,15 @@
     <Color x:Key="60%White">#99FFFFFF</Color>
     <Color x:Key="80%White">#CCFFFFFF</Color>
     <Color x:Key="100%White">#FFFFFF</Color>
+
+    <Color x:Key="40%Black">#66000000</Color>
+    <Color x:Key="60%Black">#99000000</Color>
     <!--FusionX Newly Added Color Ends-->
 
     <SolidColorBrush x:Key="LightDarkBackgroundBrush" Color="#33000000" />
-    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="#66000000" />
+    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource 40%Black}" />
+    <SolidColorBrush x:Key="ControlDarkIdleBackgroundBrush" Color="{DynamicResource 40%Black}" />
+    <SolidColorBrush x:Key="ControlDarkHoverBackgroundBrush" Color="{DynamicResource 60%Black}" />
 
     <SolidColorBrush x:Key="ControlLightBackgroundBrush" Color="{DynamicResource 100%White}" />
     
@@ -78,9 +86,9 @@
     <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
 
     <SolidColorBrush x:Key="DisabledBrush" Color="{DynamicResource 24%White}" />
-    <SolidColorBrush x:Key="PromptBrush" Color="{DynamicResource 24%White}" />
+    <SolidColorBrush x:Key="PromptBrush" Color="{DynamicResource 36%White}" />
     <SolidColorBrush x:Key="IdleBrush" Color="{DynamicResource 60%White}" />
-    <SolidColorBrush x:Key="HoverBrush" Color="{DynamicResource 80%White}" />
+    <SolidColorBrush x:Key="HoverBrush" Color="{DynamicResource 100%White}" />
     <SolidColorBrush x:Key="SelectedBrush" Color="{DynamicResource 100%White}" />
 
     <SolidColorBrush x:Key="AccentIdleBrush" Color="#0379FF" />

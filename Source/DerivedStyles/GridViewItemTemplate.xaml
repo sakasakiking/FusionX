@@ -4,7 +4,7 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                     mc:Ignorable="d">
 
-    <Style TargetType="Border" x:Key="VisualBrushBorderMask" >
+    <!--<Style TargetType="Border" x:Key="VisualBrushBorderMask" >
         <Setter Property="Background" Value="{DynamicResource GridViewItemMaskBackgroundBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource GridViewCoverCornerRadius}" />
         <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -13,7 +13,7 @@
                 <Setter Property="CornerRadius" Value="0,0,0,0" />
             </DataTrigger>
         </Style.Triggers>
-    </Style>
+    </Style>-->
 
 
     <Style x:Key="GridViewItemTemplate" TargetType="{x:Type GameListItem}">
@@ -25,8 +25,9 @@
                                     d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
 
                             <Grid Width="{Settings GridItemWidth}"  Height="{Settings GridItemHeight}">
-                                <Border Style="{StaticResource VisualBrushBorderMask}" Name="Mask"
-                                        Tag="{DynamicResource GridViewCoverUseRoundedCorners}" />
+                                <!--<Border Style="{StaticResource VisualBrushBorderMask}" Name="Mask"
+                                        Tag="{DynamicResource GridViewCoverUseRoundedCorners}" />-->
+                                
                                 <StackPanel>
                                     <StackPanel.Style>
                                         <Style TargetType="StackPanel">

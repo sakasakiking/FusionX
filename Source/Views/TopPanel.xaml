@@ -255,7 +255,7 @@
                             </StackPanel>
 
 
-                            <DockPanel Grid.Column="2" Margin="0,0,120,0">
+                            <DockPanel Grid.Column="2" Margin="0,0,126,0">
                                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
                                     <CheckBox x:Name="PART_ToggleNotifications" 
                                               Style="{DynamicResource TopPanelNotificationsToggle}" />
