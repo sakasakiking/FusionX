@@ -14,22 +14,22 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CalendarItem">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="16" Padding="8"
+                    <Border Background="{TemplateBinding Background}" CornerRadius="{StaticResource ControlCornerRadiusLarge}" Padding="8"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             BorderBrush="{TemplateBinding BorderBrush}">
                         <DockPanel Name="PART_Root" LastChildFill="True" >
-                            <Button x:Name="PART_PreviousButton" DockPanel.Dock="Left"
-                                    FontWeight="Bold" FontFamily="Marlett" Padding="4,2,4,2"
-                                    Content="3" Focusable="False" BorderThickness="0"
-                                    Background="Transparent"/>
-                            <Button x:Name="PART_NextButton" DockPanel.Dock="Right"
-                                    FontWeight="Bold" FontFamily="Marlett" Padding="4,2,4,2"
-                                    Content="4" BorderThickness="0"
-                                    Focusable="False"
-                                    Background="Transparent"/>
-                            <Button x:Name="PART_HeaderButton" DockPanel.Dock="Top"
-                                    Padding="2" Height="30" Focusable="False"
-                                    BorderThickness="0" Background="Transparent"/>
+                            <DockPanel DockPanel.Dock="Top">
+                                <Button x:Name="PART_NextButton" DockPanel.Dock="Right" Focusable="False"
+                                        FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Content="&#xe974;"  
+                                        Style="{DynamicResource PillMediumNoBgButton}"/>
+
+                                <Button x:Name="PART_PreviousButton" DockPanel.Dock="Right" Margin="0,0,4,0" Focusable="False"
+                                        FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Content="&#xe973;"
+                                        Style="{DynamicResource PillMediumNoBgButton}"/>
+                                
+                                <Button x:Name="PART_HeaderButton" DockPanel.Dock="Left" Margin="0,0,4,0" Focusable="False"
+                                        Style="{DynamicResource PillMediumNoBgButton}"/>
+                            </DockPanel>
                             <Grid>
                                 <Grid x:Name="PART_MonthView" Visibility="Visible">
                                     <Grid.RowDefinitions>
@@ -95,7 +95,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CalendarButton}">
-                    <Border Background="Transparent">
+                    <Border x:Name="HoverBg" Background="Transparent">
                         <ContentPresenter Content="{TemplateBinding ContentControl.Content}"
                                           ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
                                           ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
@@ -108,7 +108,7 @@
                             <Setter Property="Opacity" Value="0.5" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="Red" />
+                            <Setter Property="Foreground" Value="{DynamicResource AccentHoverBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -121,33 +121,37 @@
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="40" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CalendarDayButton}">
-                    <Border Background="Transparent">
+                    <Grid Height="{TemplateBinding Height}" MinWidth="{TemplateBinding Height}">
+                        <Border x:Name="HoverBg" Background="{DynamicResource ControlLightBackgroundBrush}" 
+                                CornerRadius="20" Opacity="0"/>
                         <ContentPresenter
-                        Content="{TemplateBinding ContentControl.Content}"
-                        ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
-                        ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
-                        HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
-                        VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
-                        TextElement.Foreground="{TemplateBinding Foreground}">
+                                Content="{TemplateBinding ContentControl.Content}"
+                                ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                                ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
+                                HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+                                TextElement.Foreground="{TemplateBinding Foreground}">
                         </ContentPresenter>
-                    </Border>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsToday" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource HoverBrush}" />
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Opacity" Value="0.36" TargetName="HoverBg"/>
                         </Trigger>
                         <Trigger Property="IsInactive" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+                            <Setter Property="Foreground" Value="{DynamicResource DisabledBrush}" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource HoverBrush}" />
+                            <Setter Property="Opacity" Value="0.24" TargetName="HoverBg"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -182,7 +186,7 @@
         <Setter Property="CalendarStyle" Value="{StaticResource CalendarStyle}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
-        <Setter Property="Padding" Value="12,0,12,0" />
+        <Setter Property="Padding" Value="8,0,8,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DatePicker">
@@ -194,7 +198,7 @@
                         <DockPanel>
                             <Popup x:Name="PART_Popup" StaysOpen="False"
                                    AllowsTransparency="True" Placement="Bottom"
-                                   PlacementTarget="{Binding ElementName=PART_TextBox}" />
+                                   PlacementTarget="{Binding ElementName=Border}" />
                             <ToggleButton x:Name="PART_Button" DockPanel.Dock="Right" Content="&#xe163;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                           BorderThickness="0" Padding="0,0,0,0" Background="Transparent"
                                           IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>

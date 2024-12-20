@@ -15,7 +15,7 @@
         <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
-        <Setter Property="Padding" Value="12,4,12,4" />
+        <Setter Property="Padding" Value="8,4,8,4" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">

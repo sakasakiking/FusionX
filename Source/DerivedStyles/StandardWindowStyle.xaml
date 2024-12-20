@@ -38,15 +38,18 @@
                                                    Style="{DynamicResource BaseTextBlockStyle}" x:Name="PART_TextTitle" />
                                         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" 
                                                     Margin="0,4,4,0">
-                                            <Button Style="{DynamicResource LightFilledRoundButton}" Background="Transparent"
-                                                    Content="&#xe108;" x:Name="PART_ButtonMinimize" FontSize="16"
-                                                    Width="32" Height="32" WindowChrome.IsHitTestVisibleInChrome="True"/>
-                                            <Button Style="{DynamicResource LightFilledRoundButton}" FontSize="16"
-                                                    Content="&#xe15b;" x:Name="PART_ButtonMaximize" Background="Transparent"
-                                                    Width="32" Height="32" WindowChrome.IsHitTestVisibleInChrome="True"/>
-                                            <Button Style="{DynamicResource LightFilledRoundButton}" FontSize="16"
-                                                    Content="&#xe106;" x:Name="PART_ButtonClose" Background="Transparent"
-                                                    Width="32" Height="32" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                                            <Button Style="{DynamicResource PillSmallNoBgButton}" Margin="0,0,4,0"
+                                                    FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                    Content="&#xe108;" x:Name="PART_ButtonMinimize"
+                                                    WindowChrome.IsHitTestVisibleInChrome="True"/>
+                                            <Button Style="{DynamicResource PillSmallNoBgButton}" Margin="0,0,4,0"
+                                                    FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                    Content="&#xe15b;" x:Name="PART_ButtonMaximize" 
+                                                    WindowChrome.IsHitTestVisibleInChrome="True"/>
+                                            <Button Style="{DynamicResource PillSmallNoBgButton}"
+                                                    FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                    Content="&#xe106;" x:Name="PART_ButtonClose"
+                                                    WindowChrome.IsHitTestVisibleInChrome="True"/>
                                         </StackPanel>
                                     </DockPanel>
                                 </DockPanel>

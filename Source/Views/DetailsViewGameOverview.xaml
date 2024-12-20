@@ -760,18 +760,18 @@
 
                             <DockPanel>
                                 <Grid DockPanel.Dock="Right" Width="260">
-                                    <Button Name="PART_ButtonPlayAction" Grid.Column="1" Margin="0"
+                                    <Button Name="PART_ButtonPlayAction" Margin="0"
                                             Height="48" Width="Auto" FontWeight="Bold"
                                             Style="{DynamicResource PlayButton_LeftPart}" 
                                             FontSize="{DynamicResource FontSizeLarge20}" />
 
-                                    <Button Name="PART_ButtonContextAction" Grid.Column="1"
+                                    <Button Name="PART_ButtonContextAction"
                                             Height="48" FontWeight="Bold" 
                                             Background="{DynamicResource AccentDisabledBrush}"
                                             Style="{DynamicResource PlayButton_LeftPart}" 
                                             FontSize="{DynamicResource FontSizeLarge20}" />
                             
-                                    <Button x:Name="PART_ButtonEditGame" Grid.Column="1"
+                                    <Button x:Name="PART_ButtonEditGame"
                                             Height="48" Width="48" Focusable="False" HorizontalAlignment="Right"
                                             Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                             Style="{StaticResource PlayButton_RightPart}"

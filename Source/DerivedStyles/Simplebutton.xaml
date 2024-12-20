@@ -312,26 +312,25 @@
     </Style>
 
     <Style x:Key="WinSysButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-        <Setter Property="Width" Value="32"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Padding" Value="0,0,0,0" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
-        <Setter Property="Background" Value="{DynamicResource ControlFilledHoverBackgroundBrush}"/>
         <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
-        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <Ellipse x:Name="HoverBg" Fill="{TemplateBinding Background}" Visibility="Collapsed"/>
+                        <Border x:Name="HoverBg" Background="{DynamicResource ControlLightBackgroundBrush}"
+                                MinWidth="{TemplateBinding Height}" Height="{TemplateBinding Height}" CornerRadius="16"
+                                Opacity="0"/>
                         <TextBlock FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" 
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Visibility" Value="Visible" TargetName="HoverBg"/>
+                            <Setter Property="Opacity" Value="0.24" TargetName="HoverBg"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -346,8 +345,41 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
-    
+
+    <Style x:Key="WinSysCloseButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="Padding" Value="0,0,0,0" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="HoverBg" Background="#FF453A"
+                            MinWidth="{TemplateBinding Height}" Height="{TemplateBinding Height}" CornerRadius="16"
+                            Opacity="0"/>
+                        <TextBlock FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="1" TargetName="HoverBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     <!--New Added-->
 
     <Style x:Key="RoundedCornerGeneralButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
@@ -476,7 +508,6 @@
         <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
         <Setter Property="Height" Value="28"/>
         <Setter Property="Padding" Value="8,0,8,0"/>
-        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -533,12 +564,11 @@
     </Style>
 
     <Style x:Key="PillSmallNoBgButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
         <Setter Property="Height" Value="28"/>
         <Setter Property="Padding" Value="8,0,8,0"/>
-        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -600,7 +630,6 @@
         <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="Padding" Value="8,0,8,0"/>
-        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -662,7 +691,6 @@
         <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="Padding" Value="8,0,8,0"/>
-        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -724,7 +752,6 @@
         <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
         <Setter Property="Height" Value="48"/>
         <Setter Property="Padding" Value="16,0,16,0"/>
-        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -786,7 +813,6 @@
         <Setter Property="Background" Value="{DynamicResource ControlIdleBackgroundBrush}"/>
         <Setter Property="Height" Value="48"/>
         <Setter Property="Padding" Value="16,0,16,0"/>
-        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
