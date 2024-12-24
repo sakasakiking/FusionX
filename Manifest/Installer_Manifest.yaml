@@ -58,4 +58,19 @@ Packages:
     - Make image cover corner rounded in GridView game list
     - Remove the filter on the game global background to speed up the loading when switching the games. (Yeah, it won't be that laggy)
     - Let me know if any suggestion.
+  - Version: 1.4
+    RequiredApiVersion: 2.6.0
+    ReleaseDate: 2024-12-24
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_4.pthm
+    Changelog: 
+    - A new app logo.
+    - Optimize UI controls.
+    - Support addon ThemeModifier.
+    - Show game platform banner in GridView list. (Addon themeExtras needed)
+    - Update and add icons for details information.
+    - Update some banner images.
+    - Change the position of searchbox and buttons on top panel.
+    - Revamp the notification feature.
+    - Fix some tiny issues.
+    - Merry Xmas! 
 
