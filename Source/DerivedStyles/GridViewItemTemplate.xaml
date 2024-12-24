@@ -23,12 +23,12 @@
                     <Border BorderThickness="{Settings GridItemMargin}"
                             BorderBrush="{DynamicResource GridItemBackgroundBrush}">
 
-                        <StackPanel Name="PART_PanelHost" d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
+                        <Grid Name="PART_PanelHost" d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
                             
-                            <Grid Width="{Settings GridItemWidth}"  Height="{Settings GridItemHeight}">
+                            <Grid Width="{Settings GridItemWidth}">
 
                                 <Border Style="{StaticResource VisualBrushBorderMask}" Name="Mask"
-                                        Tag="{DynamicResource GridViewCoverUseRoundedCorners}" />
+                                        Tag="{DynamicResource GridViewImageCoverUseRoundedCorners}" />
 
                                 <StackPanel>
                                     <StackPanel.Style>
@@ -44,6 +44,7 @@
                                             </Style.Triggers>
                                         </Style>
                                     </StackPanel.Style>
+                                    
                                     <ContentControl x:Name="ThemeExtras_Banner"
                                                 RenderOptions.BitmapScalingMode="Fant"
                                                 Width="{Binding Width, ElementName=PART_ImageCover}"
@@ -113,7 +114,7 @@
                                 </Grid>
                             </Grid>
                             
-                        </StackPanel>
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsInstalled}" Value="False">

@@ -15,7 +15,7 @@
 
                             <ContentPresenter />
                             <Border x:Name="SelectionBorder" BorderThickness="2" BorderBrush="Transparent"
-                                    Margin="-4" Tag="{DynamicResource GridViewCoverUseRoundedCorners}">
+                                    Margin="-4" Tag="{DynamicResource GridViewImageCoverUseRoundedCorners}">
                                 <Border.Style>
                                     <Style TargetType="Border">
                                         <Setter Property="CornerRadius" Value="0" />
