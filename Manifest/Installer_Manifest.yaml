@@ -65,12 +65,13 @@ Packages:
     Changelog: 
     - A new app logo.
     - Optimize UI controls.
+    - Optimize data picker component.
     - Support addon ThemeModifier.
     - Show game platform banner in GridView list. (Addon themeExtras needed)
     - Update and add icons for details information.
     - Update some banner images.
     - Change the position of searchbox and buttons on top panel.
-    - Revamp the notification feature.
+    - Revamp the notification feature.   
     - Fix some tiny issues.
     - Merry Xmas! 
 
