@@ -90,7 +90,7 @@
 
                                                             <!--ExtraLogo-->
                                                             <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" Margin="0,40,0,0"
-                                  VerticalAlignment="Top" HorizontalAlignment="Left"
+                                  VerticalAlignment="Center" HorizontalAlignment="Left"
                                   MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxHeight, FallbackValue=0}"
                                   MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader, Path=LogoMaxWidth, FallbackValue=0}"
                                   Tag="{DynamicResource DetailsViewAllowUseOfLogos}">

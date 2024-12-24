@@ -1,0 +1,9 @@
+ThemeId: AAA_267ceefe-e1d4-4817-ac57-0b4ae5b7f884
+PersistentPaths:
+- Images/Banners
+- Images/Icons
+BannersBySpecIdPath: Images/Banners/PlatformSpecId
+BannersByPlatformNamePath: Images/Banners/PlatformName
+BannersByPluginIdPath: Images/Banners/PluginId
+DefaultBannerPath: Images/Banners/UnknownLibrary.png
+BannerDecodeHeight: 75

@@ -12,8 +12,9 @@
                     <StackPanel Margin="{Settings ItemSpacingMargin}">
                         <Grid Background="{DynamicResource GridItemBackgroundBrush}"
                               x:Name="ItemGrid">
+
                             <ContentPresenter />
-                            <Border x:Name="SelectionBorder" BorderThickness="4" BorderBrush="Transparent"
+                            <Border x:Name="SelectionBorder" BorderThickness="2" BorderBrush="Transparent"
                                     Margin="-4" Tag="{DynamicResource GridViewCoverUseRoundedCorners}">
                                 <Border.Style>
                                     <Style TargetType="Border">

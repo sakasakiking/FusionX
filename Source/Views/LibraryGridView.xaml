@@ -8,9 +8,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type LibraryGridView}">
-                    <DockPanel Background="{TemplateBinding Background}"
+                    <DockPanel Background="{TemplateBinding Background}" 
                                d:DesignWidth="1280" d:DesignHeight="960"
                                d:DataContext="{x:Static DesignMainViewModel.DesignIntance}">
+                        
                         <GridViewGameOverview x:Name="PART_ControlGameView"
                                               Width="{Settings GrdiDetailsWitdh}"
                                               DockPanel.Dock="{Settings GridViewDetailsPosition}" />                   
@@ -49,7 +50,7 @@
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
-                            <Border Margin="16,8,16,16" Grid.Row="1" HorizontalAlignment="Center" Padding="8,0,8,0" Height="36"
+                            <Border Margin="12,8,12,16" Grid.Row="1" HorizontalAlignment="Center" Padding="8,0,8,0" Height="36"
                                     Style="{DynamicResource DeepDarkBg}" CornerRadius="18">
                                 <SliderWithPopup x:Name="PART_SliderZoom" />
                             </Border>

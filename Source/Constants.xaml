@@ -2,12 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <sys:Boolean x:Key="GridViewCoverUseRoundedCorners">True</sys:Boolean>
+    <!--ThemeModifier Options-->
+    <sys:Double x:Key="DetailsViewGameOverviewMaxWidth">1024</sys:Double>
     
+    <sys:Boolean x:Key="GridViewImageCoverUseRoundedCorners">True</sys:Boolean>
+    <sys:Boolean x:Key="GridViewImageCoverShowPlatformBanner">True</sys:Boolean>
+    <sys:Boolean x:Key="GridViewListShowFavorite">True</sys:Boolean>
+
     <SolidColorBrush x:Key="GridViewItemMaskBackgroundBrush" Color="#1e1e1e" />
-    <CornerRadius x:Key="GridViewCoverCornerRadius">4</CornerRadius>
+    <CornerRadius x:Key="GridViewCoverCornerRadius">6</CornerRadius>
     <CornerRadius x:Key="GridViewCoverGridBackgroundDisabledCornerRadius">8,8,8,8</CornerRadius>
-    <CornerRadius x:Key="GridViewSelectionBorderCornerRadius">12</CornerRadius>
+    <CornerRadius x:Key="GridViewSelectionBorderCornerRadius">8</CornerRadius>
 
     <sys:Double x:Key="FontSizeSmaller">10</sys:Double>
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
@@ -40,7 +45,8 @@
     <Color x:Key="HoverColor">#247BA0</Color>
     <Color x:Key="GlyphColor">#CCFFFFFF</Color>
     <Color x:Key="HighlightGlyphColor">#FF0379FF</Color>
-    <Color x:Key="AccentSelectedColor">#FF04A5FF</Color>
+    <Color x:Key="AccentHoverColor">#FF2C8FFF</Color>
+    <Color x:Key="AccentSelectedColor">#FF78B7FF</Color>
     
     <Color x:Key="PopupBackgroundColor">#212121</Color>
     <Color x:Key="PopupBorderColor">#2E2E2E</Color>
@@ -75,7 +81,7 @@
     <SolidColorBrush x:Key="ControlLightBackgroundBrush" Color="{DynamicResource 100%White}" />
     
     <SolidColorBrush x:Key="ControlIdleBackgroundBrush" Color="{DynamicResource 16%White}" />
-    <SolidColorBrush x:Key="ControlHoverBackgroundBrush" Color="{DynamicResource 8%White}" />
+    <SolidColorBrush x:Key="ControlHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
     <SolidColorBrush x:Key="ControlFilledHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
     <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" Color="{DynamicResource 16%White}" />
 
@@ -92,7 +98,7 @@
     <SolidColorBrush x:Key="SelectedBrush" Color="{DynamicResource 100%White}" />
 
     <SolidColorBrush x:Key="AccentIdleBrush" Color="#0379FF" />
-    <SolidColorBrush x:Key="AccentHoverBrush" Color="#2C8FFF" />
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="{DynamicResource AccentHoverColor}" />
     <SolidColorBrush x:Key="AccentSelectedBrush" Color="{DynamicResource AccentSelectedColor}" />
     <SolidColorBrush x:Key="AccentDisabledBrush" Color="#024DA3" />
 

@@ -40,7 +40,7 @@
                                         </FadeImage.ImageOpacityMask>
                                     </FadeImage>
 
-                                    <Grid HorizontalAlignment="Stretch" MaxWidth="1280" MinWidth="260" Margin="40,0,40,0">
+                                    <Grid HorizontalAlignment="Stretch" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260" Margin="40,0,40,0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="260"/>

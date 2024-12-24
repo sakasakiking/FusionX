@@ -29,7 +29,7 @@
                                            VerticalAlignment="Center" Margin="0,2,0,0"
                                            Style="{StaticResource PanelTitleTextBlockStyle}"/>
                             </DockPanel>
-                            <ItemsControl Name="PART_ItemsMessages" Grid.Row="1" Margin="16,0,16,0" Padding="0">
+                            <ItemsControl Name="PART_ItemsMessages" Grid.Row="1" Margin="0,0,0,0" Padding="0">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Button Style="{StaticResource NotificationMessage}" />
@@ -37,7 +37,7 @@
                                 </ItemsControl.ItemTemplate>
                                 <ItemsControl.Template>
                                     <ControlTemplate>
-                                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" Padding="0" Margin="0"
+                                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" Padding="16,0,16,0" Margin="0"
                                                       VerticalScrollBarVisibility="Auto">
                                             <ItemsPresenter />
                                         </ScrollViewer>

@@ -9,14 +9,14 @@
     <Style TargetType="{x:Type Hyperlink}">
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        <Setter Property="Foreground" Value="{DynamicResource AccentSelectedBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentHoverBrush}" />
         <Setter Property="TextDecorations" Value="{x:Null}" />
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource AccentSelectedBrush}" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource HoverBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource AccentSelectedBrush}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Foreground" Value="{DynamicResource DisabledBrush}" />
