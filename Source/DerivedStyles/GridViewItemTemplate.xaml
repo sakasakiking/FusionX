@@ -62,7 +62,7 @@
                                                              
                                 <!--Game Not Installed-->
                                 <Border x:Name="TextGameName" Background="{DynamicResource ControlDarkHoverBackgroundBrush}"
-                                        CornerRadius="{DynamicResource GridViewCoverCornerRadius}"
+                                        CornerRadius="{Binding ElementName=Mask, Path=CornerRadius}"
                                         Visibility="Collapsed">
                                     <TextBlock Text="{Binding DisplayName}"
                                                TextWrapping="Wrap" Margin="8"
@@ -72,7 +72,7 @@
                                 </Border>
 
                                 <Border x:Name="BorderMouseOver" Background="{DynamicResource ControlDarkHoverBackgroundBrush}" 
-                                        CornerRadius="{DynamicResource GridViewCoverCornerRadius}"
+                                        CornerRadius="{Binding ElementName=Mask, Path=CornerRadius}"
                                         Visibility="Collapsed" />
 
                                 <Border Name="GameControls" Visibility="Collapsed">

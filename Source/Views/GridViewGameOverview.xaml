@@ -779,7 +779,7 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                         </Grid>
 
                                         <!--Bottom Fixed Part-->
-                                        <Grid MaxWidth="1280" MinWidth="260" Margin="40,0,40,16" Grid.Row="1" >
+                                        <Grid MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260" Margin="40,0,40,16" Grid.Row="1" >
                                             <Grid.Style>
                                                 <Style TargetType="Grid">
                                                     <Style.Triggers>
