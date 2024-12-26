@@ -20,17 +20,17 @@
                         <DockPanel Name="PART_Root" LastChildFill="True" >
                             <DockPanel DockPanel.Dock="Top">
                                 <Button x:Name="PART_NextButton" DockPanel.Dock="Right" Focusable="False"
-                                        FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Content="&#xe974;"  
+                                        FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Content="&#xe972;"  
                                         Style="{DynamicResource PillMediumNoBgButton}"/>
 
                                 <Button x:Name="PART_PreviousButton" DockPanel.Dock="Right" Margin="0,0,4,0" Focusable="False"
-                                        FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Content="&#xe973;"
+                                        FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Content="&#xe971;"
                                         Style="{DynamicResource PillMediumNoBgButton}"/>
                                 
                                 <Button x:Name="PART_HeaderButton" DockPanel.Dock="Left" Margin="0,0,4,0" Focusable="False"
                                         Style="{DynamicResource PillMediumNoBgButton}"/>
                             </DockPanel>
-                            <Grid>
+                            <Grid Margin="0,8,0,0">
                                 <Grid x:Name="PART_MonthView" Visibility="Visible">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
@@ -88,14 +88,13 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-        <Setter Property="Width" Value="40" />
-        <Setter Property="Height" Value="40" />
+        <Setter Property="Height" Value="70" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CalendarButton}">
-                    <Border x:Name="HoverBg" Background="Transparent">
+                    <Border x:Name="HoverBg" Background="Transparent" CornerRadius="35">
                         <ContentPresenter Content="{TemplateBinding ContentControl.Content}"
                                           ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
                                           ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
@@ -108,7 +107,8 @@
                             <Setter Property="Opacity" Value="0.5" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource AccentHoverBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource HoverBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" TargetName="HoverBg"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

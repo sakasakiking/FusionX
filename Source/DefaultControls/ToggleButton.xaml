@@ -46,7 +46,6 @@
         <Setter Property="Padding" Value="8,4,8,4"/>
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="IsChecked" Value="False" />
-        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">

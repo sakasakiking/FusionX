@@ -83,7 +83,7 @@
     <SolidColorBrush x:Key="ControlIdleBackgroundBrush" Color="{DynamicResource 16%White}" />
     <SolidColorBrush x:Key="ControlHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
     <SolidColorBrush x:Key="ControlFilledHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
-    <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" Color="{DynamicResource 16%White}" />
+    <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" Color="{DynamicResource 36%White}" />
 
     <SolidColorBrush x:Key="ControlIdleBorderBrush" Color="{DynamicResource 16%White}" />
     <SolidColorBrush x:Key="ControlHoverBorderBrush" Color="{DynamicResource 40%White}" />
