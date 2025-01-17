@@ -45,12 +45,12 @@
                                         </Style>
                                     </StackPanel.Style>
                                     
-                                    <ContentControl x:Name="ThemeExtras_Banner"
+                                    <!--<ContentControl x:Name="ThemeExtras_Banner"
                                                 RenderOptions.BitmapScalingMode="Fant"
                                                 Width="{Binding Width, ElementName=PART_ImageCover}"
                                                 Tag="{DynamicResource GridViewImageCoverShowPlatformBanner}"
                                                 Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center"
-                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
                                     
                                     <Image Name="PART_ImageCover" 
                                            Height="{Settings GridItemHeight}" SnapsToDevicePixels="True"
@@ -93,9 +93,10 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     
-                                    <Viewbox Margin="0,6,6,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="3">
+                                    <Viewbox Margin="0,6,6,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="4">
                                         <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="16" Padding="6">
                                             <Border.Style>
                                                 <Style TargetType="Border">
@@ -107,8 +108,8 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
-                                            <TextBlock Text="&#xe00a;" Foreground="White" HorizontalAlignment="Center" FontSize="16"
-                                                   Style="{DynamicResource IconFontStyle}"/>
+                                            <TextBlock Text="&#xe00a;" Foreground="White" HorizontalAlignment="Center"
+                                                       Style="{DynamicResource IconFontStyle}"/>
                                         </Border>
                                     </Viewbox>
                                 </Grid>

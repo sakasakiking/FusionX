@@ -6,52 +6,52 @@
                     mc:Ignorable="d">
 
     <DataTemplate x:Key="TopPanelGeneralViewSettingsTemplate">
-        <TextBlock Text="&#xe9e9;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xe9e9;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TopPanelFilterPresetsSelectionTemplate">
-        <TextBlock Text="&#xe1cb;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xe1cb;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TopPanelGroupSettingsTemplate">
-        <TextBlock Text="&#xe12f;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xe12f;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TopPanelSortSettingsTemplate">
-        <TextBlock Text="&#xec8f;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xec8f;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TopPanelSwitchDetailsViewTemplate">
-        <TextBlock Text="&#xe145;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xe145;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TopPanelSwitchGridViewTemplate">
-        <TextBlock Text="&#xf0e2;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xf0e2;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TopPanelSwitchListViewTemplate">
-        <TextBlock Text="&#xe292;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xe292;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
     
     <DataTemplate x:Key="TopPanelUpdateButtonTemplate">
         <TextBlock Foreground="OrangeRed" FontWeight="Bold"
-                   Text="&#xe118;" Style="{StaticResource IconFontStyle}"/>
+                   Text="&#xe118;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TopPanelExplorerSwitchTemplate">
-        <TextBlock Text="&#xe128;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xe128;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TopPanelSelectRandomGameButtonTemplate">
-        <TextBlock Text="&#xed59;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xed59;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TopPanelViewSelectRandomGameButtonTemplate">
-        <TextBlock Text="&#xe14b;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xe14b;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
     
     <DataTemplate x:Key="TopPanelSearchButtonTemplate">
-        <TextBlock Text="&#xe773;" Style="{StaticResource IconFontStyle}"/>
+        <TextBlock Text="&#xe773;" Style="{StaticResource IconFontStyle}" Margin="2"/>
     </DataTemplate>
 
     <Style x:Key="TopPanelMenu" TargetType="{x:Type ContextMenu}">

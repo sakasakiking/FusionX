@@ -17,12 +17,12 @@
                                      BorderThickness="0" Background="Transparent"
                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                         <Border Background="{TemplateBinding Background}" HorizontalAlignment="Center"
-                                Width="32" Height="32"
-                                Padding="8" CornerRadius="18"
+                                Width="36" Height="36"
+                                Padding="0,0,0,0" CornerRadius="18"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 BorderBrush="{TemplateBinding BorderBrush}">
-                            <Viewbox>
-                                <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                            <Viewbox Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ContentPresenter/>
                             </Viewbox>
                         </Border>
                     </Grid>
