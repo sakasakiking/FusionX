@@ -27,6 +27,25 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="GridIcon" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" >
+        <Setter Property="Margin" Value="0,5,8,0" />
+        <Setter Property="Foreground" Value="{DynamicResource PromptBrush}" />
+        <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets" />
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+
+    <Style x:Key="GameSubtleInfoTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.6" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="PanelTitleTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge18}" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />

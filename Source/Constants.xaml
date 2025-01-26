@@ -8,11 +8,15 @@
     <sys:Boolean x:Key="GridViewImageCoverUseRoundedCorners">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewImageCoverShowPlatformBanner">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewListShowFavorite">True</sys:Boolean>
+    
+    <sys:Boolean x:Key="DetailViewDetailInfoIcon">True</sys:Boolean>
+    
 
     <SolidColorBrush x:Key="GridViewItemMaskBackgroundBrush" Color="#1e1e1e" />
     <CornerRadius x:Key="GridViewCoverCornerRadius">6</CornerRadius>
     <CornerRadius x:Key="GridViewCoverGridBackgroundDisabledCornerRadius">8,8,8,8</CornerRadius>
     <CornerRadius x:Key="GridViewSelectionBorderCornerRadius">8</CornerRadius>
+	<!--ThemeModifier Options Ends-->
 
     <sys:Double x:Key="FontSizeSmaller">10</sys:Double>
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
@@ -29,8 +33,8 @@
     <Thickness x:Key="PopupBorderThickness">1</Thickness>
     <Thickness x:Key="ControlBorderThickness">1</Thickness>
     <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
-    <CornerRadius x:Key="ControlCornerRadius">8</CornerRadius>
     <CornerRadius x:Key="ControlCornerRadiusSmall">4</CornerRadius>
+    <CornerRadius x:Key="ControlCornerRadius">8</CornerRadius>
     <CornerRadius x:Key="ControlCornerRadiusLarge">16</CornerRadius>
     <CornerRadius x:Key="ControlCornerRadiusLargeX">24</CornerRadius>
     <Thickness x:Key="SidebarItemPadding">8</Thickness>
@@ -82,7 +86,6 @@
     
     <SolidColorBrush x:Key="ControlIdleBackgroundBrush" Color="{DynamicResource 16%White}" />
     <SolidColorBrush x:Key="ControlHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
-    <SolidColorBrush x:Key="ControlFilledHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
     <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" Color="{DynamicResource 36%White}" />
 
     <SolidColorBrush x:Key="ControlIdleBorderBrush" Color="{DynamicResource 16%White}" />
@@ -147,7 +150,7 @@
         <GradientStop Color="#202b4d" Offset="0"/>
         <GradientStop Color="{DynamicResource MainColorDark}" Offset="0.4"/>
     </LinearGradientBrush>-->
-    
+
     <LinearGradientBrush x:Key="WindowBackgourndBrush" StartPoint="0.5,0" EndPoint="0.5,1" >
         <GradientStop Color="#2C2C2C" Offset="0"/>
         <GradientStop Color="#212121" Offset="1"/>

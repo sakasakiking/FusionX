@@ -9,6 +9,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Playnite;
+using Playnite.Behaviors;
+using Playnite.Commands;
+using Playnite.Controls;
+using Playnite.DesktopApp.Controls;
+using Playnite.DesktopApp.Controls.Views;
+using Playnite.DesktopApp.Markup;
+using Playnite.DesktopApp.ViewModels;
+using Playnite.SDK.Controls;
+using Playnite.SDK.Models;
 using System;
 using System.Diagnostics;
 using System.Windows;

@@ -9,4 +9,5 @@
     <Style TargetType="Border">
         <Setter Property="SnapsToDevicePixels" Value="True" />
     </Style>
+
 </ResourceDictionary>

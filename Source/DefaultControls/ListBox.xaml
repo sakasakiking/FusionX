@@ -97,7 +97,7 @@
                 <ControlTemplate TargetType="ListBoxItem">
                     <Grid Height="28">
                         <Border x:Name="HoverBg" IsHitTestVisible="False" Opacity="0"
-                                Background="{DynamicResource ControlFilledHoverBackgroundBrush}" CornerRadius="14"/>
+                                Background="{DynamicResource ControlHoverBackgroundBrush}" CornerRadius="14"/>
                         <Border x:Name="SelectedBg" IsHitTestVisible="False" Visibility="Collapsed"
                                 Background="{DynamicResource RGTubeLayerBackgroundBrush}" CornerRadius="14"/>
                         <Border Padding="{TemplateBinding Padding}" Background="Transparent">

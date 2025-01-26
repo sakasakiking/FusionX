@@ -183,7 +183,7 @@
                             <Setter Property="BorderBrush" Value="{DynamicResource SelectedBrush}" TargetName="Border" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ControlFilledHoverBackgroundBrush}"  TargetName="Border"/>
+                            <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}"  TargetName="Border"/>
                         </Trigger>
                         <Trigger Property="IsEditable" Value="True">
                             <Setter Property="IsTabStop" Value="False" />
