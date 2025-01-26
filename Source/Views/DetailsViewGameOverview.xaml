@@ -523,7 +523,7 @@
                                             <!-- HowLongToBeat ProgressBar Ends-->
 
                                             <!-- SuccessStory -->
-                                            <StackPanel Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
+                                            <!--<StackPanel Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
                                                 <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,24"/>
                                                                     
                                                 <DockPanel Margin="0,0,0,24">
@@ -533,7 +533,8 @@
                                                     <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Left" VerticalAlignment="Center"
                                                            Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="20"/>
                                                 </DockPanel>
-                                            </StackPanel>
+                                            </StackPanel>-->
+                                            <!-- SuccessStory Ends -->
 
                                             <!--Details Panel-->
                                             <StackPanel Margin="0,0,0,0">
