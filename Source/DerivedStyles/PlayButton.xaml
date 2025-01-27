@@ -2,21 +2,27 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="PlayButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
-        <Setter Property="Background" Value="{DynamicResource HighlightGlyphBrush}" />
+        <Setter Property="Background" Value="{DynamicResource AccentIdleBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelSeparatorBrush}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="56,0,56,0" />
+        <Setter Property="Padding" Value="24,0,24,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid x:Name="Grid">
-                        <Border x:Name="DefaultBorder" BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"  Background="{TemplateBinding Background}"
-                                Opacity="1" CornerRadius="22" Height="44"/>
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          Margin="{TemplateBinding Padding}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" />
+                        <Border x:Name="DefaultBorder" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"  
+                                Background="{TemplateBinding Background}"
+                                Opacity="1" CornerRadius="24"/>
+                        <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Padding}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                            <TextBlock Text="&#xee4a;" FontSize="20" Margin="0,0,8,0"
+                                       Style="{DynamicResource IconFontStyle}"/>
+                            <ContentPresenter RecognizesAccessKey="True" />
+                        </StackPanel>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="True" />
@@ -28,9 +34,9 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="true">
+            <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource AccentHoverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource AccentHoverBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -64,7 +70,7 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="true">
+            <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
                 <Setter Property="Background" Value="{DynamicResource AccentHoverBrush}" />
             </Trigger>

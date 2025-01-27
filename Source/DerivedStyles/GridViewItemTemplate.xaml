@@ -45,12 +45,12 @@
                                         </Style>
                                     </StackPanel.Style>
                                     
-                                    <!--<ContentControl x:Name="ThemeExtras_Banner"
+                                    <ContentControl x:Name="ThemeExtras_Banner"
                                                 RenderOptions.BitmapScalingMode="Fant"
                                                 Width="{Binding Width, ElementName=PART_ImageCover}"
                                                 Tag="{DynamicResource GridViewImageCoverShowPlatformBanner}"
                                                 Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center"
-                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
+                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                     
                                     <Image Name="PART_ImageCover" 
                                            Height="{Settings GridItemHeight}" SnapsToDevicePixels="True"

@@ -826,7 +826,7 @@
                         </Grid>
                         
                         <!--Bottom Fixed Part-->
-                        <Grid MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260" Margin="40,0,40,16" Grid.Row="1" >
+                        <Grid MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260" Margin="40,0,40,16" Grid.Row="1">
                             <Grid.Style>
                                 <Style TargetType="Grid">
                                     <Style.Triggers>
@@ -836,10 +836,34 @@
                                     </Style.Triggers>
                                 </Style>
                             </Grid.Style>
+                            <DockPanel>
 
-                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                
-                                <!--<Grid Margin="0" VerticalAlignment="Center" DockPanel.Dock="Right" HorizontalAlignment="Stretch">
+                                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
+                                    <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False"
+                                                  Style="{DynamicResource PillLargeToggleButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                  Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
+                                                  IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
+                                    <Button x:Name="PART_ButtonEditGame" Margin="0,0,8,0"
+                                            Height="48" Width="48" Focusable="False"
+                                            Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                            Style="{StaticResource PillLargeButton}"/>
+                                    <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48"
+                                            Content="&#xe700;" Style="{DynamicResource PillLargeButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"/>
+                                    <Grid Width="120">
+                                        <Button Name="PART_ButtonPlayAction" Margin="0"
+                                                Height="48" Width="Auto" FontWeight="Bold"
+                                                Style="{DynamicResource PlayButton}" 
+                                                FontSize="{DynamicResource FontSizeLarge20}" />
+
+                                        <Button Name="PART_ButtonContextAction"
+                                                Height="48" FontWeight="Bold" 
+                                                Background="{DynamicResource AccentDisabledBrush}"
+                                                Style="{DynamicResource PlayButton_LeftPart}" 
+                                                FontSize="{DynamicResource FontSizeLarge20}" />
+                                    </Grid>
+                                </StackPanel>
+
+                                <Grid DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,8,16,0">
                                     <Grid.Resources>
                                         <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
                                             <Setter Property="Margin" Value="0,2,0,0" />
@@ -851,6 +875,9 @@
                                         </Style>
                                         <Style TargetType="Button" BasedOn="{StaticResource PropertyItemSmallButton}">
                                             <Setter Property="Margin" Value="0"/>
+                                            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+                                            <Setter Property="Padding" Value="0"/>
+                                            <Setter Property="Margin" Value="0"/>
                                         </Style>
                                     </Grid.Resources>
                                     <Grid.ColumnDefinitions>
@@ -861,58 +888,30 @@
 
                                     <DockPanel Grid.Column="1" Visibility="{Binding Visibility, ElementName=PART_ElemLastPlayed, Mode=OneWay}" Margin="0,0,16,0">
                                         <TextBlock Text="&#xe163;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0"
-                   Style="{DynamicResource IconFontStyle}"/>
+                                                   Style="{DynamicResource IconFontStyle}"/>
                                         <Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}"  
-               DockPanel.Dock="Top"/>
+                                               DockPanel.Dock="Top"/>
                                         <TextBlock Name="PART_TextLastActivity" DockPanel.Dock="Top" FontWeight="Bold"/>
                                     </DockPanel>
 
                                     <DockPanel Grid.Column="0" Visibility="{Binding Visibility, ElementName=PART_ElemPlayTime, Mode=OneWay}" Margin="0,0,16,0">
                                         <TextBlock Text="&#xed5a;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0" 
-                   Style="{DynamicResource IconFontStyle}"/>
+                                                   Style="{DynamicResource IconFontStyle}"/>
                                         <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" 
-               DockPanel.Dock="Top"/>
+                                               DockPanel.Dock="Top"/>
                                         <TextBlock Name="PART_TextPlayTime" DockPanel.Dock="Top" FontWeight="Bold"/>
                                     </DockPanel>
 
                                     <DockPanel Grid.Column="2" Visibility="{Binding Visibility, ElementName=PART_ElemCompletionStatus, Mode=OneWay}" Margin="0,0,16,0">
                                         <TextBlock Text="&#xe129;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0" 
-                   Style="{DynamicResource IconFontStyle}"/>
+                                                   Style="{DynamicResource IconFontStyle}"/>
                                         <Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" 
-               DockPanel.Dock="Top"/>
-                                        <Button Name="PART_ButtonCompletionStatus" DockPanel.Dock="Top" FontWeight="Bold" Margin="0,1,0,0"/>
+                                               DockPanel.Dock="Top"/>
+                                        <Button Name="PART_ButtonCompletionStatus" DockPanel.Dock="Top" FontWeight="Bold"/>
                                     </DockPanel>
-                                </Grid>-->
-
-
-                                    <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False" HorizontalAlignment="Right"
-                                              Style="{DynamicResource PillLargeToggleButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                              Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
-                                              IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
-                                    <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48" HorizontalAlignment="Right"
-                                            Content="&#xe700;" Style="{DynamicResource PillLargeButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"/>
-                            
-                                
-                                <Grid DockPanel.Dock="Right" Width="260" HorizontalAlignment="Right">
-                                    <Button Name="PART_ButtonPlayAction" Margin="0"
-                                            Height="48" Width="Auto" FontWeight="Bold"
-                                            Style="{DynamicResource PlayButton_LeftPart}" 
-                                            FontSize="{DynamicResource FontSizeLarge20}" />
-
-                                    <Button Name="PART_ButtonContextAction"
-                                            Height="48" FontWeight="Bold" 
-                                            Background="{DynamicResource AccentDisabledBrush}"
-                                            Style="{DynamicResource PlayButton_LeftPart}" 
-                                            FontSize="{DynamicResource FontSizeLarge20}" />
-
-                                    <Button x:Name="PART_ButtonEditGame"
-                                            Height="48" Width="48" Focusable="False" HorizontalAlignment="Right"
-                                            Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                            Style="{StaticResource PlayButton_RightPart}"
-                                            FontSize="{DynamicResource FontSizeLarge}"/>
                                 </Grid>
-                            </WrapPanel>
 
+                            </DockPanel>
                         </Grid>
                         <!--Bottom Fixed Part Ends-->
                     </Grid>
