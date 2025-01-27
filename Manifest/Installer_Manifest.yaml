@@ -82,7 +82,7 @@ Packages:
     - Optimize default buttons.
     - Update Mouseover style when interact with date picker component.
     - Fix some issues mentioned by users .
-    - Version: 1.5
+  - Version: 1.5
     RequiredApiVersion: 2.6.0
     ReleaseDate: 2025-01-27
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_5.pthm
