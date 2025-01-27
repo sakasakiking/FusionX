@@ -82,4 +82,17 @@ Packages:
     - Optimize default buttons.
     - Update Mouseover style when interact with date picker component.
     - Fix some issues mentioned by users .
+    - Version: 1.5
+    RequiredApiVersion: 2.6.0
+    ReleaseDate: 2025-01-27
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_5.pthm
+    Changelog: 
+    - Start to support the new addons, ++Steam News and Player Viewer++, ++Steam Store Screenshots Viewer++ and ++Steam Reviews Viewer.
+    - Split the Play button to 2 buttons. (Play and edit buttons)
+    - Adjust the fixed bottom line of detail overview.
+    - Optimize the performance of Extra Logo (Addon Extra Metadata Loader needed)
+    - Change the layout of the detail overview. (Right side)
+    - Adjust the style of buttons on the top panel and sidebar.
+    - Change the size of favorite icon on game image cover at the grid game list.
+    - Thanks for those who give feedbacks to the theme. 
 
