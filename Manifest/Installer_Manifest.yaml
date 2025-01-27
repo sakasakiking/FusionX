@@ -77,7 +77,7 @@ Packages:
   - Version: 1.4.1
     RequiredApiVersion: 2.6.0
     ReleaseDate: 2024-12-26
-    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_41.pthm
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_4_1.pthm
     Changelog: 
     - Optimize default buttons.
     - Update Mouseover style when interact with date picker component.
@@ -85,7 +85,7 @@ Packages:
   - Version: 1.5.0
     RequiredApiVersion: 2.6.0
     ReleaseDate: 2025-01-27
-    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_5.pthm
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_5_0.pthm
     Changelog: 
     - Start to support the new addons, ++Steam News and Player Viewer++, ++Steam Store Screenshots Viewer++ and ++Steam Reviews Viewer.
     - Split the Play button to 2 buttons. (Play and edit buttons)
