@@ -32,7 +32,12 @@ At the beginning, just support:
 - **HowLongToBeat data:** [HowLongToBeat](https://playnite.link/addons.html#playnite-howlongtobeat-plugin) extension.
 - **Logos:** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
 - **Screenshots:** [ScreenshotsVisualizer](https://playnite.link/addons.html#playnite-screenshotsvisualizer-plugin) extension.
-- **Videos** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
+- **Videos:** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
+- **Theme Customized:** [ThemeModifier](https://playnite.link/addons.html#playnite-thememodifier-plugin) extension.
+- **Custom UI:** [ThemeExtras](https://playnite.link/addons.html#felixkmh_Extras_Plugin) extension.
+- **Steam News:** [Steam News and Players Viewer](https://playnite.link/addons.html#NewsViewer_15e03ffe-90f6-4e8e-bd4d-94514777481d) extension.
+- **Steam Reviews:** [Steam Reviews Viewer](https://playnite.link/addons.html#Review_Viewer_ca24e37a-76d9-49bf-89ab-d3cba4a54bd1) extension.
+- **Steam Screenshots:** [Steam Store Screenshots Viewer](https://playnite.link/addons.html#SteamScreenshots_8e77fe31-5e62-41e2-8fa2-64844cfd5b6b) extension.
 Addiing more...
 
 ## More
