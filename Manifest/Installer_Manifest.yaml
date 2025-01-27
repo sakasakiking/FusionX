@@ -74,7 +74,7 @@ Packages:
     - Revamp the notification feature.   
     - Fix some tiny issues.
     - Merry Xmas! 
-  - Version: 1.41
+  - Version: 1.4.1
     RequiredApiVersion: 2.6.0
     ReleaseDate: 2024-12-26
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_41.pthm
