@@ -10,7 +10,7 @@
     <sys:Boolean x:Key="GridViewListShowFavorite">True</sys:Boolean>
     
     <sys:Boolean x:Key="DetailViewDetailInfoIcon">True</sys:Boolean>
-    
+    <sys:Boolean x:Key="DetailViewRatingStar">True</sys:Boolean>
 
     <SolidColorBrush x:Key="GridViewItemMaskBackgroundBrush" Color="#1e1e1e" />
     <CornerRadius x:Key="GridViewCoverCornerRadius">6</CornerRadius>

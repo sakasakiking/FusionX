@@ -2,6 +2,7 @@ Constants:
     - "Details View"
     - DetailsViewGameOverviewMaxWidth(1024,2400): 'Maximum width of DetailViewGameOverview'
     - DetailViewDetailInfoIcon: 'Show icons at detail info list'
+    - DetailViewRatingStar: 'Show Rating Star under game name'
     - "Grid View Covers"
     - GridViewListShowFavorite: 'Show favorites icon'
     - GridViewImageCoverShowPlatformBanner: 'Show platform banners ("ThemeExtras" extension needed)'

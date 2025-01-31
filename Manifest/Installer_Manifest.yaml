@@ -95,4 +95,13 @@ Packages:
     - Adjust the style of buttons on the top panel and sidebar.
     - Change the size of favorite icon on game image cover at the grid game list.
     - Thanks for those who give feedbacks to the theme. 
-
+  - Version: 1.60
+    RequiredApiVersion: 2.6.0
+    ReleaseDate: 2025-01-31
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_60.pthm
+    Changelog: 
+    - This is a quick fix.
+    - Fix a version issue.
+    - Fix a issue on play button.
+    - The rating star under game name can be hid via playnite setting or ThemeModifier.
+    - Icons for detail info can be hid via ThemeModifier.

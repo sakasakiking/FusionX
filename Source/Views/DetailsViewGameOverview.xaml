@@ -73,6 +73,7 @@
                                         </Border>
                                         <!--ExtraLogo Ends-->
 
+                                        <!--Left Part-->
                                         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,40,0">
 
                                             <DockPanel Margin="0,0,0,40">
@@ -80,7 +81,24 @@
                                                 <WrapPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0,0,0,0">
 
                                                     <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,12,4" Margin="0,0,8,8"
-                                                            Background="{DynamicResource ControlDarkHoverBackgroundBrush}">
+                                                            Background="{DynamicResource ControlDarkHoverBackgroundBrush}"
+                                                            Tag="{DynamicResource DetailViewRatingStar}">
+                                                        <Border.Style>
+                                                            <Style TargetType="Border">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Settings DetailsVisibility.CriticScore}" Value="False">
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Game.CriticScore}" Value="{x:Null}">
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Border.Style>
                                                         <StackPanel Orientation="Horizontal" >
                                                             <StackPanel.Resources>
                                                                 <SolidColorBrush x:Key="Extras_FilledStarBrush" Color="White"/>
@@ -318,7 +336,7 @@
                                                 </Grid>
                                             </StackPanel>-->
 
-                                            <!--Left Content Part-->
+                                            <!--Tab Content Part-->
                                             <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
 
                                                 <TabControl Margin="0,0,0,16" VerticalAlignment="Top" HorizontalAlignment="Stretch"
@@ -481,8 +499,9 @@
 
                                                 </TabControl>
                                             </StackPanel>
-                                            <!--Left Content Part Ends-->
+                                            <!--Tab Content Part Ends-->
                                         </StackPanel>
+                                        <!--Left Part Ends-->
 
                                         <!--Right Part-->
                                         <StackPanel Margin="0,0,0,40" Grid.Row="1" Grid.Column="1">
@@ -852,13 +871,13 @@
                                     <Grid Width="120">
                                         <Button Name="PART_ButtonPlayAction" Margin="0"
                                                 Height="48" Width="Auto" FontWeight="Bold"
-                                                Style="{DynamicResource PlayButton}" 
+                                                Style="{DynamicResource IconPlayButton}" 
                                                 FontSize="{DynamicResource FontSizeLarge20}" />
 
                                         <Button Name="PART_ButtonContextAction"
                                                 Height="48" FontWeight="Bold" 
                                                 Background="{DynamicResource AccentDisabledBrush}"
-                                                Style="{DynamicResource PlayButton_LeftPart}" 
+                                                Style="{DynamicResource PlayButton}" 
                                                 FontSize="{DynamicResource FontSizeLarge20}" />
                                     </Grid>
                                 </StackPanel>
