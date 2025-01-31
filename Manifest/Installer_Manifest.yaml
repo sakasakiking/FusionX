@@ -74,7 +74,7 @@ Packages:
     - Revamp the notification feature.   
     - Fix some tiny issues.
     - Merry Xmas! 
-  - Version: 1.41
+  - Version: 1.4.1
     RequiredApiVersion: 2.6.0
     ReleaseDate: 2024-12-26
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_4_1.pthm
@@ -82,7 +82,7 @@ Packages:
     - Optimize default buttons.
     - Update Mouseover style when interact with date picker component.
     - Fix some issues mentioned by users .
-  - Version: 1.50
+  - Version: 1.5.0
     RequiredApiVersion: 2.6.0
     ReleaseDate: 2025-01-27
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_5_0.pthm
@@ -95,7 +95,7 @@ Packages:
     - Adjust the style of buttons on the top panel and sidebar.
     - Change the size of favorite icon on game image cover at the grid game list.
     - Thanks for those who give feedbacks to the theme. 
-  - Version: 1.60
+  - Version: 1.6.0
     RequiredApiVersion: 2.7.0
     ReleaseDate: 2025-01-31
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_60.pthm
