@@ -105,3 +105,10 @@ Packages:
     - Fix a issue on play button.
     - The rating star under game name can be hid via playnite setting or ThemeModifier.
     - Icons for detail info can be hid via ThemeModifier.
+  - Version: 1.6.1
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-02-01
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_6_1.pthm
+    Changelog: 
+    - Fix some tiny issues.
+    - A little tweak around game title and line of Score+ReleaseDate+Platform+Genres.

@@ -79,6 +79,7 @@
                                                         </Grid.ColumnDefinitions>
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>
+                                                            <RowDefinition Height="Auto"/>
                                                             <RowDefinition Height="*"/>
                                                         </Grid.RowDefinitions>
 
@@ -105,123 +106,142 @@
                                                         </Border>
                                                         <!--ExtraLogo Ends-->
 
-                                                        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,40,0">
+                                                        <DockPanel Margin="0,0,0,40" Grid.Row="1" Grid.ColumnSpan="2">
 
-                                                            <DockPanel Margin="0,0,0,40">
+                                                            <WrapPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0,0,0,0">
 
-                                                                <WrapPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0,0,0,0">
+                                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,12,4" Margin="0,0,8,8"
+                                     Background="{DynamicResource ControlDarkHoverBackgroundBrush}"
+                                     Tag="{DynamicResource DetailViewRatingStar}">
+                                                                    <Border.Style>
+                                                                        <Style TargetType="Border">
+                                                                            <Setter Property="Visibility" Value="Visible" />
+                                                                            <Style.Triggers>
+                                                                                <DataTrigger Binding="{Settings DetailsVisibility.CriticScore}" Value="False">
+                                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                                </DataTrigger>
+                                                                                <DataTrigger Binding="{Binding Game.CriticScore}" Value="{x:Null}">
+                                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                                </DataTrigger>
+                                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                                </DataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Border.Style>
+                                                                    <StackPanel Orientation="Horizontal" >
+                                                                        <StackPanel.Resources>
+                                                                            <SolidColorBrush x:Key="Extras_FilledStarBrush" Color="White"/>
+                                                                            <SolidColorBrush x:Key="Extras_EmptyStarBrush" Color="White" Opacity="0.2"/>
+                                                                        </StackPanel.Resources>
+                                                                        <ContentControl x:Name="ThemeExtras_CriticRating" Margin="0,1,4,0"/>
+                                                                        <TextBlock Text="{Binding Game.CriticScore, TargetNullValue='- -', FallbackValue='- -'}" 
+                                                Margin="0,2,0,2" Style="{DynamicResource GameSubtleInfoTextBlockStyle}"/>
+                                                                    </StackPanel>
+                                                                </Border>
 
-                                                                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,12,4" Margin="0,0,8,8"
-                                         Background="{DynamicResource ControlDarkHoverBackgroundBrush}">
-                                                                        <StackPanel Orientation="Horizontal" >
-                                                                            <StackPanel.Resources>
-                                                                                <SolidColorBrush x:Key="Extras_FilledStarBrush" Color="White"/>
-                                                                                <SolidColorBrush x:Key="Extras_EmptyStarBrush" Color="White" Opacity="0.2"/>
-                                                                            </StackPanel.Resources>
-                                                                            <ContentControl x:Name="ThemeExtras_CriticRating" Margin="0,1,4,0"/>
-                                                                            <TextBlock Text="{Binding Game.CriticScore, TargetNullValue='- -', FallbackValue='- -'}" 
-                                                    Margin="0,2,0,2" Style="{DynamicResource GameSubtleInfoTextBlockStyle}"/>
-                                                                        </StackPanel>
-                                                                    </Border>
-
-                                                                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,4,4" Margin="0,0,8,8"
-                                         Background="{DynamicResource ControlDarkHoverBackgroundBrush}">
-                                                                        <Border.Style>
-                                                                            <Style TargetType="Border">
-                                                                                <Setter Property="Visibility" Value="Visible"/>
-                                                                                <Style.Triggers>
-                                                                                    <MultiDataTrigger>
-                                                                                        <MultiDataTrigger.Conditions>
-                                                                                            <Condition Binding="{Binding ElementName=PART_ButtonReleaseDate, Path=Visibility}" Value="Collapsed"/>
-                                                                                            <Condition Binding="{Binding ElementName=PART_ElemPlatform, Path=Visibility}" Value="Collapsed"/>
-                                                                                        </MultiDataTrigger.Conditions>
-                                                                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                                                                    </MultiDataTrigger>
-                                                                                </Style.Triggers>
-                                                                            </Style>
-                                                                        </Border.Style>
-                                                                        <StackPanel Orientation="Horizontal">
-                                                                            <Button Name="PART_ButtonReleaseDate" Margin="0,2,4,0" Style="{DynamicResource PropertyItemSmallButton}"/>
-                                                                            <StackPanel Name="PART_ElemPlatform" Orientation="Horizontal">
-                                                                                <StackPanel.Style>
-                                                                                    <Style TargetType="StackPanel">
-                                                                                        <Setter Property="Visibility" Value="Visible" />
-                                                                                        <Style.Triggers>
-                                                                                            <DataTrigger Binding="{Settings DetailsVisibility.Platforms}" Value="False">
-                                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                                            </DataTrigger>
-                                                                                            <DataTrigger Binding="{Binding Game.Platforms}" Value="{x:Null}">
-                                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                                            </DataTrigger>
-                                                                                        </Style.Triggers>
-                                                                                    </Style>
-                                                                                </StackPanel.Style>
-                                                                                <TextBlock Text="·" Margin="0,2,4,0" Style="{DynamicResource GameSubtleInfoTextBlockStyle}"/>
-                                                                                <ItemsControl ItemsSource="{Binding Game.Platforms}" Margin="0,0,0,0">
-                                                                                    <ItemsControl.ItemsPanel>
-                                                                                        <ItemsPanelTemplate>
-                                                                                            <WrapPanel Orientation="Horizontal"/>
-                                                                                        </ItemsPanelTemplate>
-                                                                                    </ItemsControl.ItemsPanel>
-                                                                                    <ItemsControl.ItemTemplate>
-                                                                                        <DataTemplate>
-                                                                                            <Button Content="{Binding Name}"  Margin="0,2,8,2"
-                                                                 Style="{DynamicResource PropertyItemSmallButton}"
-                                                                 Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetFeatureFilterCommand}" CommandParameter="{Binding}"/>
-                                                                                        </DataTemplate>
-                                                                                    </ItemsControl.ItemTemplate>
-                                                                                </ItemsControl>
-                                                                            </StackPanel>
-                                                                        </StackPanel>
-                                                                    </Border>
-
-                                                                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,4,4" Margin="0,0,8,8"
-                                         Background="{DynamicResource ControlDarkHoverBackgroundBrush}"
-                                         Visibility="{Binding ElementName=PART_ElemGenres, Path=Visibility}">
-                                                                        <StackPanel Name="PART_ElemGenres" Orientation="Horizontal">
+                                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,4,4" Margin="0,0,8,8"
+                                     Background="{DynamicResource ControlDarkHoverBackgroundBrush}">
+                                                                    <Border.Style>
+                                                                        <Style TargetType="Border">
+                                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                                            <Style.Triggers>
+                                                                                <MultiDataTrigger>
+                                                                                    <MultiDataTrigger.Conditions>
+                                                                                        <Condition Binding="{Binding ElementName=PART_ButtonReleaseDate, Path=Visibility}" Value="Collapsed"/>
+                                                                                        <Condition Binding="{Binding ElementName=PART_ElemPlatform, Path=Visibility}" Value="Collapsed"/>
+                                                                                    </MultiDataTrigger.Conditions>
+                                                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                                                </MultiDataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Border.Style>
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <Button Name="PART_ButtonReleaseDate" Margin="0,2,4,0" Style="{DynamicResource PropertyItemSmallButton}"/>
+                                                                        <StackPanel Name="PART_ElemPlatform" Orientation="Horizontal">
                                                                             <StackPanel.Style>
                                                                                 <Style TargetType="StackPanel">
                                                                                     <Setter Property="Visibility" Value="Visible" />
                                                                                     <Style.Triggers>
-                                                                                        <DataTrigger Binding="{Settings DetailsVisibility.Genres}" Value="False">
+                                                                                        <DataTrigger Binding="{Settings DetailsVisibility.Platforms}" Value="False">
                                                                                             <Setter Property="Visibility" Value="Collapsed" />
                                                                                         </DataTrigger>
-                                                                                        <DataTrigger Binding="{Binding Game.Genres}" Value="{x:Null}">
+                                                                                        <DataTrigger Binding="{Binding Game.Platforms}" Value="{x:Null}">
                                                                                             <Setter Property="Visibility" Value="Collapsed" />
                                                                                         </DataTrigger>
                                                                                     </Style.Triggers>
                                                                                 </Style>
                                                                             </StackPanel.Style>
-
-                                                                            <ItemsControl ItemsSource="{Binding Game.Genres}" Margin="0,0,0,0">
+                                                                            <TextBlock Text="·" Margin="0,2,4,0" Style="{DynamicResource GameSubtleInfoTextBlockStyle}"/>
+                                                                            <ItemsControl ItemsSource="{Binding Game.Platforms}" Margin="0,0,0,0">
                                                                                 <ItemsControl.ItemsPanel>
                                                                                     <ItemsPanelTemplate>
-                                                                                        <WrapPanel Orientation="Horizontal" />
+                                                                                        <WrapPanel Orientation="Horizontal"/>
                                                                                     </ItemsPanelTemplate>
                                                                                 </ItemsControl.ItemsPanel>
                                                                                 <ItemsControl.ItemTemplate>
                                                                                     <DataTemplate>
-                                                                                        <Button Content="{Binding Name}" Margin="0,2,8,2"
+                                                                                        <Button Content="{Binding Name}"  Margin="0,2,8,2"
                                                              Style="{DynamicResource PropertyItemSmallButton}"
                                                              Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetFeatureFilterCommand}" CommandParameter="{Binding}"/>
                                                                                     </DataTemplate>
                                                                                 </ItemsControl.ItemTemplate>
                                                                             </ItemsControl>
-
                                                                         </StackPanel>
-                                                                    </Border>
+                                                                    </StackPanel>
+                                                                </Border>
 
-                                                                </WrapPanel>
+                                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,4,4" Margin="0,0,8,8"
+                                     Background="{DynamicResource ControlDarkHoverBackgroundBrush}"
+                                     Visibility="{Binding ElementName=PART_ElemGenres, Path=Visibility}">
+                                                                    <StackPanel Name="PART_ElemGenres" Orientation="Horizontal">
+                                                                        <StackPanel.Style>
+                                                                            <Style TargetType="StackPanel">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                                <Style.Triggers>
+                                                                                    <DataTrigger Binding="{Settings DetailsVisibility.Genres}" Value="False">
+                                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                                    </DataTrigger>
+                                                                                    <DataTrigger Binding="{Binding Game.Genres}" Value="{x:Null}">
+                                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                                    </DataTrigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </StackPanel.Style>
+
+                                                                        <ItemsControl ItemsSource="{Binding Game.Genres}" Margin="0,0,0,0">
+                                                                            <ItemsControl.ItemsPanel>
+                                                                                <ItemsPanelTemplate>
+                                                                                    <WrapPanel Orientation="Horizontal" />
+                                                                                </ItemsPanelTemplate>
+                                                                            </ItemsControl.ItemsPanel>
+                                                                            <ItemsControl.ItemTemplate>
+                                                                                <DataTemplate>
+                                                                                    <Button Content="{Binding Name}" Margin="0,2,8,2"
+                                                         Style="{DynamicResource PropertyItemSmallButton}"
+                                                         Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetFeatureFilterCommand}" CommandParameter="{Binding}"/>
+                                                                                </DataTemplate>
+                                                                            </ItemsControl.ItemTemplate>
+                                                                        </ItemsControl>
+
+                                                                    </StackPanel>
+                                                                </Border>
+
+                                                            </WrapPanel>
+
+                                                            <Image Name="PART_ImageIcon" MaxWidth="32" MaxHeight="32" VerticalAlignment="Top" DockPanel.Dock="Left"
+                                RenderOptions.BitmapScalingMode="Fant" Margin="0,4,16,16"/>
+
+                                                            <TextBlock Name="PART_TextDisplayName" FontFamily="{DynamicResource FontFamily}" DockPanel.Dock="Top"
+                                    FontSize="{DynamicResource FontSizeLarge32}" FontWeight="Bold" Margin="0,0,0,16"
+                                    TextWrapping="Wrap" Foreground="{DynamicResource SelectedBrush}"/>
+
+                                                        </DockPanel>
+
+                                                        <!--Left Part-->
+                                                        <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,0,40,0">
 
 
-                                                                <Image Name="PART_ImageIcon" MaxWidth="32" MaxHeight="32" VerticalAlignment="Top" DockPanel.Dock="Left"
-                                    RenderOptions.BitmapScalingMode="Fant" Margin="0,4,16,16"/>
-
-                                                                <TextBlock Name="PART_TextDisplayName" FontFamily="{DynamicResource FontFamily}" DockPanel.Dock="Top"
-                                        FontSize="{DynamicResource FontSizeLarge32}" FontWeight="Bold" Margin="0,0,0,16"
-                                        TextWrapping="Wrap" Foreground="{DynamicResource SelectedBrush}"/>
-
-                                                            </DockPanel>
 
                                                             <!--Video Part-->
                                                             <Border Panel.ZIndex="99" Margin="0,0,0,40" VerticalAlignment="Top">
@@ -350,7 +370,7 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                              </Grid>
                          </StackPanel>-->
 
-                                                            <!--Left Content Part-->
+                                                            <!--Tab Content Part-->
                                                             <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
 
                                                                 <TabControl Margin="0,0,0,16" VerticalAlignment="Top" HorizontalAlignment="Stretch"
@@ -513,11 +533,12 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
 
                                                                 </TabControl>
                                                             </StackPanel>
-                                                            <!--Left Content Part Ends-->
+                                                            <!--Tab Content Part Ends-->
                                                         </StackPanel>
+                                                        <!--Left Part Ends-->
 
                                                         <!--Right Part-->
-                                                        <StackPanel Margin="0,0,0,40" Grid.Row="1" Grid.Column="1">
+                                                        <StackPanel Margin="0,0,0,40" Grid.Row="2" Grid.Column="1">
 
                                                             <!--ImageCover-->
                                                             <Border HorizontalAlignment="Center" Grid.Row="2">
@@ -541,14 +562,14 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
 
                                                             <!-- HowLongToBeat ProgressBar -->
                                                             <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                                <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}" >
+                                                                <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}">
 
                                                                     <DockPanel>
                                                                         <ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right"/>
                                                                         <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
                                                 Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}"/>
                                                                     </DockPanel>
-                                                                    <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,16,0,40" 
+                                                                    <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,16,0,40" Width="260"
                                                  TextBlock.FontSize="{DynamicResource FontSize}" Height="24"/>
                                                                 </StackPanel>
                                                             </StackPanel>
@@ -881,16 +902,16 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                          Style="{StaticResource PillLargeButton}"/>
                                                     <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48"
                          Content="&#xe700;" Style="{DynamicResource PillLargeButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"/>
-                                                    <Grid Width="120">
+                                                    <Grid MinWidth="48">
                                                         <Button Name="PART_ButtonPlayAction" Margin="0"
                              Height="48" Width="Auto" FontWeight="Bold"
-                             Style="{DynamicResource PlayButton}" 
+                             Style="{DynamicResource IconPlayButton}" 
                              FontSize="{DynamicResource FontSizeLarge20}" />
 
                                                         <Button Name="PART_ButtonContextAction"
                              Height="48" FontWeight="Bold" 
                              Background="{DynamicResource AccentDisabledBrush}"
-                             Style="{DynamicResource PlayButton_LeftPart}" 
+                             Style="{DynamicResource PlayButton}" 
                              FontSize="{DynamicResource FontSizeLarge20}" />
                                                     </Grid>
                                                 </StackPanel>

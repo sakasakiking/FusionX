@@ -530,14 +530,14 @@
 
                                             <!-- HowLongToBeat ProgressBar -->
                                             <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}" >
+                                                <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}">
 
                                                     <DockPanel>
                                                         <ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right"/>
                                                         <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
                                                                    Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}"/>
                                                     </DockPanel>
-                                                    <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,16,0,40" 
+                                                    <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,16,0,40" Width="260"
                                                                     TextBlock.FontSize="{DynamicResource FontSize}" Height="24"/>
                                                 </StackPanel>
                                             </StackPanel>
