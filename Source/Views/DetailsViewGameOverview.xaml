@@ -151,7 +151,7 @@
                                                                     <DataTemplate>
                                                                         <Button Content="{Binding Name}"  Margin="0,2,8,2"
                                                                                 Style="{DynamicResource PropertyItemSmallButton}"
-                                                                                Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetFeatureFilterCommand}" CommandParameter="{Binding}"/>
+                                                                                Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetPlatformFilterCommand}" CommandParameter="{Binding}"/>
                                                                     </DataTemplate>
                                                                 </ItemsControl.ItemTemplate>
                                                             </ItemsControl>
@@ -187,7 +187,7 @@
                                                                 <DataTemplate>
                                                                     <Button Content="{Binding Name}" Margin="0,2,8,2"
                                                                             Style="{DynamicResource PropertyItemSmallButton}"
-                                                                            Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetFeatureFilterCommand}" CommandParameter="{Binding}"/>
+                                                                            Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetGenreFilterCommand}" CommandParameter="{Binding}"/>
                                                                 </DataTemplate>
                                                             </ItemsControl.ItemTemplate>
                                                         </ItemsControl>
@@ -805,7 +805,7 @@
                                                             <DataTemplate>
                                                                 <Button Content="{Binding Name}" Margin="0,2,4,2"
                                                                         Style="{DynamicResource PropertyItemTagButton}"
-                                                                        Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetFeatureFilterCommand}" CommandParameter="{Binding}"/>
+                                                                        Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetTagFilterCommand}" CommandParameter="{Binding}"/>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
                                                     </ItemsControl>
