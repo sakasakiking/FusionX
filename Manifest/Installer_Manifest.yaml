@@ -112,3 +112,10 @@ Packages:
     Changelog: 
     - Fix some tiny issues.
     - A little tweak around game title and line of Score+ReleaseDate+Platform+Genres.
+  - Version: 1.6.2
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-03-07
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_6_2.pthm
+    Changelog: 
+    - Fix the issue that user can not multi-selecet in game list of grid view.
+    - Fix the issue that the filter tags do not work correctly (Thank PenmanHsiung for his support).
