@@ -195,6 +195,31 @@
                                                     </StackPanel>
                                                 </Border>
 
+                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,4,4" Margin="0,0,8,8"
+                                                        Background="{DynamicResource ControlDarkHoverBackgroundBrush}"
+                                                        Visibility="{Binding ElementName=NewsViewer_PlayersInGameViewerControl, Path=Visibility}">
+                                                    <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl">
+                                                        <ContentControl.Resources>
+                                                            <Style TargetType="Button" BasedOn="{StaticResource PropertyItemSmallButton}" />
+                                                        </ContentControl.Resources>
+                                                    </ContentControl>
+                                                </Border>
+
+                                                <ContentControl x:Name="CheckDlc_PluginButton"  Visibility="{PluginSettings Plugin=CheckDlc, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                <ContentControl x:Name="SuccessStory_PluginButton"  Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                <ContentControl x:Name="GameActivity_PluginButton"  Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                <ContentControl x:Name="SystemChecker_PluginButton"  Visibility="{PluginSettings Plugin=SystemChecker, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                <ContentControl x:Name="CheckLocalizations_PluginButton"  Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                
+                                                
+
+                                                <!--<ContentControl x:Name="LibraryManagement_PluginFeaturesIconList" Height="35" VerticalAlignment="Center" Opacity="0.85"
+                                                                Visibility="{PluginSettings Plugin=LibraryManagement, Path=EnableIntegrationFeatures, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+                                                <ContentControl x:Name="GogSecondClassWatcher_SecondClassWatcherControl"
+                                                                VerticalAlignment="Center"
+                                                                Visibility="{PluginSettings Plugin=GogSecondClassWatcher, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="5,0,0,0"/>-->
+
                                             </WrapPanel>
 
                                             <Image Name="PART_ImageIcon" MaxWidth="32" MaxHeight="32" VerticalAlignment="Top" DockPanel.Dock="Left"
