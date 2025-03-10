@@ -79,7 +79,7 @@
                                             <WrapPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0,0,0,0">
 
                                                 <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,12,4" Margin="0,0,8,8"
-                                                        Background="{DynamicResource ControlDarkHoverBackgroundBrush}"
+                                                        Background="{DynamicResource ControlDarkHoverBackgroundBrush}" VerticalAlignment="Top"
                                                         Tag="{DynamicResource DetailViewRatingStar}">
                                                     <Border.Style>
                                                         <Style TargetType="Border">
@@ -109,7 +109,7 @@
                                                 </Border>
 
                                                 <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,4,4" Margin="0,0,8,8"
-                                                        Background="{DynamicResource ControlDarkHoverBackgroundBrush}">
+                                                        Background="{DynamicResource ControlDarkHoverBackgroundBrush}" VerticalAlignment="Top">
                                                     <Border.Style>
                                                         <Style TargetType="Border">
                                                             <Setter Property="Visibility" Value="Visible"/>
@@ -160,7 +160,7 @@
                                                 </Border>
 
                                                 <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,4,4" Margin="0,0,8,8"
-                                                        Background="{DynamicResource ControlDarkHoverBackgroundBrush}"
+                                                        Background="{DynamicResource ControlDarkHoverBackgroundBrush}" VerticalAlignment="Top"
                                                         Visibility="{Binding ElementName=PART_ElemGenres, Path=Visibility}">
                                                     <StackPanel Name="PART_ElemGenres" Orientation="Horizontal">
                                                         <StackPanel.Style>
@@ -195,23 +195,17 @@
                                                     </StackPanel>
                                                 </Border>
 
-                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,4,4" Margin="0,0,8,8"
-                                                        Background="{DynamicResource ControlDarkHoverBackgroundBrush}"
-                                                        Visibility="{Binding ElementName=NewsViewer_PlayersInGameViewerControl, Path=Visibility}">
-                                                    <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl">
-                                                        <ContentControl.Resources>
-                                                            <Style TargetType="Button" BasedOn="{StaticResource PropertyItemSmallButton}" />
-                                                        </ContentControl.Resources>
-                                                    </ContentControl>
-                                                </Border>
+                                                <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl">
+                                                    <ContentControl.Resources>
+                                                        <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
+                                                    </ContentControl.Resources>
+                                                </ContentControl>
 
-                                                <ContentControl x:Name="CheckDlc_PluginButton"  Visibility="{PluginSettings Plugin=CheckDlc, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                <!--<ContentControl x:Name="CheckDlc_PluginButton"  Visibility="{PluginSettings Plugin=CheckDlc, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                 <ContentControl x:Name="SuccessStory_PluginButton"  Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                 <ContentControl x:Name="GameActivity_PluginButton"  Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                 <ContentControl x:Name="SystemChecker_PluginButton"  Visibility="{PluginSettings Plugin=SystemChecker, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                <ContentControl x:Name="CheckLocalizations_PluginButton"  Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                
-                                                
+                                                <ContentControl x:Name="CheckLocalizations_PluginButton"  Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />-->
 
                                                 <!--<ContentControl x:Name="LibraryManagement_PluginFeaturesIconList" Height="35" VerticalAlignment="Center" Opacity="0.85"
                                                                 Visibility="{PluginSettings Plugin=LibraryManagement, Path=EnableIntegrationFeatures, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -913,7 +907,7 @@
                                     <Grid.Resources>
                                         <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
                                             <Setter Property="Margin" Value="0,2,0,0" />
-                                            <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+                                            <Setter Property="Foreground" Value="{DynamicResource PromptBrush}" />
                                             <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
                                         </Style>
                                         <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
@@ -921,7 +915,7 @@
                                         </Style>
                                         <Style TargetType="Button" BasedOn="{StaticResource PropertyItemSmallButton}">
                                             <Setter Property="Margin" Value="0"/>
-                                            <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+                                            <Setter Property="FontSize" Value="13" />
                                             <Setter Property="Padding" Value="0"/>
                                             <Setter Property="Margin" Value="0"/>
                                         </Style>
