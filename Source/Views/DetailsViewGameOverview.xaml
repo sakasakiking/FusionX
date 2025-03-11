@@ -40,6 +40,23 @@
                                         </FadeImage.ImageOpacityMask>
                                     </FadeImage>
 
+                                    <Grid Height="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                        <!--<Grid.Style>
+                                            <Style TargetType="Grid">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=TopGrid,
+                                               Path=IsMouseOver}" 
+                             Value="True">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>-->
+
+                                        <ContentControl x:Name="DuplicateHider_SourceSelector" Margin="10"/>
+                                    </Grid>
+
                                     <Grid HorizontalAlignment="Stretch" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260" Margin="40,0,40,0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
@@ -956,7 +973,7 @@
                                             <TextBlock Text="/"/>
                                             <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Total, FallbackValue='-'}" FontWeight="Bold"/>
 
-                                            <ProgressBar x:Name="progressBar" Width="60" Height="10" FontSize="10" Margin="6,0,0,0" VerticalAlignment="Center"
+                                            <ProgressBar x:Name="progressBar" Width="60" Height="8" FontSize="8" Margin="6,0,0,0" VerticalAlignment="Center"
                                                          Maximum="{PluginSettings Plugin=SuccessStory, Path=Total, FallbackValue=0}" Value="{PluginSettings Plugin=SuccessStory, Path=Unlocked, FallbackValue=0}" HorizontalAlignment="Left"
                                                          Background="{DynamicResource ControlDarkIdleBackgroundBrush}" 
                                                          Foreground="{DynamicResource HoverBrush}"  
@@ -969,19 +986,18 @@
                                                         <Setter Property="Template">
                                                             <Setter.Value>
                                                                 <ControlTemplate TargetType="{x:Type ProgressBar}">
-                                                                    <Border BorderThickness="{TemplateBinding BorderThickness}"
-                                                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                                                            CornerRadius="5">
-                                                                        <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                                                                            <Rectangle Fill="{TemplateBinding Background}" RadiusY="4" RadiusX="4"/>
-                                                                            <Rectangle x:Name="PART_Track" Margin="0" RadiusY="4" RadiusX="4"/>
-                                                                            <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" VerticalAlignment="Stretch">
-                                                                                <Grid>
-                                                                                    <Rectangle Fill="{TemplateBinding Foreground}" RadiusY="4" RadiusX="4"/>
-                                                                                </Grid>
-                                                                            </Decorator>
-                                                                        </Grid>
-                                                                    </Border>
+                                                                    <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                                                        <Border BorderThickness="{TemplateBinding BorderThickness}"
+                                                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                                                CornerRadius="4"/>
+                                                                        <Rectangle Fill="{TemplateBinding Background}" RadiusY="4" RadiusX="4"/>
+                                                                        <Rectangle x:Name="PART_Track" Margin="0" RadiusY="4" RadiusX="4"/>
+                                                                        <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+                                                                            <Grid>
+                                                                                <Rectangle Fill="{TemplateBinding Foreground}" RadiusY="4" RadiusX="4"/>
+                                                                            </Grid>
+                                                                        </Decorator>
+                                                                    </Grid>
                                                                 </ControlTemplate>
                                                             </Setter.Value>
                                                         </Setter>
