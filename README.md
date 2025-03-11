@@ -12,7 +12,7 @@ It's using ``Segoe Fluent Icons`` for the theme, you might need to download the 
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots04.jpg)
 
 ## Recommended Playnite settings to avoid issues and reach the visual effect shown in the screenshots
-Please follow [This guide](https://github.com/sakasakiking/FusionX/wiki/Recommended-settings-for-achieving-the-look-of-screenshots)
+Please follow [This guide](https://github.com/sakasakiking/FusionX/wiki/Recommended-settings-for-achieving-the-look-of-screenshots) (Sorry, need to be updated.)
 
 ## Support
 - If you found a bug or want to request a feature, please open a new issue in the [Issues Tracker](https://github.com/sakasakiking/FusionX/issues)
@@ -35,7 +35,7 @@ It has supported:
 - **Videos:** [Extra Metadata Loader](https://playnite.link/addons.html#ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429) extension.
 - **Customized Theme:** [ThemeModifier](https://playnite.link/addons.html#playnite-thememodifier-plugin) extension.
 - **Custom UI:** [ThemeExtras](https://playnite.link/addons.html#felixkmh_Extras_Plugin) extension.
-- **Steam News:** [Steam News and Players Viewer](https://playnite.link/addons.html#NewsViewer_15e03ffe-90f6-4e8e-bd4d-94514777481d) extension.
+- **Steam News and Players Viewer:** [Steam News and Players Viewer](https://playnite.link/addons.html#NewsViewer_15e03ffe-90f6-4e8e-bd4d-94514777481d) extension.
 - **Steam Reviews:** [Steam Reviews Viewer](https://playnite.link/addons.html#Review_Viewer_ca24e37a-76d9-49bf-89ab-d3cba4a54bd1) extension.
 - **Steam Screenshots:** [Steam Store Screenshots Viewer](https://playnite.link/addons.html#SteamScreenshots_8e77fe31-5e62-41e2-8fa2-64844cfd5b6b) extension.
 Addiing more...
