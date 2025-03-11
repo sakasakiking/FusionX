@@ -903,8 +903,8 @@
                                     </Grid>
                                 </StackPanel>
 
-                                <Grid DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,8,16,0">
-                                    <Grid.Resources>
+                                <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,8,16,0" Orientation="Horizontal">
+                                    <StackPanel.Resources>
                                         <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
                                             <Setter Property="Margin" Value="0,2,0,0" />
                                             <Setter Property="Foreground" Value="{DynamicResource PromptBrush}" />
@@ -914,19 +914,14 @@
                                             <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
                                         </Style>
                                         <Style TargetType="Button" BasedOn="{StaticResource PropertyItemSmallButton}">
-                                            <Setter Property="Margin" Value="0"/>
                                             <Setter Property="FontSize" Value="13" />
-                                            <Setter Property="Padding" Value="0"/>
+                                            <Setter Property="Foreground" Value="{DynamicResource HoverBrush}"/>
                                             <Setter Property="Margin" Value="0"/>
+                                            <Setter Property="Padding" Value="0"/>
                                         </Style>
-                                    </Grid.Resources>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
+                                    </StackPanel.Resources>
 
-                                    <DockPanel Grid.Column="1" Visibility="{Binding Visibility, ElementName=PART_ElemLastPlayed, Mode=OneWay}" Margin="0,0,16,0">
+                                    <DockPanel Visibility="{Binding Visibility, ElementName=PART_ElemLastPlayed, Mode=OneWay}" Margin="0,0,16,0">
                                         <TextBlock Text="&#xe163;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0"
                                                    Style="{DynamicResource IconFontStyle}"/>
                                         <Label Name="PART_ElemLastPlayed" Content="{DynamicResource LOCLastPlayed}"  
@@ -934,7 +929,7 @@
                                         <TextBlock Name="PART_TextLastActivity" DockPanel.Dock="Top" FontWeight="Bold"/>
                                     </DockPanel>
 
-                                    <DockPanel Grid.Column="0" Visibility="{Binding Visibility, ElementName=PART_ElemPlayTime, Mode=OneWay}" Margin="0,0,16,0">
+                                    <DockPanel Visibility="{Binding Visibility, ElementName=PART_ElemPlayTime, Mode=OneWay}" Margin="0,0,16,0">
                                         <TextBlock Text="&#xed5a;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0" 
                                                    Style="{DynamicResource IconFontStyle}"/>
                                         <Label Name="PART_ElemPlayTime" Content="{DynamicResource LOCTimePlayed}" 
@@ -942,14 +937,62 @@
                                         <TextBlock Name="PART_TextPlayTime" DockPanel.Dock="Top" FontWeight="Bold"/>
                                     </DockPanel>
 
-                                    <DockPanel Grid.Column="2" Visibility="{Binding Visibility, ElementName=PART_ElemCompletionStatus, Mode=OneWay}" Margin="0,0,16,0">
+                                    <DockPanel Visibility="{Binding Visibility, ElementName=PART_ElemCompletionStatus, Mode=OneWay}" Margin="0,0,16,0">
                                         <TextBlock Text="&#xe129;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0" 
                                                    Style="{DynamicResource IconFontStyle}"/>
                                         <Label Name="PART_ElemCompletionStatus" Content="{DynamicResource LOCCompletionStatus}" 
                                                DockPanel.Dock="Top"/>
                                         <Button Name="PART_ButtonCompletionStatus" DockPanel.Dock="Top" FontWeight="Bold"/>
                                     </DockPanel>
-                                </Grid>
+
+                                    <DockPanel Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               Margin="0,0,16,0">
+                                        <TextBlock Text="&#xf272;" FontSize="20" DockPanel.Dock="Left" Margin="0,0,8,0"
+                                                   Style="{DynamicResource IconFontStyle}"/>
+                                        <Label Content="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Top" />
+
+                                        <StackPanel Name="PART_SuccessStory" DockPanel.Dock="Top" Orientation="Horizontal">
+                                            <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Unlocked, FallbackValue='-'}" FontWeight="Bold"/>
+                                            <TextBlock Text="/"/>
+                                            <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Total, FallbackValue='-'}" FontWeight="Bold"/>
+
+                                            <ProgressBar x:Name="progressBar" Width="60" Height="10" FontSize="10" Margin="6,0,0,0" VerticalAlignment="Center"
+                                                         Maximum="{PluginSettings Plugin=SuccessStory, Path=Total, FallbackValue=0}" Value="{PluginSettings Plugin=SuccessStory, Path=Unlocked, FallbackValue=0}" HorizontalAlignment="Left"
+                                                         Background="{DynamicResource ControlDarkIdleBackgroundBrush}" 
+                                                         Foreground="{DynamicResource HoverBrush}"  
+                                                         Style="{DynamicResource RoundedProgressBar}">
+                                                <ProgressBar.Resources>
+                                                    <Style x:Key="RoundedProgressBar" TargetType="ProgressBar">
+                                                        <Setter Property="Background" Value="{DynamicResource NormalBrushDark}"/>
+                                                        <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                                                                    <Border BorderThickness="{TemplateBinding BorderThickness}"
+                                                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                                                            CornerRadius="5">
+                                                                        <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                                                            <Rectangle Fill="{TemplateBinding Background}" RadiusY="4" RadiusX="4"/>
+                                                                            <Rectangle x:Name="PART_Track" Margin="0" RadiusY="4" RadiusX="4"/>
+                                                                            <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+                                                                                <Grid>
+                                                                                    <Rectangle Fill="{TemplateBinding Foreground}" RadiusY="4" RadiusX="4"/>
+                                                                                </Grid>
+                                                                            </Decorator>
+                                                                        </Grid>
+                                                                    </Border>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </ProgressBar.Resources>
+
+                                            </ProgressBar>
+                                        </StackPanel>
+                                    </DockPanel>
+
+                                </StackPanel>
 
                             </DockPanel>
                         </Grid>
