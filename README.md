@@ -38,8 +38,8 @@ It has supported:
 - **Steam News and Players Viewer:** [Steam News and Players Viewer](https://playnite.link/addons.html#NewsViewer_15e03ffe-90f6-4e8e-bd4d-94514777481d) extension.
 - **Steam Reviews:** [Steam Reviews Viewer](https://playnite.link/addons.html#Review_Viewer_ca24e37a-76d9-49bf-89ab-d3cba4a54bd1) extension.
 - **Steam Screenshots:** [Steam Store Screenshots Viewer](https://playnite.link/addons.html#SteamScreenshots_8e77fe31-5e62-41e2-8fa2-64844cfd5b6b) extension.
-- **DuplicateHider:** [DuplicateHider](https://playnite.link/addons.html#CooperativeModesImporter_9767ac15-6e26-4e4c-9d69-f6838625dde3) extension.
-- **Feature icon List:** [LibraryManagement](https://playnite.link/addons.html#CooperativeModesImporter_9767ac15-6e26-4e4c-9d69-f6838625dde3) extension.
+- **DuplicateHider:** [DuplicateHider](https://playnite.link/addons.html#felixkmh_DuplicateHider_Plugin) extension.
+- **Feature icon List:** [LibraryManagement](https://playnite.link/addons.html#playnite-librarymanagement-plugin) extension.
 
 Addiing more...
 
