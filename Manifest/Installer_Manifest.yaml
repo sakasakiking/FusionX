@@ -119,3 +119,12 @@ Packages:
     Changelog: 
     - Fix the issue that user can not multi-selecet in game list of grid view.
     - Fix the issue that the filter tags do not work correctly (Thank PenmanHsiung for his support).
+  - Version: 1.7.0
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-03-12
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_7_0.pthm
+    Changelog: 
+    - Support the addon DuplicateHider.
+    - Add Achievements on bottom bar.
+    - Add Players in-game viewer.
+    - Add FeaturesIconList supported by addon LibraryManagement.
