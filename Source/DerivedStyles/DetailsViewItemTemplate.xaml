@@ -33,6 +33,17 @@
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
+                            <!--<Border DockPanel.Dock="Right" Height="{Binding ElementName=PART_ImageIcon, Path=Height}">-->
+                            <Border DockPanel.Dock="Right" Height="20">
+                                <!--Set top/bot margin to control icon size.-->
+                                <!--When removing fading effect, set Visibility to Visible.-->
+                                <ContentControl x:Name="DuplicateHider_SourceSelector" 
+                                                    HorizontalAlignment="Right" 
+                                                    HorizontalContentAlignment="Right" 
+                                                    Visibility="Collapsed" 
+                                                    VerticalContentAlignment="Center"   
+                                                    Margin="0,4,0,4" />
+                            </Border>
                             <Image Name="PART_ImageIcon"
                                    Height="{Settings DetailsViewListIconSize}"
                                    RenderOptions.BitmapScalingMode="Fant"
@@ -42,8 +53,46 @@
                             </TextBlock>
                         </DockPanel>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <!--Fade in effect when mouse enters ListItem.-->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="DuplicateHider_SourceSelector" 
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1" Duration="0:0:0.1" />
+                                        <ObjectAnimationUsingKeyFrames  
+                                            Storyboard.TargetName="DuplicateHider_SourceSelector"
+                                            Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Visible}" KeyTime="0"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <!--Fade out effect when mouse leaves ListItem.-->
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="DuplicateHider_SourceSelector" 
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0" Duration="0:0:0.1" />
+                                        <ObjectAnimationUsingKeyFrames  
+                                            Storyboard.TargetName="DuplicateHider_SourceSelector"
+                                            Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Collapsed}" KeyTime="0:0:0.1"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+
 </ResourceDictionary>

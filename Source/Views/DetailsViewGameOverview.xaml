@@ -40,7 +40,8 @@
                                         </FadeImage.ImageOpacityMask>
                                     </FadeImage>
 
-                                    <Grid Height="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Grid Height="40" Margin="40,0,40,0"
+                                          HorizontalAlignment="Left" VerticalAlignment="Top">
                                         <!--<Grid.Style>
                                             <Style TargetType="Grid">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -142,7 +143,7 @@
                                                         </Style>
                                                     </Border.Style>
                                                     <StackPanel Orientation="Horizontal">
-                                                        <Button Name="PART_ButtonReleaseDate" Margin="0,2,4,0" Style="{DynamicResource PropertyItemSmallButton}"/>
+                                                        <Button Name="PART_ButtonReleaseDate" Margin="0,2,4,2" Style="{DynamicResource PropertyItemSmallButton}"/>
                                                         <StackPanel Name="PART_ElemPlatform" Orientation="Horizontal">
                                                             <StackPanel.Style>
                                                                 <Style TargetType="StackPanel">
@@ -224,12 +225,38 @@
                                                 <ContentControl x:Name="SystemChecker_PluginButton"  Visibility="{PluginSettings Plugin=SystemChecker, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                 <ContentControl x:Name="CheckLocalizations_PluginButton"  Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />-->
 
-                                                <!--<ContentControl x:Name="LibraryManagement_PluginFeaturesIconList" Height="35" VerticalAlignment="Center" Opacity="0.85"
-                                                                Visibility="{PluginSettings Plugin=LibraryManagement, Path=EnableIntegrationFeatures, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                <!--<ContentControl x:Name="LibraryManagement_PluginFeaturesIconList" Height="35" VerticalAlignment="Center" Opacity="0.5"
+                                                                Visibility="{PluginSettings Plugin=LibraryManagement, Path=EnableIntegrationFeatures, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />-->
 
-                                                <ContentControl x:Name="GogSecondClassWatcher_SecondClassWatcherControl"
+                                                <!--<ContentControl x:Name="GogSecondClassWatcher_SecondClassWatcherControl"
                                                                 VerticalAlignment="Center"
                                                                 Visibility="{PluginSettings Plugin=GogSecondClassWatcher, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="5,0,0,0"/>-->
+
+                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,4,4,4" Margin="0,0,8,8"
+                                                        Background="{DynamicResource ControlDarkHoverBackgroundBrush}" VerticalAlignment="Top"
+                                                        Visibility="{PluginSettings Plugin=LibraryManagement, Path=HasData, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue={x:Static Visibility.Collapsed}}">
+                                                    
+                                                    <StackPanel Orientation="Horizontal">
+
+                                                        <ItemsControl ItemsSource="{PluginSettings Plugin=LibraryManagement, Path=DataList}" 
+                                                                      HorizontalAlignment="Left">
+                                                            <ItemsControl.ItemsPanel>
+                                                                <ItemsPanelTemplate>
+                                                                    <WrapPanel Orientation="Horizontal"/>
+                                                                </ItemsPanelTemplate>
+                                                            </ItemsControl.ItemsPanel>
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Image VerticalAlignment="Center" Margin="0,0,8,0.5" 
+                                                                           ToolTip="{Binding NameAssociated}"
+                                                                           Width="20" Height="20"
+                                                                           Source="{Binding IconBitmapImage}" />
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </StackPanel>
+                                                    
+                                                </Border>
 
                                             </WrapPanel>
 
@@ -982,7 +1009,7 @@
                                                     <Style x:Key="RoundedProgressBar" TargetType="ProgressBar">
                                                         <Setter Property="Background" Value="{DynamicResource NormalBrushDark}"/>
                                                         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
-                                                        <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource ControlHoverBorderBrush}"/>
                                                         <Setter Property="Template">
                                                             <Setter.Value>
                                                                 <ControlTemplate TargetType="{x:Type ProgressBar}">
