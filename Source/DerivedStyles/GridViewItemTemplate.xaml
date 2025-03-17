@@ -45,12 +45,12 @@
                                         </Style>
                                     </StackPanel.Style>
                                     
-                                    <ContentControl x:Name="ThemeExtras_Banner"
+                                    <!--<ContentControl x:Name="ThemeExtras_Banner"
                                                 RenderOptions.BitmapScalingMode="Fant"
                                                 Width="{Binding Width, ElementName=PART_ImageCover}"
                                                 Tag="{DynamicResource GridViewImageCoverShowPlatformBanner}"
                                                 Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center"
-                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
                                     
                                     <Image Name="PART_ImageCover" 
                                            Height="{Settings GridItemHeight}" SnapsToDevicePixels="True"
@@ -76,14 +76,14 @@
                                         Visibility="Collapsed" />
 
                                 <Border Name="GameControls" Visibility="Collapsed">
-                                    <Grid>
-                                        <!--<Button Name="PART_ButtonInfo"  BorderThickness="0"
-                                                Margin="0" VerticalAlignment="Stretch" Background="Transparent"/>-->
-                                        <Viewbox>
+                                    <Viewbox>
+                                        <StackPanel>
                                             <Button Name="PART_ButtonPlay" Content="&#xe102;" Margin="24,0,24,0" 
                                                     Style="{StaticResource GridViewPlayButton}"/>
-                                        </Viewbox>
-                                    </Grid>
+                                            <Button Name="PART_ButtonInfo"  BorderThickness="0" Content="&#xef4f;"
+                                                    Margin="0" VerticalAlignment="Stretch" Background="Transparent"/>
+                                        </StackPanel>
+                                    </Viewbox>
                                 </Border>
 
                                 <Grid Tag="{DynamicResource GridViewListShowFavorite}"
