@@ -23,8 +23,8 @@
                     <Border BorderThickness="{Settings GridItemMargin}"
                             BorderBrush="{DynamicResource GridItemBackgroundBrush}">
 
-                        <Grid Name="PART_PanelHost" d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
-                            
+                        <Grid Name="PART_PanelHost" d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}" >
+
                             <Grid Width="{Settings GridItemWidth}">
 
                                 <Border Style="{StaticResource VisualBrushBorderMask}" Name="Mask"
@@ -45,12 +45,12 @@
                                         </Style>
                                     </StackPanel.Style>
                                     
-                                    <!--<ContentControl x:Name="ThemeExtras_Banner"
+                                    <ContentControl x:Name="ThemeExtras_Banner"
                                                 RenderOptions.BitmapScalingMode="Fant"
                                                 Width="{Binding Width, ElementName=PART_ImageCover}"
                                                 Tag="{DynamicResource GridViewImageCoverShowPlatformBanner}"
                                                 Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center"
-                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
+                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                     
                                     <Image Name="PART_ImageCover" 
                                            Height="{Settings GridItemHeight}" SnapsToDevicePixels="True"
@@ -76,14 +76,16 @@
                                         Visibility="Collapsed" />
 
                                 <Border Name="GameControls" Visibility="Collapsed">
-                                    <Viewbox>
-                                        <StackPanel>
-                                            <Button Name="PART_ButtonPlay" Content="&#xe102;" Margin="24,0,24,0" 
+                                    <Grid>
+                                        <Viewbox VerticalAlignment="Bottom">
+                                            <Button Name="PART_ButtonInfo" Content="&#xe946;" Margin="32,0,32,8" 
+                                                    Style="{StaticResource GridViewInfoButton}"/>
+                                        </Viewbox>
+                                        <Viewbox>
+                                            <Button Name="PART_ButtonPlay" Content="&#xf5b0;" Margin="24,0,24,4" 
                                                     Style="{StaticResource GridViewPlayButton}"/>
-                                            <Button Name="PART_ButtonInfo"  BorderThickness="0" Content="&#xef4f;"
-                                                    Margin="0" VerticalAlignment="Stretch" Background="Transparent"/>
-                                        </StackPanel>
-                                    </Viewbox>
+                                        </Viewbox>
+                                    </Grid>
                                 </Border>
 
                                 <Grid Tag="{DynamicResource GridViewListShowFavorite}"
@@ -96,8 +98,8 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     
-                                    <Viewbox Margin="0,6,6,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="4">
-                                        <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="16" Padding="6">
+                                    <Viewbox Margin="0,8,8,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="4">
+                                        <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="16" Padding="6,5,6,7">
                                             <Border.Style>
                                                 <Style TargetType="Border">
                                                     <Setter Property="Visibility" Value="Collapsed" />
