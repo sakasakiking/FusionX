@@ -128,3 +128,10 @@ Packages:
     - Add Achievements on bottom bar.
     - Add Players in-game viewer.
     - Add FeaturesIconList supported by addon LibraryManagement.
+  - Version: 1.7.1
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-03-17
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_7_1.pthm
+    Changelog: 
+    - Tiny UI Enhancement.
+    - Fix a issue that user can not reopen the detail part in GridView if the detail part is closed. 
