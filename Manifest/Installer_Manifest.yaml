@@ -134,4 +134,4 @@ Packages:
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_1_7_1.pthm
     Changelog: 
     - Tiny UI Enhancement.
-    - Fix a issue that user can not reopen the detail part in GridView if the detail part is closed. 
+    - Fix a issue that user can not reopen the detail part in GridView if the detail part is closed. (Add a Info button under the play button.)
