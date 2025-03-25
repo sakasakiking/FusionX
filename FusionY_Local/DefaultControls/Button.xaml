@@ -43,7 +43,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type Button}" x:Key="PlayersCountButtonStyle">
+    <Style x:Key="PlayersCountButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{DynamicResource ControlDarkHoverBackgroundBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>

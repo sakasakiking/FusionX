@@ -28,7 +28,7 @@
 
     <Style x:Key="PropertyItemSmallButton" TargetType="Button">
         <Setter Property="Margin" Value="0,2,0,0" />
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmaller}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}"/>
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="Template">
             <Setter.Value>
