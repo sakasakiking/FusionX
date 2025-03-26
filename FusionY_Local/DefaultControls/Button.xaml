@@ -44,14 +44,14 @@
     </Style>
 
     <Style x:Key="PlayersCountButtonStyle" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{DynamicResource ControlDarkHoverBackgroundBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="FontWeight" Value="Medium"/>
-        <Setter Property="Padding" Value="12,6,12,6" />
+        <Setter Property="Padding" Value="4,1,4,3" />
         <Setter Property="Margin" Value="0,0,4,4" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Left" />

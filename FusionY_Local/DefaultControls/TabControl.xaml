@@ -100,16 +100,20 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
-                    <Grid x:Name="TabGrid" Margin="0,0,24,0">
-                        <Border x:Name="SelectedBorder" Visibility="Collapsed" Margin="0"
-                                SnapsToDevicePixels="True"
-                                BorderThickness="0,0,0,1" BorderBrush="{DynamicResource SelectedBrush}"/>
-                        <TextBlock x:Name="TextContent" Padding="0,0,0,8" Style="{DynamicResource BaseTextBlockStyle}" VerticalAlignment="Center"
-                                   Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}">
-                            <ContentPresenter x:Name="ContentSite" RecognizesAccessKey="True" ContentSource="Header"
-                                              HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" />
-                        </TextBlock>
-                    </Grid>
+                    <Border x:Name="TabGrid" Margin="0,0,24,0">
+                        <Grid >
+                            <Border x:Name="SelectedBorder" Visibility="Collapsed" Margin="8,0,8,0" SnapsToDevicePixels="True"
+                                    VerticalAlignment="Bottom" HorizontalAlignment="Stretch"
+                                    Height="4" CornerRadius="2" MinWidth="20"
+                                    Background="{DynamicResource ControlSelectedBackgroundBrush}"/>
+                            <TextBlock x:Name="TextContent" Padding="0,0,0,0" VerticalAlignment="Top" Margin="0,0,0,12"
+                                       Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}"
+                                       Style="{DynamicResource BaseTextBlockStyle}">
+                                <ContentPresenter x:Name="ContentSite" RecognizesAccessKey="True" ContentSource="Header"
+                                                  HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" />
+                            </TextBlock>
+                        </Grid>
+                    </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="TabStripPlacement" Value="Left">
                             <Setter Property="BorderThickness" Value="0,0,2,0" TargetName="SelectedBorder" />
@@ -133,7 +137,7 @@
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
                             <Setter Property="Visibility" Value="Visible" TargetName="SelectedBorder" />
-                            <Setter Property="BorderThickness" Value="0,0,0,2" TargetName="SelectedBorder" />
+                            <!--<Setter Property="BorderThickness" Value="0,0,0,2" TargetName="SelectedBorder" />-->
                             <Setter Property="Opacity" Value="1" TargetName="TextContent"/>
                         </Trigger>
                     </ControlTemplate.Triggers>

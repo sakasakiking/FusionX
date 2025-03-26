@@ -77,6 +77,10 @@
     <Color x:Key="60%Black">#99000000</Color>
     <!--FusionX Newly Added Color Ends-->
 
+    <SolidColorBrush x:Key="CardSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" />
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="#0AFFFFFF" />
+    <SolidColorBrush x:Key="CardBorderBrush" Color="#D4D0B8" />
+
     <SolidColorBrush x:Key="LightDarkBackgroundBrush" Color="#33000000" />
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource 40%Black}" />
     <SolidColorBrush x:Key="ControlDarkIdleBackgroundBrush" Color="{DynamicResource 40%Black}" />

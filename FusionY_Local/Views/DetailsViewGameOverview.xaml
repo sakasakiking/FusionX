@@ -9,22 +9,22 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DetailsViewGameOverview}">
                     <Grid>
-                        <Grid.RowDefinitions>
+                        <!--<Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                        </Grid.RowDefinitions>-->
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="{Settings DetailsListWitdh}"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.ColumnSpan="2">
-                            <Grid.OpacityMask>
+                            <!--<Grid.OpacityMask>
                                 <LinearGradientBrush StartPoint="0,1" EndPoint="0,0.95">
                                     <GradientStop Offset="0" Color="#00000000"/>
                                     <GradientStop Offset="1" Color="#FF000000"/>
                                 </LinearGradientBrush>
-                            </Grid.OpacityMask>
+                            </Grid.OpacityMask>-->
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="0"
                                       Style="{DynamicResource DetailsScrollViewer}"
                                       d:DesignWidth="1280"
@@ -37,7 +37,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Grid Grid.ColumnSpan="2" MaxHeight="840" VerticalAlignment="Top">
+                                    <Grid Grid.ColumnSpan="2"     VerticalAlignment="Top">
                                         <!--HeroView-->
                                         <Grid>
                                             <Grid.OpacityMask>
@@ -108,7 +108,7 @@
 
                                         <!--ImageCover-->
                                         <Border HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0">
-                                            <Image Name="PART_ImageCover" Width="200"
+                                            <Image Name="PART_ImageCover" Height="{Settings GameDetailsCoverHeight}"
                                                     StretchDirection="Both" Stretch="Uniform"
                                                     RenderOptions.BitmapScalingMode="Fant" >
                                                 <Image.OpacityMask>
@@ -125,178 +125,198 @@
                                         <!--ImageCover Ends-->
 
                                         <!--<Border Grid.ColumnSpan="2" Grid.Row="1" Style="{StaticResource HeadGradientBorder}" VerticalAlignment="Top">-->
-                                        <Border Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" >
-                                            <Grid Margin="0,-8,0,0">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                    <ColumnDefinition Width="*"/>
-                                                </Grid.ColumnDefinitions>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="Auto"/>
-                                                    <RowDefinition Height="Auto"/>
-                                                    <RowDefinition Height="*"/>
-                                                </Grid.RowDefinitions>
-                                                
-                                                <Border Grid.Column="0" Grid.Row="1" Style="{DynamicResource HeadGradientLeftBorder}"/>
+                                        <StackPanel Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" >
 
-                                                <Image Name="PART_ImageIcon" Grid.ColumnSpan="3"
-                                                       MaxWidth="32" MaxHeight="32" Margin="0,0,0,12"
+                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                                <Image Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0"
                                                        RenderOptions.BitmapScalingMode="Fant" />
+                                                <TextBlock Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}" 
+                                                           Style="{DynamicResource DetailsViewHeaderStyle}"/>
+                                            </StackPanel>
 
-                                                <TextBlock Name="PART_TextDisplayName" Grid.Column="1" Grid.Row="1" Margin="16,0,16,0"
-                                                           FontSize="{DynamicResource FontSizeLarge18}" Style="{DynamicResource DetailsViewHeaderStyle}"/>
-                                                <Border Grid.Column="2" Grid.Row="1" Style="{DynamicResource HeadGradientRightBorder}"/>
+                                            <WrapPanel Orientation="Horizontal" Margin="0,8,0,0" Visibility="Collapsed">
 
-                                                <StackPanel Grid.ColumnSpan="3" Grid.Row="2">
-
-                                                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
-
-                                                        <Border Margin="0,0,8,8" VerticalAlignment="Top">
-                                                            <Border.Style>
-                                                                <Style TargetType="Border">
-                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                <Border Margin="0,0,8,8" VerticalAlignment="Top">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                            <Style.Triggers>
+                                                                <MultiDataTrigger>
+                                                                    <MultiDataTrigger.Conditions>
+                                                                        <Condition Binding="{Binding ElementName=PART_ButtonReleaseDate, Path=Visibility}" Value="Collapsed"/>
+                                                                        <Condition Binding="{Binding ElementName=PART_ElemPlatform, Path=Visibility}" Value="Collapsed"/>
+                                                                    </MultiDataTrigger.Conditions>
+                                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                                </MultiDataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Button Name="PART_ButtonReleaseDate" Margin="0,1,4,0" Padding="0" BorderThickness="0"
+                                                                Style="{DynamicResource PropertyItemSmallButton}"/>
+                                                        <StackPanel Name="PART_ElemPlatform" Orientation="Horizontal">
+                                                            <StackPanel.Style>
+                                                                <Style TargetType="StackPanel">
+                                                                    <Setter Property="Visibility" Value="Visible" />
                                                                     <Style.Triggers>
-                                                                        <MultiDataTrigger>
-                                                                            <MultiDataTrigger.Conditions>
-                                                                                <Condition Binding="{Binding ElementName=PART_ButtonReleaseDate, Path=Visibility}" Value="Collapsed"/>
-                                                                                <Condition Binding="{Binding ElementName=PART_ElemPlatform, Path=Visibility}" Value="Collapsed"/>
-                                                                            </MultiDataTrigger.Conditions>
-                                                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                                                        </MultiDataTrigger>
+                                                                        <DataTrigger Binding="{Settings DetailsVisibility.Platforms}" Value="False">
+                                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding Game.Platforms}" Value="{x:Null}">
+                                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                                        </DataTrigger>
                                                                     </Style.Triggers>
                                                                 </Style>
-                                                            </Border.Style>
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <Button Name="PART_ButtonReleaseDate" Margin="0,2,4,2" Style="{DynamicResource PropertyItemSmallButton}"/>
-                                                                <StackPanel Name="PART_ElemPlatform" Orientation="Horizontal">
-                                                                    <StackPanel.Style>
-                                                                        <Style TargetType="StackPanel">
-                                                                            <Setter Property="Visibility" Value="Visible" />
-                                                                            <Style.Triggers>
-                                                                                <DataTrigger Binding="{Settings DetailsVisibility.Platforms}" Value="False">
-                                                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                                                </DataTrigger>
-                                                                                <DataTrigger Binding="{Binding Game.Platforms}" Value="{x:Null}">
-                                                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                                                </DataTrigger>
-                                                                            </Style.Triggers>
-                                                                        </Style>
-                                                                    </StackPanel.Style>
-                                                                    <TextBlock Text="·" Margin="0,2,4,0" Style="{DynamicResource GameSubtleInfoTextBlockStyle}"/>
-                                                                    <ItemsControl ItemsSource="{Binding Game.Platforms}" Margin="0,0,0,0">
-                                                                        <ItemsControl.ItemsPanel>
-                                                                            <ItemsPanelTemplate>
-                                                                                <WrapPanel Orientation="Horizontal"/>
-                                                                            </ItemsPanelTemplate>
-                                                                        </ItemsControl.ItemsPanel>
-                                                                        <ItemsControl.ItemTemplate>
-                                                                            <DataTemplate>
-                                                                                <Button Content="{Binding Name}"  Margin="0,2,8,2"
-                                                                                    Style="{DynamicResource PropertyItemSmallButton}"
-                                                                                    Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetPlatformFilterCommand}" CommandParameter="{Binding}"/>
-                                                                            </DataTemplate>
-                                                                        </ItemsControl.ItemTemplate>
-                                                                    </ItemsControl>
-                                                                </StackPanel>
-                                                            </StackPanel>
-                                                        </Border>
+                                                            </StackPanel.Style>
+                                                            <TextBlock Text="·" Margin="0,2,4,0" Style="{DynamicResource GameSubtleInfoTextBlockStyle}"/>
+                                                            <ItemsControl ItemsSource="{Binding Game.Platforms}" Margin="0,0,0,0">
+                                                                <ItemsControl.ItemsPanel>
+                                                                    <ItemsPanelTemplate>
+                                                                        <WrapPanel Orientation="Horizontal"/>
+                                                                    </ItemsPanelTemplate>
+                                                                </ItemsControl.ItemsPanel>
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <Button Content="{Binding Name}"  Margin="0,1,4,0" Padding="0" BorderThickness="0"
+                                                                                Style="{DynamicResource PropertyItemSmallButton}"
+                                                                                Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetPlatformFilterCommand}" CommandParameter="{Binding}"/>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </Border>
 
-                                                        <Border Margin="0,0,8,8" VerticalAlignment="Top"
-                                                                Visibility="{Binding ElementName=PART_ElemGenres, Path=Visibility}">
-                                                            <StackPanel Name="PART_ElemGenres" Orientation="Horizontal">
-                                                                <StackPanel.Style>
-                                                                    <Style TargetType="StackPanel">
-                                                                        <Setter Property="Visibility" Value="Visible" />
-                                                                        <Style.Triggers>
-                                                                            <DataTrigger Binding="{Settings DetailsVisibility.Genres}" Value="False">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                            </DataTrigger>
-                                                                            <DataTrigger Binding="{Binding Game.Genres}" Value="{x:Null}">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                            </DataTrigger>
-                                                                        </Style.Triggers>
-                                                                    </Style>
-                                                                </StackPanel.Style>
+                                                <!--Genres Tags-->
+                                                <Border Margin="0,0,8,8" VerticalAlignment="Top"
+                                                        Visibility="{Binding ElementName=PART_ElemGenres, Path=Visibility}">
+                                                    <StackPanel Name="PART_ElemGenres" Orientation="Horizontal">
+                                                        <StackPanel.Style>
+                                                            <Style TargetType="StackPanel">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Settings DetailsVisibility.Genres}" Value="False">
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Game.Genres}" Value="{x:Null}">
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </StackPanel.Style>
 
-                                                                <ItemsControl ItemsSource="{Binding Game.Genres}" Margin="0,0,0,0">
-                                                                    <ItemsControl.ItemsPanel>
-                                                                        <ItemsPanelTemplate>
-                                                                            <WrapPanel Orientation="Horizontal" />
-                                                                        </ItemsPanelTemplate>
-                                                                    </ItemsControl.ItemsPanel>
-                                                                    <ItemsControl.ItemTemplate>
-                                                                        <DataTemplate>
-                                                                            <Button Content="{Binding Name}" Margin="0,2,8,2"
-                                                                                    Style="{DynamicResource PropertyItemSmallButton}"
-                                                                                    Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetGenreFilterCommand}" CommandParameter="{Binding}"/>
-                                                                        </DataTemplate>
-                                                                    </ItemsControl.ItemTemplate>
-                                                                </ItemsControl>
+                                                        <ItemsControl ItemsSource="{Binding Game.Genres}" Margin="0,0,0,0">
+                                                            <ItemsControl.ItemsPanel>
+                                                                <ItemsPanelTemplate>
+                                                                    <WrapPanel Orientation="Horizontal" />
+                                                                </ItemsPanelTemplate>
+                                                            </ItemsControl.ItemsPanel>
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Button Content="{Binding Name}" Margin="0,0,8,0"
+                                                                            Style="{DynamicResource PropertyItemSmallButton}"
+                                                                            Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetGenreFilterCommand}" CommandParameter="{Binding}"/>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
 
-                                                            </StackPanel>
-                                                        </Border>
+                                                    </StackPanel>
+                                                </Border>
+                                                <!--Genres Tags Ends-->
 
-                                                        <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl">
-                                                            <ContentControl.Resources>
-                                                                <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
-                                                            </ContentControl.Resources>
-                                                        </ContentControl>
+                                                <!--Players InGame-->
+                                                <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl">
+                                                    <ContentControl.Resources>
+                                                        <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
+                                                    </ContentControl.Resources>
+                                                </ContentControl>
+                                                <!--Players InGame Ends-->
 
-                                                        <!--<ContentControl x:Name="CheckDlc_PluginButton"  Visibility="{PluginSettings Plugin=CheckDlc, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                <!--Features by Icons-->
+                                                <Border Margin="0,0,8,8" VerticalAlignment="Top" HorizontalAlignment="Center"
+                                                        Visibility="{PluginSettings Plugin=LibraryManagement, Path=HasData, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue={x:Static Visibility.Collapsed}}">
+
+                                                    <StackPanel Orientation="Horizontal">
+
+                                                        <ItemsControl ItemsSource="{PluginSettings Plugin=LibraryManagement, Path=DataList}" 
+                                                                      HorizontalAlignment="Left">
+                                                            <ItemsControl.ItemsPanel>
+                                                                <ItemsPanelTemplate>
+                                                                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                                                                </ItemsPanelTemplate>
+                                                            </ItemsControl.ItemsPanel>
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Image VerticalAlignment="Center" Margin="0,0,8,0.5" 
+                                                                           ToolTip="{Binding NameAssociated}"
+                                                                           Width="20" Height="20"
+                                                                           Source="{Binding IconBitmapImage}" />
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </StackPanel>
+
+                                                </Border>
+                                                <!--Features by Icons Ends-->
+
+                                                <!--<ContentControl x:Name="CheckDlc_PluginButton"  Visibility="{PluginSettings Plugin=CheckDlc, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
     <ContentControl x:Name="SuccessStory_PluginButton"  Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
     <ContentControl x:Name="GameActivity_PluginButton"  Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
     <ContentControl x:Name="SystemChecker_PluginButton"  Visibility="{PluginSettings Plugin=SystemChecker, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
     <ContentControl x:Name="CheckLocalizations_PluginButton"  Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />-->
 
-                                                        <!--<ContentControl x:Name="LibraryManagement_PluginFeaturesIconList" Height="35" VerticalAlignment="Center" Opacity="0.5"
+                                                    <!--<ContentControl x:Name="LibraryManagement_PluginFeaturesIconList" Height="35" VerticalAlignment="Center" Opacity="0.5"
                     Visibility="{PluginSettings Plugin=LibraryManagement, Path=EnableIntegrationFeatures, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />-->
 
-                                                        <!--<ContentControl x:Name="GogSecondClassWatcher_SecondClassWatcherControl"
+                                                    <!--<ContentControl x:Name="GogSecondClassWatcher_SecondClassWatcherControl"
                     VerticalAlignment="Center"
                     Visibility="{PluginSettings Plugin=GogSecondClassWatcher, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="5,0,0,0"/>-->
 
-                                                        
 
-                                                    </WrapPanel>
-                                                    <Border Margin="0,0,8,8" VerticalAlignment="Top" HorizontalAlignment="Center"
-                                                            Visibility="{PluginSettings Plugin=LibraryManagement, Path=HasData, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue={x:Static Visibility.Collapsed}}">
+                                                </WrapPanel>
+                                                
+                                            <!--<ContentControl x:Name="DuplicateHider_SourceSelector" 
+                                                        VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                        VerticalContentAlignment="Center"   
+                                                        Margin="0,16,0,0"  
+                                                        Height="28"
+                                                        RenderOptions.BitmapScalingMode="Fant" />-->
+                                            
+                                            <StackPanel Orientation="Horizontal" Margin="0,32,0,40">
+                                                <Grid Width="200" Margin="0,0,8,0">
+                                                    <Button Name="PART_ButtonPlayAction" Margin="0"
+                                                            Height="48" Width="Auto" FontWeight="Bold"
+                                                            Style="{DynamicResource IconPlayButton}" 
+                                                            FontSize="{DynamicResource FontSizeLarge20}" />
 
-                                                        <StackPanel Orientation="Horizontal">
+                                                    <Button Name="PART_ButtonContextAction"
+                                                            Height="48" FontWeight="Bold" 
+                                                            Background="{DynamicResource AccentDisabledBrush}"
+                                                            Style="{DynamicResource PlayButton}" 
+                                                            FontSize="{DynamicResource FontSizeLarge20}" />
+                                                </Grid>
 
-                                                            <ItemsControl ItemsSource="{PluginSettings Plugin=LibraryManagement, Path=DataList}" 
-                                                                          HorizontalAlignment="Left">
-                                                                <ItemsControl.ItemsPanel>
-                                                                    <ItemsPanelTemplate>
-                                                                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
-                                                                    </ItemsPanelTemplate>
-                                                                </ItemsControl.ItemsPanel>
-                                                                <ItemsControl.ItemTemplate>
-                                                                    <DataTemplate>
-                                                                        <Image VerticalAlignment="Center" Margin="0,0,8,0.5" 
-                                                                               ToolTip="{Binding NameAssociated}"
-                                                                               Width="20" Height="20"
-                                                                               Source="{Binding IconBitmapImage}" />
-                                                                    </DataTemplate>
-                                                                </ItemsControl.ItemTemplate>
-                                                            </ItemsControl>
-                                                        </StackPanel>
+                                                <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48"
+                                                        Content="&#xe700;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                        Style="{DynamicResource PillLargeButton}"/>
+                                                
+                                                <Button x:Name="PART_ButtonEditGame" Margin="0,0,8,0"
+                                                        Height="48" Width="48" Focusable="False"
+                                                        Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                        Style="{StaticResource PillLargeButton}"/>
 
-                                                    </Border>
-                                                    <ContentControl x:Name="DuplicateHider_SourceSelector" 
-                VerticalAlignment="Center" HorizontalAlignment="Center"
-                VerticalContentAlignment="Center"   
-                Margin="0,16,0,0"  
-                Height="28"
-                RenderOptions.BitmapScalingMode="Fant" />
-                                                </StackPanel>
-                                            </Grid>
-                                        </Border>
+                                                <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False"
+                                                              Style="{DynamicResource PillLargeToggleButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                              Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
+                                                              IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
+                                            </StackPanel>
+                                        </StackPanel>
 
-                                        <Grid Grid.Row="2" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}">
+                                        <!--<Grid Grid.Row="2" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}">-->
+                                        <Grid Grid.Row="2">
                                             <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="660"/>
                                                 <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="260"/>
                                             </Grid.ColumnDefinitions>
                                             <!--Left Part-->
                                             <StackPanel Grid.Column="0" Margin="0,0,40,0">
@@ -400,7 +420,7 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                 <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
 
                                                     <TabControl Margin="0,0,0,16" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                                         Style="{StaticResource DetailViewTabControl}">
+                                                                Style="{StaticResource DetailViewTabControl}">
 
                                                         <!--Tab Overview-->
                                                         <TabItem Header="{DynamicResource LOCOverviewLabel}" x:Name="DescriptionTab" FontSize="16">
@@ -566,8 +586,36 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                             <!--Right Part-->
                                             <StackPanel Grid.Column="1" Margin="0,0,0,40">
 
-                                                
 
+                                                <!--Links-->
+                                                <StackPanel Name="PART_ElemLinks" Margin="0,0,0,32">
+                                                    
+                                                    <TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0"
+                                                               Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}"/>
+                                                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16"
+                                                            Style="{DynamicResource DetailViewCardBorder}" Margin="0,12,0,0">
+                                                        <ItemsControl ItemsSource="{Binding Game.Links}" Margin="-13.6,0,0,0"
+                                                                        Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
+                                                            <ItemsControl.ItemsPanel>
+                                                                <ItemsPanelTemplate>
+                                                                    <WrapPanel Orientation="Horizontal"/>
+                                                                </ItemsPanelTemplate>
+                                                            </ItemsControl.ItemsPanel>
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate DataType="{x:Type Link}">
+                                                                    <Button Content="{Binding Name}"
+                                                                            Style="{StaticResource PropertyItemLinkButton}"
+                                                                            ToolTip="{Binding Name}"
+                                                                            Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.OpenLinkCommand}"
+                                                                            CommandParameter="{Binding}"/>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+
+                                                    </Border>
+                                                    
+                                                </StackPanel>
+                                                <!--Links End-->
 
                                                 <!-- HowLongToBeat ProgressBar -->
                                                 <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
@@ -620,136 +668,140 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                             <Setter Property="VerticalAlignment" Value="Top"/>
                                                         </Style>
                                                     </StackPanel.Resources>
-                                                    <TextBlock Text="{DynamicResource LOCGameDetails}" Margin="0,0,0,16"
-                                        Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}"/>
-                                                    <GridEx x:Name="GDGrid" Margin="0,0,0,0" ColumnCount="2" StarColumns="1" 
+                                                    <TextBlock Text="{DynamicResource LOCGameDetails}" Margin="0,0,0,0"
+                                                               Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}"/>
+                                                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16"
+                                                            Style="{DynamicResource DetailViewCardBorder}" Margin="0,12,0,0">
+
+                                                        <GridEx x:Name="GDGrid" Margin="0,0,0,0" ColumnCount="2" StarColumns="1" 
                                      RowCount="25" AutoLayoutColumns="2">
-                                                        <Grid.Resources>
-                                                            <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" >
-                                                                <Setter Property="Margin" Value="0,4,0,8" />
-                                                                <Setter Property="HorizontalAlignment" Value="Right"/>
-                                                                <Setter Property="TextAlignment" Value="Right"/>
-                                                            </Style>
-                                                        </Grid.Resources>
+                                                            <Grid.Resources>
+                                                                <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" >
+                                                                    <Setter Property="Margin" Value="0,4,0,8" />
+                                                                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                                                                    <Setter Property="TextAlignment" Value="Right"/>
+                                                                </Style>
+                                                            </Grid.Resources>
 
-                                                        <StackPanel Name="PART_ElemSeries" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe1cb;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemSeries" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe1cb;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCSeriesLabel}" />
-                                                        </StackPanel>
-                                                        <ItemsControl Name="PART_ItemsSeries"/>
+                                                                <Label Content="{DynamicResource LOCSeriesLabel}" />
+                                                            </StackPanel>
+                                                            <ItemsControl Name="PART_ItemsSeries"/>
 
-                                                        <StackPanel Name="PART_ElemDevelopers" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe902;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemDevelopers" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe902;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCDeveloperLabel}" />
-                                                        </StackPanel>
-                                                        <ItemsControl Name="PART_ItemsDevelopers" />
+                                                                <Label Content="{DynamicResource LOCDeveloperLabel}" />
+                                                            </StackPanel>
+                                                            <ItemsControl Name="PART_ItemsDevelopers" />
 
-                                                        <StackPanel Name="PART_ElemPublishers" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe731;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemPublishers" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe731;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCPublisherLabel}" />
-                                                        </StackPanel>
-                                                        <ItemsControl Name="PART_ItemsPublishers" />
+                                                                <Label Content="{DynamicResource LOCPublisherLabel}" />
+                                                            </StackPanel>
+                                                            <ItemsControl Name="PART_ItemsPublishers" />
 
-                                                        <StackPanel Name="PART_ElemAgeRating" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xed54;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemAgeRating" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xed54;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCAgeRatingLabel}" />
-                                                        </StackPanel>
-                                                        <ItemsControl Name="PART_ItemsAgeRatings" />
+                                                                <Label Content="{DynamicResource LOCAgeRatingLabel}" />
+                                                            </StackPanel>
+                                                            <ItemsControl Name="PART_ItemsAgeRatings" />
 
-                                                        <StackPanel Name="PART_ElemRegion" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe128;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemRegion" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe128;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCRegionLabel}" />
-                                                        </StackPanel>
-                                                        <ItemsControl Name="PART_ItemsRegions" />
+                                                                <Label Content="{DynamicResource LOCRegionLabel}" />
+                                                            </StackPanel>
+                                                            <ItemsControl Name="PART_ItemsRegions" />
 
-                                                        <StackPanel Name="PART_ElemVersion" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe128;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemVersion" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe128;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCVersionLabel}" />
-                                                        </StackPanel>
-                                                        <Button Name="PART_ButtonVersion"/>
+                                                                <Label Content="{DynamicResource LOCVersionLabel}" />
+                                                            </StackPanel>
+                                                            <Button Name="PART_ButtonVersion"/>
 
-                                                        <StackPanel Name="PART_ElemAdded" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemAdded" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCDateAddedLabel}" />
-                                                        </StackPanel>
-                                                        <TextBlock Name="PART_TextAdded" VerticalAlignment="Center" />
+                                                                <Label Content="{DynamicResource LOCDateAddedLabel}" />
+                                                            </StackPanel>
+                                                            <TextBlock Name="PART_TextAdded" VerticalAlignment="Center" />
 
-                                                        <StackPanel Name="PART_ElemRecentActivity" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xed55;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemRecentActivity" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xed55;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCRecentActivityLabel}" />
-                                                        </StackPanel>
-                                                        <TextBlock Name="PART_TextRecentActivity" VerticalAlignment="Center" />
+                                                                <Label Content="{DynamicResource LOCRecentActivityLabel}" />
+                                                            </StackPanel>
+                                                            <TextBlock Name="PART_TextRecentActivity" VerticalAlignment="Center" />
 
-                                                        <StackPanel Name="PART_ElemSource" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemSource" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCSourceLabel}" />
-                                                        </StackPanel>
-                                                        <Button Name="PART_ButtonSource" VerticalAlignment="Center" />
+                                                                <Label Content="{DynamicResource LOCSourceLabel}" />
+                                                            </StackPanel>
+                                                            <Button Name="PART_ButtonSource" VerticalAlignment="Center" />
 
-                                                        <StackPanel Name="PART_ElemCategories" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xeca5;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemCategories" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xeca5;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCGameCategoriesTitle}" />
-                                                        </StackPanel>
-                                                        <ItemsControl Name="PART_ItemsCategories" />
+                                                                <Label Content="{DynamicResource LOCGameCategoriesTitle}" />
+                                                            </StackPanel>
+                                                            <ItemsControl Name="PART_ItemsCategories" />
 
-                                                        <StackPanel Name="PART_ElemLibrary" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemLibrary" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCGameProviderTitle}" />
-                                                        </StackPanel>
-                                                        <Button Name="PART_ButtonLibrary" VerticalAlignment="Center" />
+                                                                <Label Content="{DynamicResource LOCGameProviderTitle}" />
+                                                            </StackPanel>
+                                                            <Button Name="PART_ButtonLibrary" VerticalAlignment="Center" />
 
-                                                        <StackPanel Name="PART_ElemCommunityScore" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemCommunityScore" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCCommunityScore}" />
-                                                        </StackPanel>
-                                                        <TextBlock Name="PART_TextCommunityScore" Margin="0,4,0,8"
+                                                                <Label Content="{DynamicResource LOCCommunityScore}" />
+                                                            </StackPanel>
+                                                            <TextBlock Name="PART_TextCommunityScore" Margin="0,4,0,8"
                                             VerticalAlignment="Top" TextAlignment="Right"
                                             Style="{DynamicResource TextBlockGameScore}" />
 
-                                                        <StackPanel Name="PART_ElemCriticScore" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemCriticScore" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCCriticScore}" />
-                                                        </StackPanel>
-                                                        <TextBlock Name="PART_TextCriticScore"  Margin="0,4,0,8"
+                                                                <Label Content="{DynamicResource LOCCriticScore}" />
+                                                            </StackPanel>
+                                                            <TextBlock Name="PART_TextCriticScore"  Margin="0,4,0,8"
                                             VerticalAlignment="Top" TextAlignment="Right"
                                             Style="{DynamicResource TextBlockGameScore}" />
 
-                                                        <StackPanel Name="PART_ElemUserScore" Orientation="Horizontal">
-                                                            <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}"
+                                                            <StackPanel Name="PART_ElemUserScore" Orientation="Horizontal">
+                                                                <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}"
                                                 Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                                            <Label Content="{DynamicResource LOCUserScore}" />
-                                                        </StackPanel>
-                                                        <TextBlock Name="PART_TextUserScore"  Margin="0,4,0,8"
+                                                                <Label Content="{DynamicResource LOCUserScore}" />
+                                                            </StackPanel>
+                                                            <TextBlock Name="PART_TextUserScore"  Margin="0,4,0,8"
                                             VerticalAlignment="Top" TextAlignment="Right"
                                             Style="{DynamicResource TextBlockGameScore}" />
-                                                    </GridEx>
+                                                        </GridEx>
+                                                    </Border>
 
                                                 </StackPanel>
                                                 <!--Details Panel Ends-->
@@ -855,29 +907,6 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                 </Border>
                                                 <!--Tags Ends-->
 
-                                                <!--Links-->
-                                                <StackPanel Name="PART_ElemLinks">
-                                                    <TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,40,0,16"
-                                        Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}"/>
-                                                    <ItemsControl ItemsSource="{Binding Game.Links}" Margin="-13.6,0,0,0"
-                                           Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
-                                                        <ItemsControl.ItemsPanel>
-                                                            <ItemsPanelTemplate>
-                                                                <WrapPanel Orientation="Horizontal"/>
-                                                            </ItemsPanelTemplate>
-                                                        </ItemsControl.ItemsPanel>
-                                                        <ItemsControl.ItemTemplate>
-                                                            <DataTemplate DataType="{x:Type Link}">
-                                                                <Button Content="{Binding Name}"
-                                             Style="{StaticResource PropertyItemLinkButton}"
-                                             ToolTip="{Binding Url}"
-                                             Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.OpenLinkCommand}"
-                                             CommandParameter="{Binding}"/>
-                                                            </DataTemplate>
-                                                        </ItemsControl.ItemTemplate>
-                                                    </ItemsControl>
-                                                </StackPanel>
-                                                <!--Links End-->
 
                                             </StackPanel>
                                             <!--Right Part Ends-->
@@ -891,7 +920,7 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                         </Grid>
                         
                         <!--Bottom Fixed Part-->
-                        <Grid MinWidth="260" Margin="40,0,80,16" Grid.Row="1" Grid.Column="1">
+                        <Grid MinWidth="260" Margin="40,0,80,16" Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
                             <Grid.Style>
                                 <Style TargetType="Grid">
                                     <Style.Triggers>
@@ -904,28 +933,8 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                             <DockPanel>
 
                                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
-                                    <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False"
-                                                  Style="{DynamicResource PillLargeToggleButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                                  Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
-                                                  IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
-                                    <Button x:Name="PART_ButtonEditGame" Margin="0,0,8,0"
-                                            Height="48" Width="48" Focusable="False"
-                                            Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                            Style="{StaticResource PillLargeButton}"/>
-                                    <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48"
-                                            Content="&#xe700;" Style="{DynamicResource PillLargeButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"/>
-                                    <Grid MinWidth="48">
-                                        <Button Name="PART_ButtonPlayAction" Margin="0"
-                                                Height="48" Width="Auto" FontWeight="Bold"
-                                                Style="{DynamicResource IconPlayButton}" 
-                                                FontSize="{DynamicResource FontSizeLarge20}" />
-
-                                        <Button Name="PART_ButtonContextAction"
-                                                Height="48" FontWeight="Bold" 
-                                                Background="{DynamicResource AccentDisabledBrush}"
-                                                Style="{DynamicResource PlayButton}" 
-                                                FontSize="{DynamicResource FontSizeLarge20}" />
-                                    </Grid>
+                                    
+                                    
                                 </StackPanel>
 
                                 <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,8,16,0" Orientation="Horizontal">
