@@ -9,105 +9,96 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DetailsViewGameOverview}">
                     <Grid>
-                        <!--<Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>-->
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{Settings DetailsListWitdh}"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
 
-                        <Grid Grid.ColumnSpan="2">
+                        <Grid>
                             <!--<Grid.OpacityMask>
                                 <LinearGradientBrush StartPoint="0,1" EndPoint="0,0.95">
                                     <GradientStop Offset="0" Color="#00000000"/>
                                     <GradientStop Offset="1" Color="#FF000000"/>
                                 </LinearGradientBrush>
                             </Grid.OpacityMask>-->
-                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="0"
+                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
                                       Style="{DynamicResource DetailsScrollViewer}"
                                       d:DesignWidth="1280"
                                       d:DesignHeight="1280"
                                       d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}"
                                       x:Name="PART_ScrollViewHost">
                                 <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="{Settings DetailsListWitdh}"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
+                                    <!--HeroView-->
+                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top">
+                                        <Grid.OpacityMask>
+                                            <ImageBrush ImageSource="../Images/Hero-mask.png"/>
+                                        </Grid.OpacityMask>
+                                        <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill"
+                                                   HorizontalAlignment="Center" VerticalAlignment="top"/>
 
-                                    <Grid Grid.ColumnSpan="2"     VerticalAlignment="Top">
-                                        <!--HeroView-->
                                         <Grid>
-                                            <Grid.OpacityMask>
-                                                <ImageBrush ImageSource="../Images/Hero-mask.png"/>
-                                            </Grid.OpacityMask>
-                                            <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill"
-                                                       HorizontalAlignment="Center" VerticalAlignment="top"/>
-
-                                            <Grid>
-                                                <Grid.Style>
-                                                    <Style TargetType="Grid">
-                                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                                        <Style.Triggers>
-                                                            <DataTrigger Binding="{Binding ElementName=HeroVideoTogglePlayer, Path=IsChecked}" Value="True">
-                                                                <Setter Property="Visibility" Value="Visible" />
-                                                            </DataTrigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Grid.Style>
-                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
-                                                    <ContentControl.Template>
-                                                        <ControlTemplate TargetType="ContentControl">
-                                                            <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
-                                                                <ContentPresenter />
-                                                            </Viewbox>
-                                                        </ControlTemplate>
-                                                    </ContentControl.Template>
-                                                </ContentControl>
-                                            </Grid>
+                                            <Grid.Style>
+                                                <Style TargetType="Grid">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=HeroVideoTogglePlayer, Path=IsChecked}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                            <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
+                                                <ContentControl.Template>
+                                                    <ControlTemplate TargetType="ContentControl">
+                                                        <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
+                                                            <ContentPresenter />
+                                                        </Viewbox>
+                                                    </ControlTemplate>
+                                                </ContentControl.Template>
+                                            </ContentControl>
                                         </Grid>
-                                        <!--HeroView Ends-->
+                                    </Grid>
+                                    <!--HeroView Ends-->
 
-                                        <ToggleButton x:Name="HeroVideoTogglePlayer" ToolTip="Video On/Off"
+                                    <ToggleButton x:Name="HeroVideoTogglePlayer" ToolTip="Video On/Off"
                                                       HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,40,0"
                                                       Style="{DynamicResource HeroVideoToggleButton}"/>
-                                    </Grid>
 
-                                    <Grid Grid.Column="1" HorizontalAlignment="Stretch"
-                                          MinWidth="260" Margin="40,0,80,0">
+                                    <Grid Margin="40,0,80,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="{Settings DetailsListWitdh}"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>
+                                            <!--<RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>-->
+                                            <RowDefinition Height="{Binding ElementName=HeroBanner, Path=ActualHeight}"/>
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
 
                                         <!--ExtraLogo-->        
-                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" Margin="0,100,0,0"
+                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" 
+                                                Grid.ColumnSpan="2" Margin="0,100,0,0"
                                                 Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
-                                                <Border.Style>
-                                                    <Style TargetType="Border">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                        <Style.Triggers>
-                                                            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}" Value="True">
-                                                                <Setter Property="Visibility" Value="Visible" />
-                                                            </DataTrigger>
-                                                            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}" Value="True">
-                                                                <Setter Property="Visibility" Value="Visible" />
-                                                            </DataTrigger>
-                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}" Value="false" >
-                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                            </DataTrigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Border.Style>
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}" Value="false" >
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+
                                             <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl"/>
                                         </Border>
                                         <!--ExtraLogo Ends-->
 
                                         <!--ImageCover-->
-                                        <Border HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0">
+                                        <Border Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0">
                                             <Image Name="PART_ImageCover" Height="{Settings GameDetailsCoverHeight}"
                                                     StretchDirection="Both" Stretch="Uniform"
                                                     RenderOptions.BitmapScalingMode="Fant" >
@@ -124,10 +115,9 @@
                                         </Border>
                                         <!--ImageCover Ends-->
 
-                                        <!--<Border Grid.ColumnSpan="2" Grid.Row="1" Style="{StaticResource HeadGradientBorder}" VerticalAlignment="Top">-->
                                         <StackPanel Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" >
 
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8" HorizontalAlignment="Center">
                                                 <Image Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0"
                                                        RenderOptions.BitmapScalingMode="Fant" />
                                                 <TextBlock Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}" 
@@ -282,7 +272,7 @@
                                                         Height="28"
                                                         RenderOptions.BitmapScalingMode="Fant" />-->
                                             
-                                            <StackPanel Orientation="Horizontal" Margin="0,32,0,40">
+                                            <StackPanel Orientation="Horizontal" Margin="0,32,0,40" HorizontalAlignment="Center">
                                                 <Grid Width="200" Margin="0,0,8,0">
                                                     <Button Name="PART_ButtonPlayAction" Margin="0"
                                                             Height="48" Width="Auto" FontWeight="Bold"
@@ -313,7 +303,7 @@
                                         </StackPanel>
 
                                         <!--<Grid Grid.Row="2" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}">-->
-                                        <Grid Grid.Row="2">
+                                        <Grid Grid.Row="2" Grid.Column="1">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="660"/>
                                                 <ColumnDefinition Width="*"/>
