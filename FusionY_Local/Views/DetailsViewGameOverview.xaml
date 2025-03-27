@@ -60,14 +60,14 @@
                                                       HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,40,0"
                                                       Style="{DynamicResource HeroVideoToggleButton}"/>
 
-                                    <Grid Margin="40,0,80,0">
+                                    <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="{Settings DetailsListWitdh}"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
                                             <!--<RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>-->
-                                            <RowDefinition Height="{Binding ElementName=HeroBanner, Path=ActualHeight}"/>
+                                            <RowDefinition MinHeight="{Binding ElementName=HeroBanner, Path=ActualHeight}"/>
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
@@ -272,8 +272,8 @@
                                                         Height="28"
                                                         RenderOptions.BitmapScalingMode="Fant" />-->
                                             
-                                            <StackPanel Orientation="Horizontal" Margin="0,32,0,40" HorizontalAlignment="Center">
-                                                <Grid Width="200" Margin="0,0,8,0">
+                                            <StackPanel Margin="0,0,0,40">
+                                                <Grid Width="300" Margin="0,0,0,16" HorizontalAlignment="Center">
                                                     <Button Name="PART_ButtonPlayAction" Margin="0"
                                                             Height="48" Width="Auto" FontWeight="Bold"
                                                             Style="{DynamicResource IconPlayButton}" 
@@ -286,28 +286,32 @@
                                                             FontSize="{DynamicResource FontSizeLarge20}" />
                                                 </Grid>
 
-                                                <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48"
-                                                        Content="&#xe700;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                                        Style="{DynamicResource PillLargeButton}"/>
-                                                
-                                                <Button x:Name="PART_ButtonEditGame" Margin="0,0,8,0"
-                                                        Height="48" Width="48" Focusable="False"
-                                                        Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                                        Style="{StaticResource PillLargeButton}"/>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48" Content="&#xe700;"
+                                                            FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                            Style="{DynamicResource PillLargeButton}" />
+                                                    <Button x:Name="PART_ButtonEditGame" Margin="0,0,8,0" Height="48"
+                                                            Width="48" Focusable="False" Content="&#xf8b0;"
+                                                            FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                            Style="{StaticResource PillLargeButton}" />
+                                                    <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0"
+                                                            Focusable="False"
+                                                            Style="{DynamicResource PillLargeToggleButton}"
+                                                            FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                            Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
+                                                            IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}" />
+                                                </StackPanel>
 
-                                                <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False"
-                                                              Style="{DynamicResource PillLargeToggleButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                                              Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
-                                                              IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}"/>
                                             </StackPanel>
                                         </StackPanel>
 
                                         <!--<Grid Grid.Row="2" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}">-->
-                                        <Grid Grid.Row="2" Grid.Column="1">
+                                        <Grid Grid.Row="2" Grid.Column="1" Margin="56,0,80,0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="660"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
+ 
                                             <!--Left Part-->
                                             <StackPanel Grid.Column="0" Margin="0,0,40,0">
 
@@ -582,7 +586,7 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                     
                                                     <TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0"
                                                                Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}"/>
-                                                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16"
+                                                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8"
                                                             Style="{DynamicResource DetailViewCardBorder}" Margin="0,12,0,0">
                                                         <ItemsControl ItemsSource="{Binding Game.Links}" Margin="-13.6,0,0,0"
                                                                         Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
@@ -608,16 +612,43 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                 <!--Links End-->
 
                                                 <!-- HowLongToBeat ProgressBar -->
-                                                <StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                <StackPanel Margin="0,0,0,32"
+                                                            Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                     <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}">
 
                                                         <DockPanel>
-                                                            <ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right"/>
+                                                            <ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right">
+                                                                <ContentControl.Template>
+                                                                    <ControlTemplate TargetType="ContentControl">
+                                                                        <!-- 将Button的对齐属性绑定到ContentControl -->
+                                                                        <Button Content="{TemplateBinding Content}"
+                                                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="Transparent"
+                                                                                BorderThickness="0" />
+                                                                    </ControlTemplate>
+                                                                </ContentControl.Template>
+                                                            </ContentControl>
                                                             <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
-                                                Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}"/>
+                                                                       Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}"/>
                                                         </DockPanel>
-                                                        <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,16,0,40" Width="260"
-                                                 TextBlock.FontSize="{DynamicResource FontSize}" Height="24"/>
+                                                        <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,16"
+                                                                Style="{DynamicResource DetailViewCardBorder}" Margin="0,12,0,0">
+                                                            <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,0,0,0"
+                                                                    TextBlock.FontSize="{DynamicResource FontSize}" Height="20">
+                                                                <ControlTemplate TargetType="ContentControl">
+                                                                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" />
+                                                                </ControlTemplate>
+                                                                <ContentControl.OpacityMask>
+                                                                    <VisualBrush>
+                                                                        <VisualBrush.Visual>
+                                                                            <Border Background="Black" CornerRadius="10"
+                                                                                    Width="{Binding ActualWidth, ElementName=HowLongToBeat_PluginProgressBar}"
+                                                                                    Height="{Binding ActualHeight, ElementName=HowLongToBeat_PluginProgressBar}" />
+                                                                        </VisualBrush.Visual>
+                                                                    </VisualBrush>
+                                                                </ContentControl.OpacityMask>
+                                                            </ContentControl>
+                                                        </Border>
                                                     </StackPanel>
                                                 </StackPanel>
                                                 <!-- HowLongToBeat ProgressBar Ends-->

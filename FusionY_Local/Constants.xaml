@@ -82,12 +82,13 @@
     <SolidColorBrush x:Key="CardBorderBrush" Color="#D4D0B8" />
 
     <SolidColorBrush x:Key="LightDarkBackgroundBrush" Color="#33000000" />
+    
+    <SolidColorBrush x:Key="ControlLightBackgroundBrush" Color="{DynamicResource 100%White}" />
+    
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource 40%Black}" />
     <SolidColorBrush x:Key="ControlDarkIdleBackgroundBrush" Color="{DynamicResource 40%Black}" />
     <SolidColorBrush x:Key="ControlDarkHoverBackgroundBrush" Color="{DynamicResource 60%Black}" />
 
-    <SolidColorBrush x:Key="ControlLightBackgroundBrush" Color="{DynamicResource 100%White}" />
-    
     <SolidColorBrush x:Key="ControlIdleBackgroundBrush" Color="{DynamicResource 16%White}" />
     <SolidColorBrush x:Key="ControlHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
     <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" Color="{DynamicResource 36%White}" />
