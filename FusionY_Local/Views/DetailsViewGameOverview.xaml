@@ -66,15 +66,15 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
-                                            <!--<RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>-->
-                                            <RowDefinition MinHeight="{Binding ElementName=HeroBanner, Path=ActualHeight}"/>
+                                            <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>
+                                            <!--<RowDefinition MinHeight="{Binding ElementName=HeroBanner, Path=ActualHeight}"/>-->
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
 
                                         <!--ExtraLogo-->        
                                         <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" 
-                                                Grid.ColumnSpan="2" Margin="0,100,0,0"
+                                                Grid.ColumnSpan="2" Margin="0,100,0,32"
                                                 Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
                                             <Border.Style>
                                                 <Style TargetType="Border">
@@ -273,7 +273,7 @@
                                                         RenderOptions.BitmapScalingMode="Fant" />-->
                                             
                                             <StackPanel Margin="0,0,0,40">
-                                                <Grid Width="300" Margin="0,0,0,16" HorizontalAlignment="Center">
+                                                <Grid Width="300" Margin="0,0,0,24" HorizontalAlignment="Center">
                                                     <Button Name="PART_ButtonPlayAction" Margin="0"
                                                             Height="48" Width="Auto" FontWeight="Bold"
                                                             Style="{DynamicResource IconPlayButton}" 

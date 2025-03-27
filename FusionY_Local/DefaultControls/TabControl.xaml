@@ -137,7 +137,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="HoverBorder" Storyboard.TargetProperty="Opacity" To="0.6" Duration="0:0:0.3">
                                             <DoubleAnimation.EasingFunction>
-                                                <QuadraticEase EasingMode="EaseOut" />
+                                                <QuadraticEase EasingMode="EaseInOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                     </Storyboard>
@@ -148,7 +148,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="HoverBorder" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.3">
                                             <DoubleAnimation.EasingFunction>
-                                                <QuadraticEase EasingMode="EaseOut" />
+                                                <QuadraticEase EasingMode="EaseInOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                     </Storyboard>
