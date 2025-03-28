@@ -524,7 +524,7 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                         <!--Tab Notes Ends-->
 
                                                         <TabItem Header="{DynamicResource LOCSuccessStoryAchievements}" FontSize="16"
-                                          Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                                 Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                             <StackPanel Margin="0,24,0,0">
                                                                 <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,0,0,24" />
                                                                 <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,0,0,24" />
@@ -534,8 +534,8 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                             </StackPanel>
                                                         </TabItem>
 
-                                                        <TabItem Header="{DynamicResource LOCSsvTitle}" FontSize="16" 
-                                          Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                        <TabItem Header="{DynamicResource LOCSsvTitle}" FontSize="16"
+                                                                 Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                             <StackPanel Orientation="Vertical" Background="{TemplateBinding Background}" Margin="0,24,0,0">
                                                                 <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical" Margin="0,0,0,0" Height="500"/>
                                                                 <ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" />
@@ -545,11 +545,11 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                         </TabItem>
 
                                                         <TabItem Header="{DynamicResource LOC_SteamScreenshots_SteamScreenshotsLabel}" FontSize="16" 
-                                          Visibility="{PluginSettings Plugin=SteamScreenshots, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                            <StackPanel Name="SteamScreenshots" Style="{DynamicResource PluginStackpanelVisibility}" Margin="0,24,0,0">
+                                                                 Visibility="{PluginSettings Plugin=SteamScreenshots, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                            <!--<StackPanel Name="SteamScreenshots" Style="{DynamicResource PluginStackpanelVisibility}" Margin="0,24,0,0">
                                                                 <ContentControl x:Name="SteamScreenshots_SteamScreenshotsViewControl" />
 
-                                                            </StackPanel>
+                                                            </StackPanel>-->
                                                         </TabItem>
 
                                                         <!--Steam ReviewViewer-->
@@ -579,8 +579,7 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
 
                                             <!--Right Part-->
                                             <StackPanel Grid.Column="1" Margin="0,0,0,40">
-
-
+                                                
                                                 <!--Links-->
                                                 <StackPanel Name="PART_ElemLinks" Margin="0,0,0,32">
                                                     
@@ -610,7 +609,18 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                     
                                                 </StackPanel>
                                                 <!--Links End-->
-
+                                                
+                                                <!-- SteamScreenshots -->
+                                                <StackPanel Name="SteamScreenshots" Style="{DynamicResource PluginStackpanelVisibility}" Margin="0,0,0,32">
+                                                    <TextBlock Text="{DynamicResource LOC_SteamScreenshots_SteamScreenshotsLabel}" Margin="0,0,0,0"
+                                                            Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />
+                                                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8" Style="{DynamicResource DetailViewCardBorder}"
+                                                            Margin="0,12,0,0">
+                                                        <ContentControl x:Name="SteamScreenshots_SteamScreenshotsViewControl" />
+                                                    </Border>
+                                                </StackPanel>
+                                                <!-- SteamScreenshots Ends -->
+                                                    
                                                 <!-- HowLongToBeat ProgressBar -->
                                                 <StackPanel Margin="0,0,0,32"
                                                             Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationProgressBar, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
@@ -634,37 +644,26 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                         <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,16"
                                                                 Style="{DynamicResource DetailViewCardBorder}" Margin="0,12,0,0">
                                                             <ContentControl x:Name="HowLongToBeat_PluginProgressBar" Margin="0,0,0,0"
-                                                                    TextBlock.FontSize="{DynamicResource FontSize}" Height="20">
-                                                                <ControlTemplate TargetType="ContentControl">
-                                                                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" />
-                                                                </ControlTemplate>
-                                                                <ContentControl.OpacityMask>
-                                                                    <VisualBrush>
-                                                                        <VisualBrush.Visual>
-                                                                            <Border Background="Black" CornerRadius="10"
-                                                                                    Width="{Binding ActualWidth, ElementName=HowLongToBeat_PluginProgressBar}"
-                                                                                    Height="{Binding ActualHeight, ElementName=HowLongToBeat_PluginProgressBar}" />
-                                                                        </VisualBrush.Visual>
-                                                                    </VisualBrush>
-                                                                </ContentControl.OpacityMask>
-                                                            </ContentControl>
+                                                                    TextBlock.FontSize="{DynamicResource FontSize}" Height="20" />
                                                         </Border>
                                                     </StackPanel>
                                                 </StackPanel>
                                                 <!-- HowLongToBeat ProgressBar Ends-->
 
                                                 <!-- SuccessStory -->
-                                                <!--<StackPanel Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
-                             <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,24"/>
-                                                 
-                             <DockPanel Margin="0,0,0,24">
-                                 <ContentControl x:Name="SuccessStory_PluginCompactList" DockPanel.Dock="Bottom" Margin="0,16,0,0" />
-                                 <ContentControl x:Name="SuccessStory_PluginProgressBar" DockPanel.Dock="Bottom" Margin="0,16,0,0" VerticalAlignment="Center" Height="24"/>
-                                 <ContentControl x:Name="SuccessStory_PluginButton" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                 <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Left" VerticalAlignment="Center"
-                                        Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="20"/>
-                             </DockPanel>
-                         </StackPanel>-->
+                                                <StackPanel
+                                                        Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
+                                                    <Separator Background="{DynamicResource PanelSeparatorBrush}" Margin="0,0,0,24" />
+                                                    <DockPanel Margin="0,0,0,24">
+                                                        <ContentControl x:Name="SuccessStory_PluginCompactList" DockPanel.Dock="Bottom" Margin="0,16,0,0" />
+                                                        <ContentControl x:Name="SuccessStory_PluginProgressBar" DockPanel.Dock="Bottom" Margin="0,16,0,0" VerticalAlignment="Center"
+                                                                Height="24" />
+                                                        <ContentControl x:Name="SuccessStory_PluginButton" DockPanel.Dock="Right" HorizontalAlignment="Right"
+                                                                VerticalAlignment="Center" />
+                                                        <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Left" VerticalAlignment="Center"
+                                                                Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="20" />
+                                                    </DockPanel>
+                                                </StackPanel>
                                                 <!-- SuccessStory Ends -->
 
                                                 <!--Details Panel-->
