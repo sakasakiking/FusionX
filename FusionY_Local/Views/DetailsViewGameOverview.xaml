@@ -31,15 +31,47 @@
                                         </Grid.OpacityMask>
                                         <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill"
                                                    HorizontalAlignment="Center" VerticalAlignment="top"/>
-
                                         <Grid>
                                             <Grid.Style>
                                                 <Style TargetType="Grid">
-                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Setter Property="Width" Value="Auto" />
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Setter Property="Margin" Value="0,0,0,0" />
+                                                    <Setter Property="Opacity" Value="1" />
+                                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                                    <Setter Property="VerticalAlignment" Value="Center" />
                                                     <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding ElementName=HeroVideoTogglePlayer, Path=IsChecked}" Value="True">
-                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        <DataTrigger Binding="{Binding ElementName=HeroVideoOnOffTogglePlayer, Path=IsChecked}" Value="True">
+                                                            <!--<Setter Property="Visibility" Value="Visible" />-->
+                                                            <DataTrigger.EnterActions>
+                                                                <BeginStoryboard>
+                                                                    <Storyboard>
+                                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+                                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                                                        </ObjectAnimationUsingKeyFrames>
+                                                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.3" />
+                                                                        
+                                                                    </Storyboard>
+                                                                </BeginStoryboard>
+                                                            </DataTrigger.EnterActions>
+                                                            <DataTrigger.ExitActions>
+                                                                <BeginStoryboard>
+                                                                    <Storyboard>
+                                                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0.2" Duration="0:0:0.3" />
+                                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+                                                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Collapsed}" />
+                                                                        </ObjectAnimationUsingKeyFrames>
+                                                                    </Storyboard>
+                                                                </BeginStoryboard>
+                                                            </DataTrigger.ExitActions>
                                                         </DataTrigger>
+                                                        <DataTrigger Binding="{Binding ElementName=HeroVideoMiniTogglePlayer, Path=IsChecked}" Value="False">
+                                                            <Setter Property="HorizontalAlignment" Value="Right" />
+                                                            <Setter Property="VerticalAlignment" Value="Top" />
+                                                            <Setter Property="Width" Value="500" />
+                                                            <Setter Property="Margin" Value="0,120,80,0" />
+                                                        </DataTrigger>
+
                                                     </Style.Triggers>
                                                 </Style>
                                             </Grid.Style>
@@ -51,14 +83,68 @@
                                                         </Viewbox>
                                                     </ControlTemplate>
                                                 </ContentControl.Template>
+                                                <ContentControl.Effect>
+                                                    <DropShadowEffect Color="Black" Opacity="0.6" BlurRadius="64" ShadowDepth="64" Direction="270" />
+                                                </ContentControl.Effect>
+                                                <ContentControl.OpacityMask>
+                                                    <VisualBrush>
+                                                        <VisualBrush.Visual>
+                                                            <Border Background="Black" CornerRadius="16"
+                                                                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                        </VisualBrush.Visual>
+                                                    </VisualBrush>
+                                                </ContentControl.OpacityMask>
                                             </ContentControl>
+                                            <!--<Border>
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}"
+                                                                    Value="False">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsAnyVideoAvailable, FallbackValue=False}"
+                                                                    Value="True">
+                                                                <Setter Property="Control.Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                            <DataTrigger
+                                                                    Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}"
+                                                                    Value="True">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <Grid>
+                                                    <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
+                                                        <ContentControl.Effect>
+                                                            <DropShadowEffect Color="Black" Opacity="0.6" BlurRadius="64" ShadowDepth="64" Direction="270" />
+                                                        </ContentControl.Effect>
+                                                        <ContentControl.OpacityMask>
+                                                            <VisualBrush>
+                                                                <VisualBrush.Visual>
+                                                                    <Border Background="Black" CornerRadius="16"
+                                                                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                                            Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                                </VisualBrush.Visual>
+                                                            </VisualBrush>
+                                                        </ContentControl.OpacityMask>
+                                                    </ContentControl>
+                                                </Grid>
+                                            </Border>-->
                                         </Grid>
                                     </Grid>
                                     <!--HeroView Ends-->
-
-                                    <ToggleButton x:Name="HeroVideoTogglePlayer" ToolTip="Video On/Off"
-                                                      HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,40,0"
-                                                      Style="{DynamicResource HeroVideoToggleButton}"/>
+                                    <Border Background="{DynamicResource ControlBackgroundBrush}" Height="40" CornerRadius="20" 
+                                            HorizontalAlignment="Right" VerticalAlignment="Top" Padding="16,0,16,0"
+                                            Margin="0,80,80,0">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                            <ToggleButton x:Name="HeroVideoOnOffTogglePlayer" ToolTip="Video On/Off" Style="{DynamicResource HeroVideoToggleButton}" />
+                                            <ToggleButton x:Name="HeroVideoMiniTogglePlayer" ToolTip="Mini Screen" Style="{DynamicResource HeroVideoToggleButton}" />
+                                        </StackPanel>
+                                    </Border>
 
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -98,7 +184,7 @@
                                         <!--ExtraLogo Ends-->
 
                                         <!--ImageCover-->
-                                        <Border Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0">
+                                        <Border Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0" Visibility="Collapsed">
                                             <Image Name="PART_ImageCover" Height="{Settings GameDetailsCoverHeight}"
                                                     StretchDirection="Both" Stretch="Uniform"
                                                     RenderOptions.BitmapScalingMode="Fant" >
@@ -287,14 +373,14 @@
                                                 </Grid>
 
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                                    <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48" Content="&#xe700;"
+                                                    <Button Name="PART_ButtonMoreActions" Margin="8,0,8,0" Width="48" Height="48" Content="&#xe700;"
                                                             FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                                             Style="{DynamicResource PillLargeButton}" />
-                                                    <Button x:Name="PART_ButtonEditGame" Margin="0,0,8,0" Height="48"
+                                                    <Button x:Name="PART_ButtonEditGame" Margin="8,0,8,0" Height="48"
                                                             Width="48" Focusable="False" Content="&#xf8b0;"
                                                             FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                                             Style="{StaticResource PillLargeButton}" />
-                                                    <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0"
+                                                    <ToggleButton Name="GameFavoriteToggleButton" Margin="8,0,8,0"
                                                             Focusable="False"
                                                             Style="{DynamicResource PillLargeToggleButton}"
                                                             FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
@@ -630,7 +716,6 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                             <ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right">
                                                                 <ContentControl.Template>
                                                                     <ControlTemplate TargetType="ContentControl">
-                                                                        <!-- 将Button的对齐属性绑定到ContentControl -->
                                                                         <Button Content="{TemplateBinding Content}"
                                                                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="Transparent"
