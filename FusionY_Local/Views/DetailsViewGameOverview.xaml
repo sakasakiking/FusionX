@@ -9,14 +9,18 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DetailsViewGameOverview}">
                     <Grid>
-
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        
                         <Grid>
-                            <!--<Grid.OpacityMask>
+                            <Grid.OpacityMask>
                                 <LinearGradientBrush StartPoint="0,1" EndPoint="0,0.95">
                                     <GradientStop Offset="0" Color="#00000000"/>
                                     <GradientStop Offset="1" Color="#FF000000"/>
                                 </LinearGradientBrush>
-                            </Grid.OpacityMask>-->
+                            </Grid.OpacityMask>
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
                                       Style="{DynamicResource DetailsScrollViewer}"
                                       d:DesignWidth="1280"
@@ -75,7 +79,7 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Grid.Style>
-                                            <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
+                                            <!--<ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
                                                 <ContentControl.Template>
                                                     <ControlTemplate TargetType="ContentControl">
                                                         <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
@@ -95,8 +99,8 @@
                                                         </VisualBrush.Visual>
                                                     </VisualBrush>
                                                 </ContentControl.OpacityMask>
-                                            </ContentControl>
-                                            <!--<Border>
+                                            </ContentControl>-->
+                                            <Border>
                                                 <Border.Style>
                                                     <Style TargetType="Border">
                                                         <Setter Property="Visibility" Value="Collapsed" />
@@ -119,6 +123,13 @@
                                                 </Border.Style>
                                                 <Grid>
                                                     <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
+                                                        <ContentControl.Template>
+                                                            <ControlTemplate TargetType="ContentControl">
+                                                                <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
+                                                                    <ContentPresenter />
+                                                                </Viewbox>
+                                                            </ControlTemplate>
+                                                        </ContentControl.Template>
                                                         <ContentControl.Effect>
                                                             <DropShadowEffect Color="Black" Opacity="0.6" BlurRadius="64" ShadowDepth="64" Direction="270" />
                                                         </ContentControl.Effect>
@@ -132,19 +143,18 @@
                                                             </VisualBrush>
                                                         </ContentControl.OpacityMask>
                                                     </ContentControl>
+                                                    <Border Background="{DynamicResource ControlBackgroundBrush}" Height="40" CornerRadius="20" HorizontalAlignment="Right"
+                                                            VerticalAlignment="Top" Padding="16,0,16,0" Margin="0,100,40,0">
+                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                                            <ToggleButton x:Name="HeroVideoOnOffTogglePlayer" ToolTip="Video On/Off" Style="{DynamicResource HeroVideoToggleButton}" />
+                                                            <ToggleButton x:Name="HeroVideoMiniTogglePlayer" ToolTip="Mini Screen" Style="{DynamicResource HeroVideoToggleButton}" />
+                                                        </StackPanel>
+                                                    </Border>
                                                 </Grid>
-                                            </Border>-->
+                                            </Border>
                                         </Grid>
                                     </Grid>
                                     <!--HeroView Ends-->
-                                    <Border Background="{DynamicResource ControlBackgroundBrush}" Height="40" CornerRadius="20" 
-                                            HorizontalAlignment="Right" VerticalAlignment="Top" Padding="16,0,16,0"
-                                            Margin="0,80,80,0">
-                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                            <ToggleButton x:Name="HeroVideoOnOffTogglePlayer" ToolTip="Video On/Off" Style="{DynamicResource HeroVideoToggleButton}" />
-                                            <ToggleButton x:Name="HeroVideoMiniTogglePlayer" ToolTip="Mini Screen" Style="{DynamicResource HeroVideoToggleButton}" />
-                                        </StackPanel>
-                                    </Border>
 
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -160,7 +170,7 @@
 
                                         <!--ExtraLogo-->        
                                         <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" 
-                                                Grid.ColumnSpan="2" Margin="0,100,0,32"
+                                                Grid.Column="1" Margin="40,100,40,32"
                                                 Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
                                             <Border.Style>
                                                 <Style TargetType="Border">
@@ -201,16 +211,16 @@
                                         </Border>
                                         <!--ImageCover Ends-->
 
-                                        <StackPanel Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" >
+                                        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="40,0,40,80">
 
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8" HorizontalAlignment="Center">
+                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                                                 <Image Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0"
                                                        RenderOptions.BitmapScalingMode="Fant" />
                                                 <TextBlock Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}" 
                                                            Style="{DynamicResource DetailsViewHeaderStyle}"/>
                                             </StackPanel>
 
-                                            <WrapPanel Orientation="Horizontal" Margin="0,8,0,0" Visibility="Collapsed">
+                                            <WrapPanel Orientation="Horizontal" Margin="0,8,0,0">
 
                                                 <Border Margin="0,0,8,8" VerticalAlignment="Top">
                                                     <Border.Style>
@@ -358,37 +368,6 @@
                                                         Height="28"
                                                         RenderOptions.BitmapScalingMode="Fant" />-->
                                             
-                                            <StackPanel Margin="0,0,0,40">
-                                                <Grid Width="300" Margin="0,0,0,24" HorizontalAlignment="Center">
-                                                    <Button Name="PART_ButtonPlayAction" Margin="0"
-                                                            Height="48" Width="Auto" FontWeight="Bold"
-                                                            Style="{DynamicResource IconPlayButton}" 
-                                                            FontSize="{DynamicResource FontSizeLarge20}" />
-
-                                                    <Button Name="PART_ButtonContextAction"
-                                                            Height="48" FontWeight="Bold" 
-                                                            Background="{DynamicResource AccentDisabledBrush}"
-                                                            Style="{DynamicResource PlayButton}" 
-                                                            FontSize="{DynamicResource FontSizeLarge20}" />
-                                                </Grid>
-
-                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                                    <Button Name="PART_ButtonMoreActions" Margin="8,0,8,0" Width="48" Height="48" Content="&#xe700;"
-                                                            FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                                            Style="{DynamicResource PillLargeButton}" />
-                                                    <Button x:Name="PART_ButtonEditGame" Margin="8,0,8,0" Height="48"
-                                                            Width="48" Focusable="False" Content="&#xf8b0;"
-                                                            FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                                            Style="{StaticResource PillLargeButton}" />
-                                                    <ToggleButton Name="GameFavoriteToggleButton" Margin="8,0,8,0"
-                                                            Focusable="False"
-                                                            Style="{DynamicResource PillLargeToggleButton}"
-                                                            FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                                            Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
-                                                            IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}" />
-                                                </StackPanel>
-
-                                            </StackPanel>
                                         </StackPanel>
 
                                         <!--<Grid Grid.Row="2" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}">-->
@@ -1025,7 +1004,7 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                         </Grid>
                         
                         <!--Bottom Fixed Part-->
-                        <Grid MinWidth="260" Margin="40,0,80,16" Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
+                        <Grid MinWidth="260" Margin="0,0,0,16" Grid.Row="1" Grid.Column="1">
                             <Grid.Style>
                                 <Style TargetType="Grid">
                                     <Style.Triggers>
@@ -1035,11 +1014,27 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                     </Style.Triggers>
                                 </Style>
                             </Grid.Style>
-                            <DockPanel>
-
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{Settings DetailsListWitdh}"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <DockPanel Grid.Column="1" Margin="40,0,40,0">
                                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
-                                    
-                                    
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False" Style="{DynamicResource PillLargeToggleButton}"
+                                                FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
+                                                IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}" />
+                                        <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="48" Height="48" Content="&#xe700;"
+                                                FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Style="{DynamicResource PillLargeButton}" />
+                                        <Button x:Name="PART_ButtonEditGame" Margin="0,0,8,0" Height="48" Width="48" Focusable="False" Content="&#xf8b0;"
+                                                FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Style="{StaticResource PillLargeButton}" />
+                                    </StackPanel>
+                                    <Grid Width="240" Margin="8,0,0,0" HorizontalAlignment="Center">
+                                        <Button Name="PART_ButtonPlayAction" Margin="0" Height="48" Width="Auto" FontWeight="Bold" Style="{DynamicResource IconPlayButton}"
+                                                FontSize="{DynamicResource FontSizeLarge20}" />
+                                        <Button Name="PART_ButtonContextAction" Height="48" FontWeight="Bold" Background="{DynamicResource AccentDisabledBrush}"
+                                                Style="{DynamicResource PlayButton}" FontSize="{DynamicResource FontSizeLarge20}" />
+                                    </Grid>
                                 </StackPanel>
 
                                 <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,8,16,0" Orientation="Horizontal">
@@ -1054,6 +1049,7 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                         </Style>
                                         <Style TargetType="Button" BasedOn="{StaticResource PropertyItemSmallButton}">
                                             <Setter Property="FontSize" Value="13" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
                                             <Setter Property="Foreground" Value="{DynamicResource HoverBrush}"/>
                                             <Setter Property="Margin" Value="0"/>
                                             <Setter Property="Padding" Value="0"/>

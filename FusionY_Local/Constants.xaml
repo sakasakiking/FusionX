@@ -158,12 +158,14 @@
         <GradientStop Color="#202b4d" Offset="0"/>
         <GradientStop Color="{DynamicResource MainColorDark}" Offset="0.4"/>
     </LinearGradientBrush>-->
-    
     <LinearGradientBrush x:Key="PlayButtonBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
         <GradientStop Color="#188EFF" Offset="0" />
         <GradientStop Color="#AD00FF" Offset="1" />
     </LinearGradientBrush>
-    
+    <LinearGradientBrush x:Key="PlayButtonHoverBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#46A5FF" Offset="0" />
+        <GradientStop Color="#BD33FF" Offset="1" />
+    </LinearGradientBrush>
     <LinearGradientBrush x:Key="TextGradientBrush" StartPoint="0,0" EndPoint="1,0">
         <GradientStop Color="#29FFFFFF" Offset="0" />
         <GradientStop Color="#FFFFFFFF" Offset="0.5" />

@@ -25,7 +25,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="True" />
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" TargetName="Grid" Value="0.5" />
+                            <Setter Property="Opacity" TargetName="Grid" Value="0.4" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -50,14 +50,13 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid x:Name="Grid">
                         <Border x:Name="DefaultBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{TemplateBinding Background}" Opacity="1" CornerRadius="24">
+                                Background="{TemplateBinding Background}" Opacity="1" CornerRadius="24" />
+                        <Border x:Name="HoverBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{DynamicResource PlayButtonHoverBackgroundBrush}" Opacity="0" CornerRadius="24">
                             <Border.Effect>
-                                <DropShadowEffect Color="Black" Opacity="0.6" BlurRadius="48" ShadowDepth="16" Direction="270" />
+                                <BlurEffect Radius="20" KernelType="Gaussian" />
                             </Border.Effect>
                         </Border>
-                        <Border x:Name="HoverBorder" BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="{TemplateBinding BorderThickness}" 
-                                Background="#188EFF" Opacity="0" CornerRadius="24" />
                         <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Padding}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
