@@ -28,7 +28,7 @@
 
     <Style x:Key="PropertyItemSmallButton" TargetType="Button">
         <Setter Property="Margin" Value="0,0,0,0" />
-        <Setter Property="Padding" Value="4,1,4,3"/>
+        <Setter Property="Padding" Value="4,2,4,2"/>
         <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -118,7 +118,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Padding="8,3,8,4" CornerRadius="{DynamicResource ControlCornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" 
+                    <Border Padding="4,2,4,2" CornerRadius="4" BorderThickness="{TemplateBinding BorderThickness}" 
                             BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                         <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" 
                                    Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="Wrap"/>

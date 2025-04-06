@@ -78,7 +78,12 @@
     <!--FusionX Newly Added Color Ends-->
 
     <SolidColorBrush x:Key="CardSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" />
-    <SolidColorBrush x:Key="CardBackgroundBrush" Color="#0AFFFFFF" />
+    <!--<SolidColorBrush x:Key="CardBackgroundBrush" Color="#0AFFFFFF" />-->
+    <LinearGradientBrush x:Key="CardBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#0AFFFFFF" Offset="0" />
+        <GradientStop Color="#0AFFFFFF" Offset="0.1" />
+        <GradientStop Color="#0AFFFFFF" Offset="1" />
+    </LinearGradientBrush>
     <SolidColorBrush x:Key="CardBorderBrush" Color="#D4D0B8" />
 
     <SolidColorBrush x:Key="LightDarkBackgroundBrush" Color="#33000000" />
