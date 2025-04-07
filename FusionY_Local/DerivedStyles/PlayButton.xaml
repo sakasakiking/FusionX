@@ -105,7 +105,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
+    
     <Style x:Key="PlayButton_LeftPart" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="{DynamicResource AccentIdleBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
@@ -176,5 +176,12 @@
                 <Setter Property="Background" Value="{DynamicResource AccentHoverBrush}" />
             </Trigger>
         </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="ActionControl" TargetType="{x:Type ContentControl}" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="Margin" Value="0,10,10,10" />
+        <Setter Property="Height" Value="34" />
+        <Setter Property="Border.CornerRadius" Value="17" />
     </Style>
 </ResourceDictionary>

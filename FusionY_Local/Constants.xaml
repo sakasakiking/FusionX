@@ -72,7 +72,9 @@
     <Color x:Key="60%White">#99FFFFFF</Color>
     <Color x:Key="80%White">#CCFFFFFF</Color>
     <Color x:Key="100%White">#FFFFFF</Color>
-
+    
+    <Color x:Key="24%Black">#3D000000</Color>
+    <Color x:Key="36%Black">#5C000000</Color>
     <Color x:Key="40%Black">#66000000</Color>
     <Color x:Key="60%Black">#99000000</Color>
     <!--FusionX Newly Added Color Ends-->
@@ -90,9 +92,9 @@
     
     <SolidColorBrush x:Key="ControlLightBackgroundBrush" Color="{DynamicResource 100%White}" />
     
-    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource 40%Black}" />
-    <SolidColorBrush x:Key="ControlDarkIdleBackgroundBrush" Color="{DynamicResource 40%Black}" />
-    <SolidColorBrush x:Key="ControlDarkHoverBackgroundBrush" Color="{DynamicResource 60%Black}" />
+    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource 24%Black}" />
+    <SolidColorBrush x:Key="ControlDarkIdleBackgroundBrush" Color="{DynamicResource 24%Black}" />
+    <SolidColorBrush x:Key="ControlDarkHoverBackgroundBrush" Color="{DynamicResource 40%Black}" />
 
     <SolidColorBrush x:Key="ControlIdleBackgroundBrush" Color="{DynamicResource 16%White}" />
     <SolidColorBrush x:Key="ControlHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
