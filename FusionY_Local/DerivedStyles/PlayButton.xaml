@@ -180,9 +180,6 @@
     
     <Style x:Key="ActionControl" TargetType="{x:Type ContentControl}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-        <Setter Property="Margin" Value="0,0,0,4" />
-        <Setter Property="Height" Value="26" />
-        <Setter Property="Height" Value="26" />
-        <Setter Property="Border.CornerRadius" Value="17" />
+        <Setter Property="Margin" Value="0,0,0,8" />
     </Style>
 </ResourceDictionary>

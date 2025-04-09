@@ -1017,8 +1017,9 @@
                                 <ToggleButton DockPanel.Dock="Right" Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False" Style="{DynamicResource PillLargeToggleButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                         Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}" VerticalAlignment="Bottom"
                                         IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}" />
-                                <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom" Background="#29FF0000" HorizontalAlignment="Center">
-                                    <Border x:Name="MoreActionPopup" Background="{DynamicResource PopupBackgroundBrush}" Width="34" CornerRadius="17" Padding="4" HorizontalAlignment="Center">
+                                <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="50">
+                                    <Border x:Name="MoreActionPopup" Background="{DynamicResource PopupBackgroundBrush}" BorderBrush="{DynamicResource PopupBorderBrush}"
+                                            Padding="8,8,8,0" Margin="0,0,0,8" HorizontalAlignment="Center" CornerRadius="20" Width="50" BorderThickness="{DynamicResource PopupBorderThickness}">
                                         <Border.Style>
                                             <Style TargetType="Border">
                                                 <Setter Property="Visibility" Value="Collapsed" />
@@ -1029,7 +1030,7 @@
                                                 </Style.Triggers>
                                             </Style>
                                         </Border.Style>
-                                        <StackPanel VerticalAlignment="Bottom" Background="#29FFCC00">
+                                        <StackPanel VerticalAlignment="Bottom">
                                             <ContentControl x:Name="PlayState_GameStateSwitchControl" Style="{DynamicResource ActionControl}"
                                                     Visibility="{PluginSettings Plugin=PlayState, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                             <ContentControl x:Name="ScreenshotsVisualizer_PluginButton" Style="{DynamicResource ActionControl}"
@@ -1048,7 +1049,7 @@
                                                     Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                         </StackPanel>
                                     </Border>
-                                    <ToggleButton Name="MoreActionToggleButton" Margin="0,0,8,0" Focusable="False" Width="34" HorizontalAlignment="Center"
+                                    <ToggleButton Name="MoreActionToggleButton" Focusable="False" Width="34" HorizontalAlignment="Center"
                                                   FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                                   Style="{DynamicResource MoreActionToggleButton}"/>
                                 </StackPanel>
