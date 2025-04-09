@@ -988,7 +988,7 @@
                             </ScrollViewer>
                         </Grid>
                         <!--Bottom Fixed Part-->
-                        <Grid MinWidth="260" Margin="0,0,0,16" Grid.Row="1" Grid.Column="1">
+                        <Grid MinWidth="260" Margin="0,0,0,16" Grid.RowSpan="2">
                             <Grid.Style>
                                 <Style TargetType="Grid">
                                     <Style.Triggers>
@@ -1002,60 +1002,60 @@
                                 <ColumnDefinition Width="{Settings DetailsListWitdh}" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <DockPanel Grid.Column="1" Margin="40,0,40,0">
-                                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" ClipToBounds="False">
-                                        <StackPanel VerticalAlignment="Bottom">
-                                            <Border x:Name="MoreActionPopup" Background="#29ffcc00">
-                                                <Border.Style>
-                                                    <Style TargetType="Border">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                        <Style.Triggers>
-                                                            <DataTrigger Binding="{Binding ElementName=MoreActionToggleButton, Path=IsChecked}" Value="True">
-                                                                <Setter Property="Visibility" Value="Visible" />
-                                                            </DataTrigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Border.Style>
-                                                <StackPanel>
-                                                    <ContentControl x:Name="PlayState_GameStateSwitchControl" Style="{DynamicResource ActionControl}"
-                                                            Visibility="{PluginSettings Plugin=PlayState, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                    <ContentControl x:Name="ScreenshotsVisualizer_PluginButton" Style="{DynamicResource ActionControl}"
-                                                            Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                    <ContentControl x:Name="HowLongToBeat_PluginButton" Style="{DynamicResource ActionControl}"
-                                                            Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                    <ContentControl x:Name="CheckDlc_PluginButton" Style="{DynamicResource ActionControl}"
-                                                            Visibility="{PluginSettings Plugin=CheckDlc, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                    <ContentControl x:Name="SuccessStory_PluginButton" Style="{DynamicResource ActionControl}"
-                                                            Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                    <ContentControl x:Name="GameActivity_PluginButton" Style="{DynamicResource ActionControl}"
-                                                            Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                    <ContentControl x:Name="SystemChecker_PluginButton" Style="{DynamicResource ActionControl}"
-                                                            Visibility="{PluginSettings Plugin=SystemChecker, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                    <ContentControl x:Name="CheckLocalizations_PluginButton" Style="{DynamicResource ActionControl}"
-                                                            Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                </StackPanel>
-                                            </Border>
-                                            <ToggleButton Name="MoreActionToggleButton" Margin="0,0,8,0" Focusable="False" Style="{DynamicResource MoreActionToggleButton}"
-                                                    FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" />
+                            
+                            <DockPanel Grid.Column="1" Margin="40,0,40,0" VerticalAlignment="Bottom">
+                                <!--Action Buttons-->                  
+                                <Grid DockPanel.Dock="Right" Width="200" Margin="8,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                    <Button Name="PART_ButtonPlayAction" Margin="0" Height="48" Width="Auto" FontWeight="Bold" Style="{DynamicResource IconPlayButton}"
+                                            FontSize="{DynamicResource FontSizeLarge20}" />
+                                    <Button Name="PART_ButtonContextAction" Height="48" FontWeight="Bold" Background="{DynamicResource AccentDisabledBrush}"
+                                            Style="{DynamicResource PlayButton}" FontSize="{DynamicResource FontSizeLarge20}" />
+                                </Grid>
+                                <Button DockPanel.Dock="Right" x:Name="PART_ButtonEditGame" Margin="0,0,8,0" Height="34" Width="34" Focusable="False" Content="&#xf8b0;"
+                                        FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Style="{StaticResource PillLargeButton}" VerticalAlignment="Bottom"/>
+                                <Button DockPanel.Dock="Right" Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="34" Height="34" Content="&#xe10c;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Style="{DynamicResource PillLargeButton}" VerticalAlignment="Bottom" />
+                                <ToggleButton DockPanel.Dock="Right" Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False" Style="{DynamicResource PillLargeToggleButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                        Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}" VerticalAlignment="Bottom"
+                                        IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}" />
+                                <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom" Background="#29FF0000" HorizontalAlignment="Center">
+                                    <Border x:Name="MoreActionPopup" Background="{DynamicResource PopupBackgroundBrush}" Width="34" CornerRadius="17" Padding="4" HorizontalAlignment="Center">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=MoreActionToggleButton, Path=IsChecked}" Value="True">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <StackPanel VerticalAlignment="Bottom" Background="#29FFCC00">
+                                            <ContentControl x:Name="PlayState_GameStateSwitchControl" Style="{DynamicResource ActionControl}"
+                                                    Visibility="{PluginSettings Plugin=PlayState, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                            <ContentControl x:Name="ScreenshotsVisualizer_PluginButton" Style="{DynamicResource ActionControl}"
+                                                    Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                            <ContentControl x:Name="HowLongToBeat_PluginButton" Style="{DynamicResource ActionControl}"
+                                                    Visibility="{PluginSettings Plugin=HowLongToBeat, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                            <ContentControl x:Name="CheckDlc_PluginButton" Style="{DynamicResource ActionControl}"
+                                                    Visibility="{PluginSettings Plugin=CheckDlc, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                            <ContentControl x:Name="SuccessStory_PluginButton" Style="{DynamicResource ActionControl}"
+                                                    Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                            <ContentControl x:Name="GameActivity_PluginButton" Style="{DynamicResource ActionControl}"
+                                                    Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                            <ContentControl x:Name="SystemChecker_PluginButton" Style="{DynamicResource ActionControl}"
+                                                    Visibility="{PluginSettings Plugin=SystemChecker, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                            <ContentControl x:Name="CheckLocalizations_PluginButton" Style="{DynamicResource ActionControl}"
+                                                    Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                         </StackPanel>
-                                        <ToggleButton Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False" Style="{DynamicResource PillLargeToggleButton}"
-                                                FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}"
-                                                IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}" />
-                                        <Button Name="PART_ButtonMoreActions" Margin="0,0,8,0" Width="34" Height="34" Content="&#xe10c;"
-                                                FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Style="{DynamicResource PillLargeButton}" />
-                                        <Button x:Name="PART_ButtonEditGame" Margin="0,0,8,0" Height="34" Width="34" Focusable="False" Content="&#xf8b0;"
-                                                FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Style="{StaticResource PillLargeButton}" />
-                                        
-                                    </StackPanel>
-                                    <Grid Width="200" Margin="8,0,0,0" HorizontalAlignment="Center">
-                                        <Button Name="PART_ButtonPlayAction" Margin="0" Height="48" Width="Auto" FontWeight="Bold" Style="{DynamicResource IconPlayButton}"
-                                                FontSize="{DynamicResource FontSizeLarge20}" />
-                                        <Button Name="PART_ButtonContextAction" Height="48" FontWeight="Bold" Background="{DynamicResource AccentDisabledBrush}"
-                                                Style="{DynamicResource PlayButton}" FontSize="{DynamicResource FontSizeLarge20}" />
-                                    </Grid>
+                                    </Border>
+                                    <ToggleButton Name="MoreActionToggleButton" Margin="0,0,8,0" Focusable="False" Width="34" HorizontalAlignment="Center"
+                                                  FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                  Style="{DynamicResource MoreActionToggleButton}"/>
                                 </StackPanel>
-                                <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,8,16,0" Orientation="Horizontal">
+                                <!--Action Buttons Ends-->
+
+                                <!--Playing Status Ends-->
+                                <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,8,16,0" Orientation="Horizontal"> 
                                     <StackPanel.Resources>
                                         <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
                                             <Setter Property="Margin" Value="0,2,0,0" />
@@ -1130,6 +1130,7 @@
                                         </StackPanel>
                                     </DockPanel>
                                 </StackPanel>
+                                <!--Playing Status Ends-->
                             </DockPanel>
                         </Grid>
                         <!--Bottom Fixed Part Ends-->
