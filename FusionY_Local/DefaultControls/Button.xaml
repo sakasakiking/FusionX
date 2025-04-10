@@ -44,18 +44,13 @@
     </Style>
 
     <Style x:Key="PlayersCountButtonStyle" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
-        <Setter Property="BorderBrush" Value="{x:Null}"/>
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
-        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        <Setter Property="FontWeight" Value="Medium"/>
-        <Setter Property="Padding" Value="4,0,4,3" />
-        <Setter Property="Margin" Value="0,2,4,4" />
+        <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge18}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
         <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -63,16 +58,14 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             Background="{TemplateBinding Background}" 
                             CornerRadius="{DynamicResource ControlCornerRadius}"
-                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                            Margin="{TemplateBinding Margin}" Padding="{TemplateBinding Padding}">
-                        <StackPanel Orientation="Horizontal">
-                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalAlignment}" />
-                            <TextBlock Foreground="{TemplateBinding Foreground}"
-                                       FontSize="{TemplateBinding FontSize}"
-                                       VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center"
+                            Padding="8">
+                        <StackPanel>
+                            <ContentPresenter HorizontalAlignment="Center"/>
+                            <TextBlock Foreground="{DynamicResource PromptBrush}" Margin="0,6,0,0" HorizontalAlignment="Center" FontSize="{DynamicResource FontSizeSmaller}" 
                                        Tag="{DynamicResource LOC_NewsViewer_PlayersInGameViewerControl_InGameCountLabel}"
-                                       Text="{Binding Path=Tag, RelativeSource={RelativeSource Self}, StringFormat=' {0}'}"/>
+                                       Text="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
                         </StackPanel>
                     </Border>
                 </ControlTemplate>

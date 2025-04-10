@@ -24,4 +24,11 @@
 
     </Style>
 
+    <Style TargetType="TextBlock" x:Key="ActionControlLabelStyle">
+        <Setter Property="Foreground" Value="{DynamicResource PromptBrush}" />
+        <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmaller}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
 </ResourceDictionary>

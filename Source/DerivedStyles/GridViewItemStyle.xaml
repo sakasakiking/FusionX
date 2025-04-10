@@ -28,7 +28,7 @@
                                 </Border.Style>
                             </Border>
                         </Grid>
-                        <TextBlock Text="{Binding DisplayName}"
+                        <TextBlock x:Name="GameName" Text="{Binding DisplayName}" FontSize="{DynamicResource FontSizeSmall}"
                                    Style="{DynamicResource BaseTextBlockStyle}"                                                                   
                                    TextAlignment="Center" TextTrimming="CharacterEllipsis"
                                    VerticalAlignment="Bottom"
@@ -39,7 +39,7 @@
                     
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource AccentSelectedBrush}" TargetName="SelectionBorder"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource AccentSelectedBrush}" TargetName="SelectionBorder" />
                             <Setter Property="Canvas.ZIndex" Value="990" />
                         </Trigger>
                         <DataTrigger Binding="{Settings ShowGridItemBackground}" Value="False">

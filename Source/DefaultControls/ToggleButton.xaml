@@ -38,12 +38,11 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
     <Style x:Key="PillLargeToggleButton" TargetType="{x:Type ToggleButton}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
-        <Setter Property="Height" Value="48"/>
-        <Setter Property="Padding" Value="8,4,8,4"/>
+        <Setter Property="Height" Value="34" />
+        <Setter Property="Padding" Value="0,0,0,0" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="IsChecked" Value="False" />
         <Setter Property="Template">
@@ -51,26 +50,22 @@
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Grid>
                         <Border Name="HoverBg" MinWidth="{TemplateBinding Height}" Height="{TemplateBinding Height}" Opacity="0.16"
-                                Background="{DynamicResource ControlLightBackgroundBrush}" CornerRadius="24"/>
-                        <TextBlock x:Name="FavoriteIcon" Text="&#xe1ce;" FontFamily="{TemplateBinding FontFamily}" 
-                                   FontSize="{TemplateBinding FontSize}"
-                                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"
-                                   Foreground="{TemplateBinding Foreground}"/>
+                                Background="{DynamicResource ControlLightBackgroundBrush}" CornerRadius="24" />
+                        <TextBlock x:Name="FavoriteIcon" Text="&#xe1ce;" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}"
+                                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" Foreground="{TemplateBinding Foreground}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="True">
                             <Setter Property="TextBlock.Text" Value="&#xe00a;" TargetName="FavoriteIcon" />
-                            <Setter Property="TextBlock.Foreground" Value="{DynamicResource ControlLightBackgroundBrush}"/>
+                            <Setter Property="TextBlock.Foreground" Value="{DynamicResource ControlLightBackgroundBrush}" />
                         </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
-                                                         Storyboard.TargetProperty="Opacity" 
-                                                         To="0.24" Duration="0:0:0.4">
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg" Storyboard.TargetProperty="Opacity" To="0.24" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
-                                                <QuadraticEase EasingMode="EaseOut"/>
+                                                <QuadraticEase EasingMode="EaseOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                     </Storyboard>
@@ -79,11 +74,9 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="HoverBg"
-                                                         Storyboard.TargetProperty="Opacity" 
-                                                         To="0.16" Duration="0:0:0.4">
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg" Storyboard.TargetProperty="Opacity" To="0.16" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
-                                                <QuadraticEase EasingMode="EaseOut"/>
+                                                <QuadraticEase EasingMode="EaseOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                     </Storyboard>
@@ -100,44 +93,135 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-    <Style x:Key="FavoriteTubeToggleButton" TargetType="{x:Type ToggleButton}">
-        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
-        <Setter Property="Foreground" Value="Yellow" />
-        <Setter Property="Width" Value="Auto"/>
-        <Setter Property="Height" Value="48"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
+    <Style x:Key="MoreActionToggleButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Height" Value="34" />
+        <Setter Property="Padding" Value="0,0,0,0" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="IsChecked" Value="True" />
-        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="IsChecked" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Grid>
-                        <Border x:Name="Border" Background="{TemplateBinding Background}" CornerRadius="24"
-                                Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
-                            <TextBlock x:Name="FavoriteAction" Text="{DynamicResource LOCRemoveFavoriteGame}"
-                                       FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" FontWeight="{TemplateBinding FontWeight}"
-                                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                                       Style="{StaticResource BaseTextBlockStyle}"/>
+                        <Border Name="HoverBg" MinWidth="{TemplateBinding Height}" Height="{TemplateBinding Height}" Opacity="0.16"
+                                Background="{DynamicResource ControlLightBackgroundBrush}" CornerRadius="24" />
+                        <TextBlock x:Name="MoreIcon" Text="&#xe971;" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}"
+                                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" Foreground="{TemplateBinding Foreground}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter Property="TextBlock.Text" Value="&#xe972;" TargetName="MoreIcon" />
+                            <Setter Property="TextBlock.Foreground" Value="{DynamicResource ControlLightBackgroundBrush}" />
+                        </DataTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg" Storyboard.TargetProperty="Opacity" To="0.24" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverBg" Storyboard.TargetProperty="Opacity" To="0.16" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="SwitcherToggleButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{DynamicResource ControlHoverBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
+        <Setter Property="Foreground" Value="Yellow" />
+        <Setter Property="Width" Value="36"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
+        <Setter Property="SnapsToDevicePixels" Value="False" />
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="IsChecked" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Border x:Name="Border" CornerRadius="10" Background="Transparent"
+                                Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" Padding="2"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <Ellipse x:Name="FavoriteAction" Fill="{DynamicResource ControlIdleBackgroundBrush}" Width="12" Height="12"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <Ellipse.RenderTransform>
+                                    <TranslateTransform />
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Fill" Value="{DynamicResource HoverBrush}" TargetName="FavoriteAction"/>
+                        </Trigger>-->
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Fill" Value="{DynamicResource HoverBrush}" TargetName="FavoriteAction" />
+                        </Trigger>
                         <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="False">
-                            <Setter Property="TextBlock.Text" Value="{DynamicResource LOCFavoriteGame}" TargetName="FavoriteAction" />
-                            <Setter Property="TextBlock.Foreground" Value="{DynamicResource IdleBrush}"/>
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation  
+                                            Storyboard.TargetName="FavoriteAction"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                            To="-16" Duration="0:0:0.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetName="FavoriteAction"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                            To="0" Duration="0:0:0.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}" />
-                <Setter Property="Foreground" Value="{DynamicResource HoverBrush}"/>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource ControlHoverBorderBrush}" />
             </Trigger>
+            <!--<Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource ControlHoverBorderBrush}" />
+            </Trigger>-->
             <Trigger Property="IsFocused" Value="True">
                 <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}" />
             </Trigger>

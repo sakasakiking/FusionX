@@ -16,4 +16,19 @@
             </Trigger>
         </Style.Triggers>
     </Style>-->
+
+    <Style TargetType="TextBlock" x:Key="DetailsViewHeaderStyle">
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ActionControlLabelStyle">
+        <Setter Property="Foreground" Value="{DynamicResource PromptBrush}" />
+        <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmaller}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
 </ResourceDictionary>

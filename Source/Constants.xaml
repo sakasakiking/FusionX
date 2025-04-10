@@ -72,18 +72,30 @@
     <Color x:Key="60%White">#99FFFFFF</Color>
     <Color x:Key="80%White">#CCFFFFFF</Color>
     <Color x:Key="100%White">#FFFFFF</Color>
-
+    
+    <Color x:Key="24%Black">#3D000000</Color>
+    <Color x:Key="36%Black">#5C000000</Color>
     <Color x:Key="40%Black">#66000000</Color>
     <Color x:Key="60%Black">#99000000</Color>
     <!--FusionX Newly Added Color Ends-->
 
-    <SolidColorBrush x:Key="LightDarkBackgroundBrush" Color="#33000000" />
-    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource 40%Black}" />
-    <SolidColorBrush x:Key="ControlDarkIdleBackgroundBrush" Color="{DynamicResource 40%Black}" />
-    <SolidColorBrush x:Key="ControlDarkHoverBackgroundBrush" Color="{DynamicResource 60%Black}" />
+    <SolidColorBrush x:Key="CardSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" />
+    <!--<SolidColorBrush x:Key="CardBackgroundBrush" Color="#0AFFFFFF" />-->
+    <LinearGradientBrush x:Key="CardBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#0AFFFFFF" Offset="0" />
+        <GradientStop Color="#0AFFFFFF" Offset="0.1" />
+        <GradientStop Color="#0AFFFFFF" Offset="1" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="CardBorderBrush" Color="#D4D0B8" />
 
+    <SolidColorBrush x:Key="LightDarkBackgroundBrush" Color="#33000000" />
+    
     <SolidColorBrush x:Key="ControlLightBackgroundBrush" Color="{DynamicResource 100%White}" />
     
+    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource 24%Black}" />
+    <SolidColorBrush x:Key="ControlDarkIdleBackgroundBrush" Color="{DynamicResource 24%Black}" />
+    <SolidColorBrush x:Key="ControlDarkHoverBackgroundBrush" Color="{DynamicResource 40%Black}" />
+
     <SolidColorBrush x:Key="ControlIdleBackgroundBrush" Color="{DynamicResource 16%White}" />
     <SolidColorBrush x:Key="ControlHoverBackgroundBrush" Color="{DynamicResource 24%White}" />
     <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" Color="{DynamicResource 36%White}" />
@@ -135,26 +147,72 @@
 
     <SolidColorBrush x:Key="WarningBrush" Color="#ff6b6b" />
 
-    <LinearGradientBrush x:Key="ExpanderBackgroundBrush" StartPoint="-0.1,0.5" EndPoint="1.2,1" >
-        <GradientStop Color="#FF2C3A67" Offset="0"/>
-        <GradientStop Color="#002C3A67" Offset="0.7"/>
-    </LinearGradientBrush>
-
     <ImageBrush x:Key="MainBackgroundBrush">
         <ImageBrush.ImageSource>
             <BitmapImage UriSource="Images/MainBackground.png"/>
         </ImageBrush.ImageSource>
     </ImageBrush>
 
+    <ImageBrush x:Key="HeroMask">
+        <ImageBrush.ImageSource>
+            <BitmapImage UriSource="Images/Hero-mask.png"/>
+        </ImageBrush.ImageSource>
+    </ImageBrush>
+
+    <!--GradientBrushes-->
+    
     <!--<LinearGradientBrush x:Key="WindowBackgourndBrush" StartPoint="0.5,-0.2" EndPoint="0.4,1" >
         <GradientStop Color="#202b4d" Offset="0"/>
         <GradientStop Color="{DynamicResource MainColorDark}" Offset="0.4"/>
     </LinearGradientBrush>-->
+    <LinearGradientBrush x:Key="PlayButtonBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#188EFF" Offset="0" />
+        <GradientStop Color="#AD00FF" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="PlayButtonHoverBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#46A5FF" Offset="0" />
+        <GradientStop Color="#BD33FF" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="TextGradientBrush" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#29FFFFFF" Offset="0" />
+        <GradientStop Color="#FFFFFFFF" Offset="0.5" />
+        <GradientStop Color="#29FFFFFF" Offset="1" />
+    </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="TopPanelMaskBackgourndBrush" StartPoint="0.5,0" EndPoint="0.5,1" >
+        <GradientStop Color="#99000000" Offset="0"/>
+        <GradientStop Color="#00000000" Offset="1"/>
+    </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="WindowBackgourndBrush" StartPoint="0.5,0" EndPoint="0.5,1" >
         <GradientStop Color="#2C2C2C" Offset="0"/>
         <GradientStop Color="#212121" Offset="1"/>
     </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="HeadGradientBorderBrush" StartPoint="0,0" EndPoint="1,0" >
+        <GradientStop Color="#00FFFFFF" Offset="0.2"/>
+        <GradientStop Color="#29FFFFFF" Offset="0.5"/>
+        <GradientStop Color="#00FFFFFF" Offset="0.8"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="HeadGradientLeftBackgroundBrush" StartPoint="0,0" EndPoint="1,0" >
+        <GradientStop Color="#00FFFFFF" Offset="0"/>
+        <GradientStop Color="#29FFFFFF" Offset="0.9"/>
+        <GradientStop Color="#66FFFFFF" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="HeadGradientRightBackgroundBrush" StartPoint="0,0" EndPoint="1,0" >
+        <GradientStop Color="#66FFFFFF" Offset="0"/>
+        <GradientStop Color="#29FFFFFF" Offset="0.1"/>
+        <GradientStop Color="#00FFFFFF" Offset="1"/>
+    </LinearGradientBrush>
+
+    <RadialGradientBrush x:Key="HeadGradientBackgroundBrush" GradientOrigin="0.5,0" Center="0.5,0" RadiusX="0.5" RadiusY="1">
+        <RadialGradientBrush.GradientStops>
+            <GradientStop Color="#66000000" Offset="0" />
+            <GradientStop Color="#00000000" Offset="1" />
+        </RadialGradientBrush.GradientStops>
+    </RadialGradientBrush>
 
     <RadialGradientBrush x:Key="RGLayerBackgroundBrush" GradientOrigin="0.5,1" Center="0.5,1" RadiusX="1" RadiusY="1">
         <RadialGradientBrush.GradientStops>
@@ -176,5 +234,6 @@
             <GradientStop Color="{DynamicResource 24%White}" Offset="0.8" />
         </RadialGradientBrush.GradientStops>
     </RadialGradientBrush>
+    <!--GradientBrushes Ends-->
 
 </ResourceDictionary>

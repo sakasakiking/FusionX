@@ -101,70 +101,82 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DuplicateHider_IconContentControlStyle" BasedOn="{StaticResource {x:Type ContentControl}}" TargetType="ContentControl">
-        <Setter Property="BorderBrush" Value="{x:Null}" />
-        <Setter Property="Foreground" Value="{x:Null}" />
-        <Setter Property="Background" Value="{x:Null}" />
-        <Setter Property="Padding" Value="0,0,0,0" />
-        <Setter Property="Margin" Value="0,0,5,0" />
-        <Setter Property="BorderThickness" Value="0,0,0,0" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="ClipToBounds" Value="False"/>
+    <Style x:Key="DH_ContentControl_Simple_Style" TargetType="ContentControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate>
-                    <Grid>
-                        <Border x:Name="IconBackground" CornerRadius="8" 
-                                Background="{DynamicResource ControlBackgroundBrush}" Opacity="1" Visibility="Hidden" />
-                        <StackPanel Orientation="Horizontal" 
-                                    Opacity="{Binding Game.IsInstalled, Converter={StaticResource OpacityBoolConverter}}">
-                            <Image Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="3"/>
-                            <TextBlock x:Name="SourceText" Text="{Binding SourceName}" Style="{DynamicResource BaseTextBlockStyle}" VerticalAlignment="Center"
-                                   TextAlignment="Center" Width="70" 
-                                   TextTrimming="CharacterEllipsis">
-                                <TextBlock.LayoutTransform>
-                                    <ScaleTransform x:Name="SourceNameScale" ScaleX="0"/>
-                                </TextBlock.LayoutTransform>
-                            </TextBlock>
-                        </StackPanel>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
-                            <Setter Property="Border.Opacity" Value="{DynamicResource GlyphColorObscureOpacity}" TargetName="IconBackground"/>
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="SourceNameScale" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" Duration="0:0:0.15" To="1">
-                                            <DoubleAnimation.EasingFunction>
-                                                <QuadraticEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="SourceNameScale" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" Duration="0:0:0.15" To="0">
-                                            <DoubleAnimation.EasingFunction>
-                                                <QuadraticEase EasingMode="EaseIn"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                        </Trigger>
-                        <DataTrigger Binding="{Binding IsCurrent}" Value="True">
-                            <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
-                            <Setter Property="Border.Opacity" Value="0.7" TargetName="IconBackground"/>
-                        </DataTrigger>
-                    </ControlTemplate.Triggers>
+                <ControlTemplate TargetType="ContentControl">
+                    
+                    <ItemsControl x:Name="DH_ListBox" Focusable="False" IsTextSearchEnabled="False" ItemsSource="{Binding Games}" VirtualizingPanel.VirtualizationMode="Recycling">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <ListBoxItem Background="{x:Null}">
+                                    <!--  StackPanel containing icon and source name of a game.  -->
+                                    <StackPanel x:Name="_Item" Background="{x:Null}" Orientation="Horizontal" >
+                                        <Image MaxHeight="20" Margin="5,0,5,0" VerticalAlignment="Center" DockPanel.Dock="Left" RenderOptions.BitmapScalingMode="Fant"
+                                                Source="{Binding Icon}" />
+                                        <TextBlock x:Name="_SourceText" Margin="5,0,5,0" VerticalAlignment="Center" Foreground="White" Background="{x:Null}"
+                                                Text="{Binding SourceName}" />
+                                        <!--  Binding gestures to commands.  -->
+                                    </StackPanel>
+                                    <ListBoxItem.InputBindings>
+                                        <MouseBinding Command="{Binding LaunchCommand}" Gesture="LeftDoubleClick" />
+                                        <MouseBinding Command="{Binding SelectCommand}" Gesture="LeftClick" />
+                                    </ListBoxItem.InputBindings>
+                                </ListBoxItem>
+                                <DataTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <!--  MouseOver glow effect.  -->
+                                        <Setter TargetName="_Item" Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect BlurRadius="16" Opacity="0.8" ShadowDepth="0" Color="White" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                    <!--  Make items for unisntalled games slightly transparent.  -->
+                                    <DataTrigger Binding="{Binding Game.IsInstalled}" Value="False">
+                                        <Setter TargetName="_Item" Property="Opacity" Value="0.5" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
+    <Style x:Key="VideoControlPanel" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="Visibility" Value="Collapsed" />
+        <Style.Triggers>
+            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}" Value="False">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsAnyVideoAvailable, FallbackValue=False}" Value="True">
+                <Setter Property="Control.Visibility" Value="Visible" />
+            </DataTrigger>
+            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}" Value="True">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ActionControlPanel" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Padding" Value="8" />
+    </Style>
 </ResourceDictionary>

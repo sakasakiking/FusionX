@@ -10,4 +10,23 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
     </Style>
 
+    <Style x:Key="HeadGradientBorder" TargetType="Border">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Background" Value="{DynamicResource HeadGradientBackgroundBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource HeadGradientBorderBrush}"/>
+    </Style>
+
+    <Style x:Key="HeadGradientLeftBorder" TargetType="Border">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Background" Value="{DynamicResource HeadGradientLeftBackgroundBrush}"/>
+        <Setter Property="Height" Value="2"/>
+    </Style>
+
+    <Style x:Key="HeadGradientRightBorder" TargetType="Border">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Background" Value="{DynamicResource HeadGradientRightBackgroundBrush}"/>
+        <Setter Property="Height" Value="2"/>
+    </Style>
+
 </ResourceDictionary>

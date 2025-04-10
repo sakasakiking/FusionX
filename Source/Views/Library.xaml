@@ -31,19 +31,17 @@
                                 </RadialGradientBrush>
                             </FadeImage.ImageOpacityMask>-->
                         </FadeImage>
-
-                        <TopPanel DockPanel.Dock="Top" Grid.Row="0" />
-                        
-                        <DockPanel Grid.Row="1">
-                            <FilterPanel x:Name="PART_FilterPanel"
+                 
+                        <DockPanel Grid.RowSpan="2">
+                            <FilterPanel x:Name="PART_FilterPanel" Margin="0,60,0,0"
                                          DockPanel.Dock="{Settings FilterPanelPosition}"
                                          Width="{Settings FilterPanelWitdh}"
                                          Visibility="{Settings FilterPanelVisible}"/>
 
-                            <ExplorerPanel Visibility="{Settings ExplorerPanelVisible}"
+                            <ExplorerPanel Visibility="{Settings ExplorerPanelVisible}" Margin="0,60,0,0"
                                            DockPanel.Dock="{Settings ExplorerPanelPosition}"
                                            Width="{Settings ExplorerPanelWitdh}"/>
-                            
+
 
                             <Grid DockPanel.Dock="Left">                                
                                 <LibraryDetailsView x:Name="PART_ViewDetails" />
@@ -51,6 +49,7 @@
                                 <LibraryListView x:Name="PART_ViewList" />
                             </Grid>
                         </DockPanel>
+                        <TopPanel DockPanel.Dock="Top" Grid.Row="0" Background="{DynamicResource TopPanelMaskBackgourndBrush}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

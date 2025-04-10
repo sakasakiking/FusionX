@@ -175,8 +175,11 @@
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
+                        <!--<Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Fill" Value="{DynamicResource HoverBrush}" TargetName="FavoriteAction"/>
+                        </Trigger>-->
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Fill" Value="{DynamicResource HoverBrush}" TargetName="FavoriteAction" />
                         </Trigger>
                         <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="False">
                             <DataTrigger.EnterActions>
@@ -213,9 +216,12 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
+            <Trigger Property="IsChecked" Value="True">
                 <Setter Property="BorderBrush" Value="{DynamicResource ControlHoverBorderBrush}" />
             </Trigger>
+            <!--<Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource ControlHoverBorderBrush}" />
+            </Trigger>-->
             <Trigger Property="IsFocused" Value="True">
                 <Setter Property="Background" Value="{DynamicResource ControlSelectedBackgroundBrush}" />
             </Trigger>

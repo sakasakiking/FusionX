@@ -27,16 +27,25 @@
     </Style>
 
     <Style x:Key="PropertyItemSmallButton" TargetType="Button">
-        <Setter Property="Margin" Value="0,2,0,0" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Padding" Value="4,2,4,2"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSize}"/>
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
-        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" 
-                               Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
-                               TextWrapping="Wrap"/>
+                    <Grid>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}" CornerRadius="4"/>
+                        <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" 
+                                   Margin="{TemplateBinding Padding}"
+                                   Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
+                                   TextWrapping="Wrap"/>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -109,7 +118,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Padding="8,3,8,4" CornerRadius="{DynamicResource ControlCornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" 
+                    <Border Padding="4,2,4,2" CornerRadius="4" BorderThickness="{TemplateBinding BorderThickness}" 
                             BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                         <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" 
                                    Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="Wrap"/>
