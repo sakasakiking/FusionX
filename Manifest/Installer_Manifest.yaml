@@ -135,3 +135,10 @@ Packages:
     Changelog: 
     - Tiny UI Enhancement.
     - Fix a issue that user can not reopen the detail part in GridView if the detail part is closed. (Add a Info button under the play button.)
+  - Version: 2.0.0
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-04-11
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_0.pthm
+    Changelog: 
+    - Lots of UI Change...
+    - Set the version to 2.0.0
