@@ -51,8 +51,9 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="FontWeight" Value="Medium"/>
-        <Setter Property="Padding" Value="4,1,4,3" />
-        <Setter Property="Margin" Value="0,0,4,4" />
+        <Setter Property="Padding" Value="4,0,4,3" />
+        <Setter Property="Margin" Value="0,2,4,4" />
+        <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Template">

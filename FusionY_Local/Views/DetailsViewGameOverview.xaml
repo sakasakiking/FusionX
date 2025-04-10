@@ -9,9 +9,9 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <Grid>
+                        <Grid Margin="0,0,0,64">
                             <Grid.OpacityMask>
-                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0.95">
+                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0.90">
                                     <GradientStop Offset="0" Color="#00000000" />
                                     <GradientStop Offset="1" Color="#FF000000" />
                                 </LinearGradientBrush>
@@ -19,7 +19,7 @@
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{DynamicResource DetailsScrollViewer}"
                                     d:DesignWidth="1280" d:DesignHeight="1280" d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}"
                                     x:Name="PART_ScrollViewHost">
-                                <Grid>
+                                <Grid Margin="0,0,0,40">
                                     <!--HeroView-->
                                     <Grid x:Name="HeroBanner" VerticalAlignment="Top">
                                         <Grid.OpacityMask>
@@ -211,9 +211,16 @@
                                                         </StackPanel.Resources>
                                                         <ContentControl x:Name="ThemeExtras_CriticRating" Margin="0,2,4,0" />
                                                         <TextBlock Text="{Binding Game.CriticScore, TargetNullValue='- -', FallbackValue='- -'}" Margin="0,3,0,2"
-                                                                Style="{DynamicResource GameSubtleInfoTextBlockStyle}"/>
+                                                                Style="{DynamicResource GameSubtleInfoTextBlockStyle}" />
                                                     </StackPanel>
                                                 </Border>
+                                                <!--Players InGame-->
+                                                <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl">
+                                                    <ContentControl.Resources>
+                                                        <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
+                                                    </ContentControl.Resources>
+                                                </ContentControl>
+                                                <!--Players InGame Ends-->
                                                 <Border Margin="0,0,8,8" VerticalAlignment="Top">
                                                     <Border.Style>
                                                         <Style TargetType="Border">
@@ -298,13 +305,9 @@
                                                     </StackPanel>
                                                 </Border>
                                                 <!--Genres Tags Ends-->
-                                                <!--Players InGame-->
-                                                <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl">
-                                                    <ContentControl.Resources>
-                                                        <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
-                                                    </ContentControl.Resources>
-                                                </ContentControl>
-                                                <!--Players InGame Ends-->
+
+                                            </WrapPanel>
+                                            <WrapPanel Orientation="Horizontal" Margin="0,4,0,0">
                                                 <!--Features by Icons-->
                                                 <Border Margin="0,0,8,8" VerticalAlignment="Top" HorizontalAlignment="Center"
                                                         Visibility="{PluginSettings Plugin=LibraryManagement, Path=HasData, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue={x:Static Visibility.Collapsed}}">
@@ -1017,14 +1020,14 @@
                                 <ToggleButton DockPanel.Dock="Right" Name="GameFavoriteToggleButton" Margin="0,0,8,0" Focusable="False" Style="{DynamicResource PillLargeToggleButton}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                         Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin}" VerticalAlignment="Bottom"
                                         IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}" />
-                                <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="50">
+                                <StackPanel x:Name="MoreActions" DockPanel.Dock="Right" Margin="0,0,-5,0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="60" Background="Transparent">
                                     <Border x:Name="MoreActionPopup" Background="{DynamicResource PopupBackgroundBrush}" BorderBrush="{DynamicResource PopupBorderBrush}"
-                                            Padding="8,8,8,0" Margin="0,0,0,8" HorizontalAlignment="Center" CornerRadius="20" Width="50" BorderThickness="{DynamicResource PopupBorderThickness}">
+                                            Padding="8,8,8,0" Margin="0,0,0,8" HorizontalAlignment="Center" CornerRadius="20" Width="60" BorderThickness="{DynamicResource PopupBorderThickness}">
                                         <Border.Style>
                                             <Style TargetType="Border">
                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding ElementName=MoreActionToggleButton, Path=IsChecked}" Value="True">
+                                                    <DataTrigger Binding="{Binding ElementName=MoreActions, Path=IsMouseOver}" Value="True">
                                                         <Setter Property="Visibility" Value="Visible" />
                                                     </DataTrigger>
                                                 </Style.Triggers>
@@ -1049,9 +1052,8 @@
                                                     Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                         </StackPanel>
                                     </Border>
-                                    <ToggleButton Name="MoreActionToggleButton" Focusable="False" Width="34" HorizontalAlignment="Center"
-                                                  FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                                  Style="{DynamicResource MoreActionToggleButton}"/>
+                                    <Button Focusable="False" Width="34" Height="34" Content="&#xe971;" HorizontalAlignment="Center" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                            Style="{DynamicResource PillLargeButton}"/>
                                 </StackPanel>
                                 <!--Action Buttons Ends-->
 
