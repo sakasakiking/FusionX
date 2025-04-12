@@ -4,15 +4,14 @@
 Simple, clean and consistent designed Theme for [Playnite](https://github.com/JosefNemec/Playnite) Desktop Mode. To achieve the best User Experience and Usability.
 
 ## Preparation and Settings
-It's using ``Segoe Fluent Icons`` for the theme, you might need to download the [Segoe Fluent Icons](https://learn.microsoft.com/zh-cn/windows/apps/design/downloads/#fonts)
+- It's using ``Segoe Fluent Icons`` for the theme, you might need to download the [Segoe Fluent Icons](https://learn.microsoft.com/zh-cn/windows/apps/design/downloads/#fonts)
+- Check this out if you want to achieve the look of screenshots. [Recommended Settings](https://github.com/sakasakiking/FusionX/wiki/Recommended-Settings-For-v2.0.0)
+
 ## Screenshots
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots01.jpg)
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots02.jpg)
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots03.jpg)
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots04.jpg)
-
-## Recommended Playnite settings to avoid issues and reach the visual effect shown in the screenshots
-Please follow [This guide](https://github.com/sakasakiking/FusionX/wiki/Recommended-settings-for-achieving-the-look-of-screenshots) (Sorry, need to be updated.)
 
 ## Support
 - If you found a bug or want to request a feature, please open a new issue in the [Issues Tracker](https://github.com/sakasakiking/FusionX/issues)
