@@ -3,7 +3,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!--ThemeModifier Options-->
-    <sys:Double x:Key="DetailsViewGameOverviewMaxWidth">1024</sys:Double>
+    <sys:Double x:Key="DetailsViewGameOverviewMaxWidth">800</sys:Double>
     
     <sys:Boolean x:Key="GridViewImageCoverUseRoundedCorners">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewImageCoverShowPlatformBanner">True</sys:Boolean>

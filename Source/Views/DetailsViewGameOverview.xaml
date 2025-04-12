@@ -140,9 +140,10 @@
                                                 </Image.OpacityMask>
                                             </Image>
                                             <!--ImageCover Ends-->
-                                            
 
-                                            <Border DockPanel.Dock="Right" Style="{DynamicResource ActionControlPanel}" Margin="8,0,0,0">
+
+                                            <Border DockPanel.Dock="Right" Style="{DynamicResource ActionControlPanel}" Margin="8,0,0,0"
+                                                    Visibility="{Binding ElementName=DuplicateHider_SourceSelector, Path=Visibility}">
                                                 <StackPanel>
                                                     <ContentControl x:Name="DuplicateHider_SourceSelector" VerticalAlignment="Center" HorizontalAlignment="Center"
                                                             VerticalContentAlignment="Center" Margin="0,0,0,0" Height="20" RenderOptions.BitmapScalingMode="Fant" />
@@ -156,7 +157,7 @@
                                                 </ContentControl.Resources>
                                             </ContentControl>
                                             <!--Players InGame Ends-->
-                                            <Border DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
+                                            <Border DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0" >
                                                 <StackPanel>
                                                     <ToggleButton x:Name="HeroVideoOnOffTogglePlayer" ToolTip="Video On/Off" Style="{DynamicResource SwitcherToggleButton}" />
                                                     <TextBlock Text="Video ON" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
@@ -188,12 +189,12 @@
                                                     <TextBlock Text="Maximize" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
                                                 </StackPanel>
                                             </Border>
-                                            <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,0,0,0">
-                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                                    <Image Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0" RenderOptions.BitmapScalingMode="Fant" />
-                                                    <TextBlock Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}"
+                                            <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,0,0,0" MinWidth="300">
+                                                <DockPanel Margin="0,0,0,8">
+                                                    <Image DockPanel.Dock="Left" Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0" RenderOptions.BitmapScalingMode="Fant" />
+                                                    <TextBlock DockPanel.Dock="Right" Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}" TextWrapping="Wrap"
                                                             Style="{DynamicResource DetailsViewHeaderStyle}" />
-                                                </StackPanel>
+                                                </DockPanel>
                                                 <WrapPanel Orientation="Horizontal" Margin="0,8,0,0">
                                                     <Border Margin="0,0,8,8" VerticalAlignment="Top" Tag="{DynamicResource DetailViewRatingStar}">
                                                         <Border.Style>
@@ -450,21 +451,22 @@
                                                         <TabItem Header="{DynamicResource LOCNotesLabel}" FontSize="16"
                                                                 Visibility="{Binding ElementName=NotesVisibilityProxy, Path=Tag}">
                                                             <StackPanel Margin="0,24,0,0">
-                                                                <!--<TextBlock x:Name="NotesVisibilityProxy" Visibility="Collapsed">
-                                             <TextBlock.Style>
-                                                 <Style TargetType="TextBlock">
-                                                     <Setter Property="Tag" Value="Collapsed" />
-                                                     <Style.Triggers>
-                                                         <DataTrigger Binding="{Binding ElementName=PART_TextNotes, Path=Visibility}" Value="Visible">
-                                                             <Setter Property="Tag" Value="Visible" />
-                                                         </DataTrigger>
-                                                         <DataTrigger Binding="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, FallbackValue=False}" Value="True">
-                                                             <Setter Property="Tag" Value="Visible" />
-                                                         </DataTrigger>
-                                                     </Style.Triggers>
-                                                 </Style>
-                                             </TextBlock.Style>
-                                         </TextBlock>-->
+                                                                <TextBlock x:Name="NotesVisibilityProxy" Visibility="Collapsed">
+                                                                    <TextBlock.Style>
+                                                                        <Style TargetType="TextBlock">
+                                                                            <Setter Property="Tag" Value="Collapsed" />
+                                                                            <Style.Triggers>
+                                                                                <DataTrigger Binding="{Binding ElementName=PART_TextNotes, Path=Visibility}" Value="Visible">
+                                                                                    <Setter Property="Tag" Value="Visible" />
+                                                                                </DataTrigger>
+                                                                                <!--<DataTrigger Binding="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, FallbackValue=False}"
+                                                                                        Value="True">
+                                                                                    <Setter Property="Tag" Value="Visible" />
+                                                                                </DataTrigger>-->
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </TextBlock.Style>
+                                                                </TextBlock>
                                                                 <TextBox Name="PART_TextNotes" IsReadOnly="True" BorderThickness="0" AcceptsReturn="True" TextWrapping="Wrap"
                                                                         Margin="-4,0,-4,0" Padding="0" Background="Transparent" />
                                                             </StackPanel>
@@ -664,7 +666,7 @@
                                                 <!-- HowLongToBeat ProgressBar Ends-->
                                                 <!-- SuccessStory -->
                                                 <StackPanel Margin="0,0,0,24"
-                                                        Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue={x:Static Visibility.Collapsed}}">
+                                                        Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                     <DockPanel>
                                                         <!--<ContentControl x:Name="SuccessStory_PluginButton" DockPanel.Dock="Right" VerticalAlignment="Center" />-->
                                                         <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Left" VerticalAlignment="Center"

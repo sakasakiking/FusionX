@@ -54,22 +54,77 @@
                                                     Style="{DynamicResource DetailsScrollViewer}" d:DesignWidth="1280" d:DesignHeight="1280"
                                                     d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}" x:Name="PART_ScrollViewHost">
                                                 <Grid Margin="0,0,0,40">
-                                                    <FadeImage x:Name="PART_ImageBackground" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top">
-                                                        <FadeImage.ImageOpacityMask>
-                                                            <RadialGradientBrush GradientOrigin="0.5,0" Center="0.5,0" RadiusX="2" RadiusY="1">
-                                                                <RadialGradientBrush.GradientStops>
-                                                                    <GradientStop Color="Black" Offset="0.3" />
-                                                                    <GradientStop Color="Transparent" Offset="1" />
-                                                                </RadialGradientBrush.GradientStops>
-                                                            </RadialGradientBrush>
-                                                        </FadeImage.ImageOpacityMask>
-                                                    </FadeImage>
+                                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top">
+                                                        <Grid.OpacityMask>
+                                                            <ImageBrush ImageSource="../Images/Hero-mask.png" />
+                                                        </Grid.OpacityMask>
+                                                        <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top" />
+                                                        <Grid x:Name="GameVideo">
+                                                            <Grid.Style>
+                                                                <Style TargetType="Grid">
+                                                                    <Setter Property="Width" Value="Auto" />
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                    <Setter Property="Margin" Value="0,0,0,0" />
+                                                                    <Setter Property="Opacity" Value="1" />
+                                                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding ElementName=HeroVideoOnOffTogglePlayer, Path=IsChecked}" Value="True">
+                                                                            <Setter Property="Visibility" Value="Visible" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding ElementName=HeroVideoMiniTogglePlayer, Path=IsChecked}" Value="False">
+                                                                            <Setter Property="HorizontalAlignment" Value="Right" />
+                                                                            <Setter Property="VerticalAlignment" Value="Top" />
+                                                                            <Setter Property="Width" Value="500" />
+                                                                            <Setter Property="Margin" Value="0,80,40,0" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger
+                                                                                Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsAnyVideoAvailable, FallbackValue=False}"
+                                                                                Value="False">
+                                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger
+                                                                                Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}"
+                                                                                Value="False">
+                                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger
+                                                                                Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}"
+                                                                                Value="True">
+                                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Grid.Style>
+                                                            <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
+                                                                <ContentControl.Template>
+                                                                    <ControlTemplate TargetType="ContentControl">
+                                                                        <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
+                                                                            <ContentPresenter />
+                                                                        </Viewbox>
+                                                                    </ControlTemplate>
+                                                                </ContentControl.Template>
+                                                                <!--<ContentControl.Effect>
+                                                                    <DropShadowEffect Color="Black" Opacity="0.6" BlurRadius="64" ShadowDepth="64" Direction="270" />
+                                                                </ContentControl.Effect>-->
+                                                                <ContentControl.OpacityMask>
+                                                                    <VisualBrush>
+                                                                        <VisualBrush.Visual>
+                                                                            <Border Background="Black" CornerRadius="16"
+                                                                                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                                        </VisualBrush.Visual>
+                                                                    </VisualBrush>
+                                                                </ContentControl.OpacityMask>
+                                                            </ContentControl>
+                                                        </Grid>
+                                                    </Grid>
 
                                                     <Grid HorizontalAlignment="Stretch" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260"
                                                             Margin="40,0,40,0">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="660" />
-                                                            <ColumnDefinition Width="*" MinWidth="300"/>
+                                                            <ColumnDefinition Width="*" MinWidth="300" />
                                                         </Grid.ColumnDefinitions>
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}" />
@@ -104,6 +159,28 @@
                                                         <!--ExtraLogo Ends-->
 
                                                         <DockPanel Grid.ColumnSpan="2" Margin="0,0,0,40">
+                                                            <StackPanel DockPanel.Dock="Bottom" Name="PART_ElemLinks" Margin="0,40,0,0">
+                                                                <!--<TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0" Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />-->
+                                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8"
+                                                                        Style="{DynamicResource DetailViewCardBorder}" Margin="0,0,0,0">
+                                                                    <ItemsControl ItemsSource="{Binding Game.Links}" Margin="-13.6,0,0,0"
+                                                                            Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
+                                                                        <ItemsControl.ItemsPanel>
+                                                                            <ItemsPanelTemplate>
+                                                                                <WrapPanel Orientation="Horizontal" />
+                                                                            </ItemsPanelTemplate>
+                                                                        </ItemsControl.ItemsPanel>
+                                                                        <ItemsControl.ItemTemplate>
+                                                                            <DataTemplate DataType="{x:Type Link}">
+                                                                                <Button Content="{Binding Name}" Style="{StaticResource PropertyItemLinkButton}"
+                                                                                        ToolTip="{Binding Name}"
+                                                                                        Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.OpenLinkCommand}"
+                                                                                        CommandParameter="{Binding}" />
+                                                                            </DataTemplate>
+                                                                        </ItemsControl.ItemTemplate>
+                                                                    </ItemsControl>
+                                                                </Border>
+                                                            </StackPanel>
                                                             <!--ImageCover-->
                                                             <Image Name="PART_ImageCover" DockPanel.Dock="right" Height="{Settings GameDetailsCoverHeight}"
                                                                     HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="16,0,0,0" StretchDirection="Both"
@@ -119,7 +196,8 @@
                                                                 </Image.OpacityMask>
                                                             </Image>
                                                             <!--ImageCover Ends-->
-                                                            <Border DockPanel.Dock="Right" Style="{DynamicResource ActionControlPanel}" Margin="8,0,0,0">
+                                                            <Border DockPanel.Dock="Right" Style="{DynamicResource ActionControlPanel}" Margin="8,0,0,0"
+                                                                    Visibility="{Binding ElementName=DuplicateHider_SourceSelector, Path=Visibility}">
                                                                 <StackPanel>
                                                                     <ContentControl x:Name="DuplicateHider_SourceSelector" VerticalAlignment="Center" HorizontalAlignment="Center"
                                                                             VerticalContentAlignment="Center" Margin="0,0,0,0" Height="20" RenderOptions.BitmapScalingMode="Fant" />
@@ -128,18 +206,35 @@
                                                                 </StackPanel>
                                                             </Border>
                                                             <!--Players InGame-->
-                                                            <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl" DockPanel.Dock="Right" Margin="8,0,0,0">
-                                                                <ContentControl.Resources>
-                                                                    <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
-                                                                </ContentControl.Resources>
-                                                            </ContentControl>
+                                                            <StackPanel DockPanel.Dock="Right" Margin="8,0,0,0" VerticalAlignment="Bottom"
+                                                                    Visibility="{Binding ElementName=NewsViewer_PlayersInGameViewerControl, Path=Visibility}">
+                                                                <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl">
+                                                                    <ContentControl.Resources>
+                                                                        <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
+                                                                    </ContentControl.Resources>
+                                                                </ContentControl>
+                                                            </StackPanel>
                                                             <!--Players InGame Ends-->
+                                                            <Border DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
+                                                                <StackPanel>
+                                                                    <ToggleButton x:Name="HeroVideoOnOffTogglePlayer" ToolTip="Video On/Off"
+                                                                            Style="{DynamicResource SwitcherToggleButton}" />
+                                                                    <TextBlock Text="Video ON" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
+                                                                </StackPanel>
+                                                            </Border>
+                                                            <Border x:Name="VideoController" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
+                                                                <StackPanel>
+                                                                    <ToggleButton x:Name="HeroVideoMiniTogglePlayer" ToolTip="Mini Screen"
+                                                                            Style="{DynamicResource SwitcherToggleButton}" />
+                                                                    <TextBlock Text="Maximize" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
+                                                                </StackPanel>
+                                                            </Border>
                                                             <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,0,0,0">
                                                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                                                                     <Image Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0"
                                                                             RenderOptions.BitmapScalingMode="Fant" />
                                                                     <TextBlock Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}"
-                                                                            Style="{DynamicResource DetailsViewHeaderStyle}" />
+                                                                            TextWrapping="Wrap" Style="{DynamicResource DetailsViewHeaderStyle}" />
                                                                 </StackPanel>
                                                                 <WrapPanel Orientation="Horizontal" Margin="0,8,0,0">
                                                                     <Border Margin="0,0,8,8" VerticalAlignment="Top" Tag="{DynamicResource DetailViewRatingStar}">
@@ -292,27 +387,17 @@
                                                             <Border Panel.ZIndex="99" Margin="0,0,0,40" VerticalAlignment="Top">
                                                                 <Border.Style>
                                                                     <Style TargetType="Border">
-                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                        <Setter Property="Visibility" Value="Visible" />
                                                                         <Style.Triggers>
                                                                             <DataTrigger
                                                                                     Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}"
                                                                                     Value="False">
                                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                                             </DataTrigger>
-                                                                            <DataTrigger
-                                                                                    Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsAnyVideoAvailable, FallbackValue=False}"
-                                                                                    Value="True">
-                                                                                <Setter Property="Control.Visibility" Value="Visible" />
-                                                                            </DataTrigger>
-                                                                            <DataTrigger
-                                                                                    Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}"
-                                                                                    Value="True">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                            </DataTrigger>
                                                                         </Style.Triggers>
                                                                     </Style>
                                                                 </Border.Style>
-                                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
+                                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControlAlternative">
                                                                     <ContentControl.OpacityMask>
                                                                         <VisualBrush>
                                                                             <VisualBrush.Visual>
@@ -325,101 +410,6 @@
                                                                 </ContentControl>
                                                             </Border>
                                                             <!--Video Part Ends-->
-
-                                                            <!--<StackPanel Visibility="{PluginSettings Plugin=HowLongToBeat, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-                             <TextBlock Text="{DynamicResource LOCHowLongToBeat}" Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold" FontSize="20"/>
-
-                             <Grid Margin="0,16,0,40">
-                                 <Grid.Resources>
-                                     <Style TargetType="Label" x:Key="HltbGridLabelStyle">
-                                         <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}"/>
-                                         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
-                                         <Setter Property="HorizontalAlignment" Value="Center" />
-                                     </Style>
-                                     <Style TargetType="TextBlock" x:Key="HltbGridTextStyle" BasedOn="{StaticResource BaseTextBlockStyle}">
-                                         <Setter Property="Margin" Value="12,8,12,8" />
-                                         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
-                                         <Setter Property="FontWeight" Value="Bold"/>
-                                         <Setter Property="Visibility" Value="Visible" />
-                                         <Setter Property="HorizontalAlignment" Value="Center"/>
-                                         <Style.Triggers>
-                                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Value="-">
-                                                 <Setter Property="Visibility" Value="Collapsed" />
-                                             </DataTrigger>
-                                         </Style.Triggers>
-                                     </Style>
-                                 </Grid.Resources>
-                                 <Grid.ColumnDefinitions>
-                                     <ColumnDefinition Width="Auto"/>
-                                     <ColumnDefinition Width="Auto"/>
-                                     <ColumnDefinition Width="Auto"/>
-                                     <ColumnDefinition Width="Auto"/>
-                                     <ColumnDefinition Width="Auto"/>
-                                     <ColumnDefinition Width="Auto"/>
-                                 </Grid.ColumnDefinitions>
-                                 <StackPanel Grid.Column="0" Margin="0,0,8,0">
-                                     <Label Content="{DynamicResource LOCHowLongToBeatMainStory}"
-                                            Style="{DynamicResource HltbGridLabelStyle}"
-                                            Visibility="{Binding ElementName=MainStoryFormat, Path=Visibility}" />
-                                     <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
-                                         <TextBlock Name="MainStoryFormat" Style="{DynamicResource HltbGridTextStyle}"
-                                                Text="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat, FallbackValue='-'}"/>
-                                     </Border>
-                                 </StackPanel>
-                                 <StackPanel Grid.Column="1" Margin="0,0,8,0">
-
-                                     <Label Content="{DynamicResource LOCHowLongToBeatMainExtra}"
-                                            Style="{DynamicResource HltbGridLabelStyle}"
-                                            Visibility="{Binding ElementName=MainExtraFormat, Path=Visibility}" />
-                                     <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
-                                         <TextBlock Name="MainExtraFormat"
-                                                    Style="{DynamicResource HltbGridTextStyle}"
-                                                    Text="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat, FallbackValue='-'}"/>
-                                     </Border>
-                                 </StackPanel>
-
-                                 <StackPanel Grid.Column="2" Margin="0,0,8,0">
-
-                                     <Label Content="{DynamicResource LOCHowLongToBeatCompletionist}"
-                                            Style="{DynamicResource HltbGridLabelStyle}"
-                                            Visibility="{Binding ElementName=CompletionistFormat, Path=Visibility}" />
-                                     <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
-                                         <TextBlock Name="CompletionistFormat"
-                                                Style="{DynamicResource HltbGridTextStyle}"
-                                                Text="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat, FallbackValue='-'}"/>
-                                     </Border>
-                                 </StackPanel>
-
-                                 <StackPanel Grid.Column="3" Margin="0,0,8,0">
-                                     <Label Content="{DynamicResource LOCHowLongToBeatSolo}"
-                                            Style="{DynamicResource HltbGridLabelStyle}"
-                                            Visibility="{Binding ElementName=SoloFormat, Path=Visibility}" />
-                                     <Border Background="{DynamicResource ControlBackgroundBrush}" CornerRadius="4">
-                                         <TextBlock Name="SoloFormat"
-                                                Style="{DynamicResource HltbGridTextStyle}"
-                                                Text="{PluginSettings Plugin=HowLongToBeat, Path=SoloFormat, FallbackValue='-'}"/>
-                                     </Border>
-                                 </StackPanel>
-
-                                 <StackPanel Grid.Column="4">
-                                     <Label Content="{DynamicResource LOCHowLongToBeatCoOp}"
-Style="{DynamicResource HltbGridLabelStyle}"
-Visibility="{Binding ElementName=CoOpFormat, Path=Visibility}" />
-                                     <TextBlock Name="CoOpFormat"
-    Style="{DynamicResource HltbGridTextStyle}"
-    Text="{PluginSettings Plugin=HowLongToBeat, Path=CoOpFormat, FallbackValue='-'}"/>
-                                 </StackPanel>
-
-                                 <StackPanel Grid.Column="5">
-                                     <Label Content="{DynamicResource LOCHowLongToBeatVs}"
-Style="{DynamicResource HltbGridLabelStyle}"
-Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
-                                     <TextBlock Name="VsFormat" 
-    Style="{DynamicResource HltbGridTextStyle}"
-    Text="{PluginSettings Plugin=HowLongToBeat, Path=VsFormat, FallbackValue='-'}"/>
-                                 </StackPanel>
-                             </Grid>
-                         </StackPanel>-->
 
                                                             <!--Tab Content Part-->
                                                             <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
@@ -516,21 +506,24 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
 
                                                                         <StackPanel Margin="0,24,0,0">
 
-                                                                            <!--<TextBlock x:Name="NotesVisibilityProxy" Visibility="Collapsed">
-                                             <TextBlock.Style>
-                                                 <Style TargetType="TextBlock">
-                                                     <Setter Property="Tag" Value="Collapsed" />
-                                                     <Style.Triggers>
-                                                         <DataTrigger Binding="{Binding ElementName=PART_TextNotes, Path=Visibility}" Value="Visible">
-                                                             <Setter Property="Tag" Value="Visible" />
-                                                         </DataTrigger>
-                                                         <DataTrigger Binding="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, FallbackValue=False}" Value="True">
-                                                             <Setter Property="Tag" Value="Visible" />
-                                                         </DataTrigger>
-                                                     </Style.Triggers>
-                                                 </Style>
-                                             </TextBlock.Style>
-                                         </TextBlock>-->
+                                                                            <TextBlock x:Name="NotesVisibilityProxy" Visibility="Collapsed">
+                                                                                <TextBlock.Style>
+                                                                                    <Style TargetType="TextBlock">
+                                                                                        <Setter Property="Tag" Value="Collapsed" />
+                                                                                        <Style.Triggers>
+                                                                                            <DataTrigger Binding="{Binding ElementName=PART_TextNotes, Path=Visibility}"
+                                                                                                    Value="Visible">
+                                                                                                <Setter Property="Tag" Value="Visible" />
+                                                                                            </DataTrigger>
+                                                                                            <!--<DataTrigger
+                                                                                                    Binding="{PluginSettings Plugin=PlayNotes, Path=IsControlVisible, FallbackValue=False}"
+                                                                                                    Value="True">
+                                                                                                <Setter Property="Tag" Value="Visible" />
+                                                                                            </DataTrigger>-->
+                                                                                        </Style.Triggers>
+                                                                                    </Style>
+                                                                                </TextBlock.Style>
+                                                                            </TextBlock>
 
                                                                             <TextBox Name="PART_TextNotes" IsReadOnly="True" BorderThickness="0" AcceptsReturn="True"
                                                                                     TextWrapping="Wrap" Margin="-4,0,-4,0" Padding="0" Background="Transparent" />
@@ -599,56 +592,35 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                         <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,0,0,0">
                                                             <!--Links-->
                                                             <!--<StackPanel Name="PART_ElemLinks" Margin="0,0,0,24">
-        <TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0"
-                Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />
-        <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8" Style="{DynamicResource DetailViewCardBorder}"
-                Margin="0,12,0,0">
-            <ItemsControl ItemsSource="{Binding Game.Links}" Margin="-13.6,0,0,0"
-                    Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate DataType="{x:Type Link}">
-                        <Button Content="{Binding Name}" Style="{StaticResource PropertyItemLinkButton}" ToolTip="{Binding Name}"
-                                Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.OpenLinkCommand}"
-                                CommandParameter="{Binding}" />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Border>
-    </StackPanel>-->
+                                                                    <TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0"
+                                                                            Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />
+                                                                    <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8" Style="{DynamicResource DetailViewCardBorder}"
+                                                                            Margin="0,12,0,0">
+                                                                        <ItemsControl ItemsSource="{Binding Game.Links}" Margin="-13.6,0,0,0"
+                                                                                Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
+                                                                            <ItemsControl.ItemsPanel>
+                                                                                <ItemsPanelTemplate>
+                                                                                    <WrapPanel Orientation="Horizontal" />
+                                                                                </ItemsPanelTemplate>
+                                                                            </ItemsControl.ItemsPanel>
+                                                                            <ItemsControl.ItemTemplate>
+                                                                                <DataTemplate DataType="{x:Type Link}">
+                                                                                    <Button Content="{Binding Name}" Style="{StaticResource PropertyItemLinkButton}" ToolTip="{Binding Name}"
+                                                                                            Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.OpenLinkCommand}"
+                                                                                            CommandParameter="{Binding}" />
+                                                                                </DataTemplate>
+                                                                            </ItemsControl.ItemTemplate>
+                                                                        </ItemsControl>
+                                                                    </Border>
+                                                                </StackPanel>-->
                                                             <!--Links End-->
-                                                            <!-- SteamScreenshots -->
-                                                            <!--<StackPanel Name="SteamScreenshots" Style="{DynamicResource PluginStackpanelVisibility}" Margin="0,0,0,24">
-        <TextBlock Text="{DynamicResource LOC_SteamScreenshots_SteamScreenshotsLabel}" Margin="0,0,0,0"
-                Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />
-        <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8" Style="{DynamicResource DetailViewCardBorder}"
-                Margin="0,12,0,0">
-            <ContentControl x:Name="SteamScreenshots_SteamScreenshotsViewControl" />
-        </Border>
-    </StackPanel>-->
-                                                            <!-- SteamScreenshots Ends -->
-                                                            <!--<StackPanel
-            Visibility="{PluginSettings Plugin=HowLongToBeat, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-        <TextBlock Text="{DynamicResource LOCHowLongToBeat}" Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold"
-                FontSize="20" />
-        
-    </StackPanel>-->
-                                                            <!-- HowLongToBeat ProgressBar -->
+
+                                                            <!-- HowLongToBeat -->
                                                             <StackPanel Margin="0,0,0,24"
                                                                     Visibility="{PluginSettings Plugin=HowLongToBeat, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                                 <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}">
                                                                     <DockPanel>
-                                                                        <!--<ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right">
-                    <ContentControl.Resources>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Transparent" />
-                        </Style>
-                    </ContentControl.Resources>
-                </ContentControl>-->
+                                                                        <!--<ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right" />-->
                                                                         <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
                                                                                 Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />
                                                                     </DockPanel>
@@ -743,9 +715,10 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
                                                                     </Border>
                                                                 </StackPanel>
                                                             </StackPanel>
-                                                            <!-- HowLongToBeat ProgressBar Ends-->
+                                                            <!-- HowLongToBeat Ends-->
                                                             <!-- SuccessStory -->
-                                                            <StackPanel Margin="0,0,0,24" Visibility="{Binding ElementName=SuccessStory_PluginCompactUnlocked, Path=Visibility}">
+                                                            <StackPanel Margin="0,0,0,24"
+                                                                    Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                                 <DockPanel>
                                                                     <!--<ContentControl x:Name="SuccessStory_PluginButton" DockPanel.Dock="Right" VerticalAlignment="Center" />-->
                                                                     <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Left" VerticalAlignment="Center"
@@ -1248,7 +1221,7 @@ Visibility="{Binding ElementName=VsFormat, Path=Visibility}" />
 
                                 <!--Panel Close Button-->
                                 <Button HorizontalAlignment="Right" VerticalAlignment="Top" Content="&#xe106;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
-                                        Style="{DynamicResource PillMediumButton}" Command="{MainViewModel CloseGameSideBarCommand}" Margin="16,76,16,0" />
+                                        Style="{DynamicResource PillMediumButton}" Command="{MainViewModel CloseGameSideBarCommand}" Margin="16,80,16,0" />
                                 <!--Panel Close Button Ends-->
 
                                 <!--NoItem Selected Info-->
