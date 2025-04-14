@@ -1,0 +1,9 @@
+Constants:
+    - "Details View"
+    - DetailsViewGameOverviewMaxWidth(800,2400): 'Maximum width of DetailViewGameOverview'
+    - DetailViewDetailInfoIcon: 'Show icons at detail info list'
+    - DetailViewRatingStar: 'Show Rating Star under game name'
+    - "Grid View Covers"
+    - GridViewListShowFavorite: 'Show favorites icon'
+    - GridViewImageCoverShowPlatformBanner: 'Show platform banners ("ThemeExtras" extension needed)'
+    - GridViewImageCoverUseRoundedCorners: 'Use rounded corners on game image covers (May reduce app performance)'
