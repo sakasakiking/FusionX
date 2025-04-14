@@ -123,8 +123,8 @@
                                                     <Grid HorizontalAlignment="Stretch" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260"
                                                             Margin="40,0,40,0">
                                                         <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="660" />
-                                                            <ColumnDefinition Width="*" MinWidth="300" />
+                                                            <ColumnDefinition Width="6*" MaxWidth="600" />
+                                                            <ColumnDefinition Width="4*" MinWidth="300" />
                                                         </Grid.ColumnDefinitions>
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}" />
@@ -196,25 +196,6 @@
                                                                 </Image.OpacityMask>
                                                             </Image>
                                                             <!--ImageCover Ends-->
-                                                            <Border DockPanel.Dock="Right" Style="{DynamicResource ActionControlPanel}" Margin="8,0,0,0"
-                                                                    Visibility="{Binding ElementName=DuplicateHider_SourceSelector, Path=Visibility}">
-                                                                <StackPanel>
-                                                                    <ContentControl x:Name="DuplicateHider_SourceSelector" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                                            VerticalContentAlignment="Center" Margin="0,0,0,0" Height="20" RenderOptions.BitmapScalingMode="Fant" />
-                                                                    <TextBlock Text="{DynamicResource LOCPlatformsTitle}" Style="{DynamicResource ActionControlLabelStyle}"
-                                                                            Margin="0,8,0,0" />
-                                                                </StackPanel>
-                                                            </Border>
-                                                            <!--Players InGame-->
-                                                            <StackPanel DockPanel.Dock="Right" Margin="8,0,0,0" VerticalAlignment="Bottom"
-                                                                    Visibility="{Binding ElementName=NewsViewer_PlayersInGameViewerControl, Path=Visibility}">
-                                                                <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl">
-                                                                    <ContentControl.Resources>
-                                                                        <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
-                                                                    </ContentControl.Resources>
-                                                                </ContentControl>
-                                                            </StackPanel>
-                                                            <!--Players InGame Ends-->
                                                             <Border DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
                                                                 <StackPanel>
                                                                     <ToggleButton x:Name="HeroVideoOnOffTogglePlayer" ToolTip="Video On/Off"
@@ -229,6 +210,16 @@
                                                                     <TextBlock Text="Maximize" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
                                                                 </StackPanel>
                                                             </Border>
+                                                            <ContentControl x:Name="DuplicateHider_ContentControl1" DockPanel.Dock="Right" VerticalAlignment="Bottom"
+                                                                            Margin="8,0,0,0" Tag="{DynamicResource DH_ContentControl_Simple_Style}" />
+                                                            <!--<ContentControl x:Name="DuplicateHider_SourceSelector" DockPanel.Dock="Right" VerticalContentAlignment="Bottom" Style="{DynamicResource DH_ContentControl_Simple_Style}" />-->
+                                                            <!--Players InGame-->
+                                                            <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl" DockPanel.Dock="Right" Margin="8,0,0,0" VerticalAlignment="Bottom">
+                                                                <ContentControl.Resources>
+                                                                    <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
+                                                                </ContentControl.Resources>
+                                                            </ContentControl>
+                                                            <!--Players InGame Ends-->
                                                             <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,0,0,0">
                                                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                                                                     <Image Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0"
@@ -261,7 +252,7 @@
                                                                             </StackPanel.Resources>
                                                                             <ContentControl x:Name="ThemeExtras_CriticRating" Margin="0,2,4,0" />
                                                                             <TextBlock Text="{Binding Game.CriticScore, TargetNullValue='- -', FallbackValue='- -'}"
-                                                                                    Margin="0,3,0,2" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" />
+                                                                                    Margin="0,5,0,2" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" FontSize="12" />
                                                                         </StackPanel>
                                                                     </Border>
                                                                     <Border Margin="0,0,8,8" VerticalAlignment="Top">
@@ -282,7 +273,7 @@
                                                                             </Style>
                                                                         </Border.Style>
                                                                         <StackPanel Orientation="Horizontal">
-                                                                            <Button Name="PART_ButtonReleaseDate" Margin="0,2,4,0" Padding="0" BorderThickness="0"
+                                                                            <Button Name="PART_ButtonReleaseDate" Margin="0,0,4,0" Padding="0" BorderThickness="0" Background="{x:Null}"
                                                                                     Style="{DynamicResource PropertyItemSmallButton}" />
                                                                             <StackPanel Name="PART_ElemPlatform" Orientation="Horizontal">
                                                                                 <StackPanel.Style>
@@ -298,7 +289,7 @@
                                                                                         </Style.Triggers>
                                                                                     </Style>
                                                                                 </StackPanel.Style>
-                                                                                <TextBlock Text="·" Margin="0,2,4,0" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" />
+                                                                                <TextBlock Text="·" Margin="0,3,4,0" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" />
                                                                                 <ItemsControl ItemsSource="{Binding Game.Platforms}" Margin="0,0,0,0">
                                                                                     <ItemsControl.ItemsPanel>
                                                                                         <ItemsPanelTemplate>
@@ -307,7 +298,7 @@
                                                                                     </ItemsControl.ItemsPanel>
                                                                                     <ItemsControl.ItemTemplate>
                                                                                         <DataTemplate>
-                                                                                            <Button Content="{Binding Name}" Margin="0,2,4,0" Padding="0" BorderThickness="0"
+                                                                                            <Button Content="{Binding Name}" Margin="0,0,4,0" Padding="0" BorderThickness="0" Background="{x:Null}"
                                                                                                     Style="{DynamicResource PropertyItemSmallButton}"
                                                                                                     Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetPlatformFilterCommand}"
                                                                                                     CommandParameter="{Binding}" />
@@ -381,18 +372,18 @@
                                                         <!--Left Part-->
                                                         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,40,0">
 
-
-
                                                             <!--Video Part-->
-                                                            <Border Panel.ZIndex="99" Margin="0,0,0,40" VerticalAlignment="Top">
+                                                            <Border Panel.ZIndex="99" VerticalAlignment="Top">
                                                                 <Border.Style>
                                                                     <Style TargetType="Border">
                                                                         <Setter Property="Visibility" Value="Visible" />
+                                                                        <Setter Property="Margin" Value="0,0,0,40" />
                                                                         <Style.Triggers>
                                                                             <DataTrigger
                                                                                     Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}"
-                                                                                    Value="False">
+                                                                                    Value="True">
                                                                                 <Setter Property="Visibility" Value="Collapsed" />
+                                                                                <Setter Property="Margin" Value="0,0,0,0" />
                                                                             </DataTrigger>
                                                                         </Style.Triggers>
                                                                     </Style>
@@ -435,65 +426,69 @@
 
                                                                             <StackPanel Margin="0,24,0,0" Visibility="{Binding ElementName=GameRelationsVisibilityProxy, Path=Tag}">
 
-                                                                                <TextBlock Text="{DynamicResource LOCGameRelations_RelatedGamesLabel}" Margin="0,0,0,16"
+                                                                                <TextBlock Text="{DynamicResource LOCGameRelations_RelatedGamesLabel}" Margin="0,0,0,0"
                                                                                         Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />
+                                                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16"
+                                                                                        Style="{DynamicResource DetailViewCardBorder}" Margin="0,12,0,0">
+                                                                                    <StackPanel>
+                                                                                        <TextBlock x:Name="GameRelationsVisibilityProxy" Visibility="Collapsed">
+                                                                                            <TextBlock.Style>
+                                                                                                <Style TargetType="TextBlock">
+                                                                                                    <Setter Property="Tag" Value="Collapsed" />
+                                                                                                    <Style.Triggers>
+                                                                                                        <DataTrigger
+                                                                                                                Binding="{Binding ElementName=Panel_GameRelations_SimilarGamesControl, Path=Visibility}"
+                                                                                                                Value="Visible">
+                                                                                                            <Setter Property="Tag" Value="Visible" />
+                                                                                                        </DataTrigger>
+                                                                                                        <DataTrigger
+                                                                                                                Binding="{Binding ElementName=Panel_GameRelations_SameSeriesControl, Path=Visibility}"
+                                                                                                                Value="Visible">
+                                                                                                            <Setter Property="Tag" Value="Visible" />
+                                                                                                        </DataTrigger>
+                                                                                                        <DataTrigger
+                                                                                                                Binding="{Binding ElementName=Panel_GameRelations_SameDeveloperControl, Path=Visibility}"
+                                                                                                                Value="Visible">
+                                                                                                            <Setter Property="Tag" Value="Visible" />
+                                                                                                        </DataTrigger>
+                                                                                                        <DataTrigger
+                                                                                                                Binding="{Binding ElementName=Panel_GameRelations_SamePublisherControl, Path=Visibility}"
+                                                                                                                Value="Visible">
+                                                                                                            <Setter Property="Tag" Value="Visible" />
+                                                                                                        </DataTrigger>
+                                                                                                    </Style.Triggers>
+                                                                                                </Style>
+                                                                                            </TextBlock.Style>
+                                                                                        </TextBlock>
+                                                                                        <Expander x:Name="Panel_GameRelations_SimilarGamesControl"
+                                                                                                Header="{DynamicResource LOCGameRelations_SimilarGamesLabel}" IsExpanded="True"
+                                                                                                Margin="0,8,0,0"
+                                                                                                Visibility="{PluginSettings Plugin=GameRelations, Path=SimilarGamesControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                                                            <ContentControl x:Name="GameRelations_SimilarGamesControl" Margin="0,16,0,0" />
+                                                                                        </Expander>
 
-                                                                                <TextBlock x:Name="GameRelationsVisibilityProxy" Visibility="Collapsed">
-                                                                                    <TextBlock.Style>
-                                                                                        <Style TargetType="TextBlock">
-                                                                                            <Setter Property="Tag" Value="Collapsed" />
-                                                                                            <Style.Triggers>
-                                                                                                <DataTrigger
-                                                                                                        Binding="{Binding ElementName=Panel_GameRelations_SimilarGamesControl, Path=Visibility}"
-                                                                                                        Value="Visible">
-                                                                                                    <Setter Property="Tag" Value="Visible" />
-                                                                                                </DataTrigger>
-                                                                                                <DataTrigger
-                                                                                                        Binding="{Binding ElementName=Panel_GameRelations_SameSeriesControl, Path=Visibility}"
-                                                                                                        Value="Visible">
-                                                                                                    <Setter Property="Tag" Value="Visible" />
-                                                                                                </DataTrigger>
-                                                                                                <DataTrigger
-                                                                                                        Binding="{Binding ElementName=Panel_GameRelations_SameDeveloperControl, Path=Visibility}"
-                                                                                                        Value="Visible">
-                                                                                                    <Setter Property="Tag" Value="Visible" />
-                                                                                                </DataTrigger>
-                                                                                                <DataTrigger
-                                                                                                        Binding="{Binding ElementName=Panel_GameRelations_SamePublisherControl, Path=Visibility}"
-                                                                                                        Value="Visible">
-                                                                                                    <Setter Property="Tag" Value="Visible" />
-                                                                                                </DataTrigger>
-                                                                                            </Style.Triggers>
-                                                                                        </Style>
-                                                                                    </TextBlock.Style>
-                                                                                </TextBlock>
-                                                                                <Expander x:Name="Panel_GameRelations_SimilarGamesControl"
-                                                                                        Header="{DynamicResource LOCGameRelations_SimilarGamesLabel}" IsExpanded="True"
-                                                                                        Margin="0,8,0,0"
-                                                                                        Visibility="{PluginSettings Plugin=GameRelations, Path=SimilarGamesControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
-                                                                                    <ContentControl x:Name="GameRelations_SimilarGamesControl" Margin="0,16,0,0" />
-                                                                                </Expander>
+                                                                                        <Expander x:Name="Panel_GameRelations_SameSeriesControl"
+                                                                                                Header="{DynamicResource LOCGameRelations_SameSeriesLabel}" IsExpanded="True"
+                                                                                                Margin="0,8,0,0"
+                                                                                                Visibility="{PluginSettings Plugin=GameRelations, Path=SameSeriesControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                                                            <ContentControl x:Name="GameRelations_SameSeriesControl" Margin="0,16,0,0" />
+                                                                                        </Expander>
 
-                                                                                <Expander x:Name="Panel_GameRelations_SameSeriesControl"
-                                                                                        Header="{DynamicResource LOCGameRelations_SameSeriesLabel}" IsExpanded="True"
-                                                                                        Margin="0,8,0,0"
-                                                                                        Visibility="{PluginSettings Plugin=GameRelations, Path=SameSeriesControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
-                                                                                    <ContentControl x:Name="GameRelations_SameSeriesControl" Margin="0,16,0,0" />
-                                                                                </Expander>
+                                                                                        <Expander x:Name="Panel_GameRelations_SameDeveloperControl"
+                                                                                                Header="{DynamicResource LOCGameRelations_SameDeveloperLabel}" IsExpanded="True"
+                                                                                                Margin="0,8,0,0"
+                                                                                                Visibility="{PluginSettings Plugin=GameRelations, Path=SameDeveloperControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                                                            <ContentControl x:Name="GameRelations_SameDeveloperControl" Margin="0,16,0,0" />
+                                                                                        </Expander>
 
-                                                                                <Expander x:Name="Panel_GameRelations_SameDeveloperControl"
-                                                                                        Header="{DynamicResource LOCGameRelations_SameDeveloperLabel}" IsExpanded="True"
-                                                                                        Margin="0,8,0,0"
-                                                                                        Visibility="{PluginSettings Plugin=GameRelations, Path=SameDeveloperControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
-                                                                                    <ContentControl x:Name="GameRelations_SameDeveloperControl" Margin="0,16,0,0" />
-                                                                                </Expander>
-
-                                                                                <Expander x:Name="Panel_GameRelations_SamePublisherControl"
-                                                                                        Header="{DynamicResource LOCGameRelations_SamePublisherLabel}" IsExpanded="True"
-                                                                                        Margin="0,8,0,0"
-                                                                                        Visibility="{PluginSettings Plugin=GameRelations, Path=SamePublisherControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
-                                                                                    <ContentControl x:Name="GameRelations_SamePublisherControl" Margin="0,16,0,0" />
-                                                                                </Expander>
+                                                                                        <Expander x:Name="Panel_GameRelations_SamePublisherControl"
+                                                                                                Header="{DynamicResource LOCGameRelations_SamePublisherLabel}" IsExpanded="True"
+                                                                                                Margin="0,8,0,0"
+                                                                                                Visibility="{PluginSettings Plugin=GameRelations, Path=SamePublisherControlSettings.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                                                                                            <ContentControl x:Name="GameRelations_SamePublisherControl" Margin="0,16,0,0" />
+                                                                                        </Expander>
+                                                                                    </StackPanel>
+                                                                                </Border>
                                                                             </StackPanel>
 
                                                                         </StackPanel>
@@ -1248,4 +1243,6 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    
 </ResourceDictionary>

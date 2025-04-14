@@ -141,55 +141,29 @@
                                             </Image>
                                             <!--ImageCover Ends-->
 
-
-                                            <Border DockPanel.Dock="Right" Style="{DynamicResource ActionControlPanel}" Margin="8,0,0,0"
-                                                    Visibility="{Binding ElementName=DuplicateHider_SourceSelector, Path=Visibility}">
-                                                <StackPanel>
-                                                    <ContentControl x:Name="DuplicateHider_SourceSelector" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                            VerticalContentAlignment="Center" Margin="0,0,0,0" Height="20" RenderOptions.BitmapScalingMode="Fant" />
-                                                    <TextBlock Text="{DynamicResource LOCPlatformsTitle}" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
-                                                </StackPanel>
-                                            </Border>
-                                            <!--Players InGame-->
-                                            <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl" DockPanel.Dock="Right" Margin="8,0,0,0">
-                                                <ContentControl.Resources>
-                                                    <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
-                                                </ContentControl.Resources>
-                                            </ContentControl>
-                                            <!--Players InGame Ends-->
-                                            <Border DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0" >
+                                            <Border DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
                                                 <StackPanel>
                                                     <ToggleButton x:Name="HeroVideoOnOffTogglePlayer" ToolTip="Video On/Off" Style="{DynamicResource SwitcherToggleButton}" />
                                                     <TextBlock Text="Video ON" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
                                                 </StackPanel>
-                                            </Border>
-                                            <Border x:Name="VideoController" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
-                                                <!--<Border.Style>
-                                                    <Style TargetType="Border">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                        <Style.Triggers>
-                                                            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}"
-                                                                    Value="False">
-                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                            </DataTrigger>
-                                                            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsAnyVideoAvailable, FallbackValue=False}"
-                                                                    Value="True">
-                                                                <Setter Property="Control.Visibility" Value="Visible" />
-                                                            </DataTrigger>
-                                                            <DataTrigger
-                                                                    Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}"
-                                                                    Value="True">
-                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                            </DataTrigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Border.Style>-->
-                                                <StackPanel>
-                                                    <ToggleButton x:Name="HeroVideoMiniTogglePlayer" ToolTip="Mini Screen" Style="{DynamicResource SwitcherToggleButton}" />
+                                                </Border>
+                                                <Border x:Name="VideoController" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
+                                                    <StackPanel>
+                                                        <ToggleButton x:Name="HeroVideoMiniTogglePlayer" ToolTip="Mini Screen" Style="{DynamicResource SwitcherToggleButton}" />
                                                     <TextBlock Text="Maximize" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
                                                 </StackPanel>
-                                            </Border>
-                                            <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,0,0,0" MinWidth="300">
+                                                </Border>
+                                                <ContentControl x:Name="DuplicateHider_ContentControl1" DockPanel.Dock="Right" VerticalAlignment="Bottom" Margin="8,0,0,0"
+                                                        Tag="{DynamicResource DH_ContentControl_Simple_Style}" />
+                                                <!--<ContentControl x:Name="DuplicateHider_SourceSelector" DockPanel.Dock="Right" VerticalContentAlignment="Bottom" Style="{DynamicResource DH_ContentControl_Simple_Style}" />-->
+                                                <!--Players InGame-->
+                                                <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl" DockPanel.Dock="Right" Margin="8,0,0,0" VerticalAlignment="Bottom">
+                                                    <ContentControl.Resources>
+                                                        <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
+                                                    </ContentControl.Resources>
+                                                </ContentControl>
+                                                <!--Players InGame Ends-->
+                                                <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,0,0,0" MinWidth="300">
                                                 <DockPanel Margin="0,0,0,8">
                                                     <Image DockPanel.Dock="Left" Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0" RenderOptions.BitmapScalingMode="Fant" />
                                                     <TextBlock DockPanel.Dock="Right" Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}" TextWrapping="Wrap"
@@ -219,8 +193,8 @@
                                                                 <SolidColorBrush x:Key="Extras_EmptyStarBrush" Color="White" Opacity="0.2" />
                                                             </StackPanel.Resources>
                                                             <ContentControl x:Name="ThemeExtras_CriticRating" Margin="0,2,4,0" />
-                                                            <TextBlock Text="{Binding Game.CriticScore, TargetNullValue='- -', FallbackValue='- -'}" Margin="0,3,0,2"
-                                                                    Style="{DynamicResource GameSubtleInfoTextBlockStyle}" />
+                                                            <TextBlock Text="{Binding Game.CriticScore, TargetNullValue='- -', FallbackValue='- -'}" Margin="0,5,0,2"
+                                                                    Style="{DynamicResource GameSubtleInfoTextBlockStyle}" FontSize="12"/>
                                                         </StackPanel>
                                                     </Border>
 
@@ -240,7 +214,7 @@
                                                             </Style>
                                                         </Border.Style>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Button Name="PART_ButtonReleaseDate" Margin="0,2,4,0" Padding="0" BorderThickness="0"
+                                                            <Button Name="PART_ButtonReleaseDate" Margin="0,0,4,0" Padding="0" BorderThickness="0" Background="{x:Null}"
                                                                     Style="{DynamicResource PropertyItemSmallButton}" />
                                                             <StackPanel Name="PART_ElemPlatform" Orientation="Horizontal">
                                                                 <StackPanel.Style>
@@ -256,7 +230,7 @@
                                                                         </Style.Triggers>
                                                                     </Style>
                                                                 </StackPanel.Style>
-                                                                <TextBlock Text="·" Margin="0,2,4,0" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" />
+                                                                <TextBlock Text="·" Margin="0,3,4,0" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" />
                                                                 <ItemsControl ItemsSource="{Binding Game.Platforms}" Margin="0,0,0,0">
                                                                     <ItemsControl.ItemsPanel>
                                                                         <ItemsPanelTemplate>
@@ -265,7 +239,7 @@
                                                                     </ItemsControl.ItemsPanel>
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate>
-                                                                            <Button Content="{Binding Name}" Margin="0,2,4,0" Padding="0" BorderThickness="0"
+                                                                            <Button Content="{Binding Name}" Margin="0,0,4,0" Padding="0" BorderThickness="0" Background="{x:Null}"
                                                                                     Style="{DynamicResource PropertyItemSmallButton}"
                                                                                     Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetPlatformFilterCommand}"
                                                                                     CommandParameter="{Binding}" />
@@ -336,7 +310,7 @@
                                         <!--<Grid Grid.Row="2" Grid.Column="1" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}">-->
                                         <Grid Grid.Row="1" Grid.Column="1" Margin="40,0,40,0">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="6*" />
+                                                <ColumnDefinition Width="6*" MinWidth="600"/>
                                                 <ColumnDefinition Width="4*" MinWidth="300" />
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>

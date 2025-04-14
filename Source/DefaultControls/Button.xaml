@@ -50,6 +50,7 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge18}" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+        <Setter Property="Height" Value="58" />
         <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
         <Setter Property="Template">
             <Setter.Value>
@@ -74,6 +75,7 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource AccentSelectedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ControlDarkHoverBackgroundBrush}" /> 
             </Trigger>
             <Trigger Property="IsFocused" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource AccentSelectedBrush}" />

@@ -94,60 +94,6 @@
         <Setter Property="Background" Value="{DynamicResource CardBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect BlurRadius="2" Color="Black" Opacity="0.2" ShadowDepth="1" Direction="270"/>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="DH_ContentControl_Simple_Style" TargetType="ContentControl">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ContentControl">
-                    
-                    <ItemsControl x:Name="DH_ListBox" Focusable="False" IsTextSearchEnabled="False" ItemsSource="{Binding Games}" VirtualizingPanel.VirtualizationMode="Recycling">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <ListBoxItem Background="{x:Null}">
-                                    <!--  StackPanel containing icon and source name of a game.  -->
-                                    <StackPanel x:Name="_Item" Background="{x:Null}" Orientation="Horizontal" >
-                                        <Image MaxHeight="20" Margin="5,0,5,0" VerticalAlignment="Center" DockPanel.Dock="Left" RenderOptions.BitmapScalingMode="Fant"
-                                                Source="{Binding Icon}" />
-                                        <TextBlock x:Name="_SourceText" Margin="5,0,5,0" VerticalAlignment="Center" Foreground="White" Background="{x:Null}"
-                                                Text="{Binding SourceName}" />
-                                        <!--  Binding gestures to commands.  -->
-                                    </StackPanel>
-                                    <ListBoxItem.InputBindings>
-                                        <MouseBinding Command="{Binding LaunchCommand}" Gesture="LeftDoubleClick" />
-                                        <MouseBinding Command="{Binding SelectCommand}" Gesture="LeftClick" />
-                                    </ListBoxItem.InputBindings>
-                                </ListBoxItem>
-                                <DataTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <!--  MouseOver glow effect.  -->
-                                        <Setter TargetName="_Item" Property="Effect">
-                                            <Setter.Value>
-                                                <DropShadowEffect BlurRadius="16" Opacity="0.8" ShadowDepth="0" Color="White" />
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Trigger>
-                                    <!--  Make items for unisntalled games slightly transparent.  -->
-                                    <DataTrigger Binding="{Binding Game.IsInstalled}" Value="False">
-                                        <Setter TargetName="_Item" Property="Opacity" Value="0.5" />
-                                    </DataTrigger>
-                                </DataTemplate.Triggers>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
     <Style x:Key="VideoControlPanel" TargetType="Border">
@@ -156,6 +102,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Height" Value="58" />
         <Setter Property="Padding" Value="8" />
         <Setter Property="Visibility" Value="Collapsed" />
         <Style.Triggers>
@@ -170,6 +117,7 @@
             </DataTrigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="BorderBrush" Value="{DynamicResource ControlHoverBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ControlDarkHoverBackgroundBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -184,7 +132,58 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="BorderBrush" Value="{DynamicResource ControlHoverBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ControlDarkHoverBackgroundBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
+
+
+    <Style x:Key="DH_ContentControl_Simple_Style" TargetType="ContentControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Border Height="58" Style="{DynamicResource ActionControlPanel}" Padding="4,0,4,8">
+                        <Grid>
+                            <TextBlock Text="{DynamicResource LOCPlatformsTitle}" Style="{DynamicResource ActionControlLabelStyle}" VerticalAlignment="Bottom" Margin="4,0,4,0"/>
+                            <ItemsControl x:Name="DH_ListBox" Focusable="False" IsTextSearchEnabled="False" ItemsSource="{Binding Games}"
+                                          VirtualizingPanel.VirtualizationMode="Recycling">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid ClipToBounds="True">
+                                            <Image x:Name="_Item" MaxHeight="20" Margin="4,10,4,0" HorizontalAlignment="Center" VerticalAlignment="Top" RenderOptions.BitmapScalingMode="Fant" Opacity="0.6"
+                                                    Source="{Binding Icon}" />
+                                            <Grid.InputBindings>
+                                                <MouseBinding Command="{Binding LaunchCommand}" Gesture="LeftDoubleClick" />
+                                                <MouseBinding Command="{Binding SelectCommand}" Gesture="LeftClick" />
+                                            </Grid.InputBindings>
+                                        </Grid>
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                                                <Setter Property="Opacity" Value="1" TargetName="_Item" />
+                                            </DataTrigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <!--  MouseOver glow effect.  -->
+                                                <Setter TargetName="_Item" Property="Opacity" Value="1" />
+                                                
+                                            </Trigger>
+                                            <!--  Make items for unisntalled games slightly transparent.  -->
+                                            <DataTrigger Binding="{Binding Game.IsInstalled}" Value="False">
+                                                <Setter TargetName="_Item" Property="Opacity" Value="0.4" />
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

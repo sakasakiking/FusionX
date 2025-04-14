@@ -28,10 +28,11 @@
 
     <Style x:Key="PropertyItemSmallButton" TargetType="Button">
         <Setter Property="Margin" Value="0,0,0,0" />
-        <Setter Property="Padding" Value="4,2,4,2"/>
+        <Setter Property="Height" Value="22" />
+        <Setter Property="Padding" Value="4,0,4,0"/>
         <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="{DynamicResource ControlDarkIdleBackgroundBrush}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSize}"/>
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
         <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
@@ -42,7 +43,7 @@
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}" CornerRadius="4"/>
                         <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" 
-                                   Margin="{TemplateBinding Padding}"
+                                   Margin="{TemplateBinding Padding}" VerticalAlignment="Center"
                                    Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
                                    TextWrapping="Wrap"/>
                     </Grid>
@@ -52,6 +53,7 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource AccentSelectedBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ControlDarkHoverBackgroundBrush}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />

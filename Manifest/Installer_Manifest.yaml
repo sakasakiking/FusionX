@@ -141,3 +141,15 @@ Packages:
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_0.pthm
     Changelog: 
     - Lots of UI Change...
+  - Version: 2.0.1
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-04-12
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_1.pthm
+    Changelog: 
+    - Thanks for the feedback that really help.
+    - Fixd Note tab that can be collapsed correctly.
+    - Fixd Platform switcher.
+    - Fixd a issue that could cause blurring on the right side of details.
+    - Adjust the min-width of detail part of grid view that the content will not be cut accidentaly.
+    - Grid view UI sync up with Detail view.
+    - Other UI enhancement.   
