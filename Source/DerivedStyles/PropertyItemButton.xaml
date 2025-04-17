@@ -61,6 +61,37 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="PropertySimpleButton" TargetType="Button">
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
+                                CornerRadius="4" />
+                        <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" Margin="{TemplateBinding Padding}" VerticalAlignment="Center"
+                                Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="Wrap" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource AccentSelectedBrush}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="PropertyItemLinkButton" TargetType="Button">
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="MinWidth" Value="32"/>

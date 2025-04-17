@@ -48,7 +48,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge18}" />
-        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
         <Setter Property="Height" Value="58" />
         <Setter Property="Typography.Capitals" Value="AllSmallCaps" />

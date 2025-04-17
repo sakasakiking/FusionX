@@ -65,7 +65,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                    <Border BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="1">
                         <Grid Background="{TemplateBinding Background}">
                             <Grid.ColumnDefinitions>
@@ -76,7 +76,7 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.ColumnSpan="2" Grid.Row="0"
+                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.ColumnSpan="2" Grid.RowSpan="2"
                                                 Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}"
                                                 ContentTemplate="{TemplateBinding ContentTemplate}"
                                                 CanContentScroll="{TemplateBinding CanContentScroll}" />

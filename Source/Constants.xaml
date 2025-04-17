@@ -159,6 +159,12 @@
         </ImageBrush.ImageSource>
     </ImageBrush>
 
+    <ImageBrush x:Key="ThemeScene">
+        <ImageBrush.ImageSource>
+            <BitmapImage UriSource="Images/Scene.png" />
+        </ImageBrush.ImageSource>
+    </ImageBrush>
+
     <!--GradientBrushes-->
     
     <!--<LinearGradientBrush x:Key="WindowBackgourndBrush" StartPoint="0.5,-0.2" EndPoint="0.4,1" >

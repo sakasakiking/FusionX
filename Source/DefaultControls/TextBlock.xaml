@@ -30,5 +30,6 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeSmaller}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
+    
 
 </ResourceDictionary>

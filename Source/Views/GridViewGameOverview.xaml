@@ -749,7 +749,7 @@
                                                                 </StackPanel.Resources>
                                                                 <TextBlock Text="{DynamicResource LOCGameDetails}" Margin="0,0,0,0"
                                                                         Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />
-                                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16"
+                                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,12,16,8"
                                                                         Style="{DynamicResource DetailViewCardBorder}" Margin="0,12,0,0">
                                                                     <StackPanel>
                                                                         <GridEx x:Name="GDGrid" Margin="0,0,0,0" ColumnCount="2" StarColumns="1" RowCount="25" AutoLayoutColumns="2">
@@ -767,7 +767,8 @@
                                                                                 <Label Content="{DynamicResource LOCSeriesLabel}" />
                                                                             </StackPanel>
                                                                             <!--<ItemsControl Name="PART_ItemsSeries" />-->
-                                                                            <ItemsControl ItemsSource="{Binding Game.Series}" Margin="0,0,0,0">
+                                                                            <ItemsControl ItemsSource="{Binding Game.Series}" Margin="-4,0,0,0"
+                                                                                    Visibility="{Binding ElementName=PART_ElemSeries, Path=Visibility}">
                                                                                 <ItemsControl.ItemsPanel>
                                                                                     <ItemsPanelTemplate>
                                                                                         <WrapPanel Orientation="Horizontal" />
@@ -777,7 +778,7 @@
                                                                                     <DataTemplate>
                                                                                         <Button Content="{Binding Name}" Margin="0,2,4,2"
                                                                                                 Style="{DynamicResource PropertyItemTagButton}"
-                                                                                                Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetSerieFilterCommand}"
+                                                                                                Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetSeriesFilterCommand}"
                                                                                                 CommandParameter="{Binding}" />
                                                                                     </DataTemplate>
                                                                                 </ItemsControl.ItemTemplate>
@@ -789,7 +790,8 @@
                                                                                 <Label Content="{DynamicResource LOCDeveloperLabel}" />
                                                                             </StackPanel>
                                                                             <!--<ItemsControl Name="PART_ItemsDevelopers" />-->
-                                                                            <ItemsControl ItemsSource="{Binding Game.Developers}" Margin="0,0,0,0">
+                                                                            <ItemsControl ItemsSource="{Binding Game.Developers}" Margin="-4,0,0,0"
+                                                                                    Visibility="{Binding ElementName=PART_ElemDevelopers, Path=Visibility}">
                                                                                 <ItemsControl.ItemsPanel>
                                                                                     <ItemsPanelTemplate>
                                                                                         <WrapPanel Orientation="Horizontal" />
@@ -811,7 +813,8 @@
                                                                                 <Label Content="{DynamicResource LOCPublisherLabel}" />
                                                                             </StackPanel>
                                                                             <!--<ItemsControl Name="PART_ItemsPublishers" />-->
-                                                                            <ItemsControl ItemsSource="{Binding Game.Publishers}" Margin="0,0,0,0">
+                                                                            <ItemsControl ItemsSource="{Binding Game.Publishers}" Margin="-4,0,0,0"
+                                                                                    Visibility="{Binding ElementName=PART_ElemPublishers, Path=Visibility}">
                                                                                 <ItemsControl.ItemsPanel>
                                                                                     <ItemsPanelTemplate>
                                                                                         <WrapPanel Orientation="Horizontal" />
@@ -833,7 +836,8 @@
                                                                                 <Label Content="{DynamicResource LOCAgeRatingLabel}" />
                                                                             </StackPanel>
                                                                             <!--<ItemsControl Name="PART_ItemsAgeRatings" />-->
-                                                                            <ItemsControl ItemsSource="{Binding Game.AgeRatings}" Margin="0,0,0,0">
+                                                                            <ItemsControl ItemsSource="{Binding Game.AgeRatings}" Margin="-4,0,0,0"
+                                                                                    Visibility="{Binding ElementName=PART_ElemAgeRating, Path=Visibility}">
                                                                                 <ItemsControl.ItemsPanel>
                                                                                     <ItemsPanelTemplate>
                                                                                         <WrapPanel Orientation="Horizontal" />
@@ -855,7 +859,8 @@
                                                                                 <Label Content="{DynamicResource LOCRegionLabel}" />
                                                                             </StackPanel>
                                                                             <!--<ItemsControl Name="PART_ItemsRegions" />-->
-                                                                            <ItemsControl ItemsSource="{Binding Game.Regions}" Margin="0,0,0,0">
+                                                                            <ItemsControl ItemsSource="{Binding Game.Regions}" Margin="-4,0,0,0"
+                                                                                    Visibility="{Binding ElementName=PART_ElemRegion, Path=Visibility}">
                                                                                 <ItemsControl.ItemsPanel>
                                                                                     <ItemsPanelTemplate>
                                                                                         <WrapPanel Orientation="Horizontal" />
@@ -905,7 +910,8 @@
                                                                                 <Label Content="{DynamicResource LOCGameCategoriesTitle}" />
                                                                             </StackPanel>
                                                                             <!--<ItemsControl Name="PART_ItemsCategories" />-->
-                                                                            <ItemsControl ItemsSource="{Binding Game.Categories}" Margin="0,0,0,0">
+                                                                            <ItemsControl ItemsSource="{Binding Game.Categories}" Margin="-4,0,0,0"
+                                                                                    Visibility="{Binding ElementName=PART_ElemCategories, Path=Visibility}">
                                                                                 <ItemsControl.ItemsPanel>
                                                                                     <ItemsPanelTemplate>
                                                                                         <WrapPanel Orientation="Horizontal" />
@@ -985,14 +991,14 @@
                                                                                         </Style.Triggers>
                                                                                     </Style>
                                                                                 </DockPanel.Style>
-                                                                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="0,16,8,0">
+                                                                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="0,12,8,0">
                                                                                     <TextBlock Text="&#xe82f;" Style="{DynamicResource GridIcon}"
                                                                                             Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                                     <Label Width="130" Content="{DynamicResource LOCFeaturesLabel}"
                                                                                             Foreground="{DynamicResource PromptBrush}" Margin="0,4,0,0" />
                                                                                 </StackPanel>
-                                                                                <ItemsControl DockPanel.Dock="left" ItemsSource="{Binding Game.Features}" Margin="0,16,0,0">
+                                                                                <ItemsControl DockPanel.Dock="left" ItemsSource="{Binding Game.Features}" Margin="-4,12,0,8">
                                                                                     <ItemsControl.ItemsPanel>
                                                                                         <ItemsPanelTemplate>
                                                                                             <WrapPanel Orientation="Horizontal" />
@@ -1025,14 +1031,14 @@
                                                                                         </Style.Triggers>
                                                                                     </Style>
                                                                                 </DockPanel.Style>
-                                                                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="0,16,8,0">
+                                                                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="0,12,8,0">
                                                                                     <TextBlock Text="&#xe1cb;" Style="{DynamicResource GridIcon}"
                                                                                             Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                                     <Label Width="130" Margin="0,2,0,0" Content="{DynamicResource LOCTagsLabel}"
                                                                                             Foreground="{DynamicResource PromptBrush}" />
                                                                                 </StackPanel>
-                                                                                <ItemsControl ItemsSource="{Binding Game.Tags}" Margin="0,16,0,0">
+                                                                                <ItemsControl ItemsSource="{Binding Game.Tags}" Margin="-4,12,0,8">
                                                                                     <ItemsControl.ItemsPanel>
                                                                                         <ItemsPanelTemplate>
                                                                                             <WrapPanel Orientation="Horizontal" DockPanel.Dock="left" />
