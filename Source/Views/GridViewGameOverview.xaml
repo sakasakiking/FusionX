@@ -531,8 +531,10 @@
                                                                     <TabItem Header="{DynamicResource LOCSuccessStoryAchievements}" FontSize="16"
                                                                             Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                                         <StackPanel Margin="0,24,0,0">
-                                                                            <!--<ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,0,0,24" />-->
-                                                                            <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,0,0,24" />
+                                                                            <ContentControl x:Name="SuccessStory_PluginProgressBar" DockPanel.Dock="Bottom" Margin="0,16,0,24"
+                                                                                    VerticalAlignment="Center" Height="20" />
+                                                                            <ContentControl x:Name="SuccessStory_PluginCompactList" Margin="0,0,0,24" />
+                                                                            <!--<ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,0,0,24" />-->
                                                                             <ContentControl x:Name="SuccessStory_PluginUserStats" Margin="0,0,0,24" />
                                                                             <ContentControl x:Name="SuccessStory_PluginList" Margin="0,0,0,24" MinHeight="300" />
                                                                             <ContentControl x:Name="SuccessStory_PluginChart" Margin="0,0,0,24" />
@@ -723,6 +725,11 @@
                                                                         Style="{DynamicResource DetailViewCardBorder}" Margin="0,12,0,0">
                                                                     <StackPanel>
                                                                         <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,0,0,0" />
+                                                                        <Border Background="{DynamicResource PopupSeparatorBrush}" Height="1" Margin="10,12,8,12"
+                                                                                Visibility="{Binding ElementName=SuccessStory_PluginCompactUnlocked, Path=Visibility}" />
+                                                                        <TextBlock Text="Locked Achievements" Margin="10,0,0,4"
+                                                                                Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}" />
+                                                                        <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,0,0,0" />
                                                                     </StackPanel>
                                                                 </Border>
                                                             </StackPanel>
