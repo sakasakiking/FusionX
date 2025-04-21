@@ -141,33 +141,98 @@
                                             </Image>
                                             <!--ImageCover Ends-->
 
-                                            <Border DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
+                                            <Border x:Name="VideoControls" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0" >
+
                                                 <StackPanel>
+
+                                                    <Border Margin="0,0,0,8">
+                                                        <Border.Style>
+                                                            <Style TargetType="Border">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding ElementName=VideoControls, Path=IsMouseOver}" Value="True">
+                                                                        <Setter Property="Visibility" Value="Visible" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Border.Style>
+
+                                                        <StackPanel x:Name="AudioControls" Width="20" Margin="0,0,0,8">
+                                                            <!--<Slider x:Name="VolumeSlider" Margin="5,0,0,0" VerticalAlignment="Center" Width="100"
+                                                                            HorizontalAlignment="Center" IsMoveToPointEnabled="True" IsSnapToTickEnabled="False" Minimum="0.0"
+                                                                            Maximum="1.0" TickFrequency="0.1" SmallChange="0.1" LargeChange="0.2"
+                                                                            Value="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.VideoPlayerVolumeLinear, Mode=TwoWay, FallbackValue={StaticResource Zero}}">
+                                                                    </Slider>-->
+                                                            <Viewbox Margin="0,0,0,8">
+                                                                <CheckBox
+                                                                        IsChecked="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.IsPlayerMuted, Mode=TwoWay, FallbackValue={StaticResource True}}">
+                                                                    <CheckBox.Template>
+                                                                        <ControlTemplate TargetType="CheckBox">
+                                                                            <Border Background="Transparent">
+                                                                                <TextBlock x:Name="NotMuted" Text="&#xe994;" Style="{StaticResource IconFontStyle}" />
+                                                                            </Border>
+                                                                            <ControlTemplate.Triggers>
+                                                                                <Trigger Property="IsChecked" Value="True">
+                                                                                    <Setter Property="Text" TargetName="NotMuted" Value="&#xe198;" />
+                                                                                </Trigger>
+                                                                            </ControlTemplate.Triggers>
+                                                                        </ControlTemplate>
+                                                                    </CheckBox.Template>
+                                                                </CheckBox>
+                                                            </Viewbox>
+
+                                                            <Button HorizontalAlignment="Left" x:Name="TrailerPauseButton"
+                                                                    Command="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.VideoPauseCommand, FallbackValue={x:Null}}"
+                                                                    Visibility="{Binding ElementName=TrailerPlayButton, Path=IsEnabled, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                                                                <Button.Template>
+                                                                    <ControlTemplate TargetType="Button">
+                                                                        <Viewbox>
+                                                                            <TextBlock Text="&#xe103;" Style="{StaticResource IconFontStyle}" />
+                                                                        </Viewbox>
+                                                                    </ControlTemplate>
+                                                                </Button.Template>
+                                                            </Button>
+                                                            <Button HorizontalAlignment="Left" x:Name="TrailerPlayButton"
+                                                                    Command="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.VideoPlayCommand, FallbackValue={x:Null}}"
+                                                                    Visibility="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                                <Button.Template>
+                                                                    <ControlTemplate TargetType="Button">
+                                                                        <Viewbox>
+                                                                            <TextBlock Text="&#xe102;" Style="{StaticResource IconFontStyle}" />
+                                                                        </Viewbox>
+                                                                    </ControlTemplate>
+                                                                </Button.Template>
+                                                            </Button>
+                                                        </StackPanel>
+
+                                                    </Border>
+
                                                     <ToggleButton x:Name="HeroVideoOnOffTogglePlayer" ToolTip="Video On/Off" Style="{DynamicResource SwitcherToggleButton}" />
                                                     <TextBlock Text="Video ON" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
                                                 </StackPanel>
-                                                </Border>
-                                                <Border x:Name="VideoController" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
-                                                    <StackPanel>
-                                                        <ToggleButton x:Name="HeroVideoMiniTogglePlayer" ToolTip="Mini Screen" Style="{DynamicResource SwitcherToggleButton}" />
+                                            </Border>
+                                            <Border x:Name="VideoController" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
+                                                <StackPanel>
+                                                    <ToggleButton x:Name="HeroVideoMiniTogglePlayer" ToolTip="Mini Screen" Style="{DynamicResource SwitcherToggleButton}" />
                                                     <TextBlock Text="Maximize" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
                                                 </StackPanel>
-                                                </Border>
-                                                <ContentControl x:Name="DuplicateHider_ContentControl1" DockPanel.Dock="Right" VerticalAlignment="Bottom" Margin="8,0,0,0"
-                                                        Tag="{DynamicResource DH_ContentControl_Simple_Style}" />
-                                                <!--<ContentControl x:Name="DuplicateHider_SourceSelector" DockPanel.Dock="Right" VerticalContentAlignment="Bottom" Style="{DynamicResource DH_ContentControl_Simple_Style}" />-->
-                                                <!--Players InGame-->
-                                                <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl" DockPanel.Dock="Right" Margin="8,0,0,0" VerticalAlignment="Bottom">
-                                                    <ContentControl.Resources>
-                                                        <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
-                                                    </ContentControl.Resources>
-                                                </ContentControl>
-                                                <!--Players InGame Ends-->
-                                                <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,0,0,0" MinWidth="300">
+                                            </Border>
+                                            <ContentControl x:Name="DuplicateHider_ContentControl1" DockPanel.Dock="Right" VerticalAlignment="Bottom" Margin="8,0,0,0"
+                                                    Tag="{DynamicResource DH_ContentControl_Simple_Style}" />
+                                            <!--<ContentControl x:Name="DuplicateHider_SourceSelector" DockPanel.Dock="Right" VerticalContentAlignment="Bottom" Style="{DynamicResource DH_ContentControl_Simple_Style}" />-->
+                                            <!--Players InGame-->
+                                            <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl" DockPanel.Dock="Right" Margin="8,0,0,0" VerticalAlignment="Bottom">
+                                                <ContentControl.Resources>
+                                                    <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
+                                                </ContentControl.Resources>
+                                            </ContentControl>
+                                            <!--Players InGame Ends-->
+                                            <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,0,0,0" MinWidth="300">
                                                 <DockPanel Margin="0,0,0,8">
-                                                    <Image DockPanel.Dock="Left" Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0" RenderOptions.BitmapScalingMode="Fant" />
-                                                    <TextBlock DockPanel.Dock="Right" Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}" TextWrapping="Wrap"
-                                                            Style="{DynamicResource DetailsViewHeaderStyle}" />
+                                                    <Image DockPanel.Dock="Left" Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0"
+                                                            RenderOptions.BitmapScalingMode="Fant" />
+                                                    <TextBlock DockPanel.Dock="Right" Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}"
+                                                            TextWrapping="Wrap" Style="{DynamicResource DetailsViewHeaderStyle}" />
                                                 </DockPanel>
                                                 <WrapPanel Orientation="Horizontal" Margin="0,8,0,0">
                                                     <Border Margin="0,0,8,8" VerticalAlignment="Top" Tag="{DynamicResource DetailViewRatingStar}">
@@ -194,7 +259,7 @@
                                                             </StackPanel.Resources>
                                                             <ContentControl x:Name="ThemeExtras_CriticRating" Margin="0,2,4,0" />
                                                             <TextBlock Text="{Binding Game.CriticScore, TargetNullValue='- -', FallbackValue='- -'}" Margin="0,5,0,2"
-                                                                    Style="{DynamicResource GameSubtleInfoTextBlockStyle}" FontSize="12"/>
+                                                                    Style="{DynamicResource GameSubtleInfoTextBlockStyle}" FontSize="12" />
                                                         </StackPanel>
                                                     </Border>
 
@@ -310,7 +375,7 @@
                                         <!--<Grid Grid.Row="2" Grid.Column="1" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}">-->
                                         <Grid Grid.Row="1" Grid.Column="1" Margin="40,0,40,0">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="6*" MinWidth="600"/>
+                                                <ColumnDefinition Width="6*" MinWidth="600" />
                                                 <ColumnDefinition Width="4*" MinWidth="300" />
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
@@ -330,9 +395,18 @@
                                                         </ItemsControl.ItemsPanel>
                                                         <ItemsControl.ItemTemplate>
                                                             <DataTemplate DataType="{x:Type Link}">
-                                                                <Button Content="{Binding Name}" Style="{StaticResource PropertyItemLinkButton}" ToolTip="{Binding Name}"
-                                                                        Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.OpenLinkCommand}"
-                                                                        CommandParameter="{Binding}" />
+                                                                <StackPanel Orientation="Horizontal">
+
+                                                                    <Button Content="{Binding Name}" Style="{StaticResource PropertyItemLinkButton}" ToolTip="{Binding Url}"
+                                                                            Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.OpenLinkCommand}"
+                                                                            CommandParameter="{Binding}" />
+                                                                    <!--<TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"
+                                                                            ToolTip="{Binding Url}">
+    <Hyperlink Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.OpenLinkCommand}" CommandParameter="{Binding}">
+        <Run Text="{Binding Name}" />
+    </Hyperlink>
+                                                                    </TextBlock>-->
+                                                                </StackPanel>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
                                                     </ItemsControl>
@@ -651,9 +725,9 @@
                                                         <StackPanel>
                                                             <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,0,0,0" />
                                                             <Border Background="{DynamicResource PopupSeparatorBrush}" Height="1" Margin="10,12,8,12"
-                                                                    Visibility="{Binding ElementName=SuccessStory_PluginCompactUnlocked, Path=Visibility}"/>
-                                                            <TextBlock Text="Locked Achievements"  Margin="10,0,0,4"
-                                                                    Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}"/>
+                                                                    Visibility="{Binding ElementName=SuccessStory_PluginCompactUnlocked, Path=Visibility}" />
+                                                            <TextBlock Text="Locked Achievements" Margin="10,0,0,4"
+                                                                    Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}" />
                                                             <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,0,0,0" />
                                                         </StackPanel>
                                                     </Border>

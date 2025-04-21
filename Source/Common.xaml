@@ -107,7 +107,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-        <Setter Property="Height" Value="58" />
+        <Setter Property="Height" Value="Auto" />
         <Setter Property="Padding" Value="8" />
         <Setter Property="Visibility" Value="Collapsed" />
         <Style.Triggers>
