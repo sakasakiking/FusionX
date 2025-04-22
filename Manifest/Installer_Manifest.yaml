@@ -147,9 +147,20 @@ Packages:
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_1.pthm
     Changelog: 
     - Thanks for the feedback that really help.
-    - Fixd Note tab that can be collapsed correctly.
-    - Fixd Platform switcher.
-    - Fixd a issue that could cause blurring on the right side of details.
+    - Fixed Note tab that can be collapsed correctly.
+    - Fixed Platform switcher.
+    - Fixed a issue that could cause blurring on the right side of details.
     - Adjust the min-width of detail part of grid view that the content will not be cut accidentaly.
     - Grid view UI sync up with Detail view.
-    - Other UI enhancement.   
+    - Other UI enhancement.
+  - Version: 2.0.2
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-04-22
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_2.pthm
+    Changelog: 
+    - Thanks for the feedback.
+    - Add Play and Mute button for video control.
+    - Fixed a issue that can display or hide game details correctly.
+    - Add locked achievements row into achievements Panel.
+    - Fixed some tiny issues.
+    - Some tiny UI enhancement.   
