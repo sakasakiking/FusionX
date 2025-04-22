@@ -21,7 +21,7 @@
                                     x:Name="PART_ScrollViewHost">
                                 <Grid Margin="0,0,0,40">
                                     <!--HeroView-->
-                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top">
+                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top" MaxHeight="{Settings CalculatedGameDetailsIndentation}">
                                         <Grid.OpacityMask>
                                             <ImageBrush ImageSource="../Images/Hero-mask.png" />
                                         </Grid.OpacityMask>
@@ -34,30 +34,10 @@
                                                     <Setter Property="Margin" Value="0,0,0,0" />
                                                     <Setter Property="Opacity" Value="1" />
                                                     <Setter Property="HorizontalAlignment" Value="Center" />
-                                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                                    <Setter Property="VerticalAlignment" Value="Top" />
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding ElementName=HeroVideoOnOffTogglePlayer, Path=IsChecked}" Value="True">
                                                             <Setter Property="Visibility" Value="Visible" />
-                                                            <!--<DataTrigger.EnterActions>
-                                                                <BeginStoryboard>
-                                                                    <Storyboard>
-                                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
-                                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
-                                                                        </ObjectAnimationUsingKeyFrames>
-                                                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.3" />
-                                                                    </Storyboard>
-                                                                </BeginStoryboard>
-                                                            </DataTrigger.EnterActions>
-                                                            <DataTrigger.ExitActions>
-                                                                <BeginStoryboard>
-                                                                    <Storyboard>
-                                                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0.2" Duration="0:0:0.3" />
-                                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
-                                                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Collapsed}" />
-                                                                        </ObjectAnimationUsingKeyFrames>
-                                                                    </Storyboard>
-                                                                </BeginStoryboard>
-                                                            </DataTrigger.ExitActions>-->
                                                         </DataTrigger>
                                                         <DataTrigger Binding="{Binding ElementName=HeroVideoMiniTogglePlayer, Path=IsChecked}" Value="False">
                                                             <Setter Property="HorizontalAlignment" Value="Right" />
@@ -69,13 +49,13 @@
                                                 </Style>
                                             </Grid.Style>
                                             <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
-                                                <ContentControl.Template>
+                                                <!--<ContentControl.Template>
                                                     <ControlTemplate TargetType="ContentControl">
                                                         <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
                                                             <ContentPresenter />
                                                         </Viewbox>
                                                     </ControlTemplate>
-                                                </ContentControl.Template>
+                                                </ContentControl.Template>-->
                                                 <!--<ContentControl.Effect>
                                                     <DropShadowEffect Color="Black" Opacity="0.6" BlurRadius="64" ShadowDepth="64" Direction="270" />
                                                 </ContentControl.Effect>-->
@@ -141,11 +121,10 @@
                                             </Image>
                                             <!--ImageCover Ends-->
 
-                                            <Border x:Name="VideoControls" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0" >
+                                            <Border x:Name="VideoControls" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
+                                                <StackPanel VerticalAlignment="Bottom">
 
-                                                <StackPanel>
-
-                                                    <Border Margin="0,0,0,8">
+                                                    <Border Margin="0,0,0,12" Padding="0,0,0,12" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource PopupSeparatorBrush}">
                                                         <Border.Style>
                                                             <Style TargetType="Border">
                                                                 <Setter Property="Visibility" Value="Collapsed" />
@@ -157,13 +136,8 @@
                                                             </Style>
                                                         </Border.Style>
 
-                                                        <StackPanel x:Name="AudioControls" Width="20" Margin="0,0,0,8">
-                                                            <!--<Slider x:Name="VolumeSlider" Margin="5,0,0,0" VerticalAlignment="Center" Width="100"
-                                                                            HorizontalAlignment="Center" IsMoveToPointEnabled="True" IsSnapToTickEnabled="False" Minimum="0.0"
-                                                                            Maximum="1.0" TickFrequency="0.1" SmallChange="0.1" LargeChange="0.2"
-                                                                            Value="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.VideoPlayerVolumeLinear, Mode=TwoWay, FallbackValue={StaticResource Zero}}">
-                                                                    </Slider>-->
-                                                            <Viewbox Margin="0,0,0,8">
+                                                        <StackPanel x:Name="AudioControls" Width="20">
+                                                            <Viewbox Margin="0,4,0,16">
                                                                 <CheckBox
                                                                         IsChecked="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.IsPlayerMuted, Mode=TwoWay, FallbackValue={StaticResource True}}">
                                                                     <CheckBox.Template>
@@ -192,7 +166,7 @@
                                                                     </ControlTemplate>
                                                                 </Button.Template>
                                                             </Button>
-                                                            <Button HorizontalAlignment="Left" x:Name="TrailerPlayButton"
+                                                            <Button HorizontalAlignment="Left" x:Name="TrailerPlayButton" 
                                                                     Command="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.VideoPlayCommand, FallbackValue={x:Null}}"
                                                                     Visibility="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                                 <Button.Template>
@@ -212,7 +186,7 @@
                                                 </StackPanel>
                                             </Border>
                                             <Border x:Name="VideoController" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
-                                                <StackPanel>
+                                                <StackPanel VerticalAlignment="Bottom">
                                                     <ToggleButton x:Name="HeroVideoMiniTogglePlayer" ToolTip="Mini Screen" Style="{DynamicResource SwitcherToggleButton}" />
                                                     <TextBlock Text="Maximize" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
                                                 </StackPanel>
@@ -1120,7 +1094,7 @@
                                 </StackPanel>
                                 <!--Action Buttons Ends-->
 
-                                <!--Playing Status Ends-->
+                                <!--Playing Status-->
                                 <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,8,16,0" Orientation="Horizontal">
                                     <StackPanel.Resources>
                                         <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">

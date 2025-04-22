@@ -107,9 +107,9 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-        <Setter Property="Height" Value="Auto" />
+        <Setter Property="MinHeight" Value="58" />
         <Setter Property="Padding" Value="8" />
-        <Setter Property="Visibility" Value="Collapsed" />
+        <Setter Property="Visibility" Value="Collapsed"/>
         <Style.Triggers>
             <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}" Value="False">
                 <Setter Property="Visibility" Value="Collapsed" />
