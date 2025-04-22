@@ -54,7 +54,7 @@
                                                     Style="{DynamicResource DetailsScrollViewer}" d:DesignWidth="1280" d:DesignHeight="1280"
                                                     d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}" x:Name="PART_ScrollViewHost">
                                                 <Grid Margin="0,0,0,40">
-                                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top" MaxHeight="{Settings CalculatedGameDetailsIndentation}">
+                                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top">
                                                         <Grid.OpacityMask>
                                                             <ImageBrush ImageSource="../Images/Hero-mask.png" />
                                                         </Grid.OpacityMask>
@@ -62,7 +62,7 @@
                                                         <Grid x:Name="GameVideo">
                                                             <Grid.Style>
                                                                 <Style TargetType="Grid">
-                                                                    <Setter Property="Width" Value="600" />
+                                                                    <Setter Property="Width" Value="Auto" />
                                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                                     <Setter Property="Margin" Value="0,0,0,0" />
                                                                     <Setter Property="Opacity" Value="1" />
@@ -75,36 +75,37 @@
                                                                         <DataTrigger Binding="{Binding ElementName=HeroVideoMiniTogglePlayer, Path=IsChecked}" Value="False">
                                                                             <Setter Property="HorizontalAlignment" Value="Right" />
                                                                             <Setter Property="VerticalAlignment" Value="Top" />
-                                                                            <Setter Property="Width" Value="400" />
+                                                                            <Setter Property="Width" Value="500" />
                                                                             <Setter Property="Margin" Value="0,80,40,0" />
                                                                         </DataTrigger>
                                                                     </Style.Triggers>
                                                                 </Style>
                                                             </Grid.Style>
-                                                            <Viewbox Width="600">
 
-                                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
-                                                                    <!--<ContentControl.Template>
-                                                                        <ControlTemplate TargetType="ContentControl">
-                                                                            <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
-                                                                                <ContentPresenter />
-                                                                            </Viewbox>
-                                                                        </ControlTemplate>
-                                                                    </ContentControl.Template>-->
-                                                                    <!--<ContentControl.Effect>
-                                                                        <DropShadowEffect Color="Black" Opacity="0.6" BlurRadius="64" ShadowDepth="64" Direction="270" />
-                                                                    </ContentControl.Effect>-->
-                                                                    <ContentControl.OpacityMask>
-                                                                        <VisualBrush>
-                                                                            <VisualBrush.Visual>
-                                                                                <Border Background="Black" CornerRadius="16"
-                                                                                        Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
-                                                                                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
-                                                                            </VisualBrush.Visual>
-                                                                        </VisualBrush>
-                                                                    </ContentControl.OpacityMask>
-                                                                </ContentControl>
-                                                            </Viewbox>
+
+                                                            <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
+                                                                <ContentControl.Template>
+                                                                    <ControlTemplate TargetType="ContentControl">
+                                                                        <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
+                                                                            <ContentPresenter />
+                                                                        </Viewbox>
+                                                                    </ControlTemplate>
+                                                                </ContentControl.Template>
+                                                                <!--<ContentControl.Effect>
+                                                                    <DropShadowEffect Color="Black" Opacity="0.6" BlurRadius="64" ShadowDepth="64" Direction="270" />
+                                                                </ContentControl.Effect>-->
+                                                                <ContentControl.OpacityMask>
+                                                                    <VisualBrush>
+                                                                        <VisualBrush.Visual>
+                                                                            <Border Background="Black" CornerRadius="16"
+                                                                                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                                        </VisualBrush.Visual>
+                                                                    </VisualBrush>
+                                                                </ContentControl.OpacityMask>
+                                                            </ContentControl>
+
+                                                            <Border Background="Transparent" />
                                                         </Grid>
                                                     </Grid>
 
@@ -146,7 +147,7 @@
                                                         </Border>
                                                         <!--ExtraLogo Ends-->
 
-                                                        <DockPanel Grid.ColumnSpan="2" Margin="0,0,0,-40">
+                                                        <DockPanel Grid.ColumnSpan="2" Margin="0,0,0,40">
                                                             <StackPanel DockPanel.Dock="Bottom" Name="PART_ElemLinks" Margin="0,40,0,0">
                                                                 <!--<TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0" Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />-->
                                                                 <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8"

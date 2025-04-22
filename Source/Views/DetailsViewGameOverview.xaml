@@ -21,7 +21,7 @@
                                     x:Name="PART_ScrollViewHost">
                                 <Grid Margin="0,0,0,40">
                                     <!--HeroView-->
-                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top" MaxHeight="{Settings CalculatedGameDetailsIndentation}">
+                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top" >
                                         <Grid.OpacityMask>
                                             <ImageBrush ImageSource="../Images/Hero-mask.png" />
                                         </Grid.OpacityMask>
@@ -49,13 +49,13 @@
                                                 </Style>
                                             </Grid.Style>
                                             <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl">
-                                                <!--<ContentControl.Template>
+                                                <ContentControl.Template>
                                                     <ControlTemplate TargetType="ContentControl">
                                                         <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
                                                             <ContentPresenter />
                                                         </Viewbox>
                                                     </ControlTemplate>
-                                                </ContentControl.Template>-->
+                                                </ContentControl.Template>
                                                 <!--<ContentControl.Effect>
                                                     <DropShadowEffect Color="Black" Opacity="0.6" BlurRadius="64" ShadowDepth="64" Direction="270" />
                                                 </ContentControl.Effect>-->
@@ -69,6 +69,7 @@
                                                     </VisualBrush>
                                                 </ContentControl.OpacityMask>
                                             </ContentControl>
+                                            <Border Background="Transparent" />
                                         </Grid>
                                     </Grid>
 
