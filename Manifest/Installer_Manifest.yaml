@@ -160,7 +160,14 @@ Packages:
     Changelog: 
     - Thanks for the feedback.
     - Add Play and Mute button for video control.
-    - Fixed a issue that can display or hide game details correctly.
+    - Fixed a issue that can not display or hide game details correctly.
     - Add locked achievements row into achievements Panel.
     - Fixed some tiny issues.
-    - Some tiny UI enhancement.   
+    - Some tiny UI enhancement.
+  - Version: 2.0.3
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-04-23
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_3.pthm
+    Changelog: 
+    - Thanks for the feedback.
+    - Fixed a issue that can not display the background image with opacity mask correctly.

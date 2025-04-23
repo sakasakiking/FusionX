@@ -52,7 +52,10 @@
                                                 <ContentControl.Template>
                                                     <ControlTemplate TargetType="ContentControl">
                                                         <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
-                                                            <ContentPresenter />
+                                                            <Grid>
+                                                                <ContentPresenter />
+                                                                <Border Background="Transparent" />
+                                                            </Grid>
                                                         </Viewbox>
                                                     </ControlTemplate>
                                                 </ContentControl.Template>
@@ -69,7 +72,6 @@
                                                     </VisualBrush>
                                                 </ContentControl.OpacityMask>
                                             </ContentControl>
-                                            <Border Background="Transparent" />
                                         </Grid>
                                     </Grid>
 
