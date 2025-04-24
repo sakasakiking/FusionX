@@ -61,9 +61,6 @@
                                                         </Viewbox>
                                                     </ControlTemplate>
                                                 </ContentControl.Template>
-                                                <!--<ContentControl.Effect>
-                                                    <DropShadowEffect Color="Black" Opacity="0.6" BlurRadius="64" ShadowDepth="64" Direction="270" />
-                                                </ContentControl.Effect>-->
                                                 <ContentControl.OpacityMask>
                                                     <VisualBrush>
                                                         <VisualBrush.Visual>

@@ -54,12 +54,12 @@
                                                     Style="{DynamicResource DetailsScrollViewer}" d:DesignWidth="1280" d:DesignHeight="1280"
                                                     d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}" x:Name="PART_ScrollViewHost">
                                                 <Grid Margin="0,0,0,40">
-                                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top" MaxHeight="{Settings CalculatedGameDetailsIndentation}">
+                                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top" >
                                                         <Grid.OpacityMask>
                                                             <ImageBrush ImageSource="../Images/Hero-mask.png" />
                                                         </Grid.OpacityMask>
                                                         <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top"/>
-                                                        <Grid x:Name="GameVideo" Tag="{DynamicResource GridViewVideoWindowedByDefault}" Background="Red">
+                                                        <Grid x:Name="GameVideo" Tag="{DynamicResource GridViewVideoWindowedByDefault}">
                                                             <Grid.Style>
                                                                 <Style TargetType="Grid">
                                                                     <Setter Property="Visibility" Value="Collapsed" />
@@ -69,6 +69,12 @@
                                                                         <DataTrigger Binding="{Binding ElementName=HeroVideoOnOffTogglePlayer, Path=IsChecked}" Value="True">
                                                                             <Setter Property="Visibility" Value="Visible" />
                                                                         </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding ElementName=GameVideo, Path=Tag}" Value="True">
+                                                                            <Setter Property="HorizontalAlignment" Value="Right" />
+                                                                            <Setter Property="VerticalAlignment" Value="Top" />
+                                                                            <Setter Property="Width" Value="500" />
+                                                                            <Setter Property="Margin" Value="0,80,40,0" />
+                                                                        </DataTrigger>
                                                                     </Style.Triggers>
                                                                 </Style>
                                                             </Grid.Style>
@@ -77,7 +83,7 @@
                                                                     Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                                 <ContentControl.Template>
                                                                     <ControlTemplate TargetType="ContentControl">
-                                                                        <Viewbox Stretch="UniformToFill">
+                                                                        <Viewbox Stretch="UniformToFill" VerticalAlignment="Top">
                                                                             <Grid>
                                                                                 <ContentPresenter />
                                                                                 <Border Background="Transparent" />
@@ -85,28 +91,6 @@
                                                                         </Viewbox>
                                                                     </ControlTemplate>
                                                                 </ContentControl.Template>
-                                                                <ContentControl.Style>
-                                                                    <Style TargetType="ContentControl">
-                                                                        <Setter Property="RenderTransform">
-                                                                            <Setter.Value>
-                                                                                <ScaleTransform ScaleX="1" ScaleY="1" />
-                                                                            </Setter.Value>
-                                                                        </Setter>
-                                                                        <Setter Property="RenderTransformOrigin" Value="1 0" />
-                                                                        <Style.Triggers>
-                                                                            <DataTrigger Binding="{Binding ElementName=GameVideo, Path=Tag}" Value="True">
-                                                                                <Setter Property="RenderTransform">
-                                                                                    <Setter.Value>
-                                                                                        <ScaleTransform ScaleX="0.3" ScaleY="0.3" />
-                                                                                    </Setter.Value>
-                                                                                </Setter>
-                                                                                <Setter Property="HorizontalAlignment" Value="Right" />
-                                                                                <Setter Property="VerticalAlignment" Value="Top" />
-                                                                                <Setter Property="Margin" Value="0,80,40,0" />
-                                                                            </DataTrigger>
-                                                                        </Style.Triggers>
-                                                                    </Style>
-                                                                </ContentControl.Style>
                                                                 <ContentControl.OpacityMask>
                                                                     <VisualBrush>
                                                                         <VisualBrush.Visual>
