@@ -8,15 +8,20 @@
     <sys:Boolean x:Key="GridViewImageCoverUseRoundedCorners">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewImageCoverShowPlatformBanner">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewListShowFavorite">True</sys:Boolean>
-    
+    <sys:Boolean x:Key="GridViewVideoOnByDefault">True</sys:Boolean>
+    <sys:Boolean x:Key="GridViewVideoWindowedByDefault">True</sys:Boolean>
+
     <sys:Boolean x:Key="DetailViewDetailInfoIcon">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewRatingStar">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailViewVideoOnByDefault">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailViewVideoWindowedByDefault">True</sys:Boolean>
 
+    <!--ThemeModifier Options Ends-->
+    
     <SolidColorBrush x:Key="GridViewItemMaskBackgroundBrush" Color="#1e1e1e" />
     <CornerRadius x:Key="GridViewCoverCornerRadius">6</CornerRadius>
     <CornerRadius x:Key="GridViewCoverGridBackgroundDisabledCornerRadius">8,8,8,8</CornerRadius>
     <CornerRadius x:Key="GridViewSelectionBorderCornerRadius">8</CornerRadius>
-	<!--ThemeModifier Options Ends-->
 
     <sys:Double x:Key="FontSizeSmaller">10</sys:Double>
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>

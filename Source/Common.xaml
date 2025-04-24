@@ -120,6 +120,9 @@
             <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}" Value="True">
                 <Setter Property="Visibility" Value="Collapsed" />
             </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Visibility}" Value="Collapsed">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="BorderBrush" Value="{DynamicResource ControlHoverBorderBrush}" />
                 <Setter Property="Background" Value="{DynamicResource ControlDarkHoverBackgroundBrush}" />

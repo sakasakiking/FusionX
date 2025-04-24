@@ -7,3 +7,9 @@ Constants:
     - GridViewListShowFavorite: 'Show favorites icon'
     - GridViewImageCoverShowPlatformBanner: 'Show platform banners ("ThemeExtras" extension needed)'
     - GridViewImageCoverUseRoundedCorners: 'Use rounded corners on game image covers (May reduce app performance)'
+    - "Details View - Video Control"
+    - DetailViewVideoOnByDefault: 'Display game video on game background by default'
+    - DetailViewVideoWindowedByDefault: 'Display windowed game video over the game background by default'  
+    - "Grid View - Video Control"
+    - GridViewVideoOnByDefault: 'Display game video on game background by default'
+    - GridViewVideoWindowedByDefault: 'Display windowed game video over the game background by default'  
