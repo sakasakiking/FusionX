@@ -34,7 +34,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
         <Setter Property="Background" Value="{DynamicResource ControlDarkIdleBackgroundBrush}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSize}"/>
-        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
         <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
         <Setter Property="Template">
             <Setter.Value>

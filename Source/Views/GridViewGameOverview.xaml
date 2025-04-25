@@ -79,7 +79,7 @@
                                                                 </Style>
                                                             </Grid.Style>
 
-                                                            <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl" Tag="{DynamicResource DetailViewVideoOnByDefault}"
+                                                            <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl" Tag="{DynamicResource GridViewVideoOnByDefault}"
                                                                     Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                                 <ContentControl.Template>
                                                                     <ControlTemplate TargetType="ContentControl">
@@ -260,8 +260,32 @@
                                                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                                                                     <Image Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0"
                                                                             RenderOptions.BitmapScalingMode="Fant" />
-                                                                    <TextBlock Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}"
-                                                                            TextWrapping="Wrap" Style="{DynamicResource DetailsViewHeaderStyle}" />
+                                                                    <TextBlock DockPanel.Dock="Right" Name="PART_TextDisplayName" Margin="0,0,0,0"
+                                                                            FontSize="{DynamicResource FontSizeLarge24}" TextWrapping="Wrap"
+                                                                            Tag="{DynamicResource GameDisplayNameDropShadowEffect}">
+                                                                        <TextBlock.Style>
+                                                                            <Style TargetType="TextBlock">
+                                                                                <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+                                                                                <Setter Property="FontWeight" Value="Bold" />
+                                                                                <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+                                                                                <Setter Property="Effect">
+                                                                                    <Setter.Value>
+                                                                                        <x:Null />
+                                                                                    </Setter.Value>
+                                                                                </Setter>
+                                                                                <Style.Triggers>
+                                                                                    <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                                                                                        <Setter Property="Effect">
+                                                                                            <Setter.Value>
+                                                                                                <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" Opacity="1"
+                                                                                                        BlurRadius="8" />
+                                                                                            </Setter.Value>
+                                                                                        </Setter>
+                                                                                    </DataTrigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </TextBlock.Style>
+                                                                    </TextBlock>
                                                                 </StackPanel>
                                                                 <WrapPanel Orientation="Horizontal" Margin="0,8,0,0">
                                                                     <Border Margin="0,0,8,8" VerticalAlignment="Top" Tag="{DynamicResource DetailViewRatingStar}">
@@ -409,33 +433,19 @@
                                                         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,40,0">
 
                                                             <!--Video Part-->
-                                                            <Border Panel.ZIndex="99" VerticalAlignment="Top">
-                                                                <Border.Style>
-                                                                    <Style TargetType="Border">
-                                                                        <Setter Property="Visibility" Value="Visible" />
-                                                                        <Setter Property="Margin" Value="0,0,0,40" />
-                                                                        <Style.Triggers>
-                                                                            <DataTrigger
-                                                                                    Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}"
-                                                                                    Value="True">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                                <Setter Property="Margin" Value="0,0,0,0" />
-                                                                            </DataTrigger>
-                                                                        </Style.Triggers>
-                                                                    </Style>
-                                                                </Border.Style>
-                                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControlAlternative">
-                                                                    <ContentControl.OpacityMask>
-                                                                        <VisualBrush>
-                                                                            <VisualBrush.Visual>
-                                                                                <Border Background="Black" CornerRadius="16"
-                                                                                        Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
-                                                                                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
-                                                                            </VisualBrush.Visual>
-                                                                        </VisualBrush>
-                                                                    </ContentControl.OpacityMask>
-                                                                </ContentControl>
-                                                            </Border>
+                                                            <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControlAlternative"
+                                                                    Tag="{DynamicResource GridViewVideoAlternative}" Margin="0,0,0,24"
+                                                                    Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                                <ContentControl.OpacityMask>
+                                                                    <VisualBrush>
+                                                                        <VisualBrush.Visual>
+                                                                            <Border Background="Black" CornerRadius="16"
+                                                                                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                                        </VisualBrush.Visual>
+                                                                    </VisualBrush>
+                                                                </ContentControl.OpacityMask>
+                                                            </ContentControl>
                                                             <!--Video Part Ends-->
 
                                                             <!--Tab Content Part-->
