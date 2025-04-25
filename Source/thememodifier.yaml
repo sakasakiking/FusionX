@@ -1,6 +1,7 @@
 Constants:
     - "General Settings"
     - GameDisplayNameDropShadowEffect: 'Add drop shadow effect on game displayname'
+    - ShowZoomSlider: 'Hide zoom slider in grid view game list'
     - "Details View"
     - DetailViewDetailInfoIcon: 'Show icons at detail info list'
     - DetailViewRatingStar: 'Show rating star under game name'
