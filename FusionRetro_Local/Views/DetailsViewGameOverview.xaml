@@ -27,7 +27,7 @@
                                         </Grid.OpacityMask>
                                         <Image Source="../Images/Scene.png" VerticalAlignment="Top" Margin="0,-200,0,0"/>
                                         <!--<FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top" />-->
-                                        <Grid x:Name="GameVideo">
+                                        <Grid x:Name="GameVideo" HorizontalAlignment="Center" VerticalAlignment="Center"  >
                                             <Grid.Style>
                                                 <Style TargetType="Grid">
                                                     <Setter Property="Width" Value="Auto" />
@@ -60,29 +60,42 @@
                                                                 </BeginStoryboard>
                                                             </DataTrigger.ExitActions>-->
                                                         </DataTrigger>
-                                                        <DataTrigger Binding="{Binding ElementName=HeroVideoMiniTogglePlayer, Path=IsChecked}" Value="False">
+                                                        <DataTrigger Binding="{Binding ElementName=HeroVideoMiniTogglePlayer, Path=IsChecked}" Value="True">
                                                             <Setter Property="HorizontalAlignment" Value="Right" />
                                                             <Setter Property="VerticalAlignment" Value="Top" />
-                                                            <Setter Property="Width" Value="500" />
-                                                            <Setter Property="Margin" Value="0,80,40,0" />
+                                                            <Setter Property="Width" Value="370" />
+                                                            <Setter Property="Height" Value="270" />
+                                                            <Setter Property="Margin" Value="-115,-69,0,0" />
+                                                            <!--<Setter Property="Background" Value="#29FF0000" />-->
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>
                                             </Grid.Style>
-                                            <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl" Margin="-54,-50,0,0">
-                                                <ContentControl.OpacityMask>
-                                                    <VisualBrush>
-                                                        <VisualBrush.Visual>
-                                                            <Border Background="Black" CornerRadius="24"
-                                                                    Width="260"
-                                                                    Height="250" />
-                                                        </VisualBrush.Visual>
-                                                    </VisualBrush>
-                                                </ContentControl.OpacityMask>
-                                            </ContentControl>
+                                            <Grid  HorizontalAlignment="Center">
+                                                <Grid.OpacityMask>
+                                                    <ImageBrush ImageSource="../Images/Mask.png" />
+                                                </Grid.OpacityMask>
+                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControl" Margin="0,0,0,0" Opacity="1" >
+                                                    <ContentControl.Template>
+                                                        <ControlTemplate TargetType="ContentControl">
+                                                            <Viewbox Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                                <ContentPresenter />
+                                                            </Viewbox>
+                                                        </ControlTemplate>
+                                                    </ContentControl.Template>
+                                                </ContentControl>
+                                            </Grid>
                                         </Grid>
                                     </Grid>
-
+                                    <!--ImageCover-->
+                                    <Border Margin="0,99,462,0" HorizontalAlignment="Right" VerticalAlignment="Top" >
+                                        <Border.OpacityMask>
+                                            <ImageBrush ImageSource="../Images/imagemask.png" />
+                                        </Border.OpacityMask>
+                                        <Image Name="PART_ImageCover" Height="296" Width="239" Opacity="1"
+                                                StretchDirection="Both" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="Fant" />
+                                    </Border>
+                                    <!--ImageCover Ends-->
                                     <!--HeroView Ends-->
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -95,42 +108,10 @@
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
                                         <!--ExtraLogo-->
-                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" Grid.Column="1" Margin="40,80,40,24"
-                                                Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
-                                            <Border.Style>
-                                                <Style TargetType="Border">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}" Value="True">
-                                                            <Setter Property="Visibility" Value="Visible" />
-                                                        </DataTrigger>
-                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}" Value="True">
-                                                            <Setter Property="Visibility" Value="Visible" />
-                                                        </DataTrigger>
-                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}" Value="false">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Border.Style>
-                                            <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" />
-                                        </Border>
+                                        
                                         <!--ExtraLogo Ends-->
                                         <DockPanel Grid.Column="1" Margin="40,0,40,40">
-                                            <!--ImageCover-->
-                                            <Image Name="PART_ImageCover" DockPanel.Dock="right" Height="{Settings GameDetailsCoverHeight}" HorizontalAlignment="Right"
-                                                    VerticalAlignment="Bottom" Margin="16,0,0,0" StretchDirection="Both" Stretch="Uniform" RenderOptions.BitmapScalingMode="Fant">
-                                                <Image.OpacityMask>
-                                                    <VisualBrush>
-                                                        <VisualBrush.Visual>
-                                                            <Border Background="Black" CornerRadius="16"
-                                                                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Image}}"
-                                                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Image}}" />
-                                                        </VisualBrush.Visual>
-                                                    </VisualBrush>
-                                                </Image.OpacityMask>
-                                            </Image>
-                                            <!--ImageCover Ends-->
+                                            
 
                                             <Border DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
                                                 <StackPanel>
