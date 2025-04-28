@@ -171,3 +171,11 @@ Packages:
     Changelog: 
     - Thanks for the feedback.
     - Fixed a issue that can not display the background image with opacity mask correctly.
+  - Version: 2.0.4
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-04-25
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_4.pthm
+    Changelog: 
+    - Add video control into ThemeModifier.
+    - Add drop shadow effect on game displayname.
+    - Now you can choose to place the video in both/either of the two locations.  (Should set in add-on and select "Use alternative video player")

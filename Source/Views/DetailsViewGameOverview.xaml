@@ -25,8 +25,7 @@
                                         <Grid.OpacityMask>
                                             <ImageBrush ImageSource="../Images/Hero-mask.png" />
                                         </Grid.OpacityMask>
-                                        <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top"
-                                                MaxHeight="{Settings CalculatedGameDetailsIndentation}" />
+                                        <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top"/>
                                         <Grid x:Name="GameVideo" Tag="{DynamicResource DetailViewVideoWindowedByDefault}" >
                                             <Grid.Style>
                                                 <Style TargetType="Grid">
@@ -202,7 +201,29 @@
                                                     <Image DockPanel.Dock="Left" Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0"
                                                             RenderOptions.BitmapScalingMode="Fant" />
                                                     <TextBlock DockPanel.Dock="Right" Name="PART_TextDisplayName" Margin="0,0,0,0" FontSize="{DynamicResource FontSizeLarge24}"
-                                                            TextWrapping="Wrap" Style="{DynamicResource DetailsViewHeaderStyle}" />
+                                                            TextWrapping="Wrap" Tag="{DynamicResource GameDisplayNameDropShadowEffect}">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+                                                                <Setter Property="FontWeight" Value="Bold" />
+                                                                <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+                                                                <Setter Property="Effect">
+                                                                    <Setter.Value>
+                                                                        <x:Null />
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                                                                        <Setter Property="Effect">
+                                                                            <Setter.Value>
+                                                                                <DropShadowEffect  Color="Black" Direction="270" ShadowDepth="2" Opacity="1" BlurRadius="8" />
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
                                                 </DockPanel>
                                                 <WrapPanel Orientation="Horizontal" Margin="0,8,0,0">
                                                     <Border Margin="0,0,8,8" VerticalAlignment="Top" Tag="{DynamicResource DetailViewRatingStar}">
@@ -384,7 +405,18 @@
                                             </StackPanel>
                                             <!--Left Part-->
                                             <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,40,0">
-
+                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControlAlternative" Tag="{DynamicResource DetailViewVideoAlternative}" Margin="0,0,0,24"
+                                                        Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                    <ContentControl.OpacityMask>
+                                                        <VisualBrush>
+                                                            <VisualBrush.Visual>
+                                                                <Border Background="Black" CornerRadius="16"
+                                                                        Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                            </VisualBrush.Visual>
+                                                        </VisualBrush>
+                                                    </ContentControl.OpacityMask>
+                                                </ContentControl>
                                                 <!--Tab Content Part-->
                                                 <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
                                                     <TabControl Margin="0,0,0,16" VerticalAlignment="Top" HorizontalAlignment="Stretch"
@@ -573,12 +605,7 @@
                                                     </Border>
                                                 </StackPanel>-->
                                                 <!-- SteamScreenshots Ends -->
-                                                <!--<StackPanel
-                                                        Visibility="{PluginSettings Plugin=HowLongToBeat, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                    <TextBlock Text="{DynamicResource LOCHowLongToBeat}" Style="{DynamicResource BaseTextBlockStyle}" FontWeight="Bold"
-                                                            FontSize="20" />
-                                                    
-                                                </StackPanel>-->
+
                                                 <!-- HowLongToBeat ProgressBar -->
                                                 <StackPanel Margin="0,0,0,24"
                                                         Visibility="{PluginSettings Plugin=HowLongToBeat, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
