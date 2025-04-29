@@ -161,7 +161,7 @@
                                 Margin="4,-4,0,0" Background="OrangeRed"
                                 HorizontalAlignment="Right" VerticalAlignment="Top">
                             <TextBlock Text="{Api Notifications.Count}" FontSize="10" FontWeight="Bold"
-                                       Foreground="{DynamicResource TextBrush}"
+                                       Foreground="{DynamicResource SelectedBrush}"
                                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>

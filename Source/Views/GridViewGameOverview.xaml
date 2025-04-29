@@ -793,12 +793,6 @@
                                                                         <Setter Property="Margin" Value="0,0,0,8" />
                                                                         <Setter Property="VerticalAlignment" Value="Top" />
                                                                     </Style>
-                                                                    <Style TargetType="Button" BasedOn="{StaticResource PropertyItemButton}">
-                                                                        <Setter Property="Margin" Value="0,4,0,8" />
-                                                                        <Setter Property="TextBlock.TextAlignment" Value="Left" />
-                                                                        <Setter Property="HorizontalAlignment" Value="Left" />
-                                                                        <Setter Property="VerticalAlignment" Value="Top" />
-                                                                    </Style>
                                                                 </StackPanel.Resources>
                                                                 <TextBlock Text="{DynamicResource LOCGameDetails}" Margin="0,0,0,0"
                                                                         Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />
@@ -808,7 +802,7 @@
                                                                         <GridEx x:Name="GDGrid" Margin="0,0,0,0" ColumnCount="2" StarColumns="1" RowCount="25" AutoLayoutColumns="2">
                                                                             <Grid.Resources>
                                                                                 <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
-                                                                                    <Setter Property="Margin" Value="0,4,0,8" />
+                                                                                    <Setter Property="Margin" Value="0,4,0,4" />
                                                                                     <Setter Property="HorizontalAlignment" Value="Left" />
                                                                                     <Setter Property="TextAlignment" Value="Left" />
                                                                                 </Style>
@@ -836,6 +830,7 @@
                                                                                     </DataTemplate>
                                                                                 </ItemsControl.ItemTemplate>
                                                                             </ItemsControl>
+
                                                                             <StackPanel Name="PART_ElemDevelopers" Orientation="Horizontal">
                                                                                 <TextBlock Text="&#xe902;" Style="{DynamicResource GridIcon}"
                                                                                         Tag="{DynamicResource DetailViewDetailInfoIcon}"
@@ -859,6 +854,7 @@
                                                                                     </DataTemplate>
                                                                                 </ItemsControl.ItemTemplate>
                                                                             </ItemsControl>
+
                                                                             <StackPanel Name="PART_ElemPublishers" Orientation="Horizontal">
                                                                                 <TextBlock Text="&#xe731;" Style="{DynamicResource GridIcon}"
                                                                                         Tag="{DynamicResource DetailViewDetailInfoIcon}"
@@ -882,6 +878,7 @@
                                                                                     </DataTemplate>
                                                                                 </ItemsControl.ItemTemplate>
                                                                             </ItemsControl>
+
                                                                             <StackPanel Name="PART_ElemAgeRating" Orientation="Horizontal">
                                                                                 <TextBlock Text="&#xed54;" Style="{DynamicResource GridIcon}"
                                                                                         Tag="{DynamicResource DetailViewDetailInfoIcon}"
@@ -905,6 +902,7 @@
                                                                                     </DataTemplate>
                                                                                 </ItemsControl.ItemTemplate>
                                                                             </ItemsControl>
+
                                                                             <StackPanel Name="PART_ElemRegion" Orientation="Horizontal">
                                                                                 <TextBlock Text="&#xe128;" Style="{DynamicResource GridIcon}"
                                                                                         Tag="{DynamicResource DetailViewDetailInfoIcon}"
@@ -928,6 +926,7 @@
                                                                                     </DataTemplate>
                                                                                 </ItemsControl.ItemTemplate>
                                                                             </ItemsControl>
+
                                                                             <StackPanel Name="PART_ElemVersion" Orientation="Horizontal">
                                                                                 <TextBlock Text="&#xe128;" Style="{DynamicResource GridIcon}"
                                                                                         Tag="{DynamicResource DetailViewDetailInfoIcon}"
@@ -935,6 +934,7 @@
                                                                                 <Label Content="{DynamicResource LOCVersionLabel}" />
                                                                             </StackPanel>
                                                                             <Button Name="PART_ButtonVersion" />
+
                                                                             <StackPanel Name="PART_ElemAdded" Orientation="Horizontal">
                                                                                 <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}"
                                                                                         Tag="{DynamicResource DetailViewDetailInfoIcon}"
@@ -942,6 +942,7 @@
                                                                                 <Label Content="{DynamicResource LOCDateAddedLabel}" />
                                                                             </StackPanel>
                                                                             <TextBlock Name="PART_TextAdded" VerticalAlignment="Center" />
+
                                                                             <StackPanel Name="PART_ElemRecentActivity" Orientation="Horizontal">
                                                                                 <TextBlock Text="&#xed55;" Style="{DynamicResource GridIcon}"
                                                                                         Tag="{DynamicResource DetailViewDetailInfoIcon}"
@@ -949,6 +950,7 @@
                                                                                 <Label Content="{DynamicResource LOCRecentActivityLabel}" />
                                                                             </StackPanel>
                                                                             <TextBlock Name="PART_TextRecentActivity" VerticalAlignment="Center" />
+
                                                                             <StackPanel Name="PART_ElemSource" Orientation="Horizontal">
                                                                                 <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}"
                                                                                         Tag="{DynamicResource DetailViewDetailInfoIcon}"
@@ -992,23 +994,25 @@
                                                                                         Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                                 <Label Content="{DynamicResource LOCCommunityScore}" />
                                                                             </StackPanel>
-                                                                            <TextBlock Name="PART_TextCommunityScore" Margin="0,4,0,8" VerticalAlignment="Top" TextAlignment="Left"
+                                                                            <TextBlock Name="PART_TextCommunityScore" Margin="0,4,0,4" VerticalAlignment="Top" TextAlignment="Left"
                                                                                     Style="{DynamicResource TextBlockGameScore}" />
+
                                                                             <StackPanel Name="PART_ElemCriticScore" Orientation="Horizontal">
                                                                                 <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}"
                                                                                         Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                                                         Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                                 <Label Content="{DynamicResource LOCCriticScore}" />
                                                                             </StackPanel>
-                                                                            <TextBlock Name="PART_TextCriticScore" Margin="0,4,0,8" VerticalAlignment="Top" TextAlignment="Left"
+                                                                            <TextBlock Name="PART_TextCriticScore" Margin="0,4,0,4" VerticalAlignment="Top" TextAlignment="Left"
                                                                                     Style="{DynamicResource TextBlockGameScore}" />
+
                                                                             <StackPanel Name="PART_ElemUserScore" Orientation="Horizontal">
                                                                                 <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}"
                                                                                         Tag="{DynamicResource DetailViewDetailInfoIcon}"
                                                                                         Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                                 <Label Content="{DynamicResource LOCUserScore}" />
                                                                             </StackPanel>
-                                                                            <TextBlock Name="PART_TextUserScore" Margin="0,4,0,8" VerticalAlignment="Top" TextAlignment="Left"
+                                                                            <TextBlock Name="PART_TextUserScore" Margin="0,4,0,4" VerticalAlignment="Top" TextAlignment="Left"
                                                                                     Style="{DynamicResource TextBlockGameScore}" />
                                                                         </GridEx>
                                                                         <Border Name="PART_ElemInstallDirectory" Margin="0,16,0,0"
@@ -1051,7 +1055,7 @@
                                                                                     <Label Width="130" Content="{DynamicResource LOCFeaturesLabel}"
                                                                                             Foreground="{DynamicResource PromptBrush}" Margin="0,4,0,0" />
                                                                                 </StackPanel>
-                                                                                <ItemsControl DockPanel.Dock="left" ItemsSource="{Binding Game.Features}" Margin="-4,12,0,8">
+                                                                                <ItemsControl DockPanel.Dock="left" ItemsSource="{Binding Game.Features}" Margin="-4,12,0,0">
                                                                                     <ItemsControl.ItemsPanel>
                                                                                         <ItemsPanelTemplate>
                                                                                             <WrapPanel Orientation="Horizontal" />
@@ -1091,7 +1095,7 @@
                                                                                     <Label Width="130" Margin="0,2,0,0" Content="{DynamicResource LOCTagsLabel}"
                                                                                             Foreground="{DynamicResource PromptBrush}" />
                                                                                 </StackPanel>
-                                                                                <ItemsControl ItemsSource="{Binding Game.Tags}" Margin="-4,12,0,8">
+                                                                                <ItemsControl ItemsSource="{Binding Game.Tags}" Margin="-4,12,0,16">
                                                                                     <ItemsControl.ItemsPanel>
                                                                                         <ItemsPanelTemplate>
                                                                                             <WrapPanel Orientation="Horizontal" DockPanel.Dock="left" />
@@ -1121,7 +1125,7 @@
                                         </Grid>
 
                                         <!--Bottom Fixed Part-->
-                                        <Grid MinWidth="260" Margin="0,0,0,16" Grid.RowSpan="2">
+                                        <Grid MinWidth="260" Margin="0,0,0,19" Grid.RowSpan="2">
                                             <Grid.Style>
                                                 <Style TargetType="Grid">
                                                     <Style.Triggers>
@@ -1135,11 +1139,11 @@
 
                                             <DockPanel Margin="40,0,40,0" VerticalAlignment="Bottom">
                                                 <!--Action Buttons-->
-                                                <Grid DockPanel.Dock="Right" Width="200" Margin="8,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                                <Grid DockPanel.Dock="Right" Width="200" Margin="8,0,0,-7" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                                                     <Button Name="PART_ButtonPlayAction" Margin="0" Height="48" Width="Auto" FontWeight="Bold"
-                                                            Style="{DynamicResource IconPlayButton}" FontSize="{DynamicResource FontSizeLarge20}" />
+                                                            Style="{DynamicResource IconPlayButton}" FontSize="{DynamicResource FontSizeLarge}" />
                                                     <Button Name="PART_ButtonContextAction" Height="48" FontWeight="Bold" Background="{DynamicResource AccentDisabledBrush}"
-                                                            Style="{DynamicResource PlayButton}" FontSize="{DynamicResource FontSizeLarge20}" />
+                                                            Style="{DynamicResource PlayButton}" FontSize="{DynamicResource FontSizeLarge}" />
                                                 </Grid>
                                                 <Button DockPanel.Dock="Right" x:Name="PART_ButtonEditGame" Margin="0,0,8,0" Height="34" Width="34" Focusable="False"
                                                         Content="&#xf8b0;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Style="{StaticResource PillLargeButton}"
@@ -1152,9 +1156,9 @@
                                                         IsChecked="{PluginSettings Plugin=ThemeExtras, Path=Game.Favorite, Mode=TwoWay, FallbackValue={StaticResource False}}" />
                                                 <StackPanel x:Name="MoreActions" DockPanel.Dock="Right" Margin="0,0,-5,0" VerticalAlignment="Bottom" HorizontalAlignment="Center"
                                                         Width="60" Background="Transparent">
-                                                    <Border x:Name="MoreActionPopup" Background="{DynamicResource PopupBackgroundBrush}"
-                                                            BorderBrush="{DynamicResource PopupBorderBrush}" Padding="8,8,8,0" Margin="0,0,0,8" HorizontalAlignment="Center"
-                                                            CornerRadius="20" Width="60" BorderThickness="{DynamicResource PopupBorderThickness}">
+                                                    <Border x:Name="MoreActionPopup" Background="{DynamicResource ControlHoverBackgroundBrush}"
+                                                             Padding="8,8,8,0" Margin="0,0,0,8" HorizontalAlignment="Center"
+                                                            CornerRadius="{DynamicResource ControlCornerRadius}" Width="56" BorderThickness="{DynamicResource PopupBorderThickness}">
                                                         <Border.Style>
                                                             <Style TargetType="Border">
                                                                 <Setter Property="Visibility" Value="Collapsed" />

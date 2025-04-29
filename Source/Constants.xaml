@@ -57,7 +57,7 @@
     <Color x:Key="MainColor">#2C3A67</Color>
     <Color x:Key="MainColorDark">#0D1225</Color>
     <Color x:Key="HoverColor">#247BA0</Color>
-    <Color x:Key="GlyphColor">#CCFFFFFF</Color>
+    <Color x:Key="GlyphColor">#FFFFFF</Color>
     <Color x:Key="HighlightGlyphColor">#FF0379FF</Color>
     <Color x:Key="AccentHoverColor">#FF2C8FFF</Color>
     <Color x:Key="AccentSelectedColor">#FF78B7FF</Color>
