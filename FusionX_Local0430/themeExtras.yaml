@@ -1,0 +1,9 @@
+ThemeId: FusionX_54244ec8-29ec-418e-bce7-415250c8d67b
+PersistentPaths:
+- Images/Banners
+- Images/Icons
+BannersBySpecIdPath: Images/Banners/PlatformSpecId
+BannersByPlatformNamePath: Images/Banners/PlatformName
+BannersByPluginIdPath: Images/Banners/PluginId
+DefaultBannerPath: Images/Banners/UnknownLibrary.png
+BannerDecodeHeight: 75
