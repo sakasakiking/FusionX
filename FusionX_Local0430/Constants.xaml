@@ -13,6 +13,7 @@
     <sys:Boolean x:Key="GridViewImageCoverUseRoundedCorners">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewImageCoverShowPlatformBanner">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewListShowFavorite">True</sys:Boolean>
+    <sys:Boolean x:Key="GridViewListShowPlayTime">False</sys:Boolean>
     <sys:Boolean x:Key="GridViewVideoOnByDefault">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewVideoWindowedByDefault">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewVideoAlternative">False</sys:Boolean>

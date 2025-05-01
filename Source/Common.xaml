@@ -30,6 +30,17 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="BaseTextBlockStyleNoOver" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.4" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="GridIcon" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" >
         <Setter Property="Margin" Value="0,5,8,0" />
         <Setter Property="Foreground" Value="{DynamicResource PromptBrush}" />

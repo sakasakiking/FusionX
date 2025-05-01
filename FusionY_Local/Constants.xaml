@@ -8,7 +8,8 @@
     <sys:Boolean x:Key="GridViewImageCoverUseRoundedCorners">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewImageCoverShowPlatformBanner">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewListShowFavorite">True</sys:Boolean>
-    
+    <sys:Boolean x:Key="GridViewListShowPlayTime">False</sys:Boolean>
+
     <sys:Boolean x:Key="DetailViewDetailInfoIcon">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewRatingStar">True</sys:Boolean>
 

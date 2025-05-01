@@ -28,13 +28,53 @@
                                 </Border.Style>
                             </Border>
                         </Grid>
-                        <TextBlock x:Name="GameName" Text="{Binding DisplayName}" FontSize="{DynamicResource FontSizeSmall}"
-                                   Style="{DynamicResource BaseTextBlockStyle}"                                                                   
-                                   TextAlignment="Center" TextTrimming="CharacterEllipsis"
-                                   VerticalAlignment="Bottom"
-                                   Padding="2,8,2,8"
-                                   Width="{Settings GridItemWidth}" 
-                                   Visibility="{Settings ShowNamesUnderCovers}" />
+
+                        <StackPanel HorizontalAlignment="Center" Tag="{DynamicResource GridViewListShowPlayTime}">
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Margin" Value="0,0,0,0" />
+                                    <!-- APPLY MARGIN ONLY IF HAS GAME NAME OR PLAY TIME -->
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Settings ShowNamesUnderCovers}" Value="True">
+                                            <Setter Property="Margin" Value="2,8,2,8" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                                            <Setter Property="Margin" Value="2,8,2,8" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
+
+                            <!-- GAME NAME -->
+                            <TextBlock x:Name="GameName" Text="{Binding DisplayName}" FontSize="{DynamicResource FontSizeSmall}"
+                                    Style="{DynamicResource BaseTextBlockStyle}"
+                                    TextAlignment="Center" TextTrimming="CharacterEllipsis"
+                                    VerticalAlignment="Bottom"
+                                    Width="{Settings GridItemWidth}" 
+                                    Visibility="{Settings ShowNamesUnderCovers}" />
+
+                            <!-- PLAY TIME -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                                        Tag="{DynamicResource GridViewListShowPlayTime}"
+                                        Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Margin" Value="0,0,0,0" />
+                                        <Style.Triggers>
+                                            <!-- MARGIN TOP IF HAS GAME NAME -->
+                                            <DataTrigger Binding="{Settings ShowNamesUnderCovers}" Value="True">
+                                                <Setter Property="Margin" Value="0,4,0,0" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <TextBlock Text="&#xed5a;" FontSize="{DynamicResource FontSize}"
+                                        Style="{DynamicResource IconFontStyle}"
+                                        Margin="0,0,2,0" />
+                                <TextBlock x:Name="GamePlaytime" Text="{Binding Playtime, Converter={StaticResource PlayTimeToStringConverter}}" FontSize="{DynamicResource FontSizeSmall}"
+                                        Style="{DynamicResource BaseTextBlockStyleNoOver}" />
+                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
                     
                     <ControlTemplate.Triggers>
