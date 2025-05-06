@@ -84,16 +84,13 @@
                                 <TextBlock Name="EnableHighlightAnimation" Visibility="Collapsed" Tag="{DynamicResource GridViewEnableCoverShineAnimation}" />
 
                                 <Border Name="GameControls" Visibility="Collapsed">
-                                    <Grid>
-                                        <Viewbox VerticalAlignment="Bottom">
-                                            <Button Name="PART_ButtonInfo" Content="&#xe946;" Margin="32,0,32,8" 
-                                                    Style="{StaticResource GridViewInfoButton}"/>
-                                        </Viewbox>
-                                        <Viewbox>
-                                            <Button Name="PART_ButtonPlay" Content="&#xf5b0;" Margin="24,0,24,4" 
-                                                    Style="{StaticResource GridViewPlayButton}"/>
-                                        </Viewbox>
-                                    </Grid>
+                                    <Viewbox>
+                                        <Grid>
+                                            <Button Name="PART_ButtonInfo" Content="&#xe946;" Margin="32,0,32,8" Style="{StaticResource GridViewInfoButton}" />
+
+                                            <Button Name="PART_ButtonPlay" Content="&#xf5b0;" Margin="24,0,24,4" Style="{StaticResource GridViewPlayButton}" />
+                                        </Grid>
+                                    </Viewbox>
                                 </Border>
 
                                 <Grid Tag="{DynamicResource GridViewListShowFavorite}"
@@ -162,7 +159,7 @@
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Visibility" Value="Visible" TargetName="TextGameName"/>
                         </MultiDataTrigger>
-                        <!--<Trigger Property="IsMouseOver" Value="True">
+                        <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Visibility" Value="Visible" TargetName="GameControls" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
@@ -186,7 +183,7 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
-                        </Trigger>-->
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

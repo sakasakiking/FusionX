@@ -366,8 +366,8 @@
                                         <!--<Grid Grid.Row="2" Grid.Column="1" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}">-->
                                         <Grid Grid.Row="1" Grid.Column="1" Margin="40,0,40,0">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="6*" MinWidth="600" />
-                                                <ColumnDefinition Width="4*" MinWidth="300" />
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="300"/>
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto" />
@@ -405,18 +405,51 @@
                                             </StackPanel>
                                             <!--Left Part-->
                                             <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,40,0">
-                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControlAlternative" Tag="{DynamicResource DetailViewVideoAlternative}" Margin="0,0,0,24"
-                                                        Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                    <ContentControl.OpacityMask>
-                                                        <VisualBrush>
-                                                            <VisualBrush.Visual>
-                                                                <Border Background="Black" CornerRadius="16"
-                                                                        Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
-                                                                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
-                                                            </VisualBrush.Visual>
-                                                        </VisualBrush>
-                                                    </ContentControl.OpacityMask>
-                                                </ContentControl>
+                                                <Border>
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Tag" Value="{DynamicResource DetailViewVideoAlternative}" />
+                                                            <Setter Property="Margin" Value="0,0,0,24" />
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, 
+                    Converter={StaticResource BooleanToVisibilityConverter}}" Value="False">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}"
+                                                                        Value="False">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsAnyVideoAvailable, FallbackValue=False}"
+                                                                        Value="True">
+                                                                    <Setter Property="Control.Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                                <DataTrigger
+                                                                        Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}"
+                                                                        Value="True">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Visibility}"
+                                                                        Value="Collapsed">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControlAlternative" Tag="{DynamicResource DetailViewVideoAlternative}"
+                                                            Margin="0,0,0,24"
+                                                            Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                        <ContentControl.OpacityMask>
+                                                            <VisualBrush>
+                                                                <VisualBrush.Visual>
+                                                                    <Border Background="Black" CornerRadius="16"
+                                                                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ContentControl}}"
+                                                                            Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ContentControl}}" />
+                                                                </VisualBrush.Visual>
+                                                            </VisualBrush>
+                                                        </ContentControl.OpacityMask>
+                                                    </ContentControl>
+                                                </Border>
                                                 <!--Tab Content Part-->
                                                 <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
                                                     <TabControl Margin="0,0,0,16" VerticalAlignment="Top" HorizontalAlignment="Stretch"
@@ -741,6 +774,12 @@
                                                         </Style>
                                                         <Style TargetType="ItemsControl">
                                                             <Setter Property="Margin" Value="0,0,0,8" />
+                                                            <Setter Property="VerticalAlignment" Value="Top" />
+                                                        </Style>
+                                                        <Style TargetType="Button" BasedOn="{StaticResource PropertyItemButton}">
+                                                            <Setter Property="Margin" Value="0,4,0,4" />
+                                                            <Setter Property="TextBlock.TextAlignment" Value="Left" />
+                                                            <Setter Property="HorizontalAlignment" Value="Left" />
                                                             <Setter Property="VerticalAlignment" Value="Top" />
                                                         </Style>
                                                     </StackPanel.Resources>
