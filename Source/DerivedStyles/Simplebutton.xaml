@@ -219,22 +219,40 @@
     <Style x:Key="GridViewPlayButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
         <Setter Property="FontSize" Value="4" />
         <Setter Property="Margin" Value="0,0,0,0" />
-        <Setter Property="Background" Value="{DynamicResource GlyphBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
         <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Border" Width="12" Height="12" CornerRadius="6"
-                            Background="{TemplateBinding Background}">
-                        <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Foreground="{TemplateBinding Foreground}"
-                                   Text="{TemplateBinding Content}" Margin="1,1,0,0"
-                                   TextWrapping="Wrap"/>
-                    </Border>
+                    <Grid>
+                        <Border x:Name="Border" Width="12" Height="12" CornerRadius="6" Opacity="0.24" Background="{DynamicResource GlyphBrush}" />
+                        <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}" Margin="1,1,0,0" TextWrapping="Wrap" />
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" TargetName="Border"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity" To="0.40" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity" To="0.24" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <QuadraticEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -242,7 +260,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
@@ -251,37 +269,25 @@
     </Style>
 
     <Style x:Key="GridViewInfoButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-        <Setter Property="FontSize" Value="8" />
+        <Setter Property="FontSize" Value="6" />
         <Setter Property="Margin" Value="0,0,0,0" />
-        <Setter Property="Background" Value="{DynamicResource GlyphBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
         <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Border" Width="12" Height="12" CornerRadius="6" 
-                        Background="{TemplateBinding Background}">
-                        <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Foreground="{TemplateBinding Foreground}"
-                               Text="{TemplateBinding Content}" Margin="0.5,1,0,0"
-                               TextWrapping="Wrap"/>
-                    </Border>
+                    <Grid>
+                        <TextBlock x:Name="Border" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" Opacity="0.6" Text="{TemplateBinding Content}"
+                                TextWrapping="Wrap" />
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" TargetName="Border"/>
+                            <Setter Property="Opacity" Value="1" TargetName="Border"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
-            </Trigger>
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="SimpleTubeButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
