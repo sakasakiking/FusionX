@@ -604,6 +604,9 @@
                                             <!--Left Part Ends-->
                                             <!--Right Part-->
                                             <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,0,0,0">
+                                                <Border Style="{DynamicResource AnimatedCoverShineborder}" Width="100" Height="100" Background="#29ffcc00">
+                                                    
+                                                </Border>
                                                 <!--Links-->
                                                 <!--<StackPanel Name="PART_ElemLinks" Margin="0,0,0,24">
                                                     <TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0"

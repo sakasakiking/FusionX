@@ -217,19 +217,19 @@
     </Style>
 
     <Style x:Key="GridViewPlayButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="FontSize" Value="4" />
         <Setter Property="Margin" Value="0,0,0,0" />
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Background" Value="{DynamicResource GlyphBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
         <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Border" Height="28" CornerRadius="14" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    <Border x:Name="Border" Width="12" Height="12" CornerRadius="6"
                             Background="{TemplateBinding Background}">
                         <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center"
                                    Foreground="{TemplateBinding Foreground}"
-                                   Text="{TemplateBinding Content}" Margin="1.5,1,0,0"
+                                   Text="{TemplateBinding Content}" Margin="1,1,0,0"
                                    TextWrapping="Wrap"/>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -251,15 +251,15 @@
     </Style>
 
     <Style x:Key="GridViewInfoButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
+        <Setter Property="FontSize" Value="8" />
         <Setter Property="Margin" Value="0,0,0,0" />
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Background" Value="{DynamicResource GlyphBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
         <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Border" Height="20" CornerRadius="10" Width="20" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    <Border x:Name="Border" Width="12" Height="12" CornerRadius="6" 
                         Background="{TemplateBinding Background}">
                         <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center"
                                Foreground="{TemplateBinding Foreground}"

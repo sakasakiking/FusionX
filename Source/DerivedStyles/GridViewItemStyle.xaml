@@ -14,7 +14,7 @@
                               x:Name="ItemGrid">
 
                             <ContentPresenter />
-                            <Border x:Name="SelectionBorder" BorderThickness="2" BorderBrush="Transparent"
+                            <!--<Border x:Name="SelectionBorder" BorderThickness="2" BorderBrush="Transparent"
                                     Margin="-4" Tag="{DynamicResource GridViewImageCoverUseRoundedCorners}">
                                 <Border.Style>
                                     <Style TargetType="Border">
@@ -26,6 +26,10 @@
                                         </Style.Triggers>
                                     </Style>
                                 </Border.Style>
+                            </Border>-->
+                            <Border x:Name="SelectionBorder" BorderThickness="2" Margin="-4" 
+                                    Visibility="Collapsed" Style="{DynamicResource SelectedAnimatedCoverBorder}"
+                                    Tag="{DynamicResource GridViewImageCoverUseRoundedCorners}">
                             </Border>
                         </Grid>
                         <TextBlock x:Name="GameName" Text="{Binding DisplayName}" FontSize="{DynamicResource FontSizeSmall}"
@@ -39,7 +43,7 @@
                     
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource AccentSelectedBrush}" TargetName="SelectionBorder" />
+                            <Setter Property="Visibility" Value="Visible" TargetName="SelectionBorder" />
                             <Setter Property="Canvas.ZIndex" Value="990" />
                         </Trigger>
                         <DataTrigger Binding="{Settings ShowGridItemBackground}" Value="False">
@@ -50,4 +54,41 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    <Style x:Key="SelectedAnimatedCoverBorder" TargetType="Border">
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                    <GradientStop Color="#66FFFFFF" Offset="0" />
+                    <GradientStop Color="#66FFFFFF" Offset="0" />
+                    <GradientStop Color="#E0FFFFFF" Offset="0.2" />
+                    <GradientStop Color="#66FFFFFF" Offset="0.6" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Mode=OneWay}" Value="True">
+                <Setter Property="CornerRadius" Value="{DynamicResource GridViewSelectionBorderCornerRadius}" />
+            </DataTrigger>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetProperty="BorderBrush.(GradientBrush.GradientStops)[1].(GradientStop.Offset)" From="-1.4" To="1.2" Duration="0:0:3.5">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation Storyboard.TargetProperty="BorderBrush.(GradientBrush.GradientStops)[2].(GradientStop.Offset)" From="-1.2" To="1.4" Duration="0:0:3.5">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

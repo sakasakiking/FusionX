@@ -54,7 +54,7 @@
     <Color x:Key="BlackColor">#FF000000</Color>
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
     <Color x:Key="TextColor">#CCFFFFFF</Color>
-    <Color x:Key="TextColorDarker">#a3a3a3</Color>
+    <Color x:Key="TextColorDarker">#FF000000</Color>
     <Color x:Key="TextColorDark">#FF000000</Color>
     <Color x:Key="MainColor">#2C3A67</Color>
     <Color x:Key="MainColorDark">#0D1225</Color>
@@ -116,8 +116,6 @@
     <SolidColorBrush x:Key="ControlHoverBorderBrush" Color="{DynamicResource 40%White}" />
     <SolidColorBrush x:Key="ControlSelectedBorderBrush" Color="{DynamicResource 60%White}" />
 
-    <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
-
     <SolidColorBrush x:Key="DisabledBrush" Color="{DynamicResource 24%White}" />
     <SolidColorBrush x:Key="PromptBrush" Color="{DynamicResource 36%White}" />
     <SolidColorBrush x:Key="IdleBrush" Color="{DynamicResource 60%White}" />
@@ -129,6 +127,7 @@
     <SolidColorBrush x:Key="AccentSelectedBrush" Color="{DynamicResource AccentSelectedColor}" />
     <SolidColorBrush x:Key="AccentDisabledBrush" Color="#024DA3" />
 
+    <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
     <SolidColorBrush x:Key="TextBrush" Color="{DynamicResource TextColor}" />
     <SolidColorBrush x:Key="TextBrushDarker" Color="{DynamicResource TextColorDarker}" />
     <SolidColorBrush x:Key="TextBrushDark" Color="{DynamicResource TextColorDark}" />

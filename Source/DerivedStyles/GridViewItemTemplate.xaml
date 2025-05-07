@@ -83,13 +83,15 @@
                                 
                                 <TextBlock Name="EnableHighlightAnimation" Visibility="Collapsed" Tag="{DynamicResource GridViewEnableCoverShineAnimation}" />
 
-                                <Border Name="GameControls" Visibility="Collapsed">
-                                    <Viewbox>
-                                        <Grid>
-                                            <Button Name="PART_ButtonInfo" Content="&#xe946;" Margin="32,0,32,8" Style="{StaticResource GridViewInfoButton}" />
+                                <Border Name="GameControls" Visibility="Collapsed" >
+                                    <Viewbox VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                        <DockPanel Margin="16,0,4,4">
+                                            <Button Name="PART_ButtonPlay" DockPanel.Dock="Right" Content="&#xf5b0;" Margin="4,0,4,0"
+                                                    Style="{DynamicResource GridViewPlayButton}" />
+                                            <Button Name="PART_ButtonInfo" DockPanel.Dock="Right" Content="&#xe946;" Margin="4,0,4,0" 
+                                                    Style="{DynamicResource GridViewInfoButton}" />
 
-                                            <Button Name="PART_ButtonPlay" Content="&#xf5b0;" Margin="24,0,24,4" Style="{StaticResource GridViewPlayButton}" />
-                                        </Grid>
+                                        </DockPanel>
                                     </Viewbox>
                                 </Border>
 
@@ -230,7 +232,7 @@
         <Setter Property="Opacity" Value="0.00" />
         <Setter Property="Background">
             <Setter.Value>
-                <LinearGradientBrush StartPoint="1.0, 0.0" EndPoint="0.07, 1.0">
+                <LinearGradientBrush StartPoint="1.0, 0.0" EndPoint="0.0, 1.0">
                     <GradientStop Color="#00FFFFFF" Offset="-0.40" />
                     <GradientStop Color="#3DFFFFFF" Offset="-0.20" />
                     <GradientStop Color="#66FFFFFF" Offset="0" />
@@ -243,7 +245,7 @@
                 <DataTrigger.EnterActions>
                     <BeginStoryboard>
                         <Storyboard Timeline.DesiredFrameRate="30">
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1.00" Duration="0:0:0.4">
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1.10" Duration="0:0:0.4">
                                 <DoubleAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseOut" />
                                 </DoubleAnimation.EasingFunction>
