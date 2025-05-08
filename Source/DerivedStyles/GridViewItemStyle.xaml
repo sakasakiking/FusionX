@@ -10,8 +10,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <StackPanel Margin="{Settings ItemSpacingMargin}">
-                        <Grid Background="{DynamicResource GridItemBackgroundBrush}"
-                              x:Name="ItemGrid">
+                        <Grid x:Name="ItemGrid" Background="{DynamicResource GridItemBackgroundBrush}" >
 
                             <ContentPresenter />
                             <!--<Border x:Name="SelectionBorder" BorderThickness="2" BorderBrush="Transparent"
@@ -32,43 +31,59 @@
                                     Tag="{DynamicResource GridViewImageCoverUseRoundedCorners}">
                             </Border>
                         </Grid>
-                        <TextBlock x:Name="GameName" Text="{Binding DisplayName}" FontSize="{DynamicResource FontSizeSmall}"
-                                   Style="{DynamicResource BaseTextBlockStyle}"                                                                   
-                                   TextAlignment="Left" TextTrimming="CharacterEllipsis"
-                                   VerticalAlignment="Bottom"
-                                   Padding="2,8,2,8"
-                                   Width="{Settings GridItemWidth}" 
-                                   Visibility="{Settings ShowNamesUnderCovers}" />
-                        
-                        <DockPanel Width="{Settings GridItemWidth}" Visibility="{DynamicResource GridViewCoverSubtitleVisibility}">
-                            <TextBlock Text="&#xEEDC;" FontSize="{DynamicResource FontSizeSmall}" FontFamily="{StaticResource FontIcoFont}" TextAlignment="Left"
-                                    VerticalAlignment="Center" Padding="2,4,2,5" Margin="0,0,0,-2" Foreground="{DynamicResource PromptBrush}" />
-                            <TextBlock Text="{Binding Playtime, Mode=OneWay, Converter={StaticResource PlayTimeToStringConverter}, IsAsync=True}"
-                                    Foreground="{DynamicResource GridViewCoverSubtitleBrush}" FontSize="{DynamicResource FontSizeSmall}"
-                                    Style="{DynamicResource BaseTextBlockStyle}" TextAlignment="Left" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Padding="3,4,2,2" />
-                        </DockPanel>
-                        
-                        <DockPanel Width="{Settings GridItemWidth}" Tag="{DynamicResource GridViewCoverCompStatusSubtitleVisibility}">
-                            <DockPanel.Style>
-                                <Style TargetType="DockPanel">
+                        <StackPanel Margin="0,8,0,4">
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
                                     <Setter Property="Visibility" Value="Visible" />
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding CompletionStatus.Name, TargetNullValue='', FallbackValue=''}" Value=''>
-                                            <Setter Property="Visibility" Value="Hidden" />
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Collapsed">
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=GameName, Path=Visibility}" Value="Collapsed" />
+                                                <Condition Binding="{Binding ElementName=PlayingStatus, Path=Visibility}" Value="Collapsed" />
+                                                <Condition Binding="{Binding ElementName=PlayedTime, Path=Visibility}" Value="Collapsed" />
+                                            </MultiDataTrigger.Conditions>
                                             <Setter Property="Visibility" Value="Collapsed" />
-                                        </DataTrigger>
+                                        </MultiDataTrigger>
                                     </Style.Triggers>
                                 </Style>
-                            </DockPanel.Style>
-                            <TextBlock Text="&#xEC74;" FontSize="{DynamicResource FontSizeSmall}" FontFamily="{StaticResource FontIcoFont}" TextAlignment="Left"
-                                    VerticalAlignment="Center" Padding="2,4,2,5" Margin="0,0,0,-2" Foreground="{DynamicResource PromptBrush}" />
-                            <TextBlock x:Name="CompletionStatusName" Text="{Binding CompletionStatus.Name, Mode=OneWay, IsAsync=True}"
-                                    ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Foreground="{DynamicResource GridViewCoverSubtitleBrush}"
-                                    FontSize="{DynamicResource FontSizeSmall}" Style="{DynamicResource BaseTextBlockStyle}" TextAlignment="Left" TextTrimming="CharacterEllipsis"
-                                    VerticalAlignment="Center" Padding="3,4,2,2" />
-                        </DockPanel>
+                            </StackPanel.Style>
+                            <TextBlock x:Name="GameName" Text="{Binding DisplayName}" FontSize="{DynamicResource FontSizeSmall}" Style="{DynamicResource BaseTextBlockStyle}"
+                                    TextAlignment="Left" TextTrimming="CharacterEllipsis" VerticalAlignment="Bottom" Width="{Settings GridItemWidth}"
+                                    Visibility="{Settings ShowNamesUnderCovers}" Margin="0,0,0,4"/>
+                            <!--Time Played-->
+                            <DockPanel x:Name="PlayedTime" Width="{Settings GridItemWidth}" Visibility="{DynamicResource GridViewCoverSubtitleVisibility}" Margin="0,0,0,4">
+                                <TextBlock Text="&#xe121;" FontSize="{DynamicResource FontSizeSmall}" TextAlignment="Left" Margin="0,0,0,0"
+                                        Foreground="{DynamicResource PromptBrush}" Style="{StaticResource IconFontStyle}" />
+                                <TextBlock Text="{Binding Playtime, Mode=OneWay, Converter={StaticResource PlayTimeToStringConverter}, IsAsync=True}"
+                                        Foreground="{DynamicResource GridViewCoverSubtitleBrush}" FontSize="{DynamicResource FontSizeSmall}"
+                                        Style="{DynamicResource BaseTextBlockStyle}" TextAlignment="Left" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"
+                                        Margin="4,0,0,0" />
+                            </DockPanel>
+                            <!--Playing Status-->
+                            <DockPanel x:Name="PlayingStatus" Width="{Settings GridItemWidth}" Tag="{DynamicResource GridViewCoverCompStatusSubtitleVisibility}" Margin="0,0,0,4">
+                                <DockPanel.Style>
+                                    <Style TargetType="DockPanel">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding CompletionStatus.Name, TargetNullValue='', FallbackValue=''}" Value=''>
+                                                <Setter Property="Visibility" Value="Hidden" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Collapsed">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DockPanel.Style>
+                                <TextBlock Text="&#xe129;" FontSize="{DynamicResource FontSizeSmall}" TextAlignment="Left" Margin="0,0,0,0"
+                                        Foreground="{DynamicResource PromptBrush}" Style="{StaticResource IconFontStyle}" />
+
+                                <TextBlock x:Name="CompletionStatusName" Text="{Binding CompletionStatus.Name, Mode=OneWay, IsAsync=True}" TextAlignment="Left"
+                                        TextTrimming="CharacterEllipsis" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}"
+                                        Foreground="{DynamicResource GridViewCoverSubtitleBrush}" FontSize="{DynamicResource FontSizeSmall}" VerticalAlignment="Center"
+                                        Margin="4,0,0,0" Style="{DynamicResource BaseTextBlockStyle}" />
+                            </DockPanel>
+                        </StackPanel>
+                        
 
                     </StackPanel>
                     

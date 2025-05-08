@@ -16,6 +16,9 @@
     <sys:Boolean x:Key="GridViewVideoOnByDefault">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewVideoWindowedByDefault">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewVideoAlternative">False</sys:Boolean>
+    <Visibility x:Key="GridViewCoverSubtitleVisibility">Visible</Visibility>
+    <Visibility x:Key="GridViewCoverCompStatusSubtitleVisibility">Collapsed</Visibility>
+
 
     <sys:Boolean x:Key="DetailViewDetailInfoIcon">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewRatingStar">True</sys:Boolean>
@@ -26,9 +29,9 @@
     <!--ThemeModifier Options Ends-->
     
     <SolidColorBrush x:Key="GridViewItemMaskBackgroundBrush" Color="#1e1e1e" />
-    <CornerRadius x:Key="GridViewCoverCornerRadius">6</CornerRadius>
+    <CornerRadius x:Key="GridViewCoverCornerRadius">6,6,6,6</CornerRadius>
     <CornerRadius x:Key="GridViewCoverGridBackgroundDisabledCornerRadius">8,8,8,8</CornerRadius>
-    <CornerRadius x:Key="GridViewSelectionBorderCornerRadius">8</CornerRadius>
+    <CornerRadius x:Key="GridViewSelectionBorderCornerRadius">8,8,8,8</CornerRadius>
 
     <sys:Double x:Key="FontSizeSmaller">10</sys:Double>
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
@@ -55,7 +58,7 @@
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
     <Color x:Key="TextColor">#CCFFFFFF</Color>
     <Color x:Key="TextColorDarker">#FF000000</Color>
-    <Color x:Key="TextColorDark">#FF000000</Color>
+    <Color x:Key="TextColorDark">#99000000</Color>
     <Color x:Key="MainColor">#2C3A67</Color>
     <Color x:Key="MainColorDark">#0D1225</Color>
     <Color x:Key="HoverColor">#247BA0</Color>

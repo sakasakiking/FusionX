@@ -1,22 +1,25 @@
 Constants:
     - "General Settings ------------------------"
     - GameDisplayNameDropShadowEffect: 'Add drop shadow effect on game displayname'
-    - ShowZoomSlider: 'Hide zoom slider in grid view game list'
     - "Details View ------------------------"
     - DetailViewDetailInfoIcon: 'Show icons at detail info list'
     - DetailViewRatingStar: 'Show rating star under game name'
     - "Grid View ------------------------"
-    - DetailsViewGameOverviewMaxWidth(800,2400): 'Maximum width of DetailViewGameOverview in Grid View'
-    - GridViewListShowFavorite: 'Show favorites icon on Game Cover'
+    - DetailsViewGameOverviewMaxWidth(800,2400): 'Set maximum width of DetailViewGameOverview in Grid View'
+    - ShowZoomSlider: 'Show zoom slider in grid view game list'
+    - "Grid View - Game Covers ------------------------"
+    - GridViewListShowFavorite: 'Show favorites icon on game cover'
     - GridViewImageCoverShowPlatformBanner: 'Show platform banners ("ThemeExtras" extension needed)'
-    - GridViewImageCoverUseRoundedCorners: 'Use rounded corners on game image covers (May reduce app performance)'
+    - GridViewImageCoverUseRoundedCorners: 'Use rounded corners on game covers'
     - GridViewEnableCoverShineAnimation: 'Enable Specular Flow on game cover when hover'
+    - GridViewCoverCompStatusSubtitleVisibility: 'Display completion Status under game cover'
+    - GridViewCoverSubtitleVisibility: 'Display played time under game covers'
     # - GridViewEnablePlayingGlowBorder: 'Show glow animation if game is running'
-    - "Video Control in Detail View ------------------------"
+    - "Detail View - Video  ------------------------"
     - DetailViewVideoOnByDefault: 'Display game video'
     - DetailViewVideoWindowedByDefault: 'Maximize Video'  
     - DetailViewVideoAlternative: 'Display alternative video (above the overview tab)'
-    - "Video Control in Grid View ------------------------"
+    - "Grid View - Video ------------------------"
     - GridViewVideoOnByDefault: 'Display game video'
     - GridViewVideoWindowedByDefault: 'Maximize Video'  
     - GridViewVideoAlternative: 'Display alternative video (above the overview tab)'

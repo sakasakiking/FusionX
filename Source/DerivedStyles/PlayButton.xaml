@@ -50,19 +50,19 @@
                 <ControlTemplate TargetType="{x:Type Button}">
 
                     <Grid x:Name="Grid">
-                        <Border BorderBrush="{DynamicResource GlyphBrush}" BorderThickness="1" CornerRadius="24" Opacity="0.4" />
+                        <!--<Border BorderBrush="{DynamicResource GlyphBrush}" BorderThickness="1" CornerRadius="24" Opacity="0.4" />-->
                         <Border x:Name="DefaultBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{TemplateBinding Background}" Opacity="1" CornerRadius="20" Margin="4"/>
+                                Background="{TemplateBinding Background}" Opacity="1" CornerRadius="24" />
                         <Border x:Name="HoverBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{DynamicResource GlyphBrush}" Opacity="0" CornerRadius="20" Margin="4">
+                                Background="{DynamicResource GlyphBrush}" Opacity="0" CornerRadius="24" >
                             <Border.Effect>
                                 <BlurEffect Radius="20" KernelType="Gaussian" />
                             </Border.Effect>
                         </Border>
                         <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
-                            <TextBlock Text="&#xee4a;" FontSize="{DynamicResource FontSizeLarge}" Margin="0,0,8,0" Foreground="{DynamicResource TextBrushDark}" Style="{DynamicResource IconFontStyle}" />
-                            <ContentPresenter RecognizesAccessKey="True" Margin="0,0,16,0" />
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                            <TextBlock Text="&#xee4a;" FontSize="{DynamicResource FontSizeLarge}" Margin="0,0,8,0" Foreground="{TemplateBinding Foreground}" Style="{DynamicResource IconFontStyle}" />
+                            <ContentPresenter RecognizesAccessKey="True" Margin="0,0,16,0"/>
                         </StackPanel>
                     </Grid>
                     <ControlTemplate.Triggers>
