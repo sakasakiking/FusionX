@@ -184,6 +184,11 @@ Packages:
     ReleaseDate: 2025-04-25
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_5.pthm
     Changelog: 
-    - Add video control into ThemeModifier.
-    - Add drop shadow effect on game displayname.
-    - Now you can choose to place the video in both/either of the two locations.  (Should set in add-on and select "Use alternative video player")
+    - Optimize the wording of description in ThemeModifier.
+    - Can hide zoom slider via ThemeModifier.
+    - Play button color can be customized via ThemeModifier (More options are coming).
+    - Add gloss highlight on game cover when hover, can be removed via ThemeModifier.
+    - Add gloss highlight on the border around game cover when selected.
+    - Add played time and playing status infos under game cover, can be hidden via ThemeModifier.
+    - Adjust some layouts.
+    - Fixe some issues.

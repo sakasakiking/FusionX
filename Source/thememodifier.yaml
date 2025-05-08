@@ -11,9 +11,9 @@ Constants:
     - GridViewListShowFavorite: 'Show favorites icon on game cover'
     - GridViewImageCoverShowPlatformBanner: 'Show platform banners ("ThemeExtras" extension needed)'
     - GridViewImageCoverUseRoundedCorners: 'Use rounded corners on game covers'
-    - GridViewEnableCoverShineAnimation: 'Enable Specular Flow on game cover when hover'
     - GridViewCoverCompStatusSubtitleVisibility: 'Display completion Status under game cover'
     - GridViewCoverSubtitleVisibility: 'Display played time under game covers'
+    - GridViewEnableCoverShineAnimation: 'Show gloss highlight on game cover when hover'
     # - GridViewEnablePlayingGlowBorder: 'Show glow animation if game is running'
     - "Detail View - Video  ------------------------"
     - DetailViewVideoOnByDefault: 'Display game video'
