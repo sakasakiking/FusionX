@@ -367,7 +367,7 @@
                                         <Grid Grid.Row="1" Grid.Column="1" Margin="40,0,40,0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="360"/>
+                                                <ColumnDefinition Width="Auto" MinWidth="320" MaxWidth="480"/>
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto" />

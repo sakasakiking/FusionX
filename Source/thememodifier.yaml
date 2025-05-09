@@ -14,12 +14,13 @@ Constants:
     - GridViewCoverCompStatusSubtitleVisibility: 'Display completion Status under game cover'
     - GridViewCoverSubtitleVisibility: 'Display played time under game covers'
     - GridViewEnableCoverShineAnimation: 'Show gloss highlight on game cover when hover'
+    - GridViewEnableHighlightCoverBorder: 'Show gloss highlight on the border of game cover when selected'
     # - GridViewEnablePlayingGlowBorder: 'Show glow animation if game is running'
     - "Detail View - Video  ------------------------"
     - DetailViewVideoOnByDefault: 'Display game video'
-    - DetailViewVideoWindowedByDefault: 'Maximize Video'  
+    - DetailViewVideoWindowedByDefault: 'Minimize Video'  
     - DetailViewVideoAlternative: 'Display alternative video (above the overview tab)'
     - "Grid View - Video ------------------------"
     - GridViewVideoOnByDefault: 'Display game video'
-    - GridViewVideoWindowedByDefault: 'Maximize Video'  
+    - GridViewVideoWindowedByDefault: 'Minimize Video'  
     - GridViewVideoAlternative: 'Display alternative video (above the overview tab)'

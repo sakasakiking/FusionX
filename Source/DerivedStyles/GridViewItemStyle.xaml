@@ -26,10 +26,14 @@
                                     </Style>
                                 </Border.Style>
                             </Border>-->
-                            <Border x:Name="SelectionBorder" BorderThickness="2" Margin="-4" 
-                                    Visibility="Collapsed" Style="{DynamicResource SelectedAnimatedCoverBorder}"
+                            <Border x:Name="SelectedGlossHighlightBorder" BorderThickness="2" Margin="-4" Visibility="Collapsed"
+                                    Style="{DynamicResource GlossHighlightBorder}"
                                     Tag="{DynamicResource GridViewImageCoverUseRoundedCorners}">
                             </Border>
+                            <Border x:Name="SelectedBorder" BorderThickness="2" Margin="-4" Visibility="Collapsed" Style="{DynamicResource SelectedCoverBorder}"
+                                    Tag="{DynamicResource GridViewImageCoverUseRoundedCorners}">
+                            </Border>
+                            <TextBlock Name="EnableHighlightBorder" Visibility="Collapsed" Tag="{DynamicResource GridViewEnableHighlightCoverBorder}" />
                         </Grid>
                         <StackPanel Margin="0,8,0,4">
                             <StackPanel.Style>
@@ -88,10 +92,24 @@
                     </StackPanel>
                     
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Visibility" Value="Visible" TargetName="SelectionBorder" />
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=EnableHighlightBorder, Path=Tag}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsSelected}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedGlossHighlightBorder" />
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=EnableHighlightBorder, Path=Tag}" Value="False" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsSelected}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedBorder" />
+                        </MultiDataTrigger>
+                        <!--<Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="SelectedBorder" />
                             <Setter Property="Canvas.ZIndex" Value="990" />
-                        </Trigger>
+                        </Trigger>-->
                         <DataTrigger Binding="{Settings ShowGridItemBackground}" Value="False">
                             <Setter Property="Background" Value="Transparent" TargetName="ItemGrid" />
                         </DataTrigger>
@@ -102,7 +120,7 @@
     </Style>
 
 
-    <Style x:Key="SelectedAnimatedCoverBorder" TargetType="Border">
+    <Style x:Key="GlossHighlightBorder" TargetType="Border">
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="BorderBrush">
             <Setter.Value>
@@ -134,6 +152,15 @@
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="SelectedCoverBorder" TargetType="Border">
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag, Mode=OneWay}" Value="True">
+                <Setter Property="CornerRadius" Value="{DynamicResource GridViewSelectionBorderCornerRadius}" />
+            </DataTrigger>
         </Style.Triggers>
     </Style>
 

@@ -17,7 +17,8 @@
     <sys:Boolean x:Key="GridViewVideoAlternative">False</sys:Boolean>
     <Visibility x:Key="GridViewCoverSubtitleVisibility">Visible</Visibility>
     <Visibility x:Key="GridViewCoverCompStatusSubtitleVisibility">Collapsed</Visibility>
-	<sys:Boolean x:Key="GridViewEnableCoverShineAnimation">True</sys:Boolean>
+    <sys:Boolean x:Key="GridViewEnableCoverShineAnimation">True</sys:Boolean>
+    <sys:Boolean x:Key="GridViewEnableHighlightCoverBorder">True</sys:Boolean>
 
 
     <sys:Boolean x:Key="DetailViewDetailInfoIcon">True</sys:Boolean>
