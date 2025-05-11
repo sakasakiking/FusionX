@@ -6,9 +6,11 @@
     <sys:Boolean x:Key="GameDisplayNameDropShadowEffect">True</sys:Boolean>
     <sys:Boolean x:Key="ShowZoomSlider">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewEnablePlayingGlowBorder">True</sys:Boolean>
-    
+
     <sys:Double x:Key="DetailsViewGameOverviewMaxWidth">800</sys:Double>
-    
+    <sys:Double x:Key="DetailViewDetailInfoSide">400</sys:Double>
+    <sys:Double x:Key="GridViewDetailInfoSide">320</sys:Double>
+
     <sys:Boolean x:Key="GridViewImageCoverUseRoundedCorners">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewImageCoverShowPlatformBanner">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewListShowFavorite">True</sys:Boolean>
@@ -58,7 +60,7 @@
     <Color x:Key="BlackColor">#FF000000</Color>
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
     <Color x:Key="TextColor">#CCFFFFFF</Color>
-    <Color x:Key="TextColorDarker">#FF000000</Color>
+    <Color x:Key="TextColorDarker">#66FFFFFF</Color>
     <Color x:Key="TextColorDark">#99000000</Color>
     <Color x:Key="MainColor">#2C3A67</Color>
     <Color x:Key="MainColorDark">#0D1225</Color>

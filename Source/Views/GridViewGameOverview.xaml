@@ -105,45 +105,30 @@
                                                     </Grid>
 
                                                     <Grid HorizontalAlignment="Stretch" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260"
-                                                            Margin="96,0,40,0">
+                                                          Margin="96,0,40,0">
+
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="*"/>
-                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition MaxWidth="{DynamicResource GridViewDetailInfoSide}"/>
                                                         </Grid.ColumnDefinitions>
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}" />
                                                             <RowDefinition Height="*" />
                                                         </Grid.RowDefinitions>
 
-                                                        <!--ExtraLogo-->
-                                                        <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" Margin="0,80,0,24" Grid.ColumnSpan="2"
-                                                                Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
-                                                            <Border.Style>
-                                                                <Style TargetType="Border">
-                                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                                    <Style.Triggers>
-                                                                        <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}"
-                                                                                Value="True">
-                                                                            <Setter Property="Visibility" Value="Visible" />
-                                                                        </DataTrigger>
-                                                                        <DataTrigger
-                                                                                Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}"
-                                                                                Value="True">
-                                                                            <Setter Property="Visibility" Value="Visible" />
-                                                                        </DataTrigger>
-                                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}"
-                                                                                Value="false">
-                                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                                        </DataTrigger>
-                                                                    </Style.Triggers>
-                                                                </Style>
-                                                            </Border.Style>
-                                                            <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" />
-                                                        </Border>
-                                                        <!--ExtraLogo Ends-->
-
-                                                        <DockPanel Grid.ColumnSpan="2" Margin="0,0,0,40">
-                                                            <StackPanel DockPanel.Dock="Bottom" Name="PART_ElemLinks" Margin="0,40,0,0">
+                                                        <Grid Grid.ColumnSpan="2" Margin="0,0,0,40">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="Auto" />
+                                                                <ColumnDefinition Width="Auto" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="*" />
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                            </Grid.RowDefinitions>
+                                                            
+                                                            <StackPanel Grid.ColumnSpan="3" Grid.Row="2" Name="PART_ElemLinks" Margin="0,40,0,0">
                                                                 <!--<TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0" Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />-->
                                                                 <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8"
                                                                         Style="{DynamicResource DetailViewCardBorder}" Margin="0,0,0,0">
@@ -166,7 +151,7 @@
                                                                 </Border>
                                                             </StackPanel>
                                                             <!--ImageCover-->
-                                                            <Image Name="PART_ImageCover" DockPanel.Dock="right" Height="{Settings GameDetailsCoverHeight}"
+                                                            <Image Name="PART_ImageCover" Grid.RowSpan="2" Grid.Column="2" Height="{Settings GameDetailsCoverHeight}"
                                                                     HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="16,0,0,0" StretchDirection="Both"
                                                                     Stretch="Uniform" RenderOptions.BitmapScalingMode="Fant">
                                                                 <Image.OpacityMask>
@@ -180,83 +165,9 @@
                                                                 </Image.OpacityMask>
                                                             </Image>
                                                             <!--ImageCover Ends-->
-                                                            <Border x:Name="VideoControls" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
-                                                                <StackPanel VerticalAlignment="Bottom">
 
-                                                                    <Border Margin="0,0,0,12" Padding="0,0,0,12" BorderThickness="0,0,0,1"
-                                                                            BorderBrush="{DynamicResource PopupSeparatorBrush}">
-                                                                        <Border.Style>
-                                                                            <Style TargetType="Border">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                                <Style.Triggers>
-                                                                                    <DataTrigger Binding="{Binding ElementName=VideoControls, Path=IsMouseOver}" Value="True">
-                                                                                        <Setter Property="Visibility" Value="Visible" />
-                                                                                    </DataTrigger>
-                                                                                </Style.Triggers>
-                                                                            </Style>
-                                                                        </Border.Style>
 
-                                                                        <StackPanel x:Name="AudioControls" Width="20">
-                                                                            <Viewbox Margin="0,4,0,16">
-                                                                                <CheckBox
-                                                                                        IsChecked="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.IsPlayerMuted, Mode=TwoWay, FallbackValue={StaticResource True}}">
-                                                                                    <CheckBox.Template>
-                                                                                        <ControlTemplate TargetType="CheckBox">
-                                                                                            <Border Background="Transparent">
-                                                                                                <TextBlock x:Name="NotMuted" Text="&#xe994;" Style="{StaticResource IconFontStyle}" />
-                                                                                            </Border>
-                                                                                            <ControlTemplate.Triggers>
-                                                                                                <Trigger Property="IsChecked" Value="True">
-                                                                                                    <Setter Property="Text" TargetName="NotMuted" Value="&#xe198;" />
-                                                                                                </Trigger>
-                                                                                            </ControlTemplate.Triggers>
-                                                                                        </ControlTemplate>
-                                                                                    </CheckBox.Template>
-                                                                                </CheckBox>
-                                                                            </Viewbox>
-
-                                                                            <Button HorizontalAlignment="Left" x:Name="TrailerPauseButton"
-                                                                                    Command="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.VideoPauseCommand, FallbackValue={x:Null}}"
-                                                                                    Visibility="{Binding ElementName=TrailerPlayButton, Path=IsEnabled, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
-                                                                                <Button.Template>
-                                                                                    <ControlTemplate TargetType="Button">
-                                                                                        <Viewbox>
-                                                                                            <TextBlock Text="&#xe103;" Style="{StaticResource IconFontStyle}" />
-                                                                                        </Viewbox>
-                                                                                    </ControlTemplate>
-                                                                                </Button.Template>
-                                                                            </Button>
-                                                                            <Button HorizontalAlignment="Left" x:Name="TrailerPlayButton"
-                                                                                    Command="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.VideoPlayCommand, FallbackValue={x:Null}}"
-                                                                                    Visibility="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                                                <Button.Template>
-                                                                                    <ControlTemplate TargetType="Button">
-                                                                                        <Viewbox>
-                                                                                            <TextBlock Text="&#xe102;" Style="{StaticResource IconFontStyle}" />
-                                                                                        </Viewbox>
-                                                                                    </ControlTemplate>
-                                                                                </Button.Template>
-                                                                            </Button>
-                                                                        </StackPanel>
-
-                                                                    </Border>
-
-                                                                    <ToggleButton x:Name="HeroVideoOnOffTogglePlayer" ToolTip="Video On/Off"
-                                                                            Style="{DynamicResource SwitcherToggleButton}" />
-                                                                    <TextBlock Text="Video ON" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
-                                                                </StackPanel>
-                                                            </Border>
-                                                            <ContentControl x:Name="DuplicateHider_ContentControl1" DockPanel.Dock="Right" VerticalAlignment="Bottom"
-                                                                            Margin="8,0,0,0" Tag="{DynamicResource DH_ContentControl_Simple_Style}" />
-                                                            <!--<ContentControl x:Name="DuplicateHider_SourceSelector" DockPanel.Dock="Right" VerticalContentAlignment="Bottom" Style="{DynamicResource DH_ContentControl_Simple_Style}" />-->
-                                                            <!--Players InGame-->
-                                                            <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl" DockPanel.Dock="Right" Margin="8,0,0,0" VerticalAlignment="Bottom">
-                                                                <ContentControl.Resources>
-                                                                    <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
-                                                                </ContentControl.Resources>
-                                                            </ContentControl>
-                                                            <!--Players InGame Ends-->
-                                                            <StackPanel DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="0,0,0,0">
+                                                            <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,0">
                                                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                                                                     <Image Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0"
                                                                             RenderOptions.BitmapScalingMode="Fant" />
@@ -333,8 +244,8 @@
                                                                             </Style>
                                                                         </Border.Style>
                                                                         <StackPanel Orientation="Horizontal">
-                                                                            <Button Name="PART_ButtonReleaseDate" Margin="0,0,4,0" Padding="0" BorderThickness="0" Background="{x:Null}"
-                                                                                    Style="{DynamicResource PropertyItemSmallButton}" />
+                                                                            <Button Name="PART_ButtonReleaseDate" Margin="0,0,4,0" Padding="0" BorderThickness="0"
+                                                                                    Background="{x:Null}" Style="{DynamicResource PropertyItemSmallButton}" />
                                                                             <StackPanel Name="PART_ElemPlatform" Orientation="Horizontal">
                                                                                 <StackPanel.Style>
                                                                                     <Style TargetType="StackPanel">
@@ -358,8 +269,8 @@
                                                                                     </ItemsControl.ItemsPanel>
                                                                                     <ItemsControl.ItemTemplate>
                                                                                         <DataTemplate>
-                                                                                            <Button Content="{Binding Name}" Margin="0,0,4,0" Padding="0" BorderThickness="0" Background="{x:Null}"
-                                                                                                    Style="{DynamicResource PropertyItemSmallButton}"
+                                                                                            <Button Content="{Binding Name}" Margin="0,0,4,0" Padding="0" BorderThickness="0"
+                                                                                                    Background="{x:Null}" Style="{DynamicResource PropertyItemSmallButton}"
                                                                                                     Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetPlatformFilterCommand}"
                                                                                                     CommandParameter="{Binding}" />
                                                                                         </DataTemplate>
@@ -427,7 +338,117 @@
                                                                 </WrapPanel>
 
                                                             </StackPanel>
-                                                        </DockPanel>
+
+                                                            <DockPanel Grid.ColumnSpan="2" Grid.RowSpan="2">
+                                                                <Border x:Name="VideoControls" DockPanel.Dock="Right" Style="{DynamicResource VideoControlPanel}" Margin="8,0,0,0">
+                                                                    <StackPanel VerticalAlignment="Bottom">
+
+                                                                        <Border Margin="0,0,0,12" Padding="0,0,0,12" BorderThickness="0,0,0,1"
+                                                                                BorderBrush="{DynamicResource PopupSeparatorBrush}">
+                                                                            <Border.Style>
+                                                                                <Style TargetType="Border">
+                                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                                    <Style.Triggers>
+                                                                                        <DataTrigger Binding="{Binding ElementName=VideoControls, Path=IsMouseOver}" Value="True">
+                                                                                            <Setter Property="Visibility" Value="Visible" />
+                                                                                        </DataTrigger>
+                                                                                    </Style.Triggers>
+                                                                                </Style>
+                                                                            </Border.Style>
+
+                                                                            <StackPanel x:Name="AudioControls" Width="20">
+                                                                                <Viewbox Margin="0,4,0,16">
+                                                                                    <CheckBox
+                                                                                            IsChecked="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.IsPlayerMuted, Mode=TwoWay, FallbackValue={StaticResource True}}">
+                                                                                        <CheckBox.Template>
+                                                                                            <ControlTemplate TargetType="CheckBox">
+                                                                                                <Border Background="Transparent">
+                                                                                                    <TextBlock x:Name="NotMuted" Text="&#xe994;"
+                                                                                                            Style="{StaticResource IconFontStyle}" />
+                                                                                                </Border>
+                                                                                                <ControlTemplate.Triggers>
+                                                                                                    <Trigger Property="IsChecked" Value="True">
+                                                                                                        <Setter Property="Text" TargetName="NotMuted" Value="&#xe198;" />
+                                                                                                    </Trigger>
+                                                                                                </ControlTemplate.Triggers>
+                                                                                            </ControlTemplate>
+                                                                                        </CheckBox.Template>
+                                                                                    </CheckBox>
+                                                                                </Viewbox>
+
+                                                                                <Button HorizontalAlignment="Left" x:Name="TrailerPauseButton"
+                                                                                        Command="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.VideoPauseCommand, FallbackValue={x:Null}}"
+                                                                                        Visibility="{Binding ElementName=TrailerPlayButton, Path=IsEnabled, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                                                                                    <Button.Template>
+                                                                                        <ControlTemplate TargetType="Button">
+                                                                                            <Viewbox>
+                                                                                                <TextBlock Text="&#xe103;" Style="{StaticResource IconFontStyle}" />
+                                                                                            </Viewbox>
+                                                                                        </ControlTemplate>
+                                                                                    </Button.Template>
+                                                                                </Button>
+                                                                                <Button HorizontalAlignment="Left" x:Name="TrailerPlayButton"
+                                                                                        Command="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Content.VideoPlayCommand, FallbackValue={x:Null}}"
+                                                                                        Visibility="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                                                    <Button.Template>
+                                                                                        <ControlTemplate TargetType="Button">
+                                                                                            <Viewbox>
+                                                                                                <TextBlock Text="&#xe102;" Style="{StaticResource IconFontStyle}" />
+                                                                                            </Viewbox>
+                                                                                        </ControlTemplate>
+                                                                                    </Button.Template>
+                                                                                </Button>
+                                                                            </StackPanel>
+
+                                                                        </Border>
+
+                                                                        <ToggleButton x:Name="HeroVideoOnOffTogglePlayer" ToolTip="Video On/Off"
+                                                                                Style="{DynamicResource SwitcherToggleButton}" />
+                                                                        <TextBlock Text="Video ON" Style="{DynamicResource ActionControlLabelStyle}" Margin="0,8,0,0" />
+                                                                    </StackPanel>
+                                                                </Border>
+                                                                <ContentControl x:Name="DuplicateHider_ContentControl1" DockPanel.Dock="Right" VerticalAlignment="Bottom"
+                                                                        Margin="8,0,0,0" Tag="{DynamicResource DH_ContentControl_Simple_Style}" />
+                                                                <!--<ContentControl x:Name="DuplicateHider_SourceSelector" DockPanel.Dock="Right" VerticalContentAlignment="Bottom" Style="{DynamicResource DH_ContentControl_Simple_Style}" />-->
+                                                                <!--Players InGame-->
+                                                                <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl" DockPanel.Dock="Right" Margin="8,0,0,0"
+                                                                        VerticalAlignment="Bottom">
+                                                                    <ContentControl.Resources>
+                                                                        <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
+                                                                    </ContentControl.Resources>
+                                                                </ContentControl>
+                                                                <!--Players InGame Ends-->
+                                                            </DockPanel>
+                                                            
+                                                            <!--ExtraLogo-->
+                                                            <Border x:Name="ExtraMetadataLoader_LogoLoaderControlGrid" Margin="0,80,0,24" Grid.ColumnSpan="2"
+                                                                    Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
+                                                                <Border.Style>
+                                                                    <Style TargetType="Border">
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger
+                                                                                    Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}"
+                                                                                    Value="True">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger
+                                                                                    Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}"
+                                                                                    Value="True">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}"
+                                                                                    Value="false">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Border.Style>
+                                                                <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" />
+                                                            </Border>
+                                                            <!--ExtraLogo Ends-->
+                                                            
+                                                        </Grid>
 
                                                         <!--Left Part-->
                                                         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,40,0">
@@ -437,11 +458,12 @@
                                                                 <Border.Style>
                                                                     <Style TargetType="Border">
                                                                         <Setter Property="Tag" Value="{DynamicResource GridViewVideoAlternative}" />
-                                                                        <Setter Property="Margin" Value="0,0,0,24" />
-                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                        <Setter Property="Margin" Value="0,0,0,0" />
+                                                                        <Setter Property="Visibility" Value="Visible" />
                                                                         <Style.Triggers>
-                                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, 
-                                                                                Converter={StaticResource BooleanToVisibilityConverter}}" Value="False">
+                                                                            <DataTrigger
+                                                                                    Binding="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                                                    Value="False">
                                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                                             </DataTrigger>
                                                                             <DataTrigger
@@ -451,22 +473,20 @@
                                                                             </DataTrigger>
                                                                             <DataTrigger
                                                                                     Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsAnyVideoAvailable, FallbackValue=False}"
-                                                                                    Value="True">
-                                                                                <Setter Property="Control.Visibility" Value="Visible" />
+                                                                                    Value="False">
+                                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
                                                                             </DataTrigger>
                                                                             <DataTrigger
-                                                                                    Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}"
-                                                                                    Value="True">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                            </DataTrigger>
-                                                                            <DataTrigger Binding="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Visibility}"
-                                                                                    Value="Collapsed">
+                                                                                    Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeGridVideoPlayer, FallbackValue=False}"
+                                                                                    Value="False">
                                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                                             </DataTrigger>
                                                                         </Style.Triggers>
                                                                     </Style>
                                                                 </Border.Style>
-                                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControlAlternative">
+                                                                <ContentControl x:Name="ExtraMetadataLoader_VideoLoaderControlAlternative" Margin="0,0,0,24"
+                                                                        Tag="{DynamicResource GridViewVideoAlternative}"
+                                                                        Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}">
                                                                     <ContentControl.OpacityMask>
                                                                         <VisualBrush>
                                                                             <VisualBrush.Visual>
