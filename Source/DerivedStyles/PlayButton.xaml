@@ -41,7 +41,7 @@
 
     <Style x:Key="IconPlayButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="{DynamicResource GlyphBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+        <Setter Property="Foreground" Value="{DynamicResource PlayButtonTextBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PanelSeparatorBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="24,0,24,0" />
@@ -100,7 +100,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrushDark}" />
+                <Setter Property="Foreground" Value="{DynamicResource PlayButtonTextBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>

@@ -3,9 +3,13 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!--ThemeModifier Options-->
+
     <sys:Boolean x:Key="GameDisplayNameDropShadowEffect">True</sys:Boolean>
     <sys:Boolean x:Key="ShowZoomSlider">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewEnablePlayingGlowBorder">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailInfoColumnAchievementPanel">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailInfoColumnHLTBPanel">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailInfoListIcon">True</sys:Boolean>
 
     <sys:Double x:Key="DetailsViewGameOverviewMaxWidth">800</sys:Double>
     <sys:Double x:Key="DetailViewDetailInfoSide">400</sys:Double>
@@ -23,11 +27,25 @@
     <sys:Boolean x:Key="GridViewEnableHighlightCoverBorder">True</sys:Boolean>
 
 
-    <sys:Boolean x:Key="DetailViewDetailInfoIcon">True</sys:Boolean>
+    
     <sys:Boolean x:Key="DetailViewRatingStar">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewVideoOnByDefault">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewVideoWindowedByDefault">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewVideoAlternative">False</sys:Boolean>
+
+    
+    <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
+    <SolidColorBrush x:Key="TextBrush" Color="{DynamicResource TextColor}" />
+    <SolidColorBrush x:Key="TextBrushDarker" Color="{DynamicResource TextColorDarker}" />
+    <SolidColorBrush x:Key="TextBrushDark" Color="{DynamicResource TextColorDark}" />
+    <SolidColorBrush x:Key="PlayButtonTextBrush" Color="{DynamicResource BlackColor}" />
+    <SolidColorBrush x:Key="NormalBrush" Color="#29FFFFFF" />
+    <SolidColorBrush x:Key="NormalBrushDark" Color="Transparent" />
+    <SolidColorBrush x:Key="NormalBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
+
+    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource 24%Black}" />
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource 24%Black}" />
 
     <!--ThemeModifier Options Ends-->
     
@@ -110,7 +128,7 @@
     
     <SolidColorBrush x:Key="ControlLightBackgroundBrush" Color="{DynamicResource 100%White}" />
     
-    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource 24%Black}" />
+    
     <SolidColorBrush x:Key="ControlDarkIdleBackgroundBrush" Color="{DynamicResource 24%Black}" />
     <SolidColorBrush x:Key="ControlDarkHoverBackgroundBrush" Color="{DynamicResource 40%Black}" />
 
@@ -133,14 +151,6 @@
     <SolidColorBrush x:Key="AccentSelectedBrush" Color="{DynamicResource AccentSelectedColor}" />
     <SolidColorBrush x:Key="AccentDisabledBrush" Color="#024DA3" />
 
-    <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
-    <SolidColorBrush x:Key="TextBrush" Color="{DynamicResource TextColor}" />
-    <SolidColorBrush x:Key="TextBrushDarker" Color="{DynamicResource TextColorDarker}" />
-    <SolidColorBrush x:Key="TextBrushDark" Color="{DynamicResource TextColorDark}" />
-    <SolidColorBrush x:Key="NormalBrush" Color="#29FFFFFF" />
-    <SolidColorBrush x:Key="NormalBrushDark" Color="Transparent" />
-    <SolidColorBrush x:Key="NormalBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
 
     <SolidColorBrush x:Key="TooltipBackgroundBrush" Color="{DynamicResource BackgroundToneColor}" />
     <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#0a0e1e" />
@@ -204,6 +214,11 @@
 
     <LinearGradientBrush x:Key="GridViewItemHoverBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
         <GradientStop Color="#00000000" Offset="0.3" />
+        <GradientStop Color="#CC000000" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="GridViewItemSelectedBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#99000000" Offset="0.3" />
         <GradientStop Color="#CC000000" Offset="1" />
     </LinearGradientBrush>
 

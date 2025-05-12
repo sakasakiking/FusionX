@@ -25,7 +25,26 @@
                                         <Grid.OpacityMask>
                                             <ImageBrush ImageSource="../Images/Hero-mask.png" />
                                         </Grid.OpacityMask>
-                                        <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top"/>
+                                        <Grid Background="Red">
+                                            <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top" />
+                                            <Rectangle x:Name="Overlay" Fill="Black" Opacity="0.5" />
+                                            <Grid.Triggers>
+                                                <EventTrigger RoutedEvent="MouseEnter">
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="Overlay" Storyboard.TargetProperty="Opacity" To="0.4" Duration="0:0:0.2" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </EventTrigger>
+                                                <EventTrigger RoutedEvent="MouseLeave">
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="Overlay" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.2" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </EventTrigger>
+                                            </Grid.Triggers>
+                                        </Grid>
                                         <Grid x:Name="GameVideo" Tag="{DynamicResource DetailViewVideoWindowedByDefault}" >
                                             <Grid.Style>
                                                 <Style TargetType="Grid">
@@ -384,7 +403,7 @@
                                         <Grid Grid.Row="1" Grid.Column="1" Margin="40,0,40,0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition MaxWidth="{DynamicResource DetailViewDetailInfoSide}"/>
+                                                <ColumnDefinition MaxWidth="{DynamicResource DetailViewDetailInfoColumn}"/>
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto" />
@@ -649,8 +668,20 @@
                                                 <!-- SteamScreenshots Ends -->
 
                                                 <!-- HowLongToBeat ProgressBar -->
-                                                <StackPanel Margin="0,0,0,24"
-                                                        Visibility="{PluginSettings Plugin=HowLongToBeat, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                <StackPanel Margin="0,0,0,24" Tag="{DynamicResource DetailInfoColumnHLTBPanel}">
+                                                    <StackPanel.Style>
+                                                        <Style TargetType="StackPanel">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasData}" Value="False">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </StackPanel.Style>
                                                     <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}">
                                                         <DockPanel>
                                                             <!--<ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right">
@@ -752,8 +783,32 @@
                                                 </StackPanel>
                                                 <!-- HowLongToBeat ProgressBar Ends-->
                                                 <!-- SuccessStory -->
-                                                <StackPanel Margin="0,0,0,24"
-                                                        Visibility="{PluginSettings Plugin=SuccessStory, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                <StackPanel Margin="0,0,0,24" Tag="{DynamicResource DetailInfoColumnAchievementPanel}">
+                                                    <StackPanel.Style>
+                                                        <Style TargetType="StackPanel">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <MultiDataTrigger>
+                                                                    <MultiDataTrigger.Conditions>
+                                                                        <Condition
+                                                                                Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactUnlocked	, Mode=OneWay, FallbackValue='False'}"
+                                                                                Value="False" />
+                                                                        <Condition Binding="{Binding ElementName=SuccessStory_PluginCompactUnlocked, Path=Visibility}"
+                                                                                Value="Collapsed" />
+                                                                    </MultiDataTrigger.Conditions>
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </MultiDataTrigger>
+                                                                <DataTrigger Binding="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue='False'}"
+                                                                        Value="False">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger
+                                                                        Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </StackPanel.Style>
                                                     <DockPanel>
                                                         <!--<ContentControl x:Name="SuccessStory_PluginButton" DockPanel.Dock="Right" VerticalAlignment="Center" />-->
                                                         <TextBlock Text="{DynamicResource LOCSuccessStoryAchievements}" DockPanel.Dock="Left" VerticalAlignment="Center"
@@ -762,16 +817,25 @@
                                                     <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="6,12,10,12" Style="{DynamicResource DetailViewCardBorder}"
                                                             Margin="0,12,0,0">
                                                         <StackPanel>
-                                                            <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,0,0,0" />
+                                                            <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,0,0,0"/>
+                                                            
                                                             <Border Background="{DynamicResource PopupSeparatorBrush}" Height="1" Margin="10,12,8,12"
-                                                                    Visibility="{Binding ElementName=SuccessStory_PluginCompactUnlocked, Path=Visibility}" />
-                                                            <TextBlock Text="Locked Achievements" Margin="10,0,0,4"
-                                                                    Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}" />
+                                                                    Visibility="{Binding ElementName=SuccessStory_PluginCompactLocked, Path=Visibility}" />
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+                                                                    Visibility="{Binding ElementName=SuccessStory_PluginCompactLocked, Path=Visibility}">
+                                                                <TextBlock Text="Locked Achievements" Margin="10,0,0,4"
+                                                                        Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}" />
+                                                                <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Unlocked, Mode=OneWay, FallbackValue=''}"
+                                                                        Margin="10,0,0,4" Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}" />
+                                                                <TextBlock Text="/" Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}"/>
+                                                                <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Total, Mode=OneWay, FallbackValue=''}" Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}"/>
+                                                            </StackPanel>
                                                             <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,0,0,0" />
                                                         </StackPanel>
                                                     </Border>
                                                 </StackPanel>
                                                 <!-- SuccessStory Ends -->
+
                                                 <!--Details Panel-->
                                                 <StackPanel Margin="0,0,0,24">
                                                     <StackPanel.Resources>
@@ -806,7 +870,7 @@
                                                                     </Style>
                                                                 </Grid.Resources>
                                                                 <StackPanel Name="PART_ElemSeries" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe1cb;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe1cb;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCSeriesLabel}" />
                                                                 </StackPanel>
@@ -828,7 +892,7 @@
                                                                 </ItemsControl>
                                                                 
                                                                 <StackPanel Name="PART_ElemDevelopers" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe902;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe902;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCDeveloperLabel}" />
                                                                 </StackPanel>
@@ -850,7 +914,7 @@
                                                                 </ItemsControl>
                                                                 
                                                                 <StackPanel Name="PART_ElemPublishers" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe731;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe731;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCPublisherLabel}" />
                                                                 </StackPanel>
@@ -872,7 +936,7 @@
                                                                 </ItemsControl>
                                                                 
                                                                 <StackPanel Name="PART_ElemAgeRating" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xed54;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xed54;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCAgeRatingLabel}" />
                                                                 </StackPanel>
@@ -894,7 +958,7 @@
                                                                 </ItemsControl>
                                                                 
                                                                 <StackPanel Name="PART_ElemRegion" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe128;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe128;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCRegionLabel}" />
                                                                 </StackPanel>
@@ -916,34 +980,34 @@
                                                                 </ItemsControl>
                                                                 
                                                                 <StackPanel Name="PART_ElemVersion" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe128;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe128;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCVersionLabel}" />
                                                                 </StackPanel>
                                                                 <Button Name="PART_ButtonVersion" />
                                                                 
                                                                 <StackPanel Name="PART_ElemAdded" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCDateAddedLabel}" />
                                                                 </StackPanel>
                                                                 <TextBlock Name="PART_TextAdded" VerticalAlignment="Center" />
 
                                                                 <StackPanel Name="PART_ElemRecentActivity" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xed55;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xed55;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCRecentActivityLabel}" />
                                                                 </StackPanel>
                                                                 <TextBlock Name="PART_TextRecentActivity" VerticalAlignment="Center" />
                                                                 
                                                                 <StackPanel Name="PART_ElemSource" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCSourceLabel}" />
                                                                 </StackPanel>
                                                                 <Button Name="PART_ButtonSource" VerticalAlignment="Center" />
                                                                 <StackPanel Name="PART_ElemCategories" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xeca5;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xeca5;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCGameCategoriesTitle}" />
                                                                 </StackPanel>
@@ -964,13 +1028,13 @@
                                                                     </ItemsControl.ItemTemplate>
                                                                 </ItemsControl>
                                                                 <StackPanel Name="PART_ElemLibrary" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe1dc;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCGameProviderTitle}" />
                                                                 </StackPanel>
                                                                 <Button Name="PART_ButtonLibrary" VerticalAlignment="Center" />
                                                                 <StackPanel Name="PART_ElemCommunityScore" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCCommunityScore}" />
                                                                 </StackPanel>
@@ -978,7 +1042,7 @@
                                                                         Style="{DynamicResource TextBlockGameScore}" />
                                                                 
                                                                 <StackPanel Name="PART_ElemCriticScore" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCCriticScore}" />
                                                                 </StackPanel>
@@ -986,7 +1050,7 @@
                                                                         Style="{DynamicResource TextBlockGameScore}" />
                                                                 
                                                                 <StackPanel Name="PART_ElemUserScore" Orientation="Horizontal">
-                                                                    <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                    <TextBlock Text="&#xe1ce;" Style="{DynamicResource GridIcon}" Tag="{DynamicResource DetailInfoListIcon}"
                                                                             Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                     <Label Content="{DynamicResource LOCUserScore}" />
                                                                 </StackPanel>
@@ -1027,7 +1091,7 @@
                                                                     </DockPanel.Style>
                                                                     <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="0,0,8,0">
                                                                         <TextBlock Text="&#xe82f;" Style="{DynamicResource GridIcon}"
-                                                                                Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                                Tag="{DynamicResource DetailInfoListIcon}"
                                                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                         <Label Width="130" Content="{DynamicResource LOCFeaturesLabel}" Foreground="{DynamicResource PromptBrush}"
                                                                                 Margin="0,4,0,0" />
@@ -1066,7 +1130,7 @@
                                                                     </DockPanel.Style>
                                                                     <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="0,0,8,0">
                                                                         <TextBlock Text="&#xe1cb;" Style="{DynamicResource GridIcon}"
-                                                                                Tag="{DynamicResource DetailViewDetailInfoIcon}"
+                                                                                Tag="{DynamicResource DetailInfoListIcon}"
                                                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                                         <Label Width="130" Margin="0,2,0,0" Content="{DynamicResource LOCTagsLabel}"
                                                                                 Foreground="{DynamicResource PromptBrush}" />

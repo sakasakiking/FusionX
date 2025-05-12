@@ -1,21 +1,27 @@
 Constants:
     - "Colors"
     - GlyphBrush: 'Primary Color'
-    - ControlBackgroundBrush: 'Elements background color'
-    - WindowBackgroundBrush: 'Window background color'
-    - PlayButtonTextBrush: 'Play button text color'
+    # - ControlBackgroundBrush: 'Elements background color'
+    # - WindowBackgroundBrush: 'Window background color'
+    - PlayButtonTextBrush: 'Text color on the play button'
+  
     - "General Settings ------------------------"
     - GameDisplayNameDropShadowEffect: 'Add drop shadow effect on game displayname'
-    - "Details View ------------------------"
-    - DetailViewDetailInfoIcon: 'Show icons at detail info list'
+    - DetailInfoColumnHLTBPanel: 'Display HowLongToBeat Panel'
+    - DetailInfoColumnAchievementPanel: 'Display Achievement Panel'
+    - DetailInfoListIcon: 'Show icons at detail info list'
     - DetailViewRatingStar: 'Show rating star under game name'
-    - DetailViewDetailInfoSide(400,760): 'Width of detail information Column'
+  
+    - "Details View ------------------------"
+    - DetailViewDetailInfoColumn(400,760): 'Width of detail information Column'
+  
     - "Grid View ------------------------"
     - DetailsViewGameOverviewMaxWidth(600,2400): 'Set maximum width of DetailViewGameOverview in Grid View'
     - ShowZoomSlider: 'Show zoom slider in grid view game list'
-    - GridViewDetailInfoSide(320,480): 'Width of detail information Column'
+    - GridViewDetailInfoColumn(320,480): 'Width of detail information Column'
+  
     - "Grid View - Game Covers ------------------------"
-    - GridViewListShowFavorite: 'Show favorites icon on game cover'
+    - GridViewListShowFavorite: 'Show favorite icon on game cover'
     - GridViewImageCoverShowPlatformBanner: 'Show platform banners ("ThemeExtras" extension needed)'
     - GridViewImageCoverUseRoundedCorners: 'Use rounded corners on game covers'
     - GridViewCoverCompStatusSubtitleVisibility: 'Display completion Status under game cover'
@@ -23,10 +29,12 @@ Constants:
     - GridViewEnableCoverShineAnimation: 'Show gloss highlight on game cover when hover'
     - GridViewEnableHighlightCoverBorder: 'Show gloss highlight on the border of game cover when selected'
     # - GridViewEnablePlayingGlowBorder: 'Show glow animation if game is running'
+  
     - "Detail View - Video  ------------------------"
     - DetailViewVideoOnByDefault: 'Display game video'
     - DetailViewVideoWindowedByDefault: 'Minimize Video'  
     - DetailViewVideoAlternative: 'Display alternative video (above the overview tab)'
+  
     - "Grid View - Video ------------------------"
     - GridViewVideoOnByDefault: 'Display game video'
     - GridViewVideoWindowedByDefault: 'Minimize Video'  
