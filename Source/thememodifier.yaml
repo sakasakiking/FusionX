@@ -13,6 +13,7 @@ Constants:
     - DetailInfoListIcon: 'Show icons at detail info list'
     - DetailViewRatingStar: 'Show rating star under game name'
     - ImageBackgroundDarkenMask(0,1): 'Darken the background'
+    - ShowIconTextOnLink: 'Show full link name next to the icon'
   
     - "Details View ------------------------"
     - DetailViewDetailInfoColumn(400,760): 'Width of detail information Column'

@@ -11,6 +11,7 @@
     <sys:Boolean x:Key="DetailInfoColumnHLTBPanel">True</sys:Boolean>
     <sys:Boolean x:Key="DetailInfoListIcon">True</sys:Boolean>
     <sys:Double x:Key="ImageBackgroundDarkenMask">0</sys:Double>
+    <sys:Boolean x:Key="ShowIconTextOnLink">True</sys:Boolean>
 
     <sys:Double x:Key="DetailsViewGameOverviewMaxWidth">800</sys:Double>
     <sys:Double x:Key="DetailViewDetailInfoColumn">400</sys:Double>

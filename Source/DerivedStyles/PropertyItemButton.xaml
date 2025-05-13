@@ -104,25 +104,37 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <Border x:Name="HoverBg" CornerRadius="15" Background="{TemplateBinding Background}" Opacity="0.16"/>
-                        <Viewbox DockPanel.Dock="Left" Width="18" Height="18" x:Name="ViewBoxLink"
-                                 VerticalAlignment="Center" HorizontalAlignment="Center"
-                                 Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}"
-                                 RenderOptions.ClearTypeHint="Enabled" RenderOptions.BitmapScalingMode="Fant">
-                            <ContentControl Content="{Binding Value, TargetNullValue={StaticResource LinksIcon}}"
-                                            DataContext="{Binding Url, Converter={PluginConverter Plugin=ThemeExtras, Converter=UrlToAsyncIconConverter}}"/>
-                        </Viewbox>
+                        <Border x:Name="HoverBg" CornerRadius="16" Background="{TemplateBinding Background}" Opacity="0.16"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Viewbox x:Name="ViewBoxLink" Width="16" Height="16" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"
+                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" RenderOptions.ClearTypeHint="Enabled"
+                                    RenderOptions.BitmapScalingMode="Fant" Tag="{DynamicResource ShowIconTextOnLink}">
+                                <ContentControl Content="{Binding Value, TargetNullValue={StaticResource LinksIcon}}"
+                                        DataContext="{Binding Url, Converter={PluginConverter Plugin=ThemeExtras, Converter=UrlToAsyncIconConverter}}" />
+                            </Viewbox>
 
-                        <TextBlock FontSize="{TemplateBinding FontSize}" Name="LinkName" VerticalAlignment="Center"
-                                   Foreground="{TemplateBinding Foreground}" Margin="{TemplateBinding Padding}"
-                                   Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
-                                   TextWrapping="Wrap"/>
+                            <TextBlock Name="LinkName" FontSize="{TemplateBinding FontSize}" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}"
+                                    Margin="{TemplateBinding Padding}" Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="Wrap" />
+                        </StackPanel>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=ViewBoxLink, Path=Visibility}" Value="Visible">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="LinkName"/>
+                        <DataTrigger Binding="{Binding ElementName=ViewBoxLink, Path=Tag}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="LinkName"/>
+                            <Setter Property="Margin" Value="0,0,8,0" TargetName="LinkName" />
                             <Setter Property="Opacity" Value="0" TargetName="HoverBg"/>
                         </DataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=ViewBoxLink, Path=Visibility}" Value="Visible" />
+                                <Condition Binding="{Binding ElementName=ViewBoxLink, Path=Tag}" Value="False" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="LinkName" />
+                            <Setter Property="Opacity" Value="0" TargetName="HoverBg" />
+                        </MultiDataTrigger>
+                        <!--<DataTrigger Binding="{Binding ElementName=ViewBoxLink, Path=Tag}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="LinkName" />
+                            <Setter Property="Opacity" Value="0" TargetName="HoverBg" />
+                        </DataTrigger>-->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Opacity" Value="0.24" TargetName="HoverBg"/>
                         </Trigger>

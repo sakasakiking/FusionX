@@ -58,10 +58,8 @@
                                                         <Grid.OpacityMask>
                                                             <ImageBrush ImageSource="../Images/Hero-mask.png" />
                                                         </Grid.OpacityMask>
-                                                        <Grid>
-                                                            <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top" />
-                                                            <Rectangle x:Name="Overlay" Fill="Black" Opacity="{DynamicResource ImageBackgroundDarkenMask}" />
-                                                        </Grid>
+                                                        <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top" />
+
                                                         <Grid x:Name="GameVideo" Tag="{DynamicResource GridViewVideoWindowedByDefault}">
                                                             <Grid.Style>
                                                                 <Style TargetType="Grid">
@@ -105,6 +103,7 @@
                                                                 </ContentControl.OpacityMask>
                                                             </ContentControl>
                                                         </Grid>
+                                                        <Rectangle x:Name="Overlay" Fill="Black" Opacity="{DynamicResource ImageBackgroundDarkenMask}" />
                                                     </Grid>
 
                                                     <Grid HorizontalAlignment="Stretch" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260"
@@ -843,8 +842,9 @@
                                                                                     <Condition
                                                                                             Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactUnlocked	, Mode=OneWay, FallbackValue='False'}"
                                                                                             Value="False" />
-                                                                                    <Condition Binding="{Binding ElementName=SuccessStory_PluginCompactUnlocked, Path=Visibility}"
-                                                                                            Value="Collapsed" />
+                                                                                    <Condition
+                                                                                            Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactLocked	, Mode=OneWay, FallbackValue='False'}"
+                                                                                            Value="False" />
                                                                                 </MultiDataTrigger.Conditions>
                                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                                             </MultiDataTrigger>
