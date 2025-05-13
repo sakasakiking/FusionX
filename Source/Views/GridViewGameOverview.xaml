@@ -58,7 +58,10 @@
                                                         <Grid.OpacityMask>
                                                             <ImageBrush ImageSource="../Images/Hero-mask.png" />
                                                         </Grid.OpacityMask>
-                                                        <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top"/>
+                                                        <Grid>
+                                                            <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top" />
+                                                            <Rectangle x:Name="Overlay" Fill="Black" Opacity="{DynamicResource ImageBackgroundDarkenMask}" />
+                                                        </Grid>
                                                         <Grid x:Name="GameVideo" Tag="{DynamicResource GridViewVideoWindowedByDefault}">
                                                             <Grid.Style>
                                                                 <Style TargetType="Grid">
@@ -171,7 +174,7 @@
                                                                 <DockPanel Margin="0,0,0,8">
                                                                     <Image Name="PART_ImageIcon" MaxWidth="24" MaxHeight="24" Margin="0,0,16,0" DockPanel.Dock="Left"
                                                                             RenderOptions.BitmapScalingMode="Fant" />
-                                                                    <TextBlock Name="PART_TextDisplayName" Margin="0,0,0,0" DockPanel.Dock="Left"
+                                                                    <TextBlock Name="PART_TextDisplayName" Padding="0,-4,0,0" DockPanel.Dock="Left"
                                                                             FontSize="{DynamicResource FontSizeLarge24}" TextWrapping="Wrap"
                                                                             Tag="{DynamicResource GameDisplayNameDropShadowEffect}">
                                                                         <TextBlock.Style>
@@ -223,7 +226,7 @@
                                                                             </StackPanel.Resources>
                                                                             <ContentControl x:Name="ThemeExtras_CriticRating" Margin="0,2,4,0" />
                                                                             <TextBlock Text="{Binding Game.CriticScore, TargetNullValue='- -', FallbackValue='- -'}"
-                                                                                    Margin="0,5,0,2" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" FontSize="12" />
+                                                                                    Margin="0,4,0,2" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" FontSize="12" />
                                                                         </StackPanel>
                                                                     </Border>
                                                                     <Border Margin="0,0,8,8" VerticalAlignment="Top">
@@ -244,7 +247,7 @@
                                                                             </Style>
                                                                         </Border.Style>
                                                                         <StackPanel Orientation="Horizontal">
-                                                                            <Button Name="PART_ButtonReleaseDate" Margin="0,0,4,0" Padding="0" BorderThickness="0"
+                                                                            <Button Name="PART_ButtonReleaseDate" Margin="0,0,4,0" Padding="0,-2,0,0" BorderThickness="0"
                                                                                     Background="{x:Null}" Style="{DynamicResource PropertyItemSmallButton}" />
                                                                             <StackPanel Name="PART_ElemPlatform" Orientation="Horizontal">
                                                                                 <StackPanel.Style>
@@ -269,7 +272,7 @@
                                                                                     </ItemsControl.ItemsPanel>
                                                                                     <ItemsControl.ItemTemplate>
                                                                                         <DataTemplate>
-                                                                                            <Button Content="{Binding Name}" Margin="0,0,4,0" Padding="0" BorderThickness="0"
+                                                                                            <Button Content="{Binding Name}" Margin="0,0,4,0" Padding="0,-2,0,0" BorderThickness="0"
                                                                                                     Background="{x:Null}" Style="{DynamicResource PropertyItemSmallButton}"
                                                                                                     Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.SetPlatformFilterCommand}"
                                                                                                     CommandParameter="{Binding}" />

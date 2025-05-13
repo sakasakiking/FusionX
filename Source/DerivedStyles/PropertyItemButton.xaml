@@ -29,7 +29,7 @@
     <Style x:Key="PropertyItemSmallButton" TargetType="Button">
         <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="Height" Value="22" />
-        <Setter Property="Padding" Value="4,0,4,0"/>
+        <Setter Property="Padding" Value="4,-2,4,0"/>
         <Setter Property="BorderBrush" Value="{DynamicResource ControlIdleBorderBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
         <Setter Property="Background" Value="{DynamicResource ControlDarkIdleBackgroundBrush}"/>

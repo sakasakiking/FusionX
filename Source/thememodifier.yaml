@@ -1,6 +1,7 @@
 Constants:
     - "Colors"
-    - GlyphBrush: 'Primary Color'
+    - GlyphBrush: 'Primary color'
+    - HighlightGlyphBrush: 'Accent color'
     # - ControlBackgroundBrush: 'Elements background color'
     # - WindowBackgroundBrush: 'Window background color'
     - PlayButtonTextBrush: 'Text color on the play button'
@@ -11,13 +12,14 @@ Constants:
     - DetailInfoColumnAchievementPanel: 'Display Achievement Panel'
     - DetailInfoListIcon: 'Show icons at detail info list'
     - DetailViewRatingStar: 'Show rating star under game name'
+    - ImageBackgroundDarkenMask(0,1): 'Darken the background'
   
     - "Details View ------------------------"
     - DetailViewDetailInfoColumn(400,760): 'Width of detail information Column'
   
     - "Grid View ------------------------"
-    - DetailsViewGameOverviewMaxWidth(600,2400): 'Set maximum width of DetailViewGameOverview in Grid View'
     - ShowZoomSlider: 'Show zoom slider in grid view game list'
+    - DetailsViewGameOverviewMaxWidth(600,2400): 'Set maximum width of DetailViewGameOverview in Grid View'
     - GridViewDetailInfoColumn(320,480): 'Width of detail information Column'
   
     - "Grid View - Game Covers ------------------------"

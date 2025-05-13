@@ -10,10 +10,11 @@
     <sys:Boolean x:Key="DetailInfoColumnAchievementPanel">True</sys:Boolean>
     <sys:Boolean x:Key="DetailInfoColumnHLTBPanel">True</sys:Boolean>
     <sys:Boolean x:Key="DetailInfoListIcon">True</sys:Boolean>
+    <sys:Double x:Key="ImageBackgroundDarkenMask">0</sys:Double>
 
     <sys:Double x:Key="DetailsViewGameOverviewMaxWidth">800</sys:Double>
-    <sys:Double x:Key="DetailViewDetailInfoSide">400</sys:Double>
-    <sys:Double x:Key="GridViewDetailInfoSide">320</sys:Double>
+    <sys:Double x:Key="DetailViewDetailInfoColumn">400</sys:Double>
+    <sys:Double x:Key="GridViewDetailInfoColumn">320</sys:Double>
 
     <sys:Boolean x:Key="GridViewImageCoverUseRoundedCorners">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewImageCoverShowPlatformBanner">True</sys:Boolean>
@@ -26,15 +27,13 @@
     <sys:Boolean x:Key="GridViewEnableCoverShineAnimation">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewEnableHighlightCoverBorder">True</sys:Boolean>
 
-
-    
     <sys:Boolean x:Key="DetailViewRatingStar">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewVideoOnByDefault">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewVideoWindowedByDefault">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewVideoAlternative">False</sys:Boolean>
 
-    
     <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
+    <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
     <SolidColorBrush x:Key="TextBrush" Color="{DynamicResource TextColor}" />
     <SolidColorBrush x:Key="TextBrushDarker" Color="{DynamicResource TextColorDarker}" />
     <SolidColorBrush x:Key="TextBrushDark" Color="{DynamicResource TextColorDark}" />
@@ -42,7 +41,6 @@
     <SolidColorBrush x:Key="NormalBrush" Color="#29FFFFFF" />
     <SolidColorBrush x:Key="NormalBrushDark" Color="Transparent" />
     <SolidColorBrush x:Key="NormalBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
 
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource 24%Black}" />
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource 24%Black}" />
@@ -218,8 +216,8 @@
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="GridViewItemSelectedBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
-        <GradientStop Color="#99000000" Offset="0.3" />
-        <GradientStop Color="#CC000000" Offset="1" />
+        <GradientStop Color="#CC000000" Offset="0.3" />
+        <GradientStop Color="#99000000" Offset="1" />
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="TopPanelMaskBackgourndBrush" StartPoint="0.5,0" EndPoint="0.5,1" >

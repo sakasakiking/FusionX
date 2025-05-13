@@ -35,7 +35,7 @@
                         </Grid.RowDefinitions>
                         <TickBar x:Name="TopTick" Visibility="Collapsed" Height="4" Placement="Top"
                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  Fill="{DynamicResource GlyphBrush}" />
-                        <Border x:Name="Border" Grid.Row="1" Margin="0" Height="8" CornerRadius="{DynamicResource ControlCornerRadius}"
+                        <Border x:Name="Border" Grid.Row="1" Margin="0" Height="8" CornerRadius="{DynamicResource ControlCornerRadiusSmall}"
                                 Background="{TemplateBinding Background}" BorderBrush="{DynamicResource ControlIdleBorderBrush}"
                                 BorderThickness="{DynamicResource ControlBorderThickness}" />
                         <Border Grid.Row="1" Margin="0" Height="8" VerticalAlignment="Center" HorizontalAlignment="Left"
