@@ -192,3 +192,20 @@ Packages:
     - Add played time and playing status infos under game cover, can be hidden via ThemeModifier.
     - Adjust some layouts.
     - Fixe some issues.
+  - Version: 2.0.6
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-05-15
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_6.pthm
+    Changelog: 
+    - Continue optimize the wording of description in ThemeModifier.
+    - The Primary color, Accent color, PlayButton color and TextColor on PlayButton can be set (ThemeModifier).
+    - Add a transparent darken mask so the game info will be more clear on some light background or video.
+    - The opacity of darken mask can be set from 0 to 1 (ThemeModifier).
+    - Add visual effect on the uninstalled game cover.
+    - The gloss highlight animation on the cover border of selected game can be removed (ThemeModifier).
+    - The HowLongToBeat and Achievements panel can be hidden (ThemeModifier).   
+    - The width of details info column both in DetailView and GridView can be changed (ThemeModifier).
+    - Fixed the issue that Achievements can be hidden correctly if the users choose not to display them in plugin settings.
+    - Fixed the issue that the darken mask on uninstalled game cover will disappear after hover.
+    - Fixed the issue that the extra logo get the wrong place when its set to bottom vertically.
+    - Fixed the issue that the alternative video can not play correctly (See guide in github wiki).

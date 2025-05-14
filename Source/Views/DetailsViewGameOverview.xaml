@@ -423,6 +423,7 @@
                                             </StackPanel>
                                             <!--Left Part-->
                                             <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,40,0">
+                                                
                                                 <Border>
                                                     <Border.Style>
                                                         <Style TargetType="Border">
@@ -459,6 +460,7 @@
                                                         </ContentControl.OpacityMask>
                                                     </ContentControl>
                                                 </Border>
+                                                
                                                 <!--Tab Content Part-->
                                                 <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
                                                     <TabControl Margin="0,0,0,16" VerticalAlignment="Top" HorizontalAlignment="Stretch"
