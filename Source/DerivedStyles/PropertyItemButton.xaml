@@ -96,7 +96,7 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="MinWidth" Value="32"/>
         <Setter Property="Height" Value="32"/>
-        <Setter Property="Margin" Value="13.6,0,0,8" />
+        <Setter Property="Margin" Value="0,0,8,8" />
         <Setter Property="Padding" Value="8,0,8,0"/>
         <Setter Property="Foreground" Value="{DynamicResource IdleBrush}"/>
         <Setter Property="Background" Value="{DynamicResource ControlLightBackgroundBrush}"/>

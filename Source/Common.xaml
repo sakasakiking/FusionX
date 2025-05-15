@@ -111,6 +111,9 @@
         <Setter Property="Padding" Value="8" />
         <Setter Property="Visibility" Value="Visible"/>
         <Style.Triggers>
+            <DataTrigger Binding="{PluginStatus Plugin=ExtraMetadataLoader, Path=IsInstalled}" Value="Collapsed">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
             <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}" Value="False">
                 <Setter Property="Visibility" Value="Collapsed" />
             </DataTrigger>
@@ -198,6 +201,46 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
         <Setter Property="Margin" Value="0,0,0,8" />
         <Setter Property="Height" Value="34" />
+    </Style>
+
+    <Style x:Key="IconTextLink" TargetType="Button">
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="MinWidth" Value="32" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Margin" Value="13.6,0,0,8" />
+        <Setter Property="Padding" Value="8,0,8,0" />
+        <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ControlLightBackgroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="HoverBg" Background="{TemplateBinding Background}" CornerRadius="16" Opacity="0"/>
+                        <DockPanel>
+                            <Viewbox DockPanel.Dock="Left" Margin="0,0,4,0" Width="18" Height="18" RenderOptions.ClearTypeHint="Enabled" RenderOptions.BitmapScalingMode="Fant">
+                                <ContentControl DockPanel.Dock="Left" Content="{Binding Value, TargetNullValue=111}"
+                                        DataContext="{Binding Url, Converter={PluginConverter Plugin=ThemeExtras, Converter=UrlToAsyncIconConverter}}" />
+                            </Viewbox>
+                            <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" ToolTip="{Binding Url}">
+                                <Hyperlink Command="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=DataContext.OpenLinkCommand}" CommandParameter="{Binding}">
+                                    <Run Text="{Binding Name}" />
+                                </Hyperlink>
+                            </TextBlock>
+                        </DockPanel>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.24" TargetName="HoverBg" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource SelectedBrush}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

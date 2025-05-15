@@ -395,7 +395,7 @@
                                                 <!--<TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0" Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />-->
                                                 <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8" Style="{DynamicResource DetailViewCardBorder}"
                                                         Margin="0,0,0,0">
-                                                    <ItemsControl ItemsSource="{Binding Game.Links}" Margin="-13.6,0,0,0"
+                                                    <ItemsControl ItemsSource="{Binding Game.Links}" Margin="0,0,0,0"
                                                             Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
                                                         <ItemsControl.ItemsPanel>
                                                             <ItemsPanelTemplate>

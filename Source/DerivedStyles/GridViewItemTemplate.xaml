@@ -43,12 +43,12 @@
                                         </Style>
                                     </StackPanel.Style>
                                     
-                                    <ContentControl x:Name="ThemeExtras_Banner"
+                                    <!--<ContentControl x:Name="ThemeExtras_Banner"
                                                 RenderOptions.BitmapScalingMode="Fant"
                                                 Width="{Binding Width, ElementName=PART_ImageCover}"
                                                 Tag="{DynamicResource GridViewImageCoverShowPlatformBanner}"
                                                 Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center"
-                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
                                     
                                     <Image Name="PART_ImageCover" 
                                            Height="{Settings GridItemHeight}" SnapsToDevicePixels="True"
@@ -76,12 +76,24 @@
                                 <Border x:Name="SelectedGameBorder" Background="{DynamicResource GridViewItemSelectedBackgroundBrush}"
                                         CornerRadius="{Binding ElementName=Mask, Path=CornerRadius}" Opacity="0">
                                     <Grid>
+                                        <Grid.Style>
+                                            <Style TargetType="Grid">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=Mask, Path=Tag}" Value="True">
+                                                        <Setter Property="OpacityMask">
+                                                            <Setter.Value>
+                                                                <VisualBrush Visual="{Binding ElementName=Mask}" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
                                         <Rectangle Stroke="#29FFFFFF" StrokeDashArray="6,3" StrokeThickness="1" RadiusX="6" RadiusY="6" />
-                                        <Viewbox Stretch="Fill">
-                                            <Canvas Width="100" Height="100">
-                                                <Line X1="2" Y1="2" X2="98" Y2="98" Stroke="#29FFFFFF " StrokeThickness="1" />
-                                            </Canvas>
-                                        </Viewbox>
+                                        <Canvas IsHitTestVisible="False">
+                                            <Line X1="0" Y1="0" X2="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                    Y2="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid}}" Stroke="#29FFFFFF" StrokeThickness="1" />
+                                        </Canvas>
                                     </Grid>
                                 </Border>
 
