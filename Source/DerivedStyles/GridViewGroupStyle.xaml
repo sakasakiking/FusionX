@@ -32,13 +32,12 @@
                                         </Style>
                                     </TextBlock.Style>
                                 </TextBlock>
-                                <Border DockPanel.Dock="Left" Background="{DynamicResource ControlIdleBackgroundBrush}"
-                                        Height="20" CornerRadius="10" Padding="6,0,6,0">
+                                <Border DockPanel.Dock="Left" Background="{DynamicResource ControlIdleBackgroundBrush}" Height="20" CornerRadius="10" MinWidth="20"
+                                        Padding="6,0,6,0" Visibility="{Settings ShowGroupCount}">
                                     <TextBlock Text="{Binding Items.Count, Mode=OneWay, StringFormat=0}"
                                            VerticalAlignment="Center" HorizontalAlignment="Left"
                                            Style="{DynamicResource BaseTextBlockStyle}"
-                                           TextAlignment="Center" FontSize="12"
-                                           Visibility="{Settings ShowGroupCount}"/>
+                                           TextAlignment="Center" FontSize="12"/>
                                 </Border>
                             </DockPanel>
                         </ExpanderEx.Header>

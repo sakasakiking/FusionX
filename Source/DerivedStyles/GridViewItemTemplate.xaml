@@ -89,7 +89,9 @@
                                                 </Style.Triggers>
                                             </Style>
                                         </Grid.Style>
-                                        <Rectangle Stroke="#29FFFFFF" StrokeDashArray="6,3" StrokeThickness="1" RadiusX="6" RadiusY="6" />
+                                        <Rectangle Stroke="#29FFFFFF" StrokeDashArray="6,3" StrokeThickness="1" 
+                                                   RadiusX="{Binding ElementName=Mask, Path=CornerRadius.TopLeft}"
+                                                   RadiusY="{Binding ElementName=Mask, Path=CornerRadius.TopLeft}" />
                                         <Canvas IsHitTestVisible="False">
                                             <Line X1="0" Y1="0" X2="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Grid}}"
                                                     Y2="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid}}" Stroke="#29FFFFFF" StrokeThickness="1" />

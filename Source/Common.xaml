@@ -111,7 +111,7 @@
         <Setter Property="Padding" Value="8" />
         <Setter Property="Visibility" Value="Visible"/>
         <Style.Triggers>
-            <DataTrigger Binding="{PluginStatus Plugin=ExtraMetadataLoader, Path=IsInstalled}" Value="Collapsed">
+            <DataTrigger Binding="{PluginStatus Plugin=ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429, Path=IsInstalled}" Value="False">
                 <Setter Property="Visibility" Value="Collapsed" />
             </DataTrigger>
             <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableVideoPlayer, FallbackValue=False}" Value="False">
@@ -119,9 +119,6 @@
             </DataTrigger>
             <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsAnyVideoAvailable, FallbackValue=False}" Value="False">
                 <Setter Property="Control.Visibility" Value="Collapsed" />
-            </DataTrigger>
-            <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableAlternativeDetailsVideoPlayer, FallbackValue=False}" Value="False">
-                <Setter Property="Visibility" Value="Visible" />
             </DataTrigger>
             <DataTrigger Binding="{Binding ElementName=ExtraMetadataLoader_VideoLoaderControl, Path=Visibility}" Value="Collapsed">
                 <Setter Property="Visibility" Value="Collapsed" />
