@@ -209,3 +209,12 @@ Packages:
     - Fixed the issue that the darken mask on uninstalled game cover will disappear after hover.
     - Fixed the issue that the extra logo get the wrong place when its set to bottom vertically.
     - Fixed the issue that the alternative video can not play correctly (See guide in github wiki).
+  - Version: 2.0.7
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-05-18
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_7.pthm
+    Changelog:  
+    - Optimized the magin of links.
+    - Fixed the issue that the button of videoControl is not collapsed correctly when disabled.
+    - Fixed the issue that the size of game cover is not displayed correctly with some ratio.
+    - Fixed some other tiny issues.
