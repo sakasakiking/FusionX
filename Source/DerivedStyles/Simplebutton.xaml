@@ -219,13 +219,19 @@
     <Style x:Key="GridViewPlayButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
         <Setter Property="FontSize" Value="4" />
         <Setter Property="Margin" Value="0,0,0,0" />
-        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PlayButtonTextBrush}" />
         <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <Border x:Name="Border" Width="12" Height="12" CornerRadius="6" Opacity="0.24" Background="{DynamicResource GlyphBrush}" />
+                        <Border x:Name="Border" Width="12" Height="12" CornerRadius="6" Opacity="1" Background="{DynamicResource GlyphBrush}" />
+                        <Border x:Name="HoverBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{DynamicResource GlyphBrush}" Opacity="0" CornerRadius="6">
+                            <Border.Effect>
+                                <BlurEffect Radius="4" KernelType="Gaussian" />
+                            </Border.Effect>
+                        </Border>
                         <TextBlock FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}"
                                 Text="{TemplateBinding Content}" Margin="1,1,0,0" TextWrapping="Wrap" />
                     </Grid>
@@ -234,7 +240,7 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity" To="0.40" Duration="0:0:0.4">
+                                        <DoubleAnimation Storyboard.TargetName="HoverBorder" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut" />
                                             </DoubleAnimation.EasingFunction>
@@ -245,7 +251,7 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity" To="0.24" Duration="0:0:0.4">
+                                        <DoubleAnimation Storyboard.TargetName="HoverBorder" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.4">
                                             <DoubleAnimation.EasingFunction>
                                                 <QuadraticEase EasingMode="EaseOut" />
                                             </DoubleAnimation.EasingFunction>
@@ -260,16 +266,16 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PlayButtonTextBrush}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{DynamicResource IdleBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PlayButtonTextBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style x:Key="GridViewInfoButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-        <Setter Property="FontSize" Value="6" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
         <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
@@ -277,7 +283,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <TextBlock x:Name="Border" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" Opacity="0.6" Text="{TemplateBinding Content}"
+                        <TextBlock x:Name="Border" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" Opacity="1" Text="{TemplateBinding Content}"
                                 TextWrapping="Wrap" />
                     </Grid>
                     <ControlTemplate.Triggers>

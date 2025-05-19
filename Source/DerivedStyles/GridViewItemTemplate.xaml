@@ -42,13 +42,13 @@
                                             </Style.Triggers>
                                         </Style>
                                     </StackPanel.Style>
-                                    
-                                    <ContentControl x:Name="ThemeExtras_Banner"
+                                    <Border Height="40" Background="#29FFCC00" />
+                                    <!--<ContentControl x:Name="ThemeExtras_Banner"
                                                 RenderOptions.BitmapScalingMode="Fant"
                                                 Width="{Binding Width, ElementName=PART_ImageCover}"
                                                 Tag="{DynamicResource GridViewImageCoverShowPlatformBanner}"
                                                 Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center"
-                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
                                     
                                     <Image Name="PART_ImageCover" 
                                            Height="{Settings GridItemHeight}" SnapsToDevicePixels="True"
@@ -109,18 +109,25 @@
                                 
                                 <TextBlock Name="EnableHighlightAnimation" Visibility="Collapsed" Tag="{DynamicResource GridViewEnableCoverShineAnimation}" />
 
-                                <Border Name="GameControls" Visibility="Collapsed" >
-                                    <Grid>
-                                        <Viewbox VerticalAlignment="Bottom" HorizontalAlignment="Right" >
-                                            <Button Name="PART_ButtonPlay" Content="&#xf5b0;" Margin="30,0,3,3" VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                                                    Style="{DynamicResource GridViewPlayButton}" />
-                                        </Viewbox>
-                                        <Viewbox VerticalAlignment="Top" HorizontalAlignment="Left">
-                                            <Button Name="PART_ButtonInfo" Content="&#xf167;" Margin="4,4,45,3" VerticalAlignment="Top" HorizontalAlignment="Left"
-                                                    Style="{DynamicResource GridViewInfoButton}" />
-                                        </Viewbox>
-                                    </Grid>
-                                </Border>
+                                <Grid Name="GameControls" Visibility="Collapsed" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Viewbox Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                        <Button Name="PART_ButtonPlay" Content="&#xf5b0;" Margin="0,0,4,4" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                                                Style="{DynamicResource GridViewPlayButton}" />
+                                    </Viewbox>
+                                    <Viewbox Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                        <Button Name="PART_ButtonInfo" Content="&#xf167;" Margin="4,0,0,4" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                                Style="{DynamicResource GridViewInfoButton}" />
+                                    </Viewbox>
+                                </Grid>
 
                                 <Grid Tag="{DynamicResource GridViewListShowFavorite}"
                                       Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}">

@@ -656,6 +656,9 @@
                                                         <Style TargetType="StackPanel">
                                                             <Setter Property="Visibility" Value="Visible" />
                                                             <Style.Triggers>
+                                                                <DataTrigger Binding="{PluginStatus Plugin=HowLongToBeat, Path=IsInstalled}" Value="False">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
                                                                 <DataTrigger Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasData}" Value="False">
                                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                                 </DataTrigger>
@@ -1167,8 +1170,8 @@
                                 <Grid DockPanel.Dock="Right" Width="200" Margin="8,0,0,-7" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                                     <Button Name="PART_ButtonPlayAction" Margin="0" Height="48" Width="Auto" FontWeight="Bold" Style="{DynamicResource IconPlayButton}"
                                             FontSize="{DynamicResource FontSizeLarge}" />
-                                    <Button Name="PART_ButtonContextAction" Height="48" FontWeight="Bold" Background="{DynamicResource AccentDisabledBrush}"
-                                            Style="{DynamicResource PlayButton}" FontSize="{DynamicResource FontSizeLarge}" />
+                                    <Button Name="PART_ButtonContextAction" Height="48" FontWeight="Bold"
+                                            Style="{DynamicResource ContextActionButton}" FontSize="{DynamicResource FontSizeLarge}" />
                                 </Grid>
                                 <Button DockPanel.Dock="Right" x:Name="PART_ButtonEditGame" Margin="0,0,8,0" Height="34" Width="34" Focusable="False" Content="&#xf8b0;"
                                         FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Style="{StaticResource PillLargeButton}" VerticalAlignment="Bottom" />
