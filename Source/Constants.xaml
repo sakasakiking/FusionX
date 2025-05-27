@@ -98,7 +98,6 @@
     <Color x:Key="WindowPanelSeparatorColor">#14ffffff</Color>
     <Color x:Key="DataChangeNotifColor">#ffa500</Color>
 
-    <!--FusionX Newly Added Color-->
     <Color x:Key="8%White">#14FFFFFF</Color>
     <Color x:Key="16%White">#29FFFFFF</Color>
     <Color x:Key="24%White">#3DFFFFFF</Color>
@@ -112,7 +111,6 @@
     <Color x:Key="36%Black">#5C000000</Color>
     <Color x:Key="40%Black">#66000000</Color>
     <Color x:Key="60%Black">#99000000</Color>
-    <!--FusionX Newly Added Color Ends-->
 
     <SolidColorBrush x:Key="CardSeparatorBrush" Color="{DynamicResource PanelSeparatorColor}" />
     <!--<SolidColorBrush x:Key="CardBackgroundBrush" Color="#0AFFFFFF" />-->
