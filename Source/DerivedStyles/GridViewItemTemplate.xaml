@@ -141,7 +141,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Viewbox Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                                        <Button Name="PART_ButtonPlay" Content="&#xf5b0;" Margin="2,2,2,2" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                                        <Button Name="PART_ButtonPlay" Content="&#xf5b0;" Margin="6,6,2,2" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                                                 Style="{DynamicResource GridViewPlayButton}" />
                                     </Viewbox>
                                     <Viewbox Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left">

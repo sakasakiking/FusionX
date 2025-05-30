@@ -107,18 +107,19 @@
                                                     </Grid>
 
                                                     <Grid HorizontalAlignment="Stretch" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260"
-                                                          Margin="96,0,40,0">
+                                                          Margin="96,-140,40,0">
 
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="*"/>
                                                             <ColumnDefinition MaxWidth="{DynamicResource GridViewDetailInfoColumn}"/>
                                                         </Grid.ColumnDefinitions>
                                                         <Grid.RowDefinitions>
-                                                            <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}" />
-                                                            <RowDefinition Height="*" />
+                                                            <RowDefinition Height="{Settings CalculatedGameDetailsIndentation}"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="*"/>
                                                         </Grid.RowDefinitions>
 
-                                                        <Grid Grid.ColumnSpan="2" Margin="0,0,0,40">
+                                                        <Grid Grid.ColumnSpan="2" Margin="0,140,0,40">
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition Width="*" />
                                                                 <ColumnDefinition Width="Auto" />
@@ -130,28 +131,6 @@
                                                                 <RowDefinition Height="Auto" />
                                                             </Grid.RowDefinitions>
                                                             
-                                                            <StackPanel Grid.ColumnSpan="3" Grid.Row="2" Name="PART_ElemLinks" Margin="0,40,0,0">
-                                                                <!--<TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0" Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />-->
-                                                                <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8"
-                                                                        Style="{DynamicResource DetailViewCardBorder}" Margin="0,0,0,0">
-                                                                    <ItemsControl ItemsSource="{Binding Game.Links}" Margin="0,0,0,0"
-                                                                            Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
-                                                                        <ItemsControl.ItemsPanel>
-                                                                            <ItemsPanelTemplate>
-                                                                                <WrapPanel Orientation="Horizontal" />
-                                                                            </ItemsPanelTemplate>
-                                                                        </ItemsControl.ItemsPanel>
-                                                                        <ItemsControl.ItemTemplate>
-                                                                            <DataTemplate DataType="{x:Type Link}">
-                                                                                <Button Content="{Binding Name}" Style="{StaticResource PropertyItemLinkButton}"
-                                                                                        ToolTip="{Binding Name}"
-                                                                                        Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.OpenLinkCommand}"
-                                                                                        CommandParameter="{Binding}" />
-                                                                            </DataTemplate>
-                                                                        </ItemsControl.ItemTemplate>
-                                                                    </ItemsControl>
-                                                                </Border>
-                                                            </StackPanel>
                                                             <!--ImageCover-->
                                                             <Image Name="PART_ImageCover" Grid.RowSpan="2" Grid.Column="2" Height="{Settings GameDetailsCoverHeight}"
                                                                     HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="16,0,0,0" StretchDirection="Both"
@@ -452,8 +431,32 @@
                                                             
                                                         </Grid>
 
+                                                        <!--Links Panel-->
+                                                        <StackPanel Grid.ColumnSpan="2" Grid.Row="1" Name="PART_ElemLinks" Margin="0,0,0,40">
+                                                            <!--<TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0" Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />-->
+                                                            <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="16,16,16,8"
+                                                                    Style="{DynamicResource DetailViewCardBorder}" Margin="0,0,0,0">
+                                                                <ItemsControl ItemsSource="{Binding Game.Links}" Margin="0,0,0,0"
+                                                                        Visibility="{Binding ElementName=PART_ElemLinks, Path=Visibility}">
+                                                                    <ItemsControl.ItemsPanel>
+                                                                        <ItemsPanelTemplate>
+                                                                            <WrapPanel Orientation="Horizontal" />
+                                                                        </ItemsPanelTemplate>
+                                                                    </ItemsControl.ItemsPanel>
+                                                                    <ItemsControl.ItemTemplate>
+                                                                        <DataTemplate DataType="{x:Type Link}">
+                                                                            <Button Content="{Binding Name}" Style="{StaticResource PropertyItemLinkButton}"
+                                                                                    ToolTip="{Binding Name}"
+                                                                                    Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.OpenLinkCommand}"
+                                                                                    CommandParameter="{Binding}" />
+                                                                        </DataTemplate>
+                                                                    </ItemsControl.ItemTemplate>
+                                                                </ItemsControl>
+                                                            </Border>
+                                                        </StackPanel>
+
                                                         <!--Left Part-->
-                                                        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,40,0">
+                                                        <StackPanel Grid.Column="0" Grid.Row="2" Margin="0,0,40,0">
 
                                                             <!--Video  Part-->
                                                             <Border>
@@ -686,7 +689,7 @@
                                                         <!--Left Part Ends-->
 
                                                         <!--Right Part-->
-                                                        <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,0,0,0">
+                                                        <StackPanel Grid.Column="1" Grid.Row="2" Margin="0,0,0,0">
                                                             <!--Links-->
                                                             <!--<StackPanel Name="PART_ElemLinks" Margin="0,0,0,24">
                                                                     <TextBlock Text="{DynamicResource LOCLinksLabel}" Margin="0,0,0,0"
@@ -713,32 +716,31 @@
                                                             <!--Links End-->
 
                                                             <!-- HowLongToBeat ProgressBar -->
-                                                            <StackPanel Margin="0,0,0,24" Tag="{DynamicResource DetailInfoColumnHLTBPanel}">
+                                                            <StackPanel Tag="{DynamicResource DetailInfoColumnHLTBPanel}">
                                                                 <StackPanel.Style>
                                                                     <Style TargetType="StackPanel">
-                                                                        <Setter Property="Visibility" Value="Visible" />
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
                                                                         <Style.Triggers>
-                                                                            <DataTrigger Binding="{PluginStatus Plugin=HowLongToBeat, Path=IsInstalled}" Value="False">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                            </DataTrigger>
-                                                                            <DataTrigger Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasData}" Value="False">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                            </DataTrigger>
-                                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                            </DataTrigger>
+                                                                            <MultiDataTrigger>
+                                                                                <MultiDataTrigger.Conditions>
+                                                                                    <Condition Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasData}" Value="True" />
+                                                                                    <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True" />
+                                                                                </MultiDataTrigger.Conditions>
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </MultiDataTrigger>
+                                                                            
                                                                         </Style.Triggers>
                                                                     </Style>
                                                                 </StackPanel.Style>
-                                                                <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}">
+                                                                <StackPanel Margin="0,0,0,24" Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}">
                                                                     <DockPanel>
                                                                         <!--<ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right">
-                <ContentControl.Resources>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="Transparent" />
-                    </Style>
-                </ContentControl.Resources>
-            </ContentControl>-->
+                                                                            <ContentControl.Resources>
+                                                                                <Style TargetType="Button">
+                                                                                    <Setter Property="Background" Value="Transparent" />
+                                                                                </Style>
+                                                                            </ContentControl.Resources>
+                                                                        </ContentControl>-->
                                                                         <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
                                                                                 Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />
                                                                     </DockPanel>
@@ -775,8 +777,8 @@
                                                                                     <ColumnDefinition Width="*" />
                                                                                     <ColumnDefinition Width="*" />
                                                                                     <!--<ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />-->
+                                                                                    <ColumnDefinition Width="*" />
+                                                                                    <ColumnDefinition Width="*" />-->
                                                                                 </Grid.ColumnDefinitions>
                                                                                 <StackPanel Grid.Column="0" Margin="0,0,4,0">
                                                                                     <Label Content="{DynamicResource LOCHowLongToBeatMainStory}"
@@ -838,27 +840,26 @@
                                                             <StackPanel Margin="0,0,0,24" Tag="{DynamicResource DetailInfoColumnAchievementPanel}">
                                                                 <StackPanel.Style>
                                                                     <Style TargetType="StackPanel">
-                                                                        <Setter Property="Visibility" Value="Visible" />
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
                                                                         <Style.Triggers>
                                                                             <MultiDataTrigger>
                                                                                 <MultiDataTrigger.Conditions>
+                                                                                    <Condition Binding="{PluginSettings Plugin=SuccessStory, Path=HasData}" Value="True" />
+                                                                                    <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True" />
+                                                                                </MultiDataTrigger.Conditions>
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </MultiDataTrigger>
+                                                                            <MultiDataTrigger>
+                                                                                <MultiDataTrigger.Conditions>
                                                                                     <Condition
-                                                                                            Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactUnlocked	, Mode=OneWay, FallbackValue='False'}"
+                                                                                            Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactLocked, Mode=OneWay, FallbackValue='False'}"
                                                                                             Value="False" />
                                                                                     <Condition
-                                                                                            Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactLocked	, Mode=OneWay, FallbackValue='False'}"
+                                                                                            Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactUnlocked, Mode=OneWay, FallbackValue='False'}"
                                                                                             Value="False" />
                                                                                 </MultiDataTrigger.Conditions>
                                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                                             </MultiDataTrigger>
-                                                                            <DataTrigger
-                                                                                    Binding="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue='False'}"
-                                                                                    Value="False">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                            </DataTrigger>
-                                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False">
-                                                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                                            </DataTrigger>
                                                                         </Style.Triggers>
                                                                     </Style>
                                                                 </StackPanel.Style>
@@ -872,8 +873,25 @@
                                                                     <StackPanel>
                                                                         <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,0,0,0" />
 
-                                                                        <Border Background="{DynamicResource PopupSeparatorBrush}" Height="1" Margin="10,12,8,12"
-                                                                                Visibility="{Binding ElementName=SuccessStory_PluginCompactLocked, Path=Visibility}" />
+                                                                        <Border Background="{DynamicResource PopupSeparatorBrush}" Height="1" Margin="10,12,8,12">
+                                                                            <Border.Style>
+                                                                                <Style TargetType="Border">
+                                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                                    <Style.Triggers>
+                                                                                        <DataTrigger
+                                                                                                Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactLocked, Mode=OneWay, FallbackValue='False'}"
+                                                                                                Value="False" >
+                                                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                                                        </DataTrigger>
+                                                                                        <DataTrigger Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactUnlocked, Mode=OneWay, FallbackValue='False'}"
+                                                                                                Value="False" >
+                                                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                                                        </DataTrigger>
+                                                                                    </Style.Triggers>
+                                                                                </Style>
+                                                                            </Border.Style>
+                                                                        </Border>
+
                                                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                                                                                 Visibility="{Binding ElementName=SuccessStory_PluginCompactLocked, Path=Visibility}">
                                                                             <TextBlock Text="Locked Achievements" Margin="10,0,0,4"

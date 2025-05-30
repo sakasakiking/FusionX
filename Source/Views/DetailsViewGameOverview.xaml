@@ -651,32 +651,23 @@
                                                 <!-- SteamScreenshots Ends -->
 
                                                 <!-- HowLongToBeat ProgressBar -->
-                                                <StackPanel Margin="0,0,0,24" Tag="{DynamicResource DetailInfoColumnHLTBPanel}">
+                                                <StackPanel Tag="{DynamicResource DetailInfoColumnHLTBPanel}">
                                                     <StackPanel.Style>
                                                         <Style TargetType="StackPanel">
                                                             <Setter Property="Visibility" Value="Visible" />
                                                             <Style.Triggers>
-                                                                <DataTrigger Binding="{PluginStatus Plugin=HowLongToBeat, Path=IsInstalled}" Value="False">
-                                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                                </DataTrigger>
-                                                                <DataTrigger Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasData}" Value="False">
-                                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                                </DataTrigger>
-                                                                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False">
-                                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                                </DataTrigger>
+                                                                <MultiDataTrigger>
+                                                                    <MultiDataTrigger.Conditions>
+                                                                        <Condition Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasData}" Value="True" />
+                                                                        <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True" />
+                                                                    </MultiDataTrigger.Conditions>
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </MultiDataTrigger>
                                                             </Style.Triggers>
                                                         </Style>
                                                     </StackPanel.Style>
-                                                    <StackPanel Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}">
+                                                    <StackPanel Margin="0,0,0,24" Visibility="{Binding ElementName=HowLongToBeat_PluginProgressBar, Path=Content.Visibility}">
                                                         <DockPanel>
-                                                            <!--<ContentControl x:Name="HowLongToBeat_PluginButton" DockPanel.Dock="Right">
-                                                                <ContentControl.Resources>
-                                                                    <Style TargetType="Button">
-                                                                        <Setter Property="Background" Value="Transparent" />
-                                                                    </Style>
-                                                                </ContentControl.Resources>
-                                                            </ContentControl>-->
                                                             <TextBlock Text="{DynamicResource LOCHowLongToBeat}" DockPanel.Dock="Left" VerticalAlignment="Center"
                                                                     Style="{DynamicResource DetailViewSectionTitleTextBlockStyle}" />
                                                         </DockPanel>
@@ -772,27 +763,26 @@
                                                 <StackPanel Margin="0,0,0,24" Tag="{DynamicResource DetailInfoColumnAchievementPanel}">
                                                     <StackPanel.Style>
                                                         <Style TargetType="StackPanel">
-                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Setter Property="Visibility" Value="Collapsed" />
                                                             <Style.Triggers>
                                                                 <MultiDataTrigger>
                                                                     <MultiDataTrigger.Conditions>
+                                                                        <Condition Binding="{PluginSettings Plugin=SuccessStory, Path=HasData}" Value="True" />
+                                                                        <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True" />
+                                                                    </MultiDataTrigger.Conditions>
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </MultiDataTrigger>
+                                                                <MultiDataTrigger>
+                                                                    <MultiDataTrigger.Conditions>
                                                                         <Condition
-                                                                                Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactUnlocked	, Mode=OneWay, FallbackValue='False'}"
+                                                                                Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactLocked, Mode=OneWay, FallbackValue='False'}"
                                                                                 Value="False" />
                                                                         <Condition
-                                                                                Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactLocked	, Mode=OneWay, FallbackValue='False'}"
+                                                                                Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactUnlocked, Mode=OneWay, FallbackValue='False'}"
                                                                                 Value="False" />
                                                                     </MultiDataTrigger.Conditions>
                                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                                 </MultiDataTrigger>
-                                                                <DataTrigger Binding="{PluginSettings Plugin=SuccessStory, Path=HasData, Mode=OneWay, FallbackValue='False'}"
-                                                                        Value="False">
-                                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                                </DataTrigger>
-                                                                <DataTrigger
-                                                                        Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False">
-                                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                                </DataTrigger>
                                                             </Style.Triggers>
                                                         </Style>
                                                     </StackPanel.Style>
@@ -804,18 +794,37 @@
                                                     <Border CornerRadius="{DynamicResource ControlCornerRadius}" Padding="6,12,10,12" Style="{DynamicResource DetailViewCardBorder}"
                                                             Margin="0,12,0,0">
                                                         <StackPanel>
-                                                            <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,0,0,0"/>
-                                                            
-                                                            <Border Background="{DynamicResource PopupSeparatorBrush}" Height="1" Margin="10,12,8,12"
-                                                                    Visibility="{Binding ElementName=SuccessStory_PluginCompactLocked, Path=Visibility}" />
+                                                            <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,0,0,0" />
+
+                                                            <Border Background="{DynamicResource PopupSeparatorBrush}" Height="1" Margin="10,12,8,12">
+                                                                <Border.Style>
+                                                                    <Style TargetType="Border">
+                                                                        <Setter Property="Visibility" Value="Visible" />
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger
+                                                                                    Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactLocked, Mode=OneWay, FallbackValue='False'}"
+                                                                                    Value="False">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger
+                                                                                    Binding="{PluginSettings Plugin=SuccessStory, Path=EnableIntegrationCompactUnlocked, Mode=OneWay, FallbackValue='False'}"
+                                                                                    Value="False">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Border.Style>
+                                                            </Border>
+
                                                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                                                                     Visibility="{Binding ElementName=SuccessStory_PluginCompactLocked, Path=Visibility}">
                                                                 <TextBlock Text="Locked Achievements" Margin="10,0,0,4"
                                                                         Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}" />
                                                                 <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Unlocked, Mode=OneWay, FallbackValue=''}"
                                                                         Margin="10,0,0,4" Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}" />
-                                                                <TextBlock Text="/" Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}"/>
-                                                                <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Total, Mode=OneWay, FallbackValue=''}" Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}"/>
+                                                                <TextBlock Text="/" Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}" />
+                                                                <TextBlock Text="{PluginSettings Plugin=SuccessStory, Path=Total, Mode=OneWay, FallbackValue=''}"
+                                                                        Style="{DynamicResource DetailViewSectionSubtleTitleTextBlockStyle}" />
                                                             </StackPanel>
                                                             <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,0,0,0" />
                                                         </StackPanel>
