@@ -220,7 +220,7 @@ Packages:
     - Fixed some other tiny issues.
   - Version: 2.0.8
     RequiredApiVersion: 2.7.0
-    ReleaseDate: 2025-05-28
+    ReleaseDate: 2025-05-30
     PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_8.pthm
     Changelog:  
     - Unified the style of the buttons (Install button, Running button).
