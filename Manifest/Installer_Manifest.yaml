@@ -218,3 +218,14 @@ Packages:
     - Fixed the issue that the button of videoControl is not collapsed correctly when disabled.
     - Fixed the issue that the size of game cover is not displayed correctly with some ratio.
     - Fixed some other tiny issues.
+  - Version: 2.0.8
+    RequiredApiVersion: 2.7.0
+    ReleaseDate: 2025-05-30
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_8.pthm
+    Changelog:  
+    - Unified the style of the buttons (Install button, Running button).
+    - Optimized the layout for grid view.
+    - Adjust the style and postion of the buttons on game cover (Play button, info button).
+    - Fixed the issue that the HLTB panel is not collapsed correctly.
+    - Fixed the issue that the buttons on game cover is not placed correctly when using platform banners.
+    - Fixed the issue that the count of grouped games is not collapsed correctly.
