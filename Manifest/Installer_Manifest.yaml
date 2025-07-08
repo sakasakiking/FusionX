@@ -229,3 +229,10 @@ Packages:
     - Fixed the issue that the HLTB panel is not collapsed correctly.
     - Fixed the issue that the buttons on game cover is not placed correctly when using platform banners.
     - Fixed the issue that the count of grouped games is not collapsed correctly.
+  - Version: 2.0.9
+    RequiredApiVersion: 2.8.0
+    ReleaseDate: 2025-07-08
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_0_9.pthm
+    Changelog:  
+    - Support Playnotes.
+    - Support BackgroundChanger.
