@@ -1,7 +1,7 @@
 ![DownloadCount](https://img.shields.io/github/downloads/sakasakiking/FusionX/total.svg)
 
 # FusionX
-Simple, clean and consistent designed Theme for [Playnite](https://github.com/JosefNemec/Playnite) Desktop Mode. To achieve the best User Experience and Usability.
+A beautiful and consistent designed Theme for [Playnite](https://github.com/JosefNemec/Playnite) Desktop Mode. To achieve the best User Experience and Usability.
 
 ## Preparation and Settings
 - It's using ``Segoe Fluent Icons`` for the theme, you might need to download the [Segoe Fluent Icons](https://learn.microsoft.com/zh-cn/windows/apps/design/downloads/#fonts)
