@@ -11,9 +11,13 @@ A beautiful and consistent designed Theme for [Playnite](https://github.com/Jose
 ### Detail View
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots01.jpg)
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots02.jpg)
+![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/DetailView_01.jpg)
+![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/DetailView_02.jpg)
 ### Grid View
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots03.jpg)
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots04.jpg)
+![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/GridView_01.jpg)
+![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/GridView_02.jpg)
 
 ## Support
 - If you found a bug or want to request a feature, please open a new issue in the [Issues Tracker](https://github.com/sakasakiking/FusionX/issues)
