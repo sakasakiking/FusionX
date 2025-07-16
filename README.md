@@ -8,8 +8,10 @@ A beautiful and consistent designed Theme for [Playnite](https://github.com/Jose
 - Check this out if you want to achieve the look of screenshots. [Recommended Settings](https://github.com/sakasakiking/FusionX/wiki/Recommended-Settings-For-v2.0.0)
 
 ## Screenshots
+### Detail View
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots01.jpg)
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots02.jpg)
+### Grid View
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots03.jpg)
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots04.jpg)
 
@@ -39,6 +41,8 @@ It has supported:
 - **Steam Screenshots:** [Steam Store Screenshots Viewer](https://playnite.link/addons.html#SteamScreenshots_8e77fe31-5e62-41e2-8fa2-64844cfd5b6b) extension.
 - **DuplicateHider:** [DuplicateHider](https://playnite.link/addons.html#felixkmh_DuplicateHider_Plugin) extension.
 - **Feature icon List:** [LibraryManagement](https://playnite.link/addons.html#playnite-librarymanagement-plugin) extension.
+- **Customized Background:** [BackgroundChanger](https://playnite.link/addons.html#playnite-backgroundchanger-plugin) extension.
+- **Enhanced Note:** [Play Notes](https://playnite.link/addons.html#PlayNotes_4208657d-4f78-42d2-968f-39f24de275e1) extension.
 
 Addiing more...
 
