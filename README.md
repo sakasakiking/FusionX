@@ -18,6 +18,8 @@ A beautiful and consistent designed Theme for [Playnite](https://github.com/Jose
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Screenshots04.jpg)
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/GridView_01.jpg)
 ![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/GridView_02.jpg)
+### Portrait
+![Screenshot](https://raw.githubusercontent.com/sakasakiking/FusionX/refs/heads/main/Screenshots/Portrait.jpg)
 
 ## Support
 - If you found a bug or want to request a feature, please open a new issue in the [Issues Tracker](https://github.com/sakasakiking/FusionX/issues)
