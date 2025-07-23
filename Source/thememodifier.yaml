@@ -11,7 +11,9 @@ Constants:
     - DetailInfoColumnHLTBPanel: 'Display HowLongToBeat Panel'
     - DetailInfoColumnAchievementPanel: 'Display Achievement Panel'
     - DetailInfoListIcon: 'Show icons at detail info list'
-    - DetailViewRatingStar: 'Show rating star under game name'
+    - ShowCommunityRatingStar: 'Show Community rating star under game name'
+    - ShowCriticRatingStar: 'Show Critic rating star under game name'
+    - ShowUserRatingStar: 'Show User rating star under game name'
     - ImageBackgroundDarkenMask(0,1): 'Darken the background'
     - ShowIconTextOnLink: 'Show full link name next to the icon'
   

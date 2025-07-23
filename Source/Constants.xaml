@@ -4,6 +4,7 @@
 
     <!--ThemeModifier Options-->
 
+    <!--ThemeModifier_General-->
     <sys:Boolean x:Key="GameDisplayNameDropShadowEffect">True</sys:Boolean>
     <sys:Boolean x:Key="ShowZoomSlider">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewEnablePlayingGlowBorder">True</sys:Boolean>
@@ -12,11 +13,15 @@
     <sys:Boolean x:Key="DetailInfoListIcon">True</sys:Boolean>
     <sys:Double x:Key="ImageBackgroundDarkenMask">0</sys:Double>
     <sys:Boolean x:Key="ShowIconTextOnLink">True</sys:Boolean>
+    <sys:Boolean x:Key="ShowCriticRatingStar">True</sys:Boolean>
+    <sys:Boolean x:Key="ShowUserRatingStar">True</sys:Boolean>
+    <sys:Boolean x:Key="ShowCommunityRatingStar">True</sys:Boolean>
 
     <sys:Double x:Key="DetailsViewGameOverviewMaxWidth">800</sys:Double>
     <sys:Double x:Key="DetailViewDetailInfoColumn">400</sys:Double>
     <sys:Double x:Key="GridViewDetailInfoColumn">320</sys:Double>
-
+    
+    <!--ThemeModifier_GameCover-->
     <sys:Boolean x:Key="GridViewImageCoverUseRoundedCorners">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewImageCoverShowPlatformBanner">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewListShowFavorite">True</sys:Boolean>
@@ -28,7 +33,7 @@
     <sys:Boolean x:Key="GridViewEnableCoverShineAnimation">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewEnableHighlightCoverBorder">True</sys:Boolean>
 
-    <sys:Boolean x:Key="DetailViewRatingStar">True</sys:Boolean>
+    <!--ThemeModifier_Video-->
     <sys:Boolean x:Key="DetailViewVideoOnByDefault">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewVideoWindowedByDefault">True</sys:Boolean>
     <sys:Boolean x:Key="DetailViewVideoAlternative">False</sys:Boolean>
