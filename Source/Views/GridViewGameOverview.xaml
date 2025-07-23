@@ -54,10 +54,28 @@
                                                     Style="{DynamicResource DetailsScrollViewer}" d:DesignWidth="1280" d:DesignHeight="1280"
                                                     d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}" x:Name="PART_ScrollViewHost">
                                                 <Grid Margin="0,0,0,40">
-                                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top" >
-                                                        <Grid.OpacityMask>
+                                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top">
+                                                        <Grid.Style>
+                                                            <Style TargetType="Grid">
+                                                                <Setter Property="OpacityMask">
+                                                                    <Setter.Value>
+                                                                        <ImageBrush ImageSource="../Images/Hero-mask.png" />
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding ElementName=GameVideo, Path=Tag}" Value="True">
+                                                                        <Setter Property="OpacityMask">
+                                                                            <Setter.Value>
+                                                                                <SolidColorBrush Color="Black" />
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Grid.Style>
+                                                        <!--<Grid.OpacityMask>
                                                             <ImageBrush ImageSource="../Images/Hero-mask.png" />
-                                                        </Grid.OpacityMask>
+                                                        </Grid.OpacityMask>-->
                                                         <Border x:Name="PART_ImageBackground_Container">
                                                             <Border.Style>
                                                                 <Style TargetType="Border">

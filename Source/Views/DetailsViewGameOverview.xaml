@@ -22,9 +22,27 @@
                                 <Grid Margin="0,0,0,40">
                                     <!--HeroView-->
                                     <Grid x:Name="HeroBanner" VerticalAlignment="Top" >
-                                        <Grid.OpacityMask>
+                                        <Grid.Style>
+                                            <Style TargetType="Grid">
+                                                <Setter Property="OpacityMask">
+                                                    <Setter.Value>
+                                                        <ImageBrush ImageSource="../Images/Hero-mask.png" />
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=GameVideo, Path=Tag}" Value="True">
+                                                        <Setter Property="OpacityMask">
+                                                            <Setter.Value>
+                                                                <SolidColorBrush Color="Black" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
+                                        <!--<Grid.OpacityMask>
                                             <ImageBrush ImageSource="../Images/Hero-mask.png" />
-                                        </Grid.OpacityMask>
+                                        </Grid.OpacityMask>-->
                                         <Border x:Name="PART_ImageBackground_Container">
                                             <Border.Style>
                                                 <Style TargetType="Border">
@@ -50,7 +68,7 @@
                                             <Grid.Style>
                                                 <Style TargetType="Grid">
                                                     <Setter Property="Width" Value="Auto" />
-                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Setter Property="Visibility" Value="Collapsed" /> 
                                                     <Setter Property="Margin" Value="0,0,0,0" />
                                                     <Setter Property="Opacity" Value="1" />
                                                     <Setter Property="HorizontalAlignment" Value="Center" />
