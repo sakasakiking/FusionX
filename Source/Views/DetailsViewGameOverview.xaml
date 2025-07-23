@@ -22,7 +22,7 @@
                                 <Grid Margin="0,0,0,40">
                                     <!--HeroView-->
                                     <Grid x:Name="HeroBanner" VerticalAlignment="Top" >
-                                        <Grid.Style>
+                                        <!--<Grid.Style>
                                             <Style TargetType="Grid">
                                                 <Setter Property="OpacityMask">
                                                     <Setter.Value>
@@ -39,31 +39,36 @@
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
-                                        </Grid.Style>
-                                        <!--<Grid.OpacityMask>
-                                            <ImageBrush ImageSource="../Images/Hero-mask.png" />
-                                        </Grid.OpacityMask>-->
-                                        <Border x:Name="PART_ImageBackground_Container">
-                                            <Border.Style>
-                                                <Style TargetType="Border">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                    <Style.Triggers>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{PluginSettings Plugin=BackgroundChanger, Path=HasDataBackground, FallbackValue=False}"
-                                                                        Value="True" />
-                                                                <Condition Binding="{PluginSettings Plugin=BackgroundChanger, Path=EnableBackgroundImage, FallbackValue=False}"
-                                                                        Value="True" />
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </MultiDataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Border.Style>
-                                            <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top" />
-                                        </Border>
-                                        <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage" ClipToBounds="True"
-                                                        HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                        </Grid.Style>-->
+                                        <Grid>
+                                            <Grid.OpacityMask>
+                                                <ImageBrush ImageSource="../Images/Hero-mask.png" />
+                                            </Grid.OpacityMask>
+                                            <Border x:Name="PART_ImageBackground_Container">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <MultiDataTrigger>
+                                                                <MultiDataTrigger.Conditions>
+                                                                    <Condition Binding="{PluginSettings Plugin=BackgroundChanger, Path=HasDataBackground, FallbackValue=False}"
+                                                                            Value="True" />
+                                                                    <Condition Binding="{PluginSettings Plugin=BackgroundChanger, Path=EnableBackgroundImage, FallbackValue=False}"
+                                                                            Value="True" />
+                                                                </MultiDataTrigger.Conditions>
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </MultiDataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top" />
+                                            </Border>
+                                            <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage" ClipToBounds="True" HorizontalAlignment="Center"
+                                                    VerticalAlignment="Top" />
+
+                                            <Rectangle x:Name="Overlay" Fill="Black" Opacity="{DynamicResource ImageBackgroundDarkenMask}" />
+                                        </Grid>
+                                        
                                         <Grid x:Name="GameVideo" Tag="{DynamicResource DetailViewVideoWindowedByDefault}">
                                             <Grid.Style>
                                                 <Style TargetType="Grid">
@@ -73,6 +78,11 @@
                                                     <Setter Property="Opacity" Value="1" />
                                                     <Setter Property="HorizontalAlignment" Value="Center" />
                                                     <Setter Property="VerticalAlignment" Value="Top" />
+                                                    <Setter Property="OpacityMask">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="../Images/Hero-mask.png" />
+                                                        </Setter.Value>
+                                                    </Setter>
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding ElementName=HeroVideoOnOffTogglePlayer, Path=IsChecked}" Value="True">
                                                             <Setter Property="Visibility" Value="Visible" />
@@ -82,6 +92,11 @@
                                                             <Setter Property="VerticalAlignment" Value="Top" />
                                                             <Setter Property="Width" Value="500" />
                                                             <Setter Property="Margin" Value="0,80,40,0" />
+                                                            <Setter Property="OpacityMask">
+                                                                <Setter.Value>
+                                                                    <SolidColorBrush Color="Black" />
+                                                                </Setter.Value>
+                                                            </Setter>
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>
@@ -109,7 +124,6 @@
                                                 </ContentControl.OpacityMask>
                                             </ContentControl>
                                         </Grid>
-                                        <Rectangle x:Name="Overlay" Fill="Black" Opacity="{DynamicResource ImageBackgroundDarkenMask}" />
                                     </Grid>
 
                                     <!--HeroView Ends-->
