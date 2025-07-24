@@ -110,6 +110,11 @@
                                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                                     <Setter Property="HorizontalAlignment" Value="Center" />
                                                                     <Setter Property="VerticalAlignment" Value="Top" />
+                                                                    <Setter Property="OpacityMask">
+                                                                        <Setter.Value>
+                                                                            <ImageBrush ImageSource="../Images/Hero-mask.png" />
+                                                                        </Setter.Value>
+                                                                    </Setter>
                                                                     <Style.Triggers>
                                                                         <DataTrigger Binding="{Binding ElementName=HeroVideoOnOffTogglePlayer, Path=IsChecked}" Value="True">
                                                                             <Setter Property="Visibility" Value="Visible" />
