@@ -52,13 +52,15 @@ It has supported:
 
 Addiing more...
 
+## Game Assets
+### Pokemon
+- **Pokemon core series game covers (600x900)** 
+[View and download](https://github.com/sakasakiking/Game-assets/tree/main/Pokemon%20Core%20Series)
+
 ## More
 If you like what I've done...
 
 <a href='https://ko-fi.com/sakasaki30' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> 
-
-**Game assets: Pokemon core series game covers (600x900)** 
-[Pokemon core series game covers](https://github.com/sakasakiking/Game-assets/tree/main/Pokemon%20Core%20Series)
 
 **Special Thanks** 
 - adrian5683
