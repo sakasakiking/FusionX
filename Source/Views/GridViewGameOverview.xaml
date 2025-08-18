@@ -54,40 +54,67 @@
                                                     Style="{DynamicResource DetailsScrollViewer}" d:DesignWidth="1280" d:DesignHeight="1280"
                                                     d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}" x:Name="PART_ScrollViewHost">
                                                 <Grid Margin="0,0,0,40">
-                                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top" >
-                                                        <Grid.OpacityMask>
-                                                            <ImageBrush ImageSource="../Images/Hero-mask.png" />
-                                                        </Grid.OpacityMask>
-                                                        <Border x:Name="PART_ImageBackground_Container">
-                                                            <Border.Style>
-                                                                <Style TargetType="Border">
-                                                                    <Setter Property="Visibility" Value="Visible" />
-                                                                    <Style.Triggers>
-                                                                        <MultiDataTrigger>
-                                                                            <MultiDataTrigger.Conditions>
-                                                                                <Condition
-                                                                                        Binding="{PluginSettings Plugin=BackgroundChanger, Path=HasDataBackground, FallbackValue=False}"
-                                                                                        Value="True" />
-                                                                                <Condition
-                                                                                        Binding="{PluginSettings Plugin=BackgroundChanger, Path=EnableBackgroundImage, FallbackValue=False}"
-                                                                                        Value="True" />
-                                                                            </MultiDataTrigger.Conditions>
-                                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                                        </MultiDataTrigger>
-                                                                    </Style.Triggers>
-                                                                </Style>
-                                                            </Border.Style>
-                                                            <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="top" />
-                                                        </Border>
-                                                        <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage" ClipToBounds="True" HorizontalAlignment="Center"
-                                                                VerticalAlignment="Top" />
-
+                                                    <Grid x:Name="HeroBanner" VerticalAlignment="Top">
+                                                        <!--<Grid.Style>
+                                                            <Style TargetType="Grid">
+                                                                <Setter Property="OpacityMask">
+                                                                    <Setter.Value>
+                                                                        <ImageBrush ImageSource="../Images/Hero-mask.png" />
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding ElementName=GameVideo, Path=Tag}" Value="True">
+                                                                        <Setter Property="OpacityMask">
+                                                                            <Setter.Value>
+                                                                                <SolidColorBrush Color="Black" />
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Grid.Style>-->
+                                                        <Grid>
+                                                            <Grid.OpacityMask>
+                                                                <ImageBrush ImageSource="../Images/Hero-mask.png" />
+                                                            </Grid.OpacityMask>
+                                                            <Border x:Name="PART_ImageBackground_Container">
+                                                                <Border.Style>
+                                                                    <Style TargetType="Border">
+                                                                        <Setter Property="Visibility" Value="Visible" />
+                                                                        <Style.Triggers>
+                                                                            <MultiDataTrigger>
+                                                                                <MultiDataTrigger.Conditions>
+                                                                                    <Condition
+                                                                                            Binding="{PluginSettings Plugin=BackgroundChanger, Path=HasDataBackground, FallbackValue=False}"
+                                                                                            Value="True" />
+                                                                                    <Condition
+                                                                                            Binding="{PluginSettings Plugin=BackgroundChanger, Path=EnableBackgroundImage, FallbackValue=False}"
+                                                                                            Value="True" />
+                                                                                </MultiDataTrigger.Conditions>
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                            </MultiDataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Border.Style>
+                                                                <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Center"
+                                                                        VerticalAlignment="top" />
+                                                            </Border>
+                                                            <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage" ClipToBounds="True" HorizontalAlignment="Center"
+                                                                    VerticalAlignment="Top" />
+                                                            <Rectangle x:Name="Overlay" Fill="Black" Opacity="{DynamicResource ImageBackgroundDarkenMask}" />
+                                                        </Grid>
+                                                        
                                                         <Grid x:Name="GameVideo" Tag="{DynamicResource GridViewVideoWindowedByDefault}">
                                                             <Grid.Style>
                                                                 <Style TargetType="Grid">
                                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                                     <Setter Property="HorizontalAlignment" Value="Center" />
                                                                     <Setter Property="VerticalAlignment" Value="Top" />
+                                                                    <Setter Property="OpacityMask">
+                                                                        <Setter.Value>
+                                                                            <ImageBrush ImageSource="../Images/Hero-mask.png" />
+                                                                        </Setter.Value>
+                                                                    </Setter>
                                                                     <Style.Triggers>
                                                                         <DataTrigger Binding="{Binding ElementName=HeroVideoOnOffTogglePlayer, Path=IsChecked}" Value="True">
                                                                             <Setter Property="Visibility" Value="Visible" />
@@ -97,6 +124,11 @@
                                                                             <Setter Property="VerticalAlignment" Value="Top" />
                                                                             <Setter Property="Width" Value="500" />
                                                                             <Setter Property="Margin" Value="0,80,40,0" />
+                                                                            <Setter Property="OpacityMask">
+                                                                                <Setter.Value>
+                                                                                    <SolidColorBrush Color="Black" />
+                                                                                </Setter.Value>
+                                                                            </Setter>
                                                                         </DataTrigger>
                                                                     </Style.Triggers>
                                                                 </Style>
@@ -125,7 +157,6 @@
                                                                 </ContentControl.OpacityMask>
                                                             </ContentControl>
                                                         </Grid>
-                                                        <Rectangle x:Name="Overlay" Fill="Black" Opacity="{DynamicResource ImageBackgroundDarkenMask}" />
                                                     </Grid>
 
                                                     <Grid HorizontalAlignment="Stretch" MaxWidth="{DynamicResource DetailsViewGameOverviewMaxWidth}" MinWidth="260"
@@ -170,9 +201,16 @@
                                                                     </Style>
                                                                 </Grid.Style>
                                                                 <Grid.OpacityMask>
-                                                                    <VisualBrush Visual="{Binding ElementName=Mask}" />
+                                                                    <!--<VisualBrush Visual="{Binding ElementName=Mask}" />-->
+                                                                    <VisualBrush>
+                                                                        <VisualBrush.Visual>
+                                                                            <Border Background="Black" CornerRadius="16"
+                                                                                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid}}" />
+                                                                        </VisualBrush.Visual>
+                                                                    </VisualBrush>
                                                                 </Grid.OpacityMask>
-                                                                <Border Name="Mask" Background="White" CornerRadius="16" />
+                                                                <!--<Border Name="Mask" Background="White" CornerRadius="16" />-->
                                                                 <Border>
                                                                     <Border.Style>
                                                                         <Style TargetType="Border">
@@ -240,7 +278,9 @@
                                                                     </TextBlock>
                                                                 </DockPanel>
                                                                 <WrapPanel Orientation="Horizontal" Margin="0,8,0,0">
-                                                                    <Border Margin="0,0,8,8" VerticalAlignment="Top" Tag="{DynamicResource DetailViewRatingStar}">
+                                                                    
+                                                                    <!--Rating Stars-->
+                                                                    <Border Margin="0,0,8,8" VerticalAlignment="Top" Tag="{DynamicResource ShowCriticRatingStar}">
                                                                         <Border.Style>
                                                                             <Style TargetType="Border">
                                                                                 <Setter Property="Visibility" Value="Visible" />
@@ -264,9 +304,65 @@
                                                                             </StackPanel.Resources>
                                                                             <ContentControl x:Name="ThemeExtras_CriticRating" Margin="0,2,4,0" />
                                                                             <TextBlock Text="{Binding Game.CriticScore, TargetNullValue='- -', FallbackValue='- -'}"
-                                                                                    Margin="0,4,0,2" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" FontSize="12" />
+                                                                                    Margin="0,4,0,2" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" FontSize="12.1" />
                                                                         </StackPanel>
                                                                     </Border>
+                                                                    <Border Margin="0,0,8,8" VerticalAlignment="Top" Tag="{DynamicResource ShowUserRatingStar}">
+                                                                        <Border.Style>
+                                                                            <Style TargetType="Border">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                                <Style.Triggers>
+                                                                                    <DataTrigger Binding="{Settings DetailsVisibility.UserScore}" Value="False">
+                                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                                    </DataTrigger>
+                                                                                    <DataTrigger Binding="{Binding Game.UserScore}" Value="{x:Null}">
+                                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                                    </DataTrigger>
+                                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                                    </DataTrigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </Border.Style>
+                                                                        <StackPanel Orientation="Horizontal">
+                                                                            <StackPanel.Resources>
+                                                                                <SolidColorBrush x:Key="Extras_FilledStarBrush" Color="White" />
+                                                                                <SolidColorBrush x:Key="Extras_EmptyStarBrush" Color="White" Opacity="0.2" />
+                                                                            </StackPanel.Resources>
+                                                                            <ContentControl x:Name="ThemeExtras_UserRating" Margin="0,2,4,0" />
+                                                                            <TextBlock Text="{Binding Game.UserScore, TargetNullValue='- -', FallbackValue='- -'}" Margin="0,4,0,2"
+                                                                                    Style="{DynamicResource GameSubtleInfoTextBlockStyle}" FontSize="12.1" />
+                                                                        </StackPanel>
+                                                                    </Border>
+                                                                    <Border Margin="0,0,8,8" VerticalAlignment="Top" Tag="{DynamicResource ShowCommunityRatingStar}">
+                                                                        <Border.Style>
+                                                                            <Style TargetType="Border">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                                <Style.Triggers>
+                                                                                    <DataTrigger Binding="{Settings DetailsVisibility.CommunityScore}" Value="False">
+                                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                                    </DataTrigger>
+                                                                                    <DataTrigger Binding="{Binding Game.CommunityScore}" Value="{x:Null}">
+                                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                                    </DataTrigger>
+                                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                                    </DataTrigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </Border.Style>
+                                                                        <StackPanel Orientation="Horizontal">
+                                                                            <StackPanel.Resources>
+                                                                                <SolidColorBrush x:Key="Extras_FilledStarBrush" Color="White" />
+                                                                                <SolidColorBrush x:Key="Extras_EmptyStarBrush" Color="White" Opacity="0.2" />
+                                                                            </StackPanel.Resources>
+                                                                            <ContentControl x:Name="ThemeExtras_CommunityRating" Margin="0,2,4,0" />
+                                                                            <TextBlock Text="{Binding Game.CommunityScore, TargetNullValue='- -', FallbackValue='- -'}"
+                                                                                    Margin="0,4,0,2" Style="{DynamicResource GameSubtleInfoTextBlockStyle}" FontSize="12.1" />
+                                                                        </StackPanel>
+                                                                    </Border>
+                                                                    <!--Rating Stars Ends-->
+                                                                    
                                                                     <Border Margin="0,0,8,8" VerticalAlignment="Top">
                                                                         <Border.Style>
                                                                             <Style TargetType="Border">

@@ -236,3 +236,19 @@ Packages:
     Changelog:  
     - Support Playnotes.
     - Support BackgroundChanger.
+  - Version: 2.1.0
+    RequiredApiVersion: 2.8.0
+    ReleaseDate: 2025-07-23
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_1_0.pthm
+    Changelog:  
+    - Adjusted some wordings in ThemeModifier.
+    - Fixed the issue that it can not scale the window by mouse hovering on the rounded corner.
+    - Fixed the issue that transparent image cover had unexpected background color.
+    - Fixed the issue that game video with miniplayer on the top right of the window was coverd.
+    - Add user and community rating stars close to the critic rating stars, is able to set in ThemeModifier.
+  - Version: 2.1.1
+    RequiredApiVersion: 2.8.0
+    ReleaseDate: 2025-07-24
+    PackageUrl: https://github.com/sakasakiking/FusionX/releases/download/Latest/FusionX_54244ec8-29ec-418e-bce7-415250c8d67b_2_1_1.pthm
+    Changelog:  
+    - Fix a tiny issue that the fade-out effect around the game video in Grid View did not take effect.

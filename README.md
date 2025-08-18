@@ -52,6 +52,11 @@ It has supported:
 
 Addiing more...
 
+## Game Assets
+### Pokemon
+- **Pokemon core series game covers (600x900)** 
+[View and download](https://github.com/sakasakiking/Game-assets/tree/main/Pokemon%20Core%20Series)
+
 ## More
 If you like what I've done...
 
